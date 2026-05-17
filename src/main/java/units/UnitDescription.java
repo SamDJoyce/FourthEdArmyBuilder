@@ -1,33 +1,216 @@
 package units;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+
+import units.models.ModelDescription;
 
 public class UnitDescription {
 	
-	private String id;
-	private String name;
+	// Fields
+	private String   id;
+	private String   name;
+	private int      basePoints;
+	private int      minSize;
+	private int      maxSize;
+	private UnitRole role;
 	private Set<UnitType> types;
-	private UnitRole 	  role;
-	private int basePoints;
-	private int minSize;
-	private int maxSize;
 	private List<OptionGroup> options;
+	private Map<ModelDescription, Integer> models;
 	
-	
-	
+	// Constructor
 	private UnitDescription() {
 	}
 	
+	// Getters and Setters
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Set<UnitType> getTypes() {
+		return types;
+	}
+	
+	public Boolean addType(UnitType type) {
+		return types.add(type);
+	}
+
+	public Boolean removeType(UnitType type) {
+		return types.remove(type);
+	}
+	
+	public Boolean isType(UnitType type) {
+		for (UnitType t: types) {
+			if (t.isType(type)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public void setTypes(Set<UnitType> types) {
+		this.types = types;
+	}
+	
+	private Set<UnitType> getTypesFromModels() {
+		Set<UnitType> types = new HashSet<UnitType>();
+		// Pull each model
+		for (ModelDescription m: models.keySet()) {
+			// Pull each model's types and add them to the set
+			for(UnitType t: m.getTypes()) {
+				types.add(t);
+			}
+		}
+		return types;
+	}
+
+	public UnitRole getRole() {
+		return role;
+	}
+
+	public void setRole(UnitRole role) {
+		this.role = role;
+	}
+
+	public int getBasePoints() {
+		return basePoints;
+	}
+
+	public void setBasePoints(int basePoints) {
+		this.basePoints = basePoints;
+	}
+
+	public int getMinSize() {
+		return minSize;
+	}
+
+	public void setMinSize(int minSize) {
+		this.minSize = minSize;
+	}
+
+	public int getMaxSize() {
+		return maxSize;
+	}
+
+	public void setMaxSize(int maxSize) {
+		this.maxSize = maxSize;
+	}
+	
+	public int getCurrentSize() {
+		int count = 0;
+		for (int m: models.values()) {
+			count += m;
+		}
+		return count;
+	}
+	
+	
+	public Boolean sizeIsValid() {
+		return getCurrentSize() <= maxSize
+			&& getCurrentSize() >= minSize;
+	}
+	
+	private Boolean canAddModel() {
+		return getCurrentSize() + 1 > maxSize;
+	}
+	
+	private Boolean canRemoveModel() {
+		return getCurrentSize() - 1 < minSize;
+	}
+
+	public List<OptionGroup> getOptions() {
+		return options;
+	}
+
+	public void setOptions(List<OptionGroup> options) {
+		this.options = options;
+	}
+	
+	public Boolean addOption(OptionGroup option) {
+		if (!options.contains(option)) {
+			return options.add(option);
+		}
+		return false;
+	}
+	
+	public Boolean removeOption(OptionGroup option) {
+			return options.remove(option);
+	}
+
+	public Map<ModelDescription, Integer> getModels() {
+		return models;
+	}
+
+	public void setModels(Map<ModelDescription, Integer> models) {
+		this.models = models;
+	}
+	
+	public int addModel(ModelDescription model) throws Exception {
+		if (!canAddModel()) {
+			throw new Exception();
+		}
+		// Add model if not present
+		if (!containsModel(model)) {
+			models.put(model, 1);
+			return models.get(model);
+		}
+		// Increment model count if present
+		int modelCount = models.get(model);
+		models.replace(model, modelCount++);
+		this.types = getTypesFromModels();
+		return models.get(model);
+	}
+	
+	public int removeModel(ModelDescription model) throws Exception {
+		if (!canRemoveModel()) {
+			throw new Exception();
+		}
+		
+		// Model not present
+		if (!containsModel(model)) {
+			return 0;
+		}
+		// Remove last model
+		if (models.get(model) == 1) {
+			models.remove(model);
+			this.types = getTypesFromModels();
+			return 0;
+		}
+		// Decrement model count
+		int modelCount = models.get(model);
+		models.replace(model, modelCount--);
+		this.types = getTypesFromModels();
+		return models.get(model);
+	}
+	
+	public Boolean containsModel(ModelDescription model) {
+		return models.containsKey(model);
+	}
+
+	// Builder
 	public static class Builder {
 		private String id;
 		private String name;
-		private Set<UnitType> types;
-		private UnitRole 	  role;
+		private UnitRole role;
 		private int basePoints;
 		private int minSize;
 		private int maxSize;
 		private List<OptionGroup> options;
+		private Map<ModelDescription, Integer> models;
 		
 		public Builder setId(String id) {
 			this.id = id;
@@ -36,11 +219,6 @@ public class UnitDescription {
 
 		public Builder setName(String name) {
 			this.name = name;
-			return this;
-		}
-
-		public Builder setTypes(Set<UnitType> types) {
-			this.types = types;
 			return this;
 		}
 
@@ -69,14 +247,23 @@ public class UnitDescription {
 			return this;
 		}
 		
+		public Builder setModels(Map<ModelDescription, Integer> models) {
+			this.models = models;
+			return this;
+		}
+		
 		public UnitDescription build() {
 			UnitDescription u = new UnitDescription();
 			
 			u.id = this.id;
 			u.name = this.name;
-			u.types = this.types;
 			u.role = this.role;
-			
+			u.basePoints = this.basePoints;
+			u.minSize = this.minSize;
+			u.maxSize = this.maxSize;
+			u.options = this.options;
+			u.models = this.models;
+			u.types = u.getTypesFromModels();
 			
 			return u;
 		}
