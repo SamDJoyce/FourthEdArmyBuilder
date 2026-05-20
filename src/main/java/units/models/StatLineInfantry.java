@@ -2,7 +2,8 @@ package units.models;
 
 public class StatLineInfantry extends StatLine {
 
-
+	private final static String type = "infantry";
+	
 	private int ws;
 	private int s;
 	private int t;
@@ -34,7 +35,11 @@ public class StatLineInfantry extends StatLine {
 		this.ld = ld;
 		this.sv = sv;
 	}
-
+	
+	public String getType() {
+		return type;
+	}
+	
 	// Infantry Stats
 	public int getWs() {
 		return ws;

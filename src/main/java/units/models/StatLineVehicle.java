@@ -2,6 +2,8 @@ package units.models;
 
 public class StatLineVehicle extends StatLine {
 
+	private final static String type = "vehicle";
+	
 	private int front;
 	private int side;
 	private int rear;
@@ -17,6 +19,10 @@ public class StatLineVehicle extends StatLine {
 		this.front = front;
 		this.side = side;
 		this.rear = rear;
+	}
+	
+	public String getType() {
+		return type;
 	}
 	
 	// Vehicle Stats

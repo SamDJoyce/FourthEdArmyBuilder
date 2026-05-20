@@ -1,6 +1,6 @@
 package units.models;
 
-import java.util.List;
+import java.util.Set;
 
 import units.UnitType;
 
@@ -9,13 +9,13 @@ public class ModelDescription {
 	private String 	 name;
 	private int	   	 basePoints;
 	private StatLine stats;
-	private List<UnitType> types;
+	private Set<UnitType> types;
 	
 	public ModelDescription(String   id,
 							String   name, 
 							int      basePoints,
 							StatLine stats,
-							List<UnitType> types) {
+							Set<UnitType> types) {
 		this.id = id;
 		this.name = name;
 		this.basePoints = basePoints;
@@ -55,11 +55,11 @@ public class ModelDescription {
 		this.stats = stats;
 	}
 	
-	public List<UnitType> getTypes(){
+	public Set<UnitType> getTypes(){
 		return types;
 	}
 	
-	public void setTypes(List<UnitType> types) {
+	public void setTypes(Set<UnitType> types) {
 		this.types = types;
 	}
 }

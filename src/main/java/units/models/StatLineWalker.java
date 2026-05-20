@@ -2,6 +2,8 @@ package units.models;
 
 public class StatLineWalker extends StatLine {
 
+	private static final String type = "walker";
+	
 	private int ws;
 	private int s;
 	private int i;
@@ -29,6 +31,10 @@ public class StatLineWalker extends StatLine {
 		this.front = front;
 		this.side = side;
 		this.rear = rear;
+	}
+	
+	public String getType() {
+		return type;
 	}
 
 	@Override

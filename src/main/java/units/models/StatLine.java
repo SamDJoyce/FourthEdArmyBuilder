@@ -36,6 +36,7 @@ public abstract class StatLine {
 	}
 	
 	// Abstract Methods
+	public abstract String getType();
 	public abstract int getWs();
 	public abstract void setWs(int ws); 
 	public abstract int getS();
