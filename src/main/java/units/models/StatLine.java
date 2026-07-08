@@ -1,62 +1,51 @@
 package units.models;
 
-public abstract class StatLine {
-	protected String id;
-	protected String name;
-	protected int	 bs;
+public interface StatLine {
+	/*
+	 * protected String id; protected String name; protected int bs;
+	 */
 	
-	public StatLine(String id, String name, int bs) {
-		this.id = id;
-		this.name = name;
-		this.bs = bs;
-	}
+	public String getId();
+	public void setId(String id);
+
+	public String getName();
+	public void setName(String name);
 	
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
+	public int getBs();
+	public void setBs(int bs);
 	
-	public int getBs() {
-		return bs;
-	}
-
-	public void setBs(int bs) {
-		this.bs = bs;
-	}
+	public String getType();
 	
-	// Abstract Methods
-	public abstract String getType();
-	public abstract int getWs();
-	public abstract void setWs(int ws); 
-	public abstract int getS();
-	public abstract void setS(int s);
-	public abstract int getT();
-	public abstract void setT(int t);
-	public abstract int getW();
-	public abstract void setW(int w);
-	public abstract int getI();
-	public abstract void setI(int i);
-	public abstract int getA();
-	public abstract void setA(int a);
-	public abstract int getLd();
-	public abstract void setLd(int ld);
-	public abstract int getSv();
-	public abstract void setSv(int sv);
-	public abstract int getFront();
-	public abstract void setFront(int front);
-	public abstract int getSide();
-	public abstract void setSide(int side);
-	public abstract int getRear();
-	public abstract void setRear(int rear);
+	public int getWs();
+	public void setWs(int ws); 
+	
+	public int getS();
+	public void setS(int s);
+	
+	public int getT();
+	public void setT(int t);
+	
+	public int getW();
+	public void setW(int w);
+	
+	public int getI();
+	public void setI(int i);
+	
+	public int getA();
+	public void setA(int a);
+	
+	public int getLd();
+	public void setLd(int ld);
+	
+	public int getSv();
+	public void setSv(int sv);
+	
+	public int getFront();
+	public void setFront(int front);
+	
+	public int getSide();
+	public void setSide(int side);
+	
+	public int getRear();
+	public void setRear(int rear);
 }

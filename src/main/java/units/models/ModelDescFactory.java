@@ -3,6 +3,7 @@ package units.models;
 import java.util.Set;
 
 import units.UnitType;
+import units.wargear.WargearDescription;
 
 public class ModelDescFactory {
 	private ModelDescFactory() {}
@@ -39,12 +40,14 @@ public class ModelDescFactory {
 						int a, 
 						int ld, 
 						int sv,
-						Set<UnitType> types) {
+						Set<UnitType> types,
+						Set<WargearDescription> gear) {
 		return new ModelDescription(id, 
 									name, 
 									basePoints, 
 									StatLineFactory.get(id, name, ws, bs,s,t,w,i,a,ld,sv), 
-									types);
+									types,
+									gear);
 	}
 	
 	
@@ -69,12 +72,14 @@ public class ModelDescFactory {
 						int front,
 						int side,
 						int rear,
-						Set<UnitType> types) {
+						Set<UnitType> types,
+						Set<WargearDescription> gear) {
 		return new ModelDescription(id,
 									name,
 									basePoints,
 									StatLineFactory.get(id, name, bs, front, side, rear),
-									types);
+									types,
+									gear);
 	}
 	
 	/**
@@ -106,11 +111,13 @@ public class ModelDescFactory {
 						int front,
 						int side,
 						int rear,
-						Set<UnitType> types) {
+						Set<UnitType> types,
+						Set<WargearDescription> gear) {
 		return new ModelDescription(id,
 									name,
 									basePoints,
 									StatLineFactory.get(id, name, bs, ws, s, i, a, front, side, rear),
-									types);
+									types,
+									gear);
 	}
 }

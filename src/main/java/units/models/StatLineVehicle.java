@@ -1,9 +1,12 @@
 package units.models;
 
-public class StatLineVehicle extends StatLine {
+public class StatLineVehicle implements StatLine {
 
 	private final static String type = "vehicle";
 	
+	private String id;
+	private String name;
+	private int bs;
 	private int front;
 	private int side;
 	private int rear;
@@ -15,17 +18,44 @@ public class StatLineVehicle extends StatLine {
 			int front,
 			int side,
 			int rear) {
-		super(id, name, bs);
+		this.id    = id;
+		this.name  = name;
+		this.bs    = bs;
 		this.front = front;
-		this.side = side;
-		this.rear = rear;
+		this.side  = side;
+		this.rear  = rear;
 	}
 	
 	public String getType() {
 		return type;
 	}
 	
+	public String getId() {
+		return this.id;
+	}
+	
+	public void setId(String id) {
+		this.id = id;
+	}
+	
+	public String getName() {
+		return this.name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	
 	// Vehicle Stats
+	public int getBs() {
+		return bs;
+	}
+	
+	public void setBs(int bs) {
+		this.bs = bs;
+	}
+	
 	public int getFront() {
 		return front;
 	}

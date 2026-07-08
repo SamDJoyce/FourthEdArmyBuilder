@@ -3,6 +3,7 @@ package units.models;
 import java.util.Set;
 
 import units.UnitType;
+import units.wargear.WargearDescription;
 
 public class ModelDescription {
 	private String 	 id;
@@ -10,17 +11,20 @@ public class ModelDescription {
 	private int	   	 basePoints;
 	private StatLine stats;
 	private Set<UnitType> types;
+	private Set<WargearDescription> gear;
 	
 	public ModelDescription(String   id,
 							String   name, 
 							int      basePoints,
 							StatLine stats,
-							Set<UnitType> types) {
+							Set<UnitType> types,
+							Set<WargearDescription> gear) {
 		this.id = id;
 		this.name = name;
 		this.basePoints = basePoints;
 		this.stats = stats;
 		this.types = types;
+		this.gear = gear;
 	}
 
 	public String getId() {
@@ -62,4 +66,14 @@ public class ModelDescription {
 	public void setTypes(Set<UnitType> types) {
 		this.types = types;
 	}
+	
+	public Boolean addType(UnitType type) {
+		return types.add(type);
+	}
+	
+	public Boolean removeType(UnitType type) {
+		return types.remove(type);
+	}
+	
+	
 }

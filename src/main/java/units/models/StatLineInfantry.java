@@ -1,9 +1,12 @@
 package units.models;
 
-public class StatLineInfantry extends StatLine {
+public class StatLineInfantry implements StatLine {
 
 	private final static String type = "infantry";
 	
+	private String id;
+	private String name;
+	private int bs;
 	private int ws;
 	private int s;
 	private int t;
@@ -25,7 +28,9 @@ public class StatLineInfantry extends StatLine {
 							int a, 
 							int ld, 
 							int sv) {
-		super(id, name, bs);
+		this.id = id;
+		this.name = name;
+		this.bs = bs;
 		this.ws = ws;
 		this.s = s;
 		this.t = t;
@@ -36,11 +41,36 @@ public class StatLineInfantry extends StatLine {
 		this.sv = sv;
 	}
 	
+	public String getId() {
+		return this.id;
+	}
+	
+	public void setId(String id) {
+		this.id = id;
+	}
+	
+	public String getName() {
+		return this.name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 	public String getType() {
 		return type;
 	}
 	
 	// Infantry Stats
+	
+	public int getBs() {
+		return bs;
+	}
+	
+	public void setBs(int bs) {
+		this.bs = bs;
+	}
+	
 	public int getWs() {
 		return ws;
 	}
