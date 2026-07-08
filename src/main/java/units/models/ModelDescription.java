@@ -75,5 +75,20 @@ public class ModelDescription {
 		return types.remove(type);
 	}
 	
+	public Set<WargearDescription> getGear(){
+		return gear;
+	}
+	
+	public void setGear(Set<WargearDescription> gear) {
+		this.gear = gear;
+	}
+	
+	public Boolean addGear(WargearDescription gear) {
+		return this.gear.add(gear);
+	}
+	
+	public Boolean removeGear(WargearDescription gear) {
+		return this.gear.remove(gear);
+	}
 	
 }

@@ -1,9 +1,6 @@
 package units.models;
 
 public interface StatLine {
-	/*
-	 * protected String id; protected String name; protected int bs;
-	 */
 	
 	public String getId();
 	public void setId(String id);

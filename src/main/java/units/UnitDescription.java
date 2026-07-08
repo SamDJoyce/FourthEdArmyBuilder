@@ -4,10 +4,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.UUID;
 
 import units.models.ModelDescription;
+import units.options.OptionGroup;
 
 public class UnitDescription {
+	private static Set<String> usedIds = new HashSet<>();
 	
 	// Fields
 	private String   id;
@@ -21,8 +24,7 @@ public class UnitDescription {
 	private Map<ModelDescription, Integer> models;
 	
 	// Constructor
-	private UnitDescription() {
-	}
+	private UnitDescription() {};
 	
 	// Getters and Setters
 	public String getId() {
@@ -125,11 +127,11 @@ public class UnitDescription {
 	}
 	
 	private Boolean canAddModel() {
-		return getCurrentSize() + 1 > maxSize;
+		return getCurrentSize() + 1 <= maxSize;
 	}
 	
 	private Boolean canRemoveModel() {
-		return getCurrentSize() - 1 < minSize;
+		return getCurrentSize() - 1 >= minSize;
 	}
 
 	public List<OptionGroup> getOptions() {
@@ -241,7 +243,7 @@ public class UnitDescription {
 			this.maxSize = maxSize;
 			return this;
 		}
-
+		
 		public Builder setOptions(List<OptionGroup> options) {
 			this.options = options;
 			return this;
@@ -255,6 +257,16 @@ public class UnitDescription {
 		public UnitDescription build() {
 			UnitDescription u = new UnitDescription();
 			
+			// Check if an ID is assigned
+			if (this.id == null 
+			 || this.id.isEmpty()) {
+				// Generate an ID that has not been used
+				// and add it to the list of usedIDs
+				do {
+					this.id = UUID.randomUUID().toString();
+				} while(usedIds.contains(this.id));
+				usedIds.add(this.id);
+			}
 			u.id = this.id;
 			u.name = this.name;
 			u.role = this.role;

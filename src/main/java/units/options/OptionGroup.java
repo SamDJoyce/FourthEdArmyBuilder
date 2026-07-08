@@ -1,9 +1,9 @@
-package units;
+package units.options;
 
 import java.util.List;
 
-import units.requirements.Effect;
-import units.requirements.Requirement;
+import units.options.requirements.Effect;
+import units.options.requirements.Requirement;
 
 public class OptionGroup {
 	private String name;
@@ -11,7 +11,6 @@ public class OptionGroup {
 	private int maxSelection;
 	private List<OptionChoice> choices;
 	private List<Requirement> requirements;
-	private List<Effect> effects;
 	
 	public OptionGroup(
 			String name,
@@ -25,7 +24,6 @@ public class OptionGroup {
 		this.maxSelection = maxSelection;
 		this.choices = choices;
 		this.requirements = requirements;
-		this.effects = effects;
 	}
 
 	public String getName() {
@@ -83,22 +81,6 @@ public class OptionGroup {
 	
 	public void setRequirements(List<Requirement> requirements) {
 		this.requirements = requirements;
-	}
-
-	public List<Effect> getEffects() {
-		return effects;
-	}
-
-	public void setEffects(List<Effect> effects) {
-		this.effects = effects;
-	}
-	
-	public Boolean addEffect(Effect effect) {
-		return this.effects.add(effect);
-	}
-	
-	public Boolean removeEffect(Effect effect) {
-		return this.effects.remove(effect);
 	}
 	
 }
