@@ -2,7 +2,7 @@ package units.options;
 
 import java.util.List;
 
-import units.options.requirements.Effect;
+import units.options.effects.Effect;
 import units.options.requirements.Requirement;
 
 public class OptionChoice {
@@ -66,6 +66,15 @@ public class OptionChoice {
 	
 	public Boolean removeRequirement(Requirement r) {
 		return this.requirements.remove(r);
+	}
+	
+	public Boolean reqsSatisfied() {
+		for (Requirement r : requirements) {
+			if (!r.isSatisfied()) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	public List<Effect> getEffects() {

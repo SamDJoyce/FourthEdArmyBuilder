@@ -2,7 +2,7 @@ package units.options;
 
 import java.util.List;
 
-import units.options.requirements.Effect;
+import units.options.effects.Effect;
 import units.options.requirements.Requirement;
 
 public class OptionGroup {
@@ -81,6 +81,15 @@ public class OptionGroup {
 	
 	public void setRequirements(List<Requirement> requirements) {
 		this.requirements = requirements;
+	}
+	
+	public Boolean reqsSatisfied() {
+		for (Requirement r : requirements) {
+			if (!r.isSatisfied()) {
+				return false;
+			}
+		}
+		return true;
 	}
 	
 }
