@@ -2,47 +2,49 @@ package units.models;
 
 public interface StatLine {
 	
-	public String getId();
-	public void setId(String id);
+	String getId();
+	void setId(String id);
 
-	public String getName();
-	public void setName(String name);
+	String getName();
+	void setName(String name);
 	
-	public int getBs();
-	public void setBs(int bs);
+	String getType();
 	
-	public String getType();
+	int getWs();
+	void setWs(int ws); 
 	
-	public int getWs();
-	public void setWs(int ws); 
+	int getBs();
+	void setBs(int bs);
 	
-	public int getS();
-	public void setS(int s);
+	int getS();
+	void setS(int s);
 	
-	public int getT();
-	public void setT(int t);
+	int getT();
+	void setT(int t);
 	
-	public int getW();
-	public void setW(int w);
+	int getW();
+	void setW(int w);
 	
-	public int getI();
-	public void setI(int i);
+	int getI();
+	void setI(int i);
 	
-	public int getA();
-	public void setA(int a);
+	int getA();
+	void setA(int a);
 	
-	public int getLd();
-	public void setLd(int ld);
+	int getLd();
+	void setLd(int ld);
 	
-	public int getSv();
-	public void setSv(int sv);
+	int getSv();
+	void setSv(int sv);
 	
-	public int getFront();
-	public void setFront(int front);
+	int getFront();
+	void setFront(int front);
 	
-	public int getSide();
-	public void setSide(int side);
+	int getSide();
+	void setSide(int side);
 	
-	public int getRear();
-	public void setRear(int rear);
+	int getRear();
+	void setRear(int rear);
+	
+	String statsToString();
 }

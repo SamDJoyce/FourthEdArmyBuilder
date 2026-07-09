@@ -80,6 +80,15 @@ public class StatLineVehicle implements StatLine {
 		this.rear = rear;
 	}
 	
+	public String statsToString() {
+		return " ID = " + this.id + " \n " +
+				"Name = " + this.name + " \n " +
+				"BS = " + this.bs + " \n " +
+				"Front = " + this.front + " \n " +
+				"Side = " + this.side + " \n " +
+				"Rear = " + this.rear + " \n ";
+	}
+	
 	// Other Stats
 	public int getWs() {
 		return 0;

@@ -18,8 +18,8 @@ public class StatLineWalker implements StatLine {
 	public StatLineWalker(
 				String id, 
 				String name, 
-				int bs,
 				int ws,
+				int bs,
 				int s,
 				int i,
 				int a,
@@ -85,14 +85,7 @@ public class StatLineWalker implements StatLine {
 
 	}
 
-	public int getT() {
-		return 0;
-	}
 
-	public void setT(int t) {
-		return;
-
-	}
 
 	public int getW() {
 		return 0;
@@ -120,24 +113,20 @@ public class StatLineWalker implements StatLine {
 		this.a = a;
 
 	}
-
-	public int getLd() {
-		return 0;
+	
+	public String statsToString() {
+		return " ID = " + this.id + " \n " +
+				"Name = " + this.name + " \n " +
+				"WS = " + this.ws + " \n " +
+				"BS = " + this.bs + " \n " +
+				"S = " + this.s + " \n " +
+				"I = " + this.i + " \n " +
+				"A = " + this.a + " \n " +
+				"Front = " + this.front + " \n " +
+				"Side = " + this.side + " \n " +
+				"Rear = " + this.rear + " \n ";
 	}
-
-	public void setLd(int ld) {
-		return;
-
-	}
-
-	public int getSv() {
-		return 0;
-	}
-
-	public void setSv(int sv) {
-		return;
-
-	}
+	
 
 	public int getFront() {
 		return front;
@@ -164,5 +153,33 @@ public class StatLineWalker implements StatLine {
 	public void setRear(int rear) {
 		this.rear = rear;
 	}
+	
+	// Unused or not present stats
 
+	public int getT() {
+		return 0;
+	}
+
+	public void setT(int t) {
+		return;
+
+	}
+	
+	public int getLd() {
+		return 0;
+	}
+
+	public void setLd(int ld) {
+		return;
+
+	}
+
+	public int getSv() {
+		return 0;
+	}
+
+	public void setSv(int sv) {
+		return;
+
+	}
 }

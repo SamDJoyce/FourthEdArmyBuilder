@@ -61,6 +61,20 @@ public class StatLineInfantry implements StatLine {
 		return type;
 	}
 	
+	public String statsToString() {
+		return " ID = " + this.id + " \n " +
+				"Name = " + this.name + " \n " +
+				"WS = " + this.ws + " \n " +
+				"BS = " + this.bs + " \n " +
+				"S = " + this.s + " \n " +
+				"T = " + this.t + " \n " +
+				"W = " + this.w + " \n " +
+				"I = " + this.i + " \n " +
+				"A = " + this.a + " \n " +
+				"LD = " + this.ld + " \n " +
+				"SV = " + this.sv + "+";
+	}
+	
 	// Infantry Stats
 	
 	public int getBs() {
@@ -135,7 +149,7 @@ public class StatLineInfantry implements StatLine {
 		this.sv = sv;
 	}
 	
-	// Other Stats
+	// Other Stats not used for Infantry
 	public int getFront() {
 		return 0;
 	}

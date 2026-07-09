@@ -75,6 +75,10 @@ public class ModelDescription {
 		return types.remove(type);
 	}
 	
+	public Boolean isType(UnitType type) {
+		return types.contains(type);
+	}
+	
 	public Set<WargearDescription> getGear(){
 		return gear;
 	}
@@ -89,6 +93,10 @@ public class ModelDescription {
 	
 	public Boolean removeGear(WargearDescription gear) {
 		return this.gear.remove(gear);
+	}
+	
+	public Boolean hasGear(WargearDescription gear) {
+		return this.gear.contains(gear);
 	}
 	
 }

@@ -9,6 +9,23 @@ public class ModelDescFactory {
 	private ModelDescFactory() {}
 	
 	
+	public static ModelDescription get(
+						String id, 
+						String name,
+						int basePoints,
+						StatLine stats,
+						Set<UnitType> types,
+						Set<WargearDescription> gear) {
+		
+		return new ModelDescription(
+					id,
+					name,
+					basePoints,
+					stats,
+					types,
+					gear);
+	}
+	
 	/**
 	 * Create an Infantry/standard ModelDescription
 	 * 

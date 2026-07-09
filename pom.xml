@@ -4,4 +4,18 @@
   <artifactId>FourthEdArmyBuilder</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>FourthEdArmyBuilder</name>
+      <properties>
+        <maven.compiler.release>17</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <junit.jupiter.version>5.10.1</junit.jupiter.version>
+    </properties>
+  <dependencies>
+  	        <!-- JUnit 5 -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+  </dependencies>
 </project>
