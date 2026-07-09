@@ -15,7 +15,7 @@ public class UnitDescription {
 	// Fields
 	private String   id;
 	private String   name;
-	private int      basePoints;
+	//private int      points;
 	private int      minSize;
 	private int      maxSize;
 	private UnitRole role;
@@ -88,12 +88,14 @@ public class UnitDescription {
 		this.role = role;
 	}
 
-	public int getBasePoints() {
-		return basePoints;
-	}
-
-	public void setBasePoints(int basePoints) {
-		this.basePoints = basePoints;
+	public int getPoints() {
+		int points = 0;
+		
+		for (ModelDescription m : models.keySet()) {
+			points += m.getBasePoints() * this.models.get(m);
+		}
+		
+		return points;
 	}
 
 	public int getMinSize() {
@@ -115,7 +117,7 @@ public class UnitDescription {
 	public int getCurrentSize() {
 		int count = 0;
 		for (int m: models.values()) {
-			count += m;
+			count = count + m;
 		}
 		return count;
 	}
@@ -126,11 +128,11 @@ public class UnitDescription {
 			&& getCurrentSize() >= minSize;
 	}
 	
-	private Boolean canAddModel() {
+	public Boolean canAddModel() {
 		return getCurrentSize() + 1 <= maxSize;
 	}
 	
-	private Boolean canRemoveModel() {
+	public Boolean canRemoveModel() {
 		return getCurrentSize() - 1 >= minSize;
 	}
 
@@ -172,7 +174,7 @@ public class UnitDescription {
 		}
 		// Increment model count if present
 		int modelCount = models.get(model);
-		models.replace(model, modelCount++);
+		this.models.replace(model, modelCount + 1);
 		this.types = getTypesFromModels();
 		return models.get(model);
 	}
@@ -194,7 +196,7 @@ public class UnitDescription {
 		}
 		// Decrement model count
 		int modelCount = models.get(model);
-		models.replace(model, modelCount--);
+		models.replace(model, modelCount-1);
 		this.types = getTypesFromModels();
 		return models.get(model);
 	}
@@ -208,7 +210,7 @@ public class UnitDescription {
 		private String id;
 		private String name;
 		private UnitRole role;
-		private int basePoints;
+		private int points;
 		private int minSize;
 		private int maxSize;
 		private List<OptionGroup> options;
@@ -229,10 +231,6 @@ public class UnitDescription {
 			return this;
 		}
 
-		public Builder setBasePoints(int basePoints) {
-			this.basePoints = basePoints;
-			return this;
-		}
 
 		public Builder setMinSize(int minSize) {
 			this.minSize = minSize;
@@ -270,7 +268,7 @@ public class UnitDescription {
 			u.id = this.id;
 			u.name = this.name;
 			u.role = this.role;
-			u.basePoints = this.basePoints;
+			//u.points = this.basePoints;
 			u.minSize = this.minSize;
 			u.maxSize = this.maxSize;
 			u.options = this.options;

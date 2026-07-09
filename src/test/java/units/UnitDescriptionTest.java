@@ -24,11 +24,12 @@ class UnitDescriptionTest {
 	private static String     MODEL_NAME = "modelName";
 	private static UnitType   INFANTRY = UnitType.INFANTRY;
 	private static UnitType   CHARACTER = UnitType.CHARACTER;
+	private static UnitType   VEHICLE = UnitType.VEHICLE;
 	private static int        POINTS = 10;
-	private static int		  MIN = 5;
-	private static int		  MAX = 10;	
+	private static int		  MIN = 1;
+	private static int		  MAX = 3;	
 	private static UnitType[] TYPES = {INFANTRY, CHARACTER};
-	private static UnitRole   ROLE = UnitRole.HQ;
+	private static UnitRole   HQ = UnitRole.HQ;
 	
 	private StatLine s;
 	private	Set<UnitType> t;
@@ -43,14 +44,14 @@ class UnitDescriptionTest {
 		g = new HashSet<>();
 		m = ModelDescFactory.get(MODEL_ID, MODEL_NAME, POINTS, s, t, g);
 		Map<ModelDescription, Integer> models = new HashMap<>();
-		models.put(m, 1);
+		models.put(m, MIN);
 		
 		u = new UnitDescription.Builder()
 							.setId(UNIT_ID)
 							.setName(UNIT_NAME)
 							.setMinSize(MIN)
 							.setMaxSize(MAX)
-							.setRole(ROLE)
+							.setRole(HQ)
 							.setModels(models)
 							.build();
 	}
@@ -62,7 +63,67 @@ class UnitDescriptionTest {
 	
 	@Test
 	void testFieldsAreSet() {
+		assertEquals(UNIT_ID,u.getId());
+		assertEquals(UNIT_NAME,u.getName());
+		assertEquals(HQ, u.getRole());
+		assertEquals(MAX,u.getMaxSize());
+		assertEquals(MIN,u.getMinSize());
+		assertEquals(MIN,u.getCurrentSize());
+		assertTrue(u.isType(INFANTRY));
+		assertTrue(u.isType(CHARACTER));
+		assertFalse(u.isType(VEHICLE));
+	}
+	
+	@Test
+	void testSizeFunctions() {
+		assertTrue(u.sizeIsValid());
+		assertTrue(u.canAddModel());
+		assertFalse(u.canRemoveModel());
+	}
+	
+	@Test
+	void testAddRemoveSameModel() {
+		assertTrue(u.containsModel(m));
+		assertEquals(MIN, u.getCurrentSize());
+
+		try {
+			u.addModel(m);
+		} catch (Exception e) {}
+		assertEquals(MIN + 1, u.getCurrentSize());
+		assertNotEquals(MIN, u.getCurrentSize());
+		try {
+			u.removeModel(m);
+		} catch (Exception e) {}
+		assertEquals(MIN, u.getCurrentSize());
+		assertNotEquals(MIN + 1, u.getCurrentSize());
 		
+
+	}
+	
+	@Test
+	void testAddRemoveDifferentModel() {
+		ModelDescription m2 = ModelDescFactory.get(
+				MODEL_ID + "2", 
+				MODEL_NAME + "2", 
+				POINTS, 
+				s, 
+				t, 
+				g);
+		try {
+			u.addModel(m2);
+		} catch (Exception e) {}
+		assertEquals(MIN + 1, u.getCurrentSize());
+		assertNotEquals(MIN, u.getCurrentSize());
+		try {
+			u.removeModel(m2);
+		} catch (Exception e) {}
+		assertEquals(MIN, u.getCurrentSize());
+		assertNotEquals(MIN + 1, u.getCurrentSize());
+	}
+	
+	@Test
+	void testPointCalc() {
+		assertEquals(POINTS, u.getPoints());
 	}
 
 }

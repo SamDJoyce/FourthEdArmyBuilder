@@ -98,5 +98,6 @@ public class ModelDescription {
 	public Boolean hasGear(WargearDescription gear) {
 		return this.gear.contains(gear);
 	}
+
 	
 }

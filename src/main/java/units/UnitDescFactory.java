@@ -14,7 +14,6 @@ public class UnitDescFactory {
 	public static UnitDescription get(
 			String id,
 			String name,
-			int basePoints,
 			int minSize,
 			int maxSize,
 			UnitRole role,
@@ -24,7 +23,6 @@ public class UnitDescFactory {
 		return new UnitDescription.Builder()
 				.setId(id)
 				.setName(name)
-				.setBasePoints(basePoints)
 				.setMinSize(minSize)
 				.setMaxSize(maxSize)
 				.setRole(role)
@@ -36,7 +34,6 @@ public class UnitDescFactory {
 	// Create a unitDescription and generate an ID
 	public static UnitDescription get(
 			String name,
-			int basePoints,
 			int minSize,
 			int maxSize,
 			UnitRole role,
@@ -45,7 +42,6 @@ public class UnitDescFactory {
 			Map<ModelDescription, Integer> models) {
 		return new UnitDescription.Builder()
 				.setName(name)
-				.setBasePoints(basePoints)
 				.setMinSize(minSize)
 				.setMaxSize(maxSize)
 				.setRole(role)
