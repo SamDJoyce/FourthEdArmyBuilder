@@ -1,17 +1,22 @@
 package forceOrg.validationRules;
 
-import roster.Roster;
+import forceOrg.ForceOrgLimit;
 
 public class MinRoleSelectionRule implements ValidationRule {
 
-	public MinRoleSelectionRule() {
-		// TODO Auto-generated constructor stub
+	private int selections;
+	private ForceOrgLimit limit;
+	
+	public MinRoleSelectionRule(
+			int selections,
+			ForceOrgLimit limit) {
+		this.selections = selections;
+		this.limit = limit;
 	}
 
 	@Override
-	public ValidationResult validate(Roster roster) {
-		// TODO Auto-generated method stub
-		return null;
+	public Boolean validate() {
+		return selections >= limit.getMin();
 	}
 
 }

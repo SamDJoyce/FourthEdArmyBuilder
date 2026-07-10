@@ -1,17 +1,20 @@
 package forceOrg.validationRules;
 
-import roster.Roster;
+import forceOrg.ForceOrgLimit;
 
 public class MaxRoleCountRule implements ValidationRule {
-
-	public MaxRoleCountRule() {
-		// TODO Auto-generated constructor stub
+	
+	private int selections;
+	private ForceOrgLimit limit;
+	
+	public MaxRoleCountRule(
+			int selections,
+			ForceOrgLimit limit) {
 	}
 
 	@Override
-	public ValidationResult validate(Roster roster) {
-		// TODO Auto-generated method stub
-		return null;
+	public Boolean validate() {
+		return selections <= limit.getMax();
 	}
 
 }

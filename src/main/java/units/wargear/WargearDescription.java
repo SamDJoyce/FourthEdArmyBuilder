@@ -4,6 +4,7 @@ public class WargearDescription {
 
 	private String name;
 	private WargearType type;
+	private int points;
 	
 	public WargearDescription(
 			String name,
@@ -26,6 +27,14 @@ public class WargearDescription {
 	
 	public void setType(WargearType type) {
 		this.type = type;
+	}
+	
+	public void setPoints(int points) {
+		this.points = points;
+	}
+	
+	public int getPoints() {
+		return this.points;
 	}
 	
 }
