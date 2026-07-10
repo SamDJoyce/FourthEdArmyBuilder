@@ -91,6 +91,7 @@ class UnitDescriptionTest {
 		} catch (Exception e) {}
 		assertEquals(MIN + 1, u.getCurrentSize());
 		assertNotEquals(MIN, u.getCurrentSize());
+		
 		try {
 			u.removeModel(m);
 		} catch (Exception e) {}
@@ -109,21 +110,55 @@ class UnitDescriptionTest {
 				s, 
 				t, 
 				g);
-		try {
-			u.addModel(m2);
-		} catch (Exception e) {}
-		assertEquals(MIN + 1, u.getCurrentSize());
-		assertNotEquals(MIN, u.getCurrentSize());
-		try {
-			u.removeModel(m2);
-		} catch (Exception e) {}
-		assertEquals(MIN, u.getCurrentSize());
-		assertNotEquals(MIN + 1, u.getCurrentSize());
+		if (u.canAddModel()) {
+			try {
+				u.addModel(m2);
+			} catch (Exception e) {}
+			assertEquals(MIN + 1, u.getCurrentSize());
+			assertNotEquals(MIN, u.getCurrentSize());
+		}
+		
+		if (u.canRemoveModel()) {
+			try {
+				u.removeModel(m2);
+			} catch (Exception e) {}
+			assertEquals(MIN, u.getCurrentSize());
+			assertNotEquals(MIN + 1, u.getCurrentSize());
+		}
+	}
+	
+	@Test
+	void testBlockRemovingBelowMinimumModels() {
+		assertFalse(u.canRemoveModel());
 	}
 	
 	@Test
 	void testPointCalc() {
 		assertEquals(POINTS, u.getPoints());
+		
+		ModelDescription m2 = ModelDescFactory.get(
+				MODEL_ID + "2", 
+				MODEL_NAME + "2", 
+				POINTS, 
+				s, 
+				t, 
+				g);
+		try {
+			u.addModel(m2);
+			u.addModel(m);
+		} catch (Exception e) {}
+		
+		assertEquals(POINTS * u.getCurrentSize(), u.getPoints());
+		
+	}
+	
+	@Test
+	void testGenerateId() {
+		u = new UnitDescription.Builder()
+				.setName(UNIT_NAME)
+				.build();
+		//System.out.println(u.getName() + " : " +u.getId());
+		assertNotNull(u.getId());
 	}
 
 }

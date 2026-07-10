@@ -15,7 +15,6 @@ public class UnitDescription {
 	// Fields
 	private String   id;
 	private String   name;
-	//private int      points;
 	private int      minSize;
 	private int      maxSize;
 	private UnitRole role;
@@ -69,6 +68,9 @@ public class UnitDescription {
 	}
 	
 	private Set<UnitType> getTypesFromModels() {
+		if (models == null || models.isEmpty()) {
+			return null;
+		}
 		Set<UnitType> types = new HashSet<UnitType>();
 		// Pull each model
 		for (ModelDescription m: models.keySet()) {
@@ -87,8 +89,9 @@ public class UnitDescription {
 	public void setRole(UnitRole role) {
 		this.role = role;
 	}
-
-	public int getPoints() {
+	
+// TODO Update this to use points from gear and other options
+	public int getPoints() { 
 		int points = 0;
 		
 		for (ModelDescription m : models.keySet()) {
@@ -210,7 +213,6 @@ public class UnitDescription {
 		private String id;
 		private String name;
 		private UnitRole role;
-		private int points;
 		private int minSize;
 		private int maxSize;
 		private List<OptionGroup> options;
