@@ -13,6 +13,15 @@ public class WargearDescription {
 		this.type = type;
 	}
 	
+	public WargearDescription(
+			String name,
+			WargearType type,
+			int points) {
+		this.name = name;
+		this.type = type;
+		this.points = points;
+	}
+	
 	public String getName() {
 		return this.name;
 	}

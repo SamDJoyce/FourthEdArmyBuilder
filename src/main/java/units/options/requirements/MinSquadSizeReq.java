@@ -5,7 +5,7 @@ import units.UnitDescription;
 public class MinSquadSizeReq implements Requirement {
 	private int minSize;
 	private UnitDescription unit;
-	
+
 	public MinSquadSizeReq(
 			UnitDescription unit,
 			int minSize) {

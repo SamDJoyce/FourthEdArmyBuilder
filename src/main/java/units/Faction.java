@@ -60,4 +60,12 @@ public class Faction {
 		this.wargear = wargear;
 	}
 	
+	public Boolean addWargear(WargearDescription gear) {
+		return wargear.add(gear);
+	}
+	
+	public Boolean removeWargear(WargearDescription gear) {
+		return wargear.remove(gear);
+	}
+	
 }

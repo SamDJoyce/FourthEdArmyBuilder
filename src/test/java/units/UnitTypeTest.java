@@ -41,7 +41,7 @@ class UnitTypeTest {
 	@Test
 	void testIsType() {
 		type = UnitType.INFANTRY;
-		type.isType(UnitType.INFANTRY);
+		assertTrue(type.isType(UnitType.INFANTRY));
 		assertTrue(type.isInfantry());
 		
 		type = UnitType.JUMP;

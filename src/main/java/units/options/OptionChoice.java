@@ -13,6 +13,7 @@ public class OptionChoice {
 	private int		points;
 	private List<Requirement> requirements;
 	private List<Effect> effects;
+	private Boolean isSelected;
 	
 	public OptionChoice(
 			String id,
@@ -26,6 +27,7 @@ public class OptionChoice {
 		this.points = points;
 		this.requirements = requirements;
 		this.effects = effects;
+		this.isSelected = false;
 	}
 
 	public String getId() {
@@ -91,5 +93,17 @@ public class OptionChoice {
 	
 	public Boolean removeEffect(Effect e) {
 		return this.effects.remove(e);
+	}
+	
+	public void select() {
+		this.isSelected = true;
+	}
+	
+	public void unselect() {
+		this.isSelected = false;
+	}
+	
+	public Boolean isSelected() {
+		return isSelected;
 	}
 }

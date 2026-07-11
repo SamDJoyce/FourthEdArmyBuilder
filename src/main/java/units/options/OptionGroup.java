@@ -17,8 +17,7 @@ public class OptionGroup {
 			int minSelection,
 			int maxSelection,
 			List<OptionChoice> choices,
-			List<Requirement> requirements,
-			List<Effect> effects) {
+			List<Requirement> requirements) {
 		this.name = name;
 		this.minSelection = minSelection;
 		this.maxSelection = maxSelection;

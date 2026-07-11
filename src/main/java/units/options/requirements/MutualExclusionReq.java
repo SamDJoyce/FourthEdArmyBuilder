@@ -1,23 +1,31 @@
 package units.options.requirements;
 
+import java.util.List;
+
 import units.options.OptionChoice;
 import units.options.OptionGroup;
 
 public class MutualExclusionReq implements Requirement {
 
+	private List<OptionChoice> blockers;
 	private OptionGroup group;
-	private OptionChoice excluded;
 	
 	public MutualExclusionReq(
-			OptionGroup group, 
-			OptionChoice excluded){
+			List<OptionChoice> blockers,
+			OptionGroup group){
+		this.blockers = blockers;
 		this.group = group;
-		this.excluded = excluded;
 	}
 	
 	@Override
 	public Boolean isSatisfied() {
-		return !group.getChoices().contains(excluded);
+		for (OptionChoice c : group.getChoices()) {
+			if (c.isSelected() 
+			&&  blockers.contains(c)) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 }
