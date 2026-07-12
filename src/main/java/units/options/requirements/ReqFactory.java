@@ -31,4 +31,11 @@ public class ReqFactory {
 			OptionGroup group) {
 		return new MaxSelectionReq(maxSelection, choice, group);
 	}
+	
+	public static ForEachMultipleReq get(
+			UnitDescription unit,
+			OptionChoice choice, 
+			int divisor) {
+		return new ForEachMultipleReq(unit, choice, divisor);
+	}
 }

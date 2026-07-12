@@ -1,8 +1,10 @@
 package forceOrg;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import forceOrg.validationRules.ValidationRule;
+import units.UnitDescription;
 import units.UnitRole;
 
 public class ForceOrgChart {
@@ -11,6 +13,7 @@ public class ForceOrgChart {
 	private String name;
 	private List<ForceOrgLimit> limits;
 	private List<ValidationRule> rules;
+	private List<UnitDescription> units;
 	
 	public ForceOrgChart(
 			String id,
@@ -21,6 +24,7 @@ public class ForceOrgChart {
 		this.name = name;
 		this.limits = limits;
 		this.rules = rules;
+		units = new ArrayList<>();
 	}
 	
 	public Boolean validate() {
@@ -81,6 +85,96 @@ public class ForceOrgChart {
 		}
 		return 0;
 	}
+	
+	public int getMaxElites() {
+		for (ForceOrgLimit l : limits) {
+			if (UnitRole.ELITES.equals(l.getRole())) {
+				return l.getMax();
+			}
+		}
+		return 0;
+	}
+	
+	public int getMinElites() {
+		for (ForceOrgLimit l : limits) {
+			if (UnitRole.ELITES.equals(l.getRole())) {
+				return l.getMin();
+			}
+		}
+		return 0;
+	}
+	
+	public int getMaxTroops() {
+		for (ForceOrgLimit l : limits) {
+			if (UnitRole.TROOPS.equals(l.getRole())) {
+				return l.getMax();
+			}
+		}
+		return 0;
+	}
+	
+	public int getMinTroops() {
+		for (ForceOrgLimit l : limits) {
+			if (UnitRole.TROOPS.equals(l.getRole())) {
+				return l.getMin();
+			}
+		}
+		return 0;
+	}
+	
+	public int getMaxFastAttack() {
+		for (ForceOrgLimit l : limits) {
+			if (UnitRole.FAST_ATTACK.equals(l.getRole())) {
+				return l.getMax();
+			}
+		}
+		return 0;
+	}
+	
+	public int getMinFastAttack() {
+		for (ForceOrgLimit l : limits) {
+			if (UnitRole.FAST_ATTACK.equals(l.getRole())) {
+				return l.getMin();
+			}
+		}
+		return 0;
+	}
+	
+	public int getMaxHeavySupport() {
+		for (ForceOrgLimit l : limits) {
+			if (UnitRole.HEAVY_SUPPORT.equals(l.getRole())) {
+				return l.getMax();
+			}
+		}
+		return 0;
+	}
+	
+	public int getMinHeavySupport() {
+		for (ForceOrgLimit l : limits) {
+			if (UnitRole.HEAVY_SUPPORT.equals(l.getRole())) {
+				return l.getMin();
+			}
+		}
+		return 0;
+	}
+	
+	public int getMaxRole(UnitRole role) {
+		for (ForceOrgLimit l : limits) {
+			if (l.getRole().equals(role)) {
+				return l.getMax();
+			}
+		}
+		return 0;
+	}
+	
+	public int getMinRole(UnitRole role) {
+		for (ForceOrgLimit l : limits) {
+			if (l.getRole().equals(role)) {
+				return l.getMin();
+			}
+		}
+		return 0;
+	}
 
 	public List<ValidationRule> getRules() {
 		return rules;
@@ -96,6 +190,66 @@ public class ForceOrgChart {
 	
 	public Boolean removeRule(ValidationRule rule) {
 		return this.rules.remove(rule);
+	}
+	
+	public int getHQCount(){
+		int total = 0;
+		for (UnitDescription u : units) {
+			if(UnitRole.HQ.equals(u.getRole())) {
+				total++;
+			}
+		}
+		return total;
+	}
+	
+	public int getElitesCount(){
+		int total = 0;
+		for (UnitDescription u : units) {
+			if(UnitRole.ELITES.equals(u.getRole())) {
+				total++;
+			}
+		}
+		return total;
+	}
+	
+	public int getTroopsCount(){
+		int total = 0;
+		for (UnitDescription u : units) {
+			if(UnitRole.TROOPS.equals(u.getRole())) {
+				total++;
+			}
+		}
+		return total;
+	}
+	
+	public int getFastAttackCount(){
+		int total = 0;
+		for (UnitDescription u : units) {
+			if(UnitRole.FAST_ATTACK.equals(u.getRole())) {
+				total++;
+			}
+		}
+		return total;
+	}
+	
+	public int getHeavySupportCount(){
+		int total = 0;
+		for (UnitDescription u : units) {
+			if(UnitRole.HEAVY_SUPPORT.equals(u.getRole())) {
+				total++;
+			}
+		}
+		return total;
+	}
+	
+	public int getRoleCount(UnitRole role){
+		int total = 0;
+		for (UnitDescription u : units) {
+			if(u.getRole().equals(role)) {
+				total++;
+			}
+		}
+		return total;
 	}
 	
 }

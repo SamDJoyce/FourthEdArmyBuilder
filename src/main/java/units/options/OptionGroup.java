@@ -2,7 +2,6 @@ package units.options;
 
 import java.util.List;
 
-import units.options.effects.Effect;
 import units.options.requirements.Requirement;
 
 public class OptionGroup {
@@ -89,6 +88,17 @@ public class OptionGroup {
 			}
 		}
 		return true;
+	}
+	
+	public int getCurrentSelectionCount(OptionChoice choice) {
+		int count = 0;
+		for (OptionChoice c : choices) {
+			if (choice.equals(c)
+			&&  c.isSelected()) {
+				count++;
+			}
+		}
+		return count;
 	}
 	
 }
