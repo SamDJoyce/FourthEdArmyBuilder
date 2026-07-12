@@ -26,6 +26,19 @@ public class StatLineVehicle implements StatLine {
 		this.rear  = rear;
 	}
 	
+	public StatLineVehicle( 
+			String name, 
+			int bs,
+			int front,
+			int side,
+			int rear) {
+		this.name  = name;
+		this.bs    = bs;
+		this.front = front;
+		this.side  = side;
+		this.rear  = rear;
+	}
+	
 	public String getType() {
 		return type;
 	}

@@ -1,11 +1,15 @@
 package units.models;
 
+import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 
 import units.UnitType;
 import units.wargear.WargearDescription;
 
 public class ModelDescription {
+	private static Set<String> usedIds = new HashSet<>();
+	
 	private String 	 id;
 	private String 	 name;
 	private int	   	 basePoints;
@@ -13,16 +17,33 @@ public class ModelDescription {
 	private Set<UnitType> types;
 	private Set<WargearDescription> gear;
 	
-	public ModelDescription(String   id,
-							String   name, 
-							int      basePoints,
-							StatLine stats,
-							Set<UnitType> types,
-							Set<WargearDescription> gear) {
+	public ModelDescription(
+			String   id,
+			String   name, 
+			int      basePoints,
+			StatLine stats,
+			Set<UnitType> types,
+			Set<WargearDescription> gear) {
 		this.id = id;
 		this.name = name;
 		this.basePoints = basePoints;
 		this.stats = stats;
+		this.stats.setId(this.id);
+		this.types = types;
+		this.gear = gear;
+	}
+	
+	public ModelDescription(
+			String   name, 
+			int      basePoints,
+			StatLine stats,
+			Set<UnitType> types,
+			Set<WargearDescription> gear) {
+		this.id = generateId();
+		this.name = name;
+		this.basePoints = basePoints;
+		this.stats = stats;
+		this.stats.setId(this.id);
 		this.types = types;
 		this.gear = gear;
 	}
@@ -99,5 +120,13 @@ public class ModelDescription {
 		return this.gear.contains(gear);
 	}
 
-	
+	private String generateId() {
+		String id;
+		do {
+			id = UUID.randomUUID().toString();
+		} while(usedIds.contains(id));
+		usedIds.add(id);
+		return id;
+	}
+
 }

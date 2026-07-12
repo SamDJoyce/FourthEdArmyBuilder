@@ -26,6 +26,21 @@ public class ModelDescFactory {
 					gear);
 	}
 	
+	public static ModelDescription get(
+			String name,
+			int basePoints,
+			StatLine stats,
+			Set<UnitType> types,
+			Set<WargearDescription> gear) {
+
+return new ModelDescription(
+		name,
+		basePoints,
+		stats,
+		types,
+		gear);
+}
+	
 	/**
 	 * Create an Infantry/standard ModelDescription
 	 * 
@@ -67,6 +82,44 @@ public class ModelDescFactory {
 									gear);
 	}
 	
+	/**
+	 * Create an Infantry/standard ModelDescription
+	 * 
+	 * @param name
+	 * @param basePoints
+	 * @param ws
+	 * @param bs
+	 * @param s
+	 * @param t
+	 * @param w
+	 * @param i
+	 * @param a
+	 * @param ld
+	 * @param sv
+	 * @param types
+	 * @return
+	 */
+	public static ModelDescription get(
+						String name,
+						int basePoints,
+						int ws,
+						int bs,
+						int s,
+						int t, 
+						int w, 
+						int i, 
+						int a, 
+						int ld, 
+						int sv,
+						Set<UnitType> types,
+						Set<WargearDescription> gear) {
+		return new ModelDescription(
+									name, 
+									basePoints, 
+									StatLineFactory.get(name, ws, bs,s,t,w,i,a,ld,sv), 
+									types,
+									gear);
+	}
 	
 	/**
 	 * Create a Vehicle ModelDescription

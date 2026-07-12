@@ -38,6 +38,27 @@ public class StatLineWalker implements StatLine {
 		this.rear = rear;
 	}
 	
+	public StatLineWalker(
+			String name, 
+			int ws,
+			int bs,
+			int s,
+			int i,
+			int a,
+			int front,
+			int side,
+			int rear) {
+		this.name = name;
+		this.bs = bs;
+		this.ws = ws;
+		this.s = s;
+		this.i = i;
+		this.a = a;
+		this.front = front;
+		this.side = side;
+		this.rear = rear;
+	}
+	
 	public String getType() {
 		return type;
 	}

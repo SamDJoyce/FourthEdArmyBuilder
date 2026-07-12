@@ -23,7 +23,7 @@ public class StatLineFactory {
 	 * @param sv
 	 * @return completed infantry statline
 	 */
-	public static StatLine get(
+	public static StatLineInfantry get(
 			String id,
 			String name,
 			int ws,
@@ -38,6 +38,35 @@ public class StatLineFactory {
 		return new StatLineInfantry(id,name,ws,bs,s,t,w,i,a,ld,sv);
 	}
 	
+	/**
+	 * Create a standard infantry statline
+	 * 
+	 * @param name
+	 * @param ws
+	 * @param bs
+	 * @param s
+	 * @param t
+	 * @param w
+	 * @param i
+	 * @param a
+	 * @param ld
+	 * @param sv
+	 * @return completed infantry statline
+	 */
+	public static StatLineInfantry get(
+			String name,
+			int ws,
+			int bs,
+			int s,
+			int t, 
+			int w, 
+			int i, 
+			int a, 
+			int ld, 
+			int sv) {
+		return new StatLineInfantry(name,ws,bs,s,t,w,i,a,ld,sv);
+	}
+	
 
 	/**
 	 * Create a vehicle statline
@@ -50,7 +79,7 @@ public class StatLineFactory {
 	 * @param rear
 	 * @return completed vehicle statline
 	 */
-	public static StatLine get(
+	public static StatLineVehicle get(
 			String id,
 			String name,
 			int bs,
@@ -58,6 +87,25 @@ public class StatLineFactory {
 			int side,
 			int rear) {
 		return new StatLineVehicle(id, name, bs, front, side, rear);
+	}
+	
+	/**
+	 * Create a vehicle statline
+	 * 
+	 * @param name
+	 * @param bs
+	 * @param front
+	 * @param side
+	 * @param rear
+	 * @return completed vehicle statline
+	 */
+	public static StatLineVehicle get(
+			String name,
+			int bs,
+			int front,
+			int side,
+			int rear) {
+		return new StatLineVehicle(name, bs, front, side, rear);
 	}
 	
 	/**
@@ -75,7 +123,7 @@ public class StatLineFactory {
 	 * @param rear
 	 * @return completed walker vehicle statline
 	 */
-	public static StatLine get(
+	public static StatLineWalker get(
 			String id,
 			String name,
 			int bs,
@@ -87,5 +135,33 @@ public class StatLineFactory {
 			int side,
 			int rear) {
 		return new StatLineWalker(id, name, bs, ws, s, i, a, front, side, rear);
+	}
+	
+	/**
+	 * Create walker vehicle statline
+	 * 
+	 * @param id
+	 * @param name
+	 * @param bs
+	 * @param ws
+	 * @param s
+	 * @param i
+	 * @param a
+	 * @param front
+	 * @param side
+	 * @param rear
+	 * @return completed walker vehicle statline
+	 */
+	public static StatLineWalker get(
+			String name,
+			int bs,
+			int ws,
+			int s,
+			int i,
+			int a,
+			int front,
+			int side,
+			int rear) {
+		return new StatLineWalker(name, bs, ws, s, i, a, front, side, rear);
 	}
 }

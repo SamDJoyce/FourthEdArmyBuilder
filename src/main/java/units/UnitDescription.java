@@ -207,6 +207,15 @@ public class UnitDescription {
 	public Boolean containsModel(ModelDescription model) {
 		return models.containsKey(model);
 	}
+	
+	private String generateId() {
+		String id;
+		do {
+			id = UUID.randomUUID().toString();
+		} while(usedIds.contains(this.id));
+		usedIds.add(id);
+		return id;
+	}
 
 	// Builder
 	public static class Builder {
@@ -254,23 +263,30 @@ public class UnitDescription {
 			return this;
 		}
 		
+		private String generateId() {
+			String id;
+			do {
+				id = UUID.randomUUID().toString();
+			} while(usedIds.contains(id));
+			usedIds.add(id);
+			return id;
+		}
+		
+		private Boolean idNotSet() {
+			return this.id == null 
+				|| this.id.isEmpty();
+		}
+		
 		public UnitDescription build() {
 			UnitDescription u = new UnitDescription();
 			
 			// Check if an ID is assigned
-			if (this.id == null 
-			 || this.id.isEmpty()) {
-				// Generate an ID that has not been used
-				// and add it to the list of usedIDs
-				do {
-					this.id = UUID.randomUUID().toString();
-				} while(usedIds.contains(this.id));
-				usedIds.add(this.id);
+			if (idNotSet()) {
+				this.id = generateId();
 			}
 			u.id = this.id;
 			u.name = this.name;
 			u.role = this.role;
-			//u.points = this.basePoints;
 			u.minSize = this.minSize;
 			u.maxSize = this.maxSize;
 			u.options = this.options;

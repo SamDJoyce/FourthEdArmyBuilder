@@ -37,5 +37,4 @@ public class MaxSelectionReq implements Requirement {
 
 		return count <= maxSelection;
 	}
-
 }

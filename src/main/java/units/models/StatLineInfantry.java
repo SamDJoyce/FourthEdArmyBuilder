@@ -1,7 +1,11 @@
 package units.models;
 
-public class StatLineInfantry implements StatLine {
+import java.util.HashSet;
+import java.util.Set;
+import java.util.UUID;
 
+public class StatLineInfantry implements StatLine {
+	private static Set<String> usedIds = new HashSet<>();
 	private final static String type = "infantry";
 	
 	private String id;
@@ -29,6 +33,29 @@ public class StatLineInfantry implements StatLine {
 							int ld, 
 							int sv) {
 		this.id = id;
+		this.name = name;
+		this.bs = bs;
+		this.ws = ws;
+		this.s = s;
+		this.t = t;
+		this.w = w;
+		this.i = i;
+		this.a = a;
+		this.ld = ld;
+		this.sv = sv;
+	}
+	 
+	public StatLineInfantry(
+			String name, 
+			int ws, 
+			int bs, 
+			int s, 
+			int t, 
+			int w, 
+			int i, 
+			int a, 
+			int ld, 
+			int sv) {
 		this.name = name;
 		this.bs = bs;
 		this.ws = ws;

@@ -30,7 +30,7 @@ class UnitDescriptionTest {
 	private static int		  MAX = 3;	
 	private static UnitType[] TYPES = {INFANTRY, CHARACTER};
 	private static UnitRole   HQ = UnitRole.HQ;
-	
+
 	private StatLine s;
 	private	Set<UnitType> t;
 	private	Set<WargearDescription> g;
