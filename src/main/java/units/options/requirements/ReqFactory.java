@@ -8,15 +8,9 @@ import units.options.OptionChoice;
 import units.options.OptionGroup;
 
 public class ReqFactory {
-	public static MinSquadSizeReq get(
-			int minSize, 
-			UnitDescription unit) {
-		return new MinSquadSizeReq(unit,minSize);
-	}
 	
-	public static CharacterOnlyReq get(
-			ModelDescription model) {
-		return  new CharacterOnlyReq(model);
+	public static CharacterOnlyReq get() {
+		return  new CharacterOnlyReq();
 	}
 	
 	public static MutualExclusionReq get(
@@ -25,17 +19,25 @@ public class ReqFactory {
 		return new MutualExclusionReq(blockers, group);
 	}
 	
-	public static MaxSelectionReq get(
-			int maxSelection,
-			OptionChoice choice,
-			OptionGroup group) {
-		return new MaxSelectionReq(maxSelection, choice, group);
+	public static MaxSelectionReq get(int maxSelection) {
+		return new MaxSelectionReq(maxSelection);
 	}
 	
-	public static ForEachMultipleReq get(
-			UnitDescription unit,
-			OptionChoice choice, 
-			int divisor) {
-		return new ForEachMultipleReq(unit, choice, divisor);
+	public static MaxPerModelCountReq get(
+			ModelDescription model,
+			int rate) {
+		return new MaxPerModelCountReq(model,rate);
+	}
+	
+	public static ModelCountReq get(
+			ModelDescription model,
+			int minimum,
+			int maximum,
+			String message
+			) {
+		return new ModelCountReq(
+				model,
+				minimum,
+				maximum);
 	}
 }

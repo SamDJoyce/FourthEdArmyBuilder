@@ -81,14 +81,14 @@ public class OptionGroup {
 		this.requirements = requirements;
 	}
 	
-	public Boolean reqsSatisfied() {
-		for (Requirement r : requirements) {
-			if (!r.isSatisfied()) {
-				return false;
-			}
-		}
-		return true;
-	}
+//	public Boolean reqsSatisfied() {
+//		for (Requirement r : requirements) {
+//			if (!r.isSatisfied()) {
+//				return false;
+//			}
+//		}
+//		return true;
+//	}
 	
 	public int getCurrentSelectionCount(OptionChoice choice) {
 		int count = 0;

@@ -68,7 +68,7 @@ public class ModelInstance {
 	}
 	
 	public StatLine getCurrentStats() {
-		return null; // TODO
+		return null; // TODO will apply effects here
 	}
 
 	public Set<UnitType> getTypes() {

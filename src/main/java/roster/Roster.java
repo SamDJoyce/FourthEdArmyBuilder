@@ -45,12 +45,5 @@ public class Roster {
 		this.pointsLimit = pointsLimit;
 	}
 
-	public int getPointsTotal() {
-		int total = 0;
-		for (UnitDescription u : units) {
-			total += u.getPoints();
-		}
-		return total;
-	}
 
 }

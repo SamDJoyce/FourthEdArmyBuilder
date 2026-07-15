@@ -70,7 +70,8 @@ public class ChangeStatEffect implements Effect {
 			stats.setSv(stats.getSv() + changeValue);
 		}
 
-		model.setStats(stats);
+		// TODO align with new stats + effect model 
+		// model.setStats(stats);
 	}
 
 	@Override
@@ -113,7 +114,8 @@ StatLine stats = model.getStats();
 			stats.setSv(stats.getSv() - changeValue);
 		}
 
-		model.setStats(stats);
+		// TODO align with new stats + effect model 
+		//model.setStats(stats);
 	}
 
 }

@@ -48,6 +48,16 @@ public class UnitInstance {
 		return models.size();
 	}
 	
+	public int getModelCount(ModelDescription model) {
+	    int count = 0;
+	    for (ModelInstance instance: models) {
+	        if (instance.getDescription().equals(model)) {
+	            count++;
+	        }
+	    }
+	    return count;
+	}
+	
 	public Boolean sizeIsValid() {
 		return getCurrentSize() <= getMaxSize()
 			&& getCurrentSize() >= getMinSize();
@@ -64,24 +74,21 @@ public class UnitInstance {
 	public List<ModelInstance> getModels() {
 		return models;
 	}
-
-	public void setModels(List<ModelInstance> models) {
-		this.models = models;
-	}
 	
 	public Boolean containsModel(ModelInstance model) {
 		return models.contains(model);
 	}
 	
-	public void addModel(ModelInstance model) throws Exception {
+	public Boolean addModel(ModelInstance model) {
 		if (!canAddModel()) {
-			return;
+			return false;
 		}
 		// Add model if not present
 		if (!containsModel(model)) {
 			models.add(model);
-			return;
+			return true;
 		}
+		return true;
 	}
 	
 	public void removeModel(ModelInstance model) throws Exception {
@@ -118,7 +125,7 @@ public class UnitInstance {
 		return total;
 	}
 	
-	private List<ModelInstance> fromDescriptions(List<ModelDescription> descriptions) {
+	public static List<ModelInstance> fromDescriptions(List<ModelDescription> descriptions) {
 		List<ModelInstance> instances = new ArrayList<>();
 		
 		for (ModelDescription d : descriptions) {
@@ -126,6 +133,10 @@ public class UnitInstance {
 		}
 		
 		return instances;
+	}
+	
+	public static ModelInstance fromDescription(ModelDescription description) {
+		return new ModelInstance(description);
 	}
 	
 	private String generateId() {

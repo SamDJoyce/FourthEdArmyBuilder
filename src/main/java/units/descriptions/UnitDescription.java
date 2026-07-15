@@ -1,7 +1,9 @@
 package units.descriptions;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import units.UnitRole;
@@ -34,9 +36,9 @@ public class UnitDescription {
 		this.minSize = minSize;
 		this.maxSize = maxSize;
 		this.role = role;
-		this.types = types;
-		this.options = options;
-		this.models = models;
+		this.types = new HashSet<>(types);
+		this.options = new ArrayList<>(options);
+		this.models = new ArrayList<>(models);
 	}
 
 	// Getters and Setters
@@ -45,15 +47,7 @@ public class UnitDescription {
 	}
 
 	public Set<UnitType> getTypes() {
-		return types;
-	}
-	
-	public Boolean addType(UnitType type) {
-		return types.add(type);
-	}
-
-	public Boolean removeType(UnitType type) {
-		return types.remove(type);
+		return Collections.unmodifiableSet(this.types);
 	}
 	
 	public Boolean isType(UnitType type) {
@@ -68,16 +62,6 @@ public class UnitDescription {
 	public UnitRole getRole() {
 		return role;
 	}
-	
-	public int getPoints() { 
-		int points = 0;
-		
-		for (ModelDescription m : models) {
-			points += m.getBasePoints();
-		}
-		
-		return points;
-	}
 
 	public int getMinSize() {
 		return minSize;
@@ -86,30 +70,13 @@ public class UnitDescription {
 	public int getMaxSize() {
 		return maxSize;
 	}
-	
-	public int getCurrentSize() {
-		return models.size();
-	}
-	
-	public Boolean sizeIsValid() {
-		return getCurrentSize() <= maxSize
-			&& getCurrentSize() >= minSize;
-	}
-	
-	public Boolean canAddModel() {
-		return getCurrentSize() + 1 <= maxSize;
-	}
-	
-	public Boolean canRemoveModel() {
-		return getCurrentSize() - 1 >= minSize;
-	}
 
 	public List<OptionGroup> getOptions() {
-		return options;
+		return Collections.unmodifiableList(options);
 	}
 
 	public List<ModelDescription> getModels() {
-		return models;
+		return Collections.unmodifiableList(models);
 	}
 	
 	public Boolean containsModel(ModelDescription model) {

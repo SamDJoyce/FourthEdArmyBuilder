@@ -70,14 +70,14 @@ public class OptionChoice {
 		return this.requirements.remove(r);
 	}
 	
-	public Boolean reqsSatisfied() {
-		for (Requirement r : requirements) {
-			if (!r.isSatisfied()) {
-				return false;
-			}
-		}
-		return true;
-	}
+//	public Boolean reqsSatisfied() {
+//		for (Requirement r : requirements) {
+//			if (!r.isSatisfied()) {
+//				return false;
+//			}
+//		}
+//		return true;
+//	}
 
 	public List<Effect> getEffects() {
 		return effects;

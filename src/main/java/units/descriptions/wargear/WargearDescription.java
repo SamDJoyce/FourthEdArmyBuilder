@@ -30,7 +30,7 @@ public class WargearDescription {
 	}
 	
 	public WargearType getType() {
-		return type;
+		return this.type;
 	}
 	
 	public int getPoints() {

@@ -1,40 +1,40 @@
 package units.options.requirements;
 
-import units.options.OptionChoice;
-import units.options.OptionGroup;
+import units.options.ValidationContext;
 
 public class MaxSelectionReq implements Requirement {
 
 	private int maxSelection;
-	private OptionChoice choice;
-	private OptionGroup group;
+	private String message;
 	
 	public MaxSelectionReq(
-			int maxSelection,
-			OptionChoice choice,
-			OptionGroup group
+			int maxSelection
 			) {
 		this.maxSelection = maxSelection;
-		this.choice = choice;
-		this.group = group;
 	}
 	
 	@Override
-	public Boolean isSatisfied() {
-		int count = 0;
+	public ValidationResult validate(ValidationContext context) {
+		if (!context.hasOption()) {
+			message = "MaxSelectionRequirement needs a SelectedOption";
+			return ValidationResult.failure(null);
+		}
 		
-		// If no Selection has been made, return true
-		if (group != null 
-		&& !group.getChoices().contains(choice)) {
-			return true;
+		if (context.getOption().getNumSelected() <= maxSelection) {
+			message = String.format(
+					"This option is selected %d times (max %d)",
+					context.getOption().getNumSelected(),
+					maxSelection
+					);
+			return ValidationResult.success(message);
 		}
-		// Else, check the number of choices
-		for (OptionChoice oc : group.getChoices()) {
-			if (choice != null && choice.equals(oc)) {
-				count++;	
-			}
+		else {
+			message = String.format(
+					"Cannot exceed %d selections of this option (currently %d).",
+					maxSelection,
+					context.getOption().getNumSelected()
+					);
+			return ValidationResult.failure(message);
 		}
-
-		return count <= maxSelection;
 	}
 }

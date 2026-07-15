@@ -1,6 +1,8 @@
 package units.options.requirements;
 
+import units.options.ValidationContext;
+
 public interface Requirement {
 
-	Boolean isSatisfied();
+	ValidationResult validate(ValidationContext context);
 }
