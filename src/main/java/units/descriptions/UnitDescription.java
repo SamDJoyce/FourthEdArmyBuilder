@@ -19,7 +19,7 @@ public class UnitDescription {
 	private final UnitRole role;
 	private final Set<UnitType> types;
 	private final List<OptionGroup> options;
-	private final Map<ModelDescription, Integer> models;
+	private final List<ModelDescription> models;
 	
 	// Constructor
 	public UnitDescription(
@@ -29,7 +29,7 @@ public class UnitDescription {
 			UnitRole role, 
 			Set<UnitType> types,
 			List<OptionGroup> options,
-			Map<ModelDescription, Integer> models) {
+			List<ModelDescription> models) {
 		this.name = name;
 		this.minSize = minSize;
 		this.maxSize = maxSize;
@@ -72,8 +72,8 @@ public class UnitDescription {
 	public int getPoints() { 
 		int points = 0;
 		
-		for (ModelDescription m : models.keySet()) {
-			points += m.getBasePoints() * this.models.get(m);
+		for (ModelDescription m : models) {
+			points += m.getBasePoints();
 		}
 		
 		return points;
@@ -88,11 +88,7 @@ public class UnitDescription {
 	}
 	
 	public int getCurrentSize() {
-		int count = 0;
-		for (int m: models.values()) {
-			count = count + m;
-		}
-		return count;
+		return models.size();
 	}
 	
 	public Boolean sizeIsValid() {
@@ -112,12 +108,12 @@ public class UnitDescription {
 		return options;
 	}
 
-	public Map<ModelDescription, Integer> getModels() {
+	public List<ModelDescription> getModels() {
 		return models;
 	}
 	
 	public Boolean containsModel(ModelDescription model) {
-		return models.containsKey(model);
+		return models.contains(model);
 	}
 
 }

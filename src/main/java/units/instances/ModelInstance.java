@@ -1,144 +1,122 @@
 package units.instances;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import units.UnitType;
+import units.descriptions.models.ModelDescription;
 import units.descriptions.models.StatLine;
+import units.options.SelectedOption;
+import units.options.effects.Effect;
 
 public class ModelInstance {
-	private static Set<String> usedIds = new HashSet<>();
-	private String 	 id;
-	private String 	 name;
-	private int	   	 basePoints;
-	private StatLine stats;
-	private Set<UnitType> types;
-	private Set<WargearInstance> gear;
+	private final String 	 id;
+	private final ModelDescription description;
+	//private StatLine currentStats;
+	private Set<UnitType> currentTypes;
+	private Set<WargearInstance> currentGear;
+	private List<SelectedOption> selectedOptions;
+	private List<Effect> activeEffects;
 	
-	public ModelInstance(
-			String   id,
-			String   name, 
-			int      basePoints,
-			StatLine stats,
-			Set<UnitType> types,
-			Set<WargearInstance> gear) {
-		this.id = id;
-		this.name = name;
-		this.basePoints = basePoints;
-		this.stats = stats;
-		this.types = types;
-		this.gear = gear;
+	public ModelInstance(ModelDescription description){
+		this.id = UUID.randomUUID().toString();
+		this.description = description;
+		this.currentTypes = new HashSet<>(description.getTypes());
+		this.currentGear = description.getGear()
+			                .stream()
+			                .map(WargearInstance::new)
+			                .collect(Collectors.toSet());
+		this.selectedOptions = new ArrayList<>();
+		this.activeEffects = new ArrayList<>();
 	}
 	
-	public ModelInstance(
-			String   name, 
-			int      basePoints,
-			StatLine stats,
-			Set<UnitType> types,
-			Set<WargearInstance> gear) {
-		this.id = generateId();
-		this.name = name;
-		this.basePoints = basePoints;
-		this.stats = stats;
-		this.types = types;
-		this.gear = gear;
-	}
-	
-	public static Set<String> getUsedIds() {
-		return usedIds;
-	}
-
-	public static void setUsedIds(Set<String> usedIds) {
-		ModelInstance.usedIds = usedIds;
+	public ModelDescription getDescription() {
+		return description;
 	}
 
 	public String getId() {
 		return id;
 	}
 
-	public void setId(String id) {
-		this.id = id;
-	}
-
 	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
+		return description.getName();
 	}
 
 	public int getBasePoints() {
-		return basePoints;
-	}
-
-	public void setBasePoints(int basePoints) {
-		this.basePoints = basePoints;
+		return description.getBasePoints();
 	}
 	
 	public int getGearPoints() {
 		int total = 0;
-		for (WargearInstance g : gear) {
+		for (WargearInstance g : currentGear) {
 			total += g.getPoints();
 		}
 		return total;
 	}
-
-	public StatLine getStats() {
-		return stats;
+	
+	public int getTotalPoints() {
+		return getBasePoints() + getGearPoints();
 	}
 
-	public void setStats(StatLine stats) {
-		this.stats = stats;
+	public StatLine getStats() {
+		return description.getStats();
+	}
+	
+	public StatLine getCurrentStats() {
+		return null; // TODO
 	}
 
 	public Set<UnitType> getTypes() {
-		return types;
+		return Collections.unmodifiableSet(currentTypes);
 	}
 
 	public void setTypes(Set<UnitType> types) {
-		this.types = types;
+		this.currentTypes = types;
 	}
 	
 	public Boolean addType(UnitType type) {
-		return types.add(type);
+		return currentTypes.add(type);
 	}
 	
 	public Boolean removeType(UnitType type) {
-		return types.remove(type);
+		return currentTypes.remove(type);
 	}
 	
 	public Boolean isType(UnitType type) {
-		return types.contains(type);
+		return currentTypes.contains(type);
 	}
 
 	public Set<WargearInstance> getGear() {
-		return gear;
+		return Collections.unmodifiableSet(currentGear);
 	}
 
 	public void setGear(Set<WargearInstance> gear) {
-		this.gear = gear;
+		this.currentGear = gear;
 	}
 
 	public Boolean addGear(WargearInstance gear) {
-		return this.gear.add(gear);
+		return this.currentGear.add(gear);
 	}
 	
 	public Boolean removeGear(WargearInstance gear) {
-		return this.gear.remove(gear);
+		return this.currentGear.remove(gear);
 	}
 	
 	public Boolean hasGear(WargearInstance gear) {
-		return this.gear.contains(gear);
+		return this.currentGear.contains(gear);
 	}
 	
-	private String generateId() {
-		String id;
-		do {
-			id = UUID.randomUUID().toString();
-		} while(usedIds.contains(id));
-		usedIds.add(id);
-		return id;
+	public List<SelectedOption> getSelectedOptions(){
+		return selectedOptions;
 	}
+	
+	public List<Effect> getEffects(){
+		return activeEffects;
+	}
+	
 }

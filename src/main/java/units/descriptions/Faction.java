@@ -5,27 +5,16 @@ import java.util.Set;
 import units.descriptions.wargear.WargearDescription;
 
 public class Faction {
-	private String id;
 	private String name;
 	private Set<UnitDescription> units;
 	private Set<WargearDescription> wargear;
 	
-	public Faction(	String id, 
-					String name, 
+	public Faction( String name, 
 					Set<UnitDescription> units, 
 					Set<WargearDescription> wargear) {
-		this.id = id;
 		this.name = name;
 		this.units = units;
 		this.wargear = wargear;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
 	}
 
 	public String getName() {

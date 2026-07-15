@@ -5,6 +5,51 @@ package units.descriptions.models;
  */
 public class StatLineFactory {
 
+	private static final String INFANTRY = "infantry";
+	private static final String VEHICLE = "vehicle";
+	private static final String WALKER = "walker";
+	
+	public static StatLine copy(StatLine stats) {
+		if (INFANTRY.equalsIgnoreCase(stats.getType())) {
+			return get(
+					stats.getName(),
+					stats.getWs(),
+					stats.getBs(),
+					stats.getS(),
+					stats.getT(),
+					stats.getW(),
+					stats.getI(),
+					stats.getA(),
+					stats.getLd(),
+					stats.getSv()
+					);
+		}
+		if (VEHICLE.equalsIgnoreCase(stats.getType())) {
+			return get(
+					stats.getName(),
+					stats.getBs(),
+					stats.getFront(),
+					stats.getSide(),
+					stats.getRear()
+					);
+		}
+		
+		if (WALKER.equalsIgnoreCase(stats.getType())) {
+			return get(
+					stats.getName(),
+					stats.getBs(),
+					stats.getWs(),
+					stats.getS(),
+					stats.getI(),
+					stats.getA(),
+					stats.getFront(),
+					stats.getSide(),
+					stats.getRear()
+					);
+		}
+		return new StatLineInfantry("",0,0,0,0,0,0,0,0,0);
+	}
+	
 	/**
 	 * Create a standard infantry statline
 	 * 
