@@ -1,9 +1,13 @@
 package units.models;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import units.descriptions.models.StatLine;
+import units.descriptions.models.StatLineWalker;
 
 class StatLineWalkerTest {
 	private static String   ID = "testID";

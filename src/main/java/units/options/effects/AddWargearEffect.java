@@ -1,16 +1,16 @@
 package units.options.effects;
 
-import units.models.ModelDescription;
-import units.wargear.WargearDescription;
+import units.instances.ModelInstance;
+import units.instances.WargearInstance;
 
 public class AddWargearEffect implements Effect {
 
-	private WargearDescription gear;
-	private ModelDescription model;
+	private WargearInstance gear;
+	private ModelInstance model;
 	
 	public AddWargearEffect(
-			WargearDescription gear,
-			ModelDescription  model) {
+			WargearInstance gear,
+			ModelInstance  model) {
 		this.gear = gear;
 		this.model = model;
 	}

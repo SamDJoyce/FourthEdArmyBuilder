@@ -1,6 +1,6 @@
 package units.options.requirements;
 
-import units.UnitDescription;
+import units.descriptions.UnitDescription;
 import units.options.OptionChoice;
 import units.options.OptionGroup;
 

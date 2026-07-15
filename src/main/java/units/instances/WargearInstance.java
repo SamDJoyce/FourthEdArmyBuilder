@@ -1,19 +1,22 @@
-package units.wargear;
+package units.instances;
 
-public class WargearDescription {
+import units.WargearType;
+
+public class WargearInstance {
 
 	private String name;
 	private WargearType type;
 	private int points;
 	
-	public WargearDescription(
+	public WargearInstance(
 			String name,
 			WargearType type) {
 		this.name = name;
 		this.type = type;
+		this.points = 0;
 	}
 	
-	public WargearDescription(
+	public WargearInstance(
 			String name,
 			WargearType type,
 			int points) {
@@ -45,5 +48,4 @@ public class WargearDescription {
 	public int getPoints() {
 		return this.points;
 	}
-	
 }

@@ -1,6 +1,10 @@
 package units;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -11,11 +15,12 @@ import java.util.Set;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import units.models.ModelDescFactory;
-import units.models.ModelDescription;
-import units.models.StatLine;
-import units.models.StatLineInfantry;
-import units.wargear.WargearDescription;
+import units.descriptions.UnitDescription;
+import units.descriptions.models.ModelDescFactory;
+import units.descriptions.models.ModelDescription;
+import units.descriptions.models.StatLine;
+import units.descriptions.models.StatLineInfantry;
+import units.descriptions.wargear.WargearDescription;
 
 class UnitDescriptionTest {
 	private static String     UNIT_ID = "unitID";
@@ -39,7 +44,7 @@ class UnitDescriptionTest {
 	
 	@BeforeEach
 	void setUp() {
-		s = new StatLineInfantry(MODEL_ID,MODEL_NAME, 1,2,3,4,5,6,7,8,9);
+		s = new StatLineInfantry(MODEL_NAME, 1,2,3,4,5,6,7,8,9);
 		t = new HashSet<>(Arrays.asList(TYPES));
 		g = new HashSet<>();
 		m = ModelDescFactory.get(MODEL_ID, MODEL_NAME, POINTS, s, t, g);
@@ -63,7 +68,6 @@ class UnitDescriptionTest {
 	
 	@Test
 	void testFieldsAreSet() {
-		assertEquals(UNIT_ID,u.getId());
 		assertEquals(UNIT_NAME,u.getName());
 		assertEquals(HQ, u.getRole());
 		assertEquals(MAX,u.getMaxSize());
@@ -157,8 +161,6 @@ class UnitDescriptionTest {
 		u = new UnitDescription.Builder()
 				.setName(UNIT_NAME)
 				.build();
-		//System.out.println(u.getName() + " : " +u.getId());
-		assertNotNull(u.getId());
 	}
 
 }

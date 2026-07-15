@@ -1,14 +1,8 @@
-package units.models;
-
-import java.util.HashSet;
-import java.util.Set;
-import java.util.UUID;
+package units.descriptions.models;
 
 public class StatLineInfantry implements StatLine {
-	private static Set<String> usedIds = new HashSet<>();
 	private final static String type = "infantry";
 	
-	private String id;
 	private String name;
 	private int bs;
 	private int ws;
@@ -19,31 +13,7 @@ public class StatLineInfantry implements StatLine {
 	private int a;
 	private int ld;
 	private int sv;
-	
-	public StatLineInfantry(
-							String id,
-							String name, 
-							int ws, 
-							int bs, 
-							int s, 
-							int t, 
-							int w, 
-							int i, 
-							int a, 
-							int ld, 
-							int sv) {
-		this.id = id;
-		this.name = name;
-		this.bs = bs;
-		this.ws = ws;
-		this.s = s;
-		this.t = t;
-		this.w = w;
-		this.i = i;
-		this.a = a;
-		this.ld = ld;
-		this.sv = sv;
-	}
+
 	 
 	public StatLineInfantry(
 			String name, 
@@ -67,15 +37,7 @@ public class StatLineInfantry implements StatLine {
 		this.ld = ld;
 		this.sv = sv;
 	}
-	
-	public String getId() {
-		return this.id;
-	}
-	
-	public void setId(String id) {
-		this.id = id;
-	}
-	
+
 	public String getName() {
 		return this.name;
 	}
@@ -89,8 +51,7 @@ public class StatLineInfantry implements StatLine {
 	}
 	
 	public String statsToString() {
-		return " ID = " + this.id + " \n " +
-				"Name = " + this.name + " \n " +
+		return  "Name = " + this.name + " \n " +
 				"WS = " + this.ws + " \n " +
 				"BS = " + this.bs + " \n " +
 				"S = " + this.s + " \n " +

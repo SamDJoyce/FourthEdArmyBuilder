@@ -1,51 +1,56 @@
-package units.models;
+package units.instances;
 
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
 import units.UnitType;
-import units.wargear.WargearDescription;
+import units.descriptions.models.StatLine;
 
-public class ModelDescription {
+public class ModelInstance {
 	private static Set<String> usedIds = new HashSet<>();
-	
 	private String 	 id;
 	private String 	 name;
 	private int	   	 basePoints;
 	private StatLine stats;
 	private Set<UnitType> types;
-	private Set<WargearDescription> gear;
+	private Set<WargearInstance> gear;
 	
-	public ModelDescription(
+	public ModelInstance(
 			String   id,
 			String   name, 
 			int      basePoints,
 			StatLine stats,
 			Set<UnitType> types,
-			Set<WargearDescription> gear) {
+			Set<WargearInstance> gear) {
 		this.id = id;
 		this.name = name;
 		this.basePoints = basePoints;
 		this.stats = stats;
-		this.stats.setId(this.id);
 		this.types = types;
 		this.gear = gear;
 	}
 	
-	public ModelDescription(
+	public ModelInstance(
 			String   name, 
 			int      basePoints,
 			StatLine stats,
 			Set<UnitType> types,
-			Set<WargearDescription> gear) {
+			Set<WargearInstance> gear) {
 		this.id = generateId();
 		this.name = name;
 		this.basePoints = basePoints;
 		this.stats = stats;
-		this.stats.setId(this.id);
 		this.types = types;
 		this.gear = gear;
+	}
+	
+	public static Set<String> getUsedIds() {
+		return usedIds;
+	}
+
+	public static void setUsedIds(Set<String> usedIds) {
+		ModelInstance.usedIds = usedIds;
 	}
 
 	public String getId() {
@@ -71,6 +76,14 @@ public class ModelDescription {
 	public void setBasePoints(int basePoints) {
 		this.basePoints = basePoints;
 	}
+	
+	public int getGearPoints() {
+		int total = 0;
+		for (WargearInstance g : gear) {
+			total += g.getPoints();
+		}
+		return total;
+	}
 
 	public StatLine getStats() {
 		return stats;
@@ -79,11 +92,11 @@ public class ModelDescription {
 	public void setStats(StatLine stats) {
 		this.stats = stats;
 	}
-	
-	public Set<UnitType> getTypes(){
+
+	public Set<UnitType> getTypes() {
 		return types;
 	}
-	
+
 	public void setTypes(Set<UnitType> types) {
 		this.types = types;
 	}
@@ -99,27 +112,27 @@ public class ModelDescription {
 	public Boolean isType(UnitType type) {
 		return types.contains(type);
 	}
-	
-	public Set<WargearDescription> getGear(){
+
+	public Set<WargearInstance> getGear() {
 		return gear;
 	}
-	
-	public void setGear(Set<WargearDescription> gear) {
+
+	public void setGear(Set<WargearInstance> gear) {
 		this.gear = gear;
 	}
-	
-	public Boolean addGear(WargearDescription gear) {
+
+	public Boolean addGear(WargearInstance gear) {
 		return this.gear.add(gear);
 	}
 	
-	public Boolean removeGear(WargearDescription gear) {
+	public Boolean removeGear(WargearInstance gear) {
 		return this.gear.remove(gear);
 	}
 	
-	public Boolean hasGear(WargearDescription gear) {
+	public Boolean hasGear(WargearInstance gear) {
 		return this.gear.contains(gear);
 	}
-
+	
 	private String generateId() {
 		String id;
 		do {
@@ -128,5 +141,4 @@ public class ModelDescription {
 		usedIds.add(id);
 		return id;
 	}
-
 }

@@ -1,15 +1,15 @@
 package units.options.effects;
 
 import units.UnitType;
-import units.models.ModelDescription;
+import units.instances.ModelInstance;
 
 public class RemoveTypeEffect implements Effect {
 
-	private ModelDescription model;
+	private ModelInstance model;
 	private UnitType type;
 	
 	public RemoveTypeEffect(
-			ModelDescription model, 
+			ModelInstance model, 
 			UnitType type) {
 		this.model = model;
 		this.type = type;

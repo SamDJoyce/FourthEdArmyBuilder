@@ -1,30 +1,14 @@
-package units.models;
+package units.descriptions.models;
 
 public class StatLineVehicle implements StatLine {
 
 	private final static String type = "vehicle";
 	
-	private String id;
 	private String name;
 	private int bs;
 	private int front;
 	private int side;
 	private int rear;
-	
-	public StatLineVehicle(
-			String id, 
-			String name, 
-			int bs,
-			int front,
-			int side,
-			int rear) {
-		this.id    = id;
-		this.name  = name;
-		this.bs    = bs;
-		this.front = front;
-		this.side  = side;
-		this.rear  = rear;
-	}
 	
 	public StatLineVehicle( 
 			String name, 
@@ -42,15 +26,7 @@ public class StatLineVehicle implements StatLine {
 	public String getType() {
 		return type;
 	}
-	
-	public String getId() {
-		return this.id;
-	}
-	
-	public void setId(String id) {
-		this.id = id;
-	}
-	
+
 	public String getName() {
 		return this.name;
 	}
@@ -94,8 +70,7 @@ public class StatLineVehicle implements StatLine {
 	}
 	
 	public String statsToString() {
-		return " ID = " + this.id + " \n " +
-				"Name = " + this.name + " \n " +
+		return  "Name = " + this.name + " \n " +
 				"BS = " + this.bs + " \n " +
 				"Front = " + this.front + " \n " +
 				"Side = " + this.side + " \n " +

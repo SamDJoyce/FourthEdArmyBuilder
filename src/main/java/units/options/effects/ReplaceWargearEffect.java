@@ -2,19 +2,19 @@ package units.options.effects;
 
 import java.util.List;
 
-import units.models.ModelDescription;
-import units.wargear.WargearDescription;
+import units.instances.ModelInstance;
+import units.instances.WargearInstance;
 
 public class ReplaceWargearEffect implements Effect {
 
-	private List<WargearDescription> oldGear;
-	private List<WargearDescription> newGear;
-	private ModelDescription model;
+	private List<WargearInstance> oldGear;
+	private List<WargearInstance> newGear;
+	private ModelInstance model;
 	
 	public ReplaceWargearEffect(
-			List<WargearDescription> newGear,
-			List<WargearDescription> oldGear,
-			ModelDescription  model) {
+			List<WargearInstance> newGear,
+			List<WargearInstance> oldGear,
+			ModelInstance  model) {
 		this.newGear = newGear;
 		this.oldGear = oldGear;
 		this.model = model;
@@ -23,20 +23,20 @@ public class ReplaceWargearEffect implements Effect {
 	
 	@Override
 	public void doEffect() {
-		for (WargearDescription g : oldGear) {
+		for (WargearInstance g : oldGear) {
 			model.removeGear(g);
 		}
-		for (WargearDescription g : newGear) {
+		for (WargearInstance g : newGear) {
 			model.addGear(g);
 		}
 	}
 
 	@Override
 	public void undoEffect() {
-		for (WargearDescription g : newGear) {
+		for (WargearInstance g : newGear) {
 			model.removeGear(g);
 		}
-		for (WargearDescription g : oldGear) {
+		for (WargearInstance g : oldGear) {
 			model.addGear(g);
 		}
 

@@ -1,7 +1,7 @@
 package units.options.effects;
 
-import units.models.ModelDescription;
-import units.models.StatLine;
+import units.descriptions.models.StatLine;
+import units.instances.ModelInstance;
 
 public class ChangeStatEffect implements Effect {
 
@@ -16,12 +16,12 @@ public class ChangeStatEffect implements Effect {
 	private static String SV = "sv";
 	
 
-	private ModelDescription model;
+	private ModelInstance model;
 	private String 			 changedStat;
 	private int 			 changeValue;
 	
 	public ChangeStatEffect(
-			ModelDescription model, 
+			ModelInstance model, 
 			String changedStat, 
 			int changeValue) {
 		this.model = model;

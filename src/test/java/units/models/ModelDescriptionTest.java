@@ -12,6 +12,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import units.UnitType;
+import units.descriptions.models.ModelDescFactory;
+import units.descriptions.models.ModelDescription;
+import units.descriptions.models.StatLine;
+import units.descriptions.models.StatLineInfantry;
 import units.wargear.WargearDescription;
 
 class ModelDescriptionTest {

@@ -1,6 +1,7 @@
 package units.options.requirements;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -11,14 +12,14 @@ import java.util.Set;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import units.UnitDescFactory;
-import units.UnitDescription;
 import units.UnitRole;
 import units.UnitType;
-import units.models.ModelDescFactory;
-import units.models.ModelDescription;
-import units.models.StatLine;
-import units.models.StatLineFactory;
+import units.descriptions.UnitDescFactory;
+import units.descriptions.UnitDescription;
+import units.descriptions.models.ModelDescFactory;
+import units.descriptions.models.ModelDescription;
+import units.descriptions.models.StatLine;
+import units.descriptions.models.StatLineFactory;
 import units.wargear.WargearDescription;
 
 class MinSquadSizeReqTest {

@@ -2,8 +2,8 @@ package units.options.requirements;
 
 import java.util.List;
 
-import units.UnitDescription;
-import units.models.ModelDescription;
+import units.descriptions.UnitDescription;
+import units.descriptions.models.ModelDescription;
 import units.options.OptionChoice;
 import units.options.OptionGroup;
 

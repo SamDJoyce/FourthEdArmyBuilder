@@ -3,8 +3,7 @@ package roster;
 import java.util.List;
 
 import forceOrg.ForceOrgChart;
-import units.UnitDescription;
-import units.UnitRole;
+import units.descriptions.UnitDescription;
 
 public class Roster {
 

@@ -1,8 +1,8 @@
-package units;
+package units.descriptions;
 
 import java.util.Set;
 
-import units.wargear.WargearDescription;
+import units.descriptions.wargear.WargearDescription;
 
 public class Faction {
 	private String id;

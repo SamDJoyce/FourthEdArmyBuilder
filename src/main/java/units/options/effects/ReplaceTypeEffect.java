@@ -1,17 +1,17 @@
 package units.options.effects;
 
 import units.UnitType;
-import units.models.ModelDescription;
+import units.instances.ModelInstance;
 
 public class ReplaceTypeEffect implements Effect {
 
 
-	private ModelDescription model;
+	private ModelInstance model;
 	private UnitType newType;
 	private UnitType oldType;
 	
 	public ReplaceTypeEffect(
-			ModelDescription model, 
+			ModelInstance model, 
 			UnitType newType, 
 			UnitType oldType) {
 		this.model   = model;

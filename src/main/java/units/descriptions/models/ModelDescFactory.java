@@ -1,9 +1,9 @@
-package units.models;
+package units.descriptions.models;
 
 import java.util.Set;
 
 import units.UnitType;
-import units.wargear.WargearDescription;
+import units.descriptions.wargear.WargearDescription;
 
 public class ModelDescFactory {
 	private ModelDescFactory() {}
@@ -18,7 +18,6 @@ public class ModelDescFactory {
 						Set<WargearDescription> gear) {
 		
 		return new ModelDescription(
-					id,
 					name,
 					basePoints,
 					stats,
@@ -33,13 +32,13 @@ public class ModelDescFactory {
 			Set<UnitType> types,
 			Set<WargearDescription> gear) {
 
-return new ModelDescription(
-		name,
-		basePoints,
-		stats,
-		types,
-		gear);
-}
+		return new ModelDescription(
+				name,
+				basePoints,
+				stats,
+				types,
+				gear);
+	}
 	
 	/**
 	 * Create an Infantry/standard ModelDescription
@@ -74,10 +73,10 @@ return new ModelDescription(
 						int sv,
 						Set<UnitType> types,
 						Set<WargearDescription> gear) {
-		return new ModelDescription(id, 
+		return new ModelDescription( 
 									name, 
 									basePoints, 
-									StatLineFactory.get(id, name, ws, bs,s,t,w,i,a,ld,sv), 
+									StatLineFactory.get(name, ws, bs,s,t,w,i,a,ld,sv), 
 									types,
 									gear);
 	}
@@ -144,10 +143,10 @@ return new ModelDescription(
 						int rear,
 						Set<UnitType> types,
 						Set<WargearDescription> gear) {
-		return new ModelDescription(id,
+		return new ModelDescription(
 									name,
 									basePoints,
-									StatLineFactory.get(id, name, bs, front, side, rear),
+									StatLineFactory.get(name, bs, front, side, rear),
 									types,
 									gear);
 	}
@@ -183,10 +182,10 @@ return new ModelDescription(
 						int rear,
 						Set<UnitType> types,
 						Set<WargearDescription> gear) {
-		return new ModelDescription(id,
+		return new ModelDescription(
 									name,
 									basePoints,
-									StatLineFactory.get(id, name, bs, ws, s, i, a, front, side, rear),
+									StatLineFactory.get(name, bs, ws, s, i, a, front, side, rear),
 									types,
 									gear);
 	}

@@ -1,10 +1,7 @@
-package units.models;
+package units.descriptions.models;
 
 public interface StatLine {
 	
-	String getId();
-	void setId(String id);
-
 	String getName();
 	void setName(String name);
 	

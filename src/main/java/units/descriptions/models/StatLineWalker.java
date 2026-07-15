@@ -1,10 +1,9 @@
-package units.models;
+package units.descriptions.models;
 
 public class StatLineWalker implements StatLine {
 
 	private static final String type = "walker";
 	
-	private String id;
 	private String name;
 	private int bs;
 	private int ws;
@@ -14,29 +13,6 @@ public class StatLineWalker implements StatLine {
 	private int front;
 	private int side;
 	private int rear;
-	
-	public StatLineWalker(
-				String id, 
-				String name, 
-				int ws,
-				int bs,
-				int s,
-				int i,
-				int a,
-				int front,
-				int side,
-				int rear) {
-		this.id = id;
-		this.name = name;
-		this.bs = bs;
-		this.ws = ws;
-		this.s = s;
-		this.i = i;
-		this.a = a;
-		this.front = front;
-		this.side = side;
-		this.rear = rear;
-	}
 	
 	public StatLineWalker(
 			String name, 
@@ -62,15 +38,7 @@ public class StatLineWalker implements StatLine {
 	public String getType() {
 		return type;
 	}
-	
-	public String getId() {
-		return this.id;
-	}
-	
-	public void setId(String id) {
-		this.id = id;
-	}
-	
+
 	public String getName() {
 		return this.name;
 	}
@@ -136,8 +104,7 @@ public class StatLineWalker implements StatLine {
 	}
 	
 	public String statsToString() {
-		return " ID = " + this.id + " \n " +
-				"Name = " + this.name + " \n " +
+		return 	"Name = " + this.name + " \n " +
 				"WS = " + this.ws + " \n " +
 				"BS = " + this.bs + " \n " +
 				"S = " + this.s + " \n " +

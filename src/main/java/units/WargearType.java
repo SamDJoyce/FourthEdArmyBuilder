@@ -1,4 +1,4 @@
-package units.wargear;
+package units;
 
 public enum WargearType {
 	ONE_HANDED("one handed"),

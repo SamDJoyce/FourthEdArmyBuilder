@@ -1,6 +1,6 @@
 package units.options.requirements;
 
-import units.UnitDescription;
+import units.descriptions.UnitDescription;
 
 public class MinSquadSizeReq implements Requirement {
 	private int minSize;

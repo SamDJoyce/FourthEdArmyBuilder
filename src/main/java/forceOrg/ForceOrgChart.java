@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import forceOrg.validationRules.ValidationRule;
-import units.UnitDescription;
 import units.UnitRole;
+import units.descriptions.UnitDescription;
 
 public class ForceOrgChart {
 

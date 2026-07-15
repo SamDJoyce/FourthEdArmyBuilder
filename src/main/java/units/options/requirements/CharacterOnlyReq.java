@@ -1,7 +1,7 @@
 package units.options.requirements;
 
 import units.UnitType;
-import units.models.ModelDescription;
+import units.descriptions.models.ModelDescription;
 
 public class CharacterOnlyReq implements Requirement {
 
