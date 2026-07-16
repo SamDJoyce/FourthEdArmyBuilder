@@ -1,28 +1,30 @@
 package units.options.effects;
 
-import units.instances.ModelInstance;
+import units.descriptions.wargear.WargearDescription;
 import units.instances.WargearInstance;
 
 public class AddWargearEffect implements Effect {
 
-	private WargearInstance gear;
-	private ModelInstance model;
+	private final WargearDescription gear;
 	
-	public AddWargearEffect(
-			WargearInstance gear,
-			ModelInstance  model) {
+	public AddWargearEffect(WargearDescription gear) {
 		this.gear = gear;
-		this.model = model;
 	}
 	
 	@Override
-	public void doEffect() {
-		model.addGear(gear);
+	public void apply(EffectContext context) {
+		if (!context.hasModel()) {
+			return;
+		}
+		context.getModel().addGear(new WargearInstance(gear));
 	}
-
+	
 	@Override
-	public void undoEffect() {
-		model.removeGear(gear);
+	public void remove(EffectContext context) {
+		if (!context.hasModel()) {
+			return;
+		}
+		context.getModel().removeGear(gear);
 	}
 
 }

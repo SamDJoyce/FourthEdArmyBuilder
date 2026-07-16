@@ -30,4 +30,8 @@ public class WargearInstance {
 	public int getPoints() {
 		return this.points;
 	}
+	
+	public WargearDescription getDescription() {
+		return this.description;
+	}
 }

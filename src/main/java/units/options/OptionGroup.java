@@ -6,99 +6,42 @@ import units.options.requirements.Requirement;
 
 public class OptionGroup {
 	private String name;
-	private int minSelection;
-	private int maxSelection;
 	private List<OptionChoice> choices;
 	private List<Requirement> requirements;
+	private int minSelections;
+	private int maxSelections;
 	
 	public OptionGroup(
 			String name,
-			int minSelection,
-			int maxSelection,
 			List<OptionChoice> choices,
-			List<Requirement> requirements) {
+			List<Requirement> requirements,
+			int minSelections,
+			int maxSelections) {
 		this.name = name;
-		this.minSelection = minSelection;
-		this.maxSelection = maxSelection;
 		this.choices = choices;
 		this.requirements = requirements;
+		this.minSelections = minSelections;
+		this.maxSelections = maxSelections;
 	}
 
 	public String getName() {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public int getMinSelection() {
-		return minSelection;
-	}
-
-	public void setMinSelection(int minSelection) {
-		this.minSelection = minSelection;
-	}
-
-	public int getMaxSelection() {
-		return maxSelection;
-	}
-	
-
-	public void setMaxSelection(int maxSelection) {
-		this.maxSelection = maxSelection;
-	}
-
 	public List<OptionChoice> getChoices() {
 		return choices;
-	}
-
-	public void setChoices(List<OptionChoice> choices) {
-		this.choices = choices;
-	}
-	
-	public Boolean addChoice(OptionChoice choice) {
-		return this.choices.add(choice);
-	}
-	
-	public Boolean removeChoice(OptionChoice choice) {
-		return this.choices.remove(choice);
 	}
 
 	public List<Requirement> getRequirements() {
 		return requirements;
 	}
 	
-	public Boolean addRequirement(Requirement requirement) {
-		return this.requirements.add(requirement);
-	}
-
-	public Boolean removeRequirement(Requirement requirement) {
-		return this.requirements.remove(requirement);
+	public int getMinSelections() {
+		return minSelections;
 	}
 	
-	public void setRequirements(List<Requirement> requirements) {
-		this.requirements = requirements;
-	}
-	
-//	public Boolean reqsSatisfied() {
-//		for (Requirement r : requirements) {
-//			if (!r.isSatisfied()) {
-//				return false;
-//			}
-//		}
-//		return true;
-//	}
-	
-	public int getCurrentSelectionCount(OptionChoice choice) {
-		int count = 0;
-		for (OptionChoice c : choices) {
-			if (choice.equals(c)
-			&&  c.isSelected()) {
-				count++;
-			}
-		}
-		return count;
+	public int getMaxSelections() {
+		return maxSelections;
 	}
 	
 }

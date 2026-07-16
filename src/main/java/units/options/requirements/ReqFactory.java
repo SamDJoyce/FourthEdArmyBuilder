@@ -2,7 +2,6 @@ package units.options.requirements;
 
 import java.util.List;
 
-import units.descriptions.UnitDescription;
 import units.descriptions.models.ModelDescription;
 import units.options.OptionChoice;
 import units.options.OptionGroup;
@@ -32,8 +31,7 @@ public class ReqFactory {
 	public static ModelCountReq get(
 			ModelDescription model,
 			int minimum,
-			int maximum,
-			String message
+			int maximum
 			) {
 		return new ModelCountReq(
 				model,

@@ -1,7 +1,5 @@
 package units.options.requirements;
 
-import units.options.ValidationContext;
-
 public class MaxSelectionReq implements Requirement {
 
 	private int maxSelection;
@@ -14,10 +12,10 @@ public class MaxSelectionReq implements Requirement {
 	}
 	
 	@Override
-	public ValidationResult validate(ValidationContext context) {
+	public RequirementResult validate(RequirementContext context) {
 		if (!context.hasOption()) {
 			message = "MaxSelectionRequirement needs a SelectedOption";
-			return ValidationResult.failure(null);
+			return RequirementResult.failure(null);
 		}
 		
 		if (context.getOption().getNumSelected() <= maxSelection) {
@@ -26,7 +24,7 @@ public class MaxSelectionReq implements Requirement {
 					context.getOption().getNumSelected(),
 					maxSelection
 					);
-			return ValidationResult.success(message);
+			return RequirementResult.success(message);
 		}
 		else {
 			message = String.format(
@@ -34,7 +32,7 @@ public class MaxSelectionReq implements Requirement {
 					maxSelection,
 					context.getOption().getNumSelected()
 					);
-			return ValidationResult.failure(message);
+			return RequirementResult.failure(message);
 		}
 	}
 }

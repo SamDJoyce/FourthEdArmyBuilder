@@ -1,7 +1,6 @@
 package units.options.requirements;
 
 import units.descriptions.models.ModelDescription;
-import units.options.ValidationContext;
 
 public class MaxPerModelCountReq implements Requirement {
 
@@ -18,10 +17,10 @@ public class MaxPerModelCountReq implements Requirement {
 	}
 	
 	@Override
-	public ValidationResult validate(ValidationContext context) {
+	public RequirementResult validate(RequirementContext context) {
 		if (!context.hasUnit()) {
 			message = "ForEachMultipleRequirement needs an UnitInstance.";
-			return ValidationResult.failure(message);
+			return RequirementResult.failure(message);
 		}
 		if (!context.hasOption()) {
 			message = "ForEachMultipleRequirement needs a SelectedOption";
@@ -32,11 +31,11 @@ public class MaxPerModelCountReq implements Requirement {
 		int selected = context.getOption().getNumSelected();
 		
        if (selected <= allowedSelections) {
-            return ValidationResult.success(
+            return RequirementResult.success(
                 "Selection limit satisfied."
             );
        }
-       return ValidationResult.failure(
+       return RequirementResult.failure(
                String.format(
                    "Only %d selections allowed for %d %s.",
                    allowedSelections,

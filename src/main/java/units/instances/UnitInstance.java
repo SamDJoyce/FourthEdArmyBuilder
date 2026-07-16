@@ -1,6 +1,7 @@
 package units.instances;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -10,18 +11,21 @@ import units.UnitRole;
 import units.UnitType;
 import units.descriptions.UnitDescription;
 import units.descriptions.models.ModelDescription;
+import units.options.OptionChoice;
+import units.options.SelectedOption;
 
 public class UnitInstance {
 	// Fields
-	private static Set<String> usedIds = new HashSet<>();
 	private final String   id;
 	private final UnitDescription description;
 	private List<ModelInstance> models;
+	private List<SelectedOption> selectedOptions;
 	
 	public UnitInstance(UnitDescription description) {
-		this.id = generateId();
+		this.id = UUID.randomUUID().toString();
 		this.description = description;
 		this.models = fromDescriptions(description.getModels());
+		this.selectedOptions = new ArrayList<>();//fromOptionGroups();
 	}
 	
 	public String getId() {
@@ -72,7 +76,7 @@ public class UnitInstance {
 	}
 
 	public List<ModelInstance> getModels() {
-		return models;
+		return Collections.unmodifiableList(models);
 	}
 	
 	public Boolean containsModel(ModelInstance model) {
@@ -99,10 +103,11 @@ public class UnitInstance {
 	}
 
 	public Set<UnitType> getTypes() {
-		if (models == null || models.isEmpty()) {
-			return new HashSet<UnitType>();
-		}
 		Set<UnitType> types = new HashSet<UnitType>();
+		
+		if (models == null || models.isEmpty()) {
+			return types;
+		}
 		// Pull each model
 		for (ModelInstance m: models) {
 			// Pull each model's types and add them to the set
@@ -125,26 +130,57 @@ public class UnitInstance {
 		return total;
 	}
 	
-	public static List<ModelInstance> fromDescriptions(List<ModelDescription> descriptions) {
+	public List<SelectedOption> getSelectedOptions(){
+		return Collections.unmodifiableList(selectedOptions);
+	}
+	
+	public void addSelection(OptionChoice choice) {
+		for (SelectedOption selected : selectedOptions) {
+			if(selected.getChoice().equals(choice)) {
+				selected.increaseSelected();
+				return;
+			}
+		}
+		selectedOptions.add(new SelectedOption(choice,1));
+	}
+	
+	public void removeSelection(OptionChoice choice) {
+		for (SelectedOption selected : selectedOptions) {
+			if(selected.getChoice().equals(choice)) {
+				selected.decreaseSelected();
+				if (selected.getNumSelected() <= 0) {
+					selectedOptions.remove(selected);
+				}
+				return;
+			}
+		}
+	}
+	
+	public int getOptionCount(OptionChoice choice) {
+		int count = 0;
+		for (SelectedOption o : selectedOptions) {
+			if (o.getChoice().equals(choice)) {
+				count += o.getNumSelected();
+			}
+		}
+		return count;
+	}
+	
+	public boolean hasOption(OptionChoice choice) {
+		for(SelectedOption o : selectedOptions) {
+			if (o.getChoice().equals(choice)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	private List<ModelInstance> fromDescriptions(List<ModelDescription> descriptions) {
 		List<ModelInstance> instances = new ArrayList<>();
 		
 		for (ModelDescription d : descriptions) {
 			instances.add(new ModelInstance(d));
 		}
-		
 		return instances;
-	}
-	
-	public static ModelInstance fromDescription(ModelDescription description) {
-		return new ModelInstance(description);
-	}
-	
-	private String generateId() {
-		String id;
-		do {
-			id = UUID.randomUUID().toString();
-		} while(usedIds.contains(id));
-		usedIds.add(id);
-		return id;
 	}
 }

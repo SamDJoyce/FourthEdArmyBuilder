@@ -1,6 +1,6 @@
 package units.options.effects;
 
 public interface Effect {
-	void doEffect();
-	void undoEffect();
+	void apply(EffectContext context);
+	void remove(EffectContext context);
 }

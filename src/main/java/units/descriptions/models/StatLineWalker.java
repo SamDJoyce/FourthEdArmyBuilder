@@ -35,6 +35,33 @@ public class StatLineWalker implements StatLine {
 		this.rear = rear;
 	}
 	
+	public void modify(String stat, int modifier) {
+		if ("ws".equalsIgnoreCase(stat)) {
+			ws += modifier;
+		}
+		if ("bs".equalsIgnoreCase(stat)) {
+			bs += modifier;
+		}
+		if ("s".equalsIgnoreCase(stat)) {
+			s += modifier;
+		}
+		if ("i".equalsIgnoreCase(stat)) {
+			i += modifier;
+		}
+		if ("a".equalsIgnoreCase(stat)) {
+			a += modifier;
+		}
+		if ("front".equalsIgnoreCase(stat)) {
+			front += modifier;
+		}
+		if ("side".equalsIgnoreCase(stat)) {
+			side += modifier;
+		}
+		if ("rear".equalsIgnoreCase(stat)) {
+			rear += modifier;
+		}
+	}
+	
 	public String getType() {
 		return type;
 	}

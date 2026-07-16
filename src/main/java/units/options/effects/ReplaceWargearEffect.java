@@ -1,45 +1,27 @@
 package units.options.effects;
 
-import java.util.List;
-
-import units.instances.ModelInstance;
-import units.instances.WargearInstance;
+import units.descriptions.wargear.WargearDescription;
 
 public class ReplaceWargearEffect implements Effect {
 
-	private List<WargearInstance> oldGear;
-	private List<WargearInstance> newGear;
-	private ModelInstance model;
+	private final WargearDescription remove;
+	private final WargearDescription add;
 	
-	public ReplaceWargearEffect(
-			List<WargearInstance> newGear,
-			List<WargearInstance> oldGear,
-			ModelInstance  model) {
-		this.newGear = newGear;
-		this.oldGear = oldGear;
-		this.model = model;
+	public ReplaceWargearEffect(WargearDescription remove,WargearDescription add) {
+		this.remove = remove;
+		this.add = add;
 	}
 	
+	@Override
+	public void apply(EffectContext context) {
+		context.getModel().removeGear(remove);
+		context.getModel().addGear(add);
+	}
 	
 	@Override
-	public void doEffect() {
-		for (WargearInstance g : oldGear) {
-			model.removeGear(g);
-		}
-		for (WargearInstance g : newGear) {
-			model.addGear(g);
-		}
-	}
-
-	@Override
-	public void undoEffect() {
-		for (WargearInstance g : newGear) {
-			model.removeGear(g);
-		}
-		for (WargearInstance g : oldGear) {
-			model.addGear(g);
-		}
-
+	public void remove(EffectContext context) {
+		context.getModel().removeGear(add);
+		context.getModel().addGear(remove);
 	}
 
 }

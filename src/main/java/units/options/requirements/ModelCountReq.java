@@ -1,7 +1,6 @@
 package units.options.requirements;
 
 import units.descriptions.models.ModelDescription;
-import units.options.ValidationContext;
 
 public class ModelCountReq implements Requirement {
 
@@ -21,10 +20,10 @@ public class ModelCountReq implements Requirement {
     }
 	
 	@Override
-	public ValidationResult validate(ValidationContext context) {
+	public RequirementResult validate(RequirementContext context) {
 		if (!context.hasUnit()) {
 			message = "ModelCountRequirement needs an UnitInstance";
-			return ValidationResult.failure(message);
+			return RequirementResult.failure(message);
 		}
 		
 		int count = context.getUnit().getModelCount(model);
@@ -35,7 +34,7 @@ public class ModelCountReq implements Requirement {
 		            model.getName(),
 		            count
 		        );
-			return ValidationResult.success(message);
+			return RequirementResult.success(message);
 		}
 		else {
 	        message = String.format(
@@ -45,7 +44,7 @@ public class ModelCountReq implements Requirement {
 	                maximum,
 	                count
 	            );
-	        return ValidationResult.failure(message);
+	        return RequirementResult.failure(message);
 		}
 		
 	}

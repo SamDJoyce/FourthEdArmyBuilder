@@ -43,5 +43,7 @@ public interface StatLine {
 	int getRear();
 	void setRear(int rear);
 	
+	void modify(String stat, int modifier);
+	
 	String statsToString();
 }

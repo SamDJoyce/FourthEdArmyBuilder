@@ -1,17 +1,18 @@
-package units.options;
+package units.options.requirements;
 
 import roster.Roster;
 import units.instances.ModelInstance;
 import units.instances.UnitInstance;
+import units.options.SelectedOption;
 
-public final class ValidationContext {
+public final class RequirementContext {
 
     private final Roster roster;
     private final UnitInstance unit;
     private final ModelInstance model;
     private final SelectedOption option;
 
-    private ValidationContext(Builder builder) {
+    private RequirementContext(Builder builder) {
         this.roster = builder.roster;
         this.unit = builder.unit;
         this.model = builder.model;
@@ -81,8 +82,8 @@ public final class ValidationContext {
             return this;
         }
 
-        public ValidationContext build() {
-            return new ValidationContext(this);
+        public RequirementContext build() {
+            return new RequirementContext(this);
         }
     }
 }

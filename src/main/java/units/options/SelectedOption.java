@@ -16,4 +16,12 @@ public class SelectedOption {
 	public int getNumSelected() {
 		return numSelected;
 	}
+	
+	public void increaseSelected() {
+		numSelected++;
+	}
+	
+	public void decreaseSelected() {
+		numSelected--;
+	}
 }

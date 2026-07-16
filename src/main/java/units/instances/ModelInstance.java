@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 import units.UnitType;
 import units.descriptions.models.ModelDescription;
 import units.descriptions.models.StatLine;
+import units.descriptions.wargear.WargearDescription;
 import units.options.SelectedOption;
 import units.options.effects.Effect;
 
@@ -103,12 +104,37 @@ public class ModelInstance {
 		return this.currentGear.add(gear);
 	}
 	
+	public Boolean addGear(WargearDescription gear) {
+		if (hasGear(gear)) {
+			return false;
+		}
+		return this.currentGear.add(new WargearInstance(gear));
+	}
+	
+	public Boolean removeGear(WargearDescription gear) {
+		for (WargearInstance i : currentGear) {
+			if (i.getDescription().equals(gear)) {
+				return currentGear.remove(i);
+			}
+		}
+		return false;
+	}
+	
 	public Boolean removeGear(WargearInstance gear) {
 		return this.currentGear.remove(gear);
 	}
 	
 	public Boolean hasGear(WargearInstance gear) {
 		return this.currentGear.contains(gear);
+	}
+	
+	public boolean hasGear(WargearDescription gear) {
+		for (WargearInstance i : currentGear) {
+			if (i.getDescription().equals(gear)) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	public List<SelectedOption> getSelectedOptions(){

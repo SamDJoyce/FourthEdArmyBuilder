@@ -4,7 +4,6 @@ import java.util.List;
 
 import units.options.OptionChoice;
 import units.options.OptionGroup;
-import units.options.ValidationContext;
 
 public class MutualExclusionReq implements Requirement {
 
@@ -19,7 +18,7 @@ public class MutualExclusionReq implements Requirement {
 	}
 	
 	@Override
-	public ValidationResult validate(ValidationContext context) {
+	public RequirementResult validate(RequirementContext context) {
 //		for (OptionChoice c : group.getChoices()) {
 //			if (c.isSelected() 
 //			&&  blockers.contains(c)) {

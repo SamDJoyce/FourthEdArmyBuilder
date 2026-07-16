@@ -23,6 +23,22 @@ public class StatLineVehicle implements StatLine {
 		this.rear  = rear;
 	}
 	
+	public void modify(String stat, int modifier) {
+
+		if ("bs".equalsIgnoreCase(stat)) {
+			bs += modifier;
+		}
+		if ("front".equalsIgnoreCase(stat)) {
+			front += modifier;
+		}
+		if ("side".equalsIgnoreCase(stat)) {
+			side += modifier;
+		}
+		if ("rear".equalsIgnoreCase(stat)) {
+			rear += modifier;
+		}
+	}
+	
 	public String getType() {
 		return type;
 	}

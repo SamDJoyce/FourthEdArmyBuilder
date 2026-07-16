@@ -1,7 +1,6 @@
 package units.options.requirements;
 
 import units.UnitType;
-import units.options.ValidationContext;
 
 public class CharacterOnlyReq implements Requirement {
 
@@ -11,19 +10,19 @@ public class CharacterOnlyReq implements Requirement {
 	}
 	
 	@Override
-	public ValidationResult validate(ValidationContext context) {
+	public RequirementResult validate(RequirementContext context) {
 		if (!context.hasModel()) {
 			message = "CharacterOnlyRequirement needs a ModelInstance";
-			return ValidationResult.failure(message);
+			return RequirementResult.failure(message);
 		}
 		Boolean valid = context.getModel().isType(UnitType.CHARACTER);
 		String name = context.getModel().getName();
 		if (valid) {
 			message = String.format("%s is a Character",name);
-			return ValidationResult.success(message);
+			return RequirementResult.success(message);
 		}
 		message = String.format("%s is not a Character",name);
-		return ValidationResult.failure(message);
+		return RequirementResult.failure(message);
 	}
 
 }

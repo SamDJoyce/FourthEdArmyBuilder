@@ -63,6 +63,36 @@ public class StatLineInfantry implements StatLine {
 				"SV = " + this.sv + "+";
 	}
 	
+	public void modify(String stat, int modifier) {
+		if ("ws".equalsIgnoreCase(stat)) {
+			ws += modifier;
+		}
+		if ("bs".equalsIgnoreCase(stat)) {
+			bs += modifier;
+		}
+		if ("s".equalsIgnoreCase(stat)) {
+			s += modifier;
+		}
+		if ("t".equalsIgnoreCase(stat)) {
+			t += modifier;
+		}
+		if ("w".equalsIgnoreCase(stat)) {
+			w += modifier;
+		}
+		if ("i".equalsIgnoreCase(stat)) {
+			i += modifier;
+		}
+		if ("a".equalsIgnoreCase(stat)) {
+			a += modifier;
+		}
+		if ("ld".equalsIgnoreCase(stat)) {
+			ld += modifier;
+		}
+		if ("sv".equalsIgnoreCase(stat)) {
+			sv += modifier;
+		}
+	}
+	
 	// Infantry Stats
 	
 	public int getBs() {
