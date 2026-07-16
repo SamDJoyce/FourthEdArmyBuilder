@@ -1,7 +1,8 @@
-package units.descriptions;
+package roster;
 
 import java.util.Set;
 
+import units.descriptions.UnitDescription;
 import units.descriptions.wargear.WargearDescription;
 
 public class Faction {

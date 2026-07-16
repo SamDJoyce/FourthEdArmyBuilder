@@ -2,9 +2,9 @@ package units.options.requirements;
 
 import java.util.List;
 
+import units.UnitType;
 import units.descriptions.models.ModelDescription;
 import units.options.OptionChoice;
-import units.options.OptionGroup;
 
 public class ReqFactory {
 	
@@ -12,10 +12,8 @@ public class ReqFactory {
 		return  new CharacterOnlyReq();
 	}
 	
-	public static MutualExclusionReq get(
-			List<OptionChoice> blockers,
-			OptionGroup group) {
-		return new MutualExclusionReq(blockers, group);
+	public static MutualExclusionReq get(List<OptionChoice> excluded) {
+		return new MutualExclusionReq(excluded);
 	}
 	
 	public static MaxSelectionReq get(int maxSelection) {
@@ -37,5 +35,9 @@ public class ReqFactory {
 				model,
 				minimum,
 				maximum);
+	}
+	
+	public static MustHaveTypeReq get(UnitType type){
+		return new MustHaveTypeReq(type);
 	}
 }

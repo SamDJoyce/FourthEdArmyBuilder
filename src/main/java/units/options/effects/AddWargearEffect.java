@@ -13,17 +13,11 @@ public class AddWargearEffect implements Effect {
 	
 	@Override
 	public void apply(EffectContext context) {
-		if (!context.hasModel()) {
-			return;
-		}
 		context.getModel().addGear(new WargearInstance(gear));
 	}
 	
 	@Override
 	public void remove(EffectContext context) {
-		if (!context.hasModel()) {
-			return;
-		}
 		context.getModel().removeGear(gear);
 	}
 

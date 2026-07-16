@@ -14,18 +14,12 @@ public class ModifyStatEffect implements Effect {
 	
 	@Override
 	public void apply(EffectContext context) {
-		if (!context.hasModel()) {
-			return;
-		}
 		StatLine stats = context.getModel().getStats();
 		stats.modify(stat,modifier);
 	}
 	
 	@Override
 	public void remove(EffectContext context) {
-		if (!context.hasModel()) {
-			return;
-		}
 		StatLine stats = context.getModel().getStats();
 		stats.modify(stat,modifier*-1);
 	}

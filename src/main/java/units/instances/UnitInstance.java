@@ -18,6 +18,7 @@ public class UnitInstance {
 	// Fields
 	private final String   id;
 	private final UnitDescription description;
+	private Set<UnitType> types;
 	private List<ModelInstance> models;
 	private List<SelectedOption> selectedOptions;
 	
@@ -25,7 +26,8 @@ public class UnitInstance {
 		this.id = UUID.randomUUID().toString();
 		this.description = description;
 		this.models = fromDescriptions(description.getModels());
-		this.selectedOptions = new ArrayList<>();//fromOptionGroups();
+		this.selectedOptions = new ArrayList<>();
+		this.types = new HashSet<>();
 	}
 	
 	public String getId() {
@@ -95,18 +97,36 @@ public class UnitInstance {
 		return true;
 	}
 	
-	public void removeModel(ModelInstance model) throws Exception {
+	public boolean removeModel(ModelInstance model){
 		if (!canRemoveModel()) {
-			return;
+			return false;
 		}
-		models.remove(model);
+		return models.remove(model);
+	}
+	
+	public boolean addType(UnitType type){
+		return types.add(type);
+	}
+	
+	public boolean removeType(UnitType type) {
+		return types.remove(type);
+	}
+	
+	public Set<UnitType> getTypes(){
+		Set<UnitType> allTypes = new HashSet<>(this.types);
+		allTypes.addAll(getTypesFromModels());
+		return Collections.unmodifiableSet(allTypes);
+	}
+	
+	public Set<UnitType> getTypesFromUnit(){
+		return Collections.unmodifiableSet(types);
 	}
 
-	public Set<UnitType> getTypes() {
+	public Set<UnitType> getTypesFromModels() {
 		Set<UnitType> types = new HashSet<UnitType>();
 		
 		if (models == null || models.isEmpty()) {
-			return types;
+			return Collections.unmodifiableSet(types);
 		}
 		// Pull each model
 		for (ModelInstance m: models) {
@@ -115,7 +135,7 @@ public class UnitInstance {
 				types.add(t);
 			}
 		}
-		return types;
+		return Collections.unmodifiableSet(types);
 	}
 	
 	public Boolean isType(UnitType type) {
@@ -175,7 +195,7 @@ public class UnitInstance {
 		return false;
 	}
 	
-	private List<ModelInstance> fromDescriptions(List<ModelDescription> descriptions) {
+	public static List<ModelInstance> fromDescriptions(List<ModelDescription> descriptions) {
 		List<ModelInstance> instances = new ArrayList<>();
 		
 		for (ModelDescription d : descriptions) {

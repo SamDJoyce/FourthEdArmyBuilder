@@ -145,4 +145,7 @@ public class ModelInstance {
 		return activeEffects;
 	}
 	
+	public static ModelInstance fromDescription(ModelDescription model) {
+		return new ModelInstance(model);
+	}
 }
