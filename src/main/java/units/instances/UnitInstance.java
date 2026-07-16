@@ -25,7 +25,7 @@ public class UnitInstance {
 	public UnitInstance(UnitDescription description) {
 		this.id = UUID.randomUUID().toString();
 		this.description = description;
-		this.models = fromDescriptions(description.getModels());
+		this.models = ModelInstance.fromDescriptions(description.getModels());
 		this.selectedOptions = new ArrayList<>();
 		this.types = new HashSet<>();
 	}
@@ -195,12 +195,5 @@ public class UnitInstance {
 		return false;
 	}
 	
-	public static List<ModelInstance> fromDescriptions(List<ModelDescription> descriptions) {
-		List<ModelInstance> instances = new ArrayList<>();
-		
-		for (ModelDescription d : descriptions) {
-			instances.add(new ModelInstance(d));
-		}
-		return instances;
-	}
+
 }

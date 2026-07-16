@@ -148,4 +148,13 @@ public class ModelInstance {
 	public static ModelInstance fromDescription(ModelDescription model) {
 		return new ModelInstance(model);
 	}
+	
+	public static List<ModelInstance> fromDescriptions(List<ModelDescription> descriptions) {
+		List<ModelInstance> instances = new ArrayList<>();
+		
+		for (ModelDescription d : descriptions) {
+			instances.add(new ModelInstance(d));
+		}
+		return instances;
+	}
 }
