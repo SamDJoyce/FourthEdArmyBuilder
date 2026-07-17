@@ -12,6 +12,7 @@ import units.UnitType;
 import units.descriptions.UnitDescription;
 import units.descriptions.models.ModelDescription;
 import units.options.OptionChoice;
+import units.options.OptionGroup;
 import units.options.SelectedOption;
 
 public class UnitInstance {
@@ -36,6 +37,10 @@ public class UnitInstance {
 
 	public String getName() {
 		return description.getName();
+	}
+	
+	public UnitDescription getDescription() {
+		return this.description;
 	}
 
 	public int getMinSize() {
@@ -195,5 +200,8 @@ public class UnitInstance {
 		return false;
 	}
 	
+	public List<OptionGroup> getOptions() {
+		return this.description.getOptions();
+	}
 
 }

@@ -51,15 +51,14 @@ public class StatLineInfantry implements StatLine {
 	}
 	
 	public String statsToString() {
-		return  "Name = " + this.name + " \n " +
-				"WS = " + this.ws + " \n " +
-				"BS = " + this.bs + " \n " +
-				"S = " + this.s + " \n " +
-				"T = " + this.t + " \n " +
-				"W = " + this.w + " \n " +
-				"I = " + this.i + " \n " +
-				"A = " + this.a + " \n " +
-				"LD = " + this.ld + " \n " +
+		return  "WS = " + this.ws + " \n" +
+				"BS = " + this.bs + " \n" +
+				"S = " + this.s + " \n" +
+				"T = " + this.t + " \n" +
+				"W = " + this.w + " \n" +
+				"I = " + this.i + " \n" +
+				"A = " + this.a + " \n" +
+				"LD = " + this.ld + " \n" +
 				"SV = " + this.sv + "+";
 	}
 	

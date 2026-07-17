@@ -40,6 +40,22 @@ public class UnitDescription {
 		this.options = new ArrayList<>(options);
 		this.models = new ArrayList<>(models);
 	}
+	
+	public UnitDescription(
+			String name, 
+			int minSize, 
+			int maxSize, 
+			UnitRole role,
+			List<OptionGroup> options,
+			List<ModelDescription> models) {
+		this.name = name;
+		this.minSize = minSize;
+		this.maxSize = maxSize;
+		this.role = role;
+		this.options = new ArrayList<>(options);
+		this.models = new ArrayList<>(models);
+		this.types = new HashSet<>();
+	}
 
 	// Getters and Setters
 	public String getName() {
