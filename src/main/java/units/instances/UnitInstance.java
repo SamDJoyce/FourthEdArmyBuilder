@@ -14,9 +14,10 @@ import units.descriptions.UnitDescription;
 import units.descriptions.models.ModelDescription;
 import units.options.OptionChoice;
 import units.options.OptionGroup;
+import units.options.OptionOwner;
 import units.options.SelectedOption;
 
-public class UnitInstance {
+public class UnitInstance implements OptionOwner{
 	// Fields
 	private final String   id;
 	private final UnitDescription description;
@@ -167,7 +168,7 @@ public class UnitInstance {
 				return;
 			}
 		}
-		selectedOptions.add(new SelectedOption(choice,1));
+		selectedOptions.add(SelectedOption.fromChoice(choice,this));
 	}
 	
 	public void removeSelection(OptionChoice choice) {
@@ -204,5 +205,16 @@ public class UnitInstance {
 	public List<OptionGroup> getOptions() {
 		return this.description.getOptions();
 	}
+	
+//	public void applyEffects(UnitInstance unit) {
+//		for (SelectedOption selected : selectedOptions) {
+//			if (selected.getNumSelected() > 0) {
+//				EffectContext context = EffectContext.forModel(unit, null);
+//				for (Effect e :selected.getChoice().getEffects()) {
+//					e.apply(null);
+//				}
+//			}
+//		}
+//	}
 
 }

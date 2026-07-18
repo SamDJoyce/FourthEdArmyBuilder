@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.UUID;
 
 import units.options.effects.Effect;
+import units.options.effects.EffectContext;
 import units.options.requirements.Requirement;
 import units.options.requirements.RequirementResult;
 import units.options.requirements.RequirementContext;
@@ -64,6 +65,12 @@ public class OptionChoice {
 	
 	public List<Effect> getEffects(){
 		return Collections.unmodifiableList(effects);
+	}
+	
+	public void applyEffects(EffectContext context) {
+		for (Effect e : effects) {
+			e.apply(context);
+		}
 	}
 	
 	public RequirementResult validate(RequirementContext context) {

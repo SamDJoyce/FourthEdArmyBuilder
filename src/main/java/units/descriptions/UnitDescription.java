@@ -9,6 +9,7 @@ import java.util.Set;
 import units.UnitRole;
 import units.UnitType;
 import units.descriptions.models.ModelDescription;
+import units.instances.ModelInstance;
 import units.options.OptionGroup;
 
 public class UnitDescription {

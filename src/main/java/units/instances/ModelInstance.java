@@ -12,10 +12,13 @@ import units.UnitType;
 import units.descriptions.models.ModelDescription;
 import units.descriptions.models.StatLine;
 import units.descriptions.wargear.WargearDescription;
+import units.options.OptionChoice;
+import units.options.OptionOwner;
 import units.options.SelectedOption;
 import units.options.effects.Effect;
+import units.options.effects.EffectContext;
 
-public class ModelInstance {
+public class ModelInstance implements OptionOwner{
 	private final String 	 id;
 	private final ModelDescription description;
 	//private StatLine currentStats;
@@ -141,17 +144,26 @@ public class ModelInstance {
 		return selectedOptions;
 	}
 	
+	public void addSelection(
+			OptionChoice choice) {
+		EffectContext context = EffectContext.forModel(this);
+		choice.applyEffects(context);
+		activeEffects.addAll(choice.getEffects());
+		selectedOptions.add(SelectedOption.fromChoice(choice,this));
+	}
+	
+	public void removeSelection(
+			OptionChoice choice) {
+		for (Effect e : activeEffects) {
+			if (choice.getEffects().contains(e)) {
+				EffectContext context = EffectContext.forModel(this);
+				e.remove(context);
+			}
+		}
+		selectedOptions.remove(SelectedOption.fromChoice(choice,this));
+	}
+	
 	public List<Effect> getEffects(){
 		return activeEffects;
 	}
-	
-// Now resides in ModelFactory
-//	public static List<ModelInstance> fromDescriptions(List<ModelDescription> descriptions) {
-//		List<ModelInstance> instances = new ArrayList<>();
-//		
-//		for (ModelDescription d : descriptions) {
-//			instances.add(new ModelInstance(d));
-//		}
-//		return instances;
-//	}
 }
