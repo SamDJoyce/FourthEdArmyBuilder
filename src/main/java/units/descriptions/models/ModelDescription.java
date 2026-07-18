@@ -47,5 +47,6 @@ public class ModelDescription {
 	public Set<WargearDescription> getGear(){
 		return Collections.unmodifiableSet(defaultGear);
 	}
+	
 
 }

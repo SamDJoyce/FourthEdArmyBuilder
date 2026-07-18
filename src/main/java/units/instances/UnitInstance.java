@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
+import units.ModelFactory;
 import units.UnitRole;
 import units.UnitType;
 import units.descriptions.UnitDescription;
@@ -26,7 +27,7 @@ public class UnitInstance {
 	public UnitInstance(UnitDescription description) {
 		this.id = UUID.randomUUID().toString();
 		this.description = description;
-		this.models = ModelInstance.fromDescriptions(description.getModels());
+		this.models = ModelFactory.getInstances(description.getModels());
 		this.selectedOptions = new ArrayList<>();
 		this.types = new HashSet<>();
 	}

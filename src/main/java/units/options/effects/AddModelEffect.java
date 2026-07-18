@@ -1,5 +1,6 @@
 package units.options.effects;
 
+import units.ModelFactory;
 import units.descriptions.models.ModelDescription;
 import units.instances.ModelInstance;
 import units.instances.UnitInstance;
@@ -14,7 +15,7 @@ public class AddModelEffect implements Effect {
 	
 	@Override
 	public void apply(EffectContext context) {
-		context.getUnit().addModel(ModelInstance.fromDescription(model));
+		context.getUnit().addModel(ModelFactory.getInstance(model));
 	}
 
 	@Override

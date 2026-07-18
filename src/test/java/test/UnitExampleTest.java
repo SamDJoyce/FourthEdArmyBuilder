@@ -57,15 +57,15 @@ public class UnitExampleTest {
 	
 	private final StatLine MARINE_STATS = StatLineFactory.get(MARINE_NAME,4, 4, 4,4, 1, 4, 1, 8, 3);
 	private final StatLine MARINE_SRG_STATS = StatLineFactory.get(MARINE_SRG_NAME,4, 4, 4,4, 1, 4, 1, 8, 3);
-	private final Set<UnitType> TACMARINE_TYPES = new HashSet<>(Set.of(INFANTRY));
-	private final Set<UnitType> SERGEANT_TYPES = new HashSet<>(Set.of(INFANTRY,CHARACTER));
+	private final Set<UnitType> TACMARINE_TYPES = Set.of(INFANTRY);
+	private final Set<UnitType> SERGEANT_TYPES = Set.of(INFANTRY,CHARACTER);
 	
-	private final WargearDescription BOLTER = new WargearDescription(BOLTER_NAME,BOLTER_TYPE);
-	private final WargearDescription PLASMA_GUN = new WargearDescription(PLASMA_GUN_NAME,PLASMA_GUN_TYPE, PLASMA_GUN_POINTS);
-	private final WargearDescription FLAMER = new WargearDescription(FLAMER_NAME,FLAMER_TYPE, FLAMER_POINTS);
-	private final WargearDescription MELTA_GUN = new WargearDescription(MELTA_NAME, MELTA_TYPE, MELTA_POINTS);
-	private final WargearDescription POWER_ARMOR = new WargearDescription(ARMOR_NAME, ARMOR_TYPE);
-	private final Set<WargearDescription> TACMARINE_GEAR = new HashSet<>(Set.of(BOLTER,POWER_ARMOR));
+	private final WargearDescription BOLTER = WargearDescription.get(BOLTER_NAME,BOLTER_TYPE);
+	private final WargearDescription PLASMA_GUN = WargearDescription.get(PLASMA_GUN_NAME,PLASMA_GUN_TYPE, PLASMA_GUN_POINTS);
+	private final WargearDescription FLAMER = WargearDescription.get(FLAMER_NAME,FLAMER_TYPE, FLAMER_POINTS);
+	private final WargearDescription MELTA_GUN = WargearDescription.get(MELTA_NAME, MELTA_TYPE, MELTA_POINTS);
+	private final WargearDescription POWER_ARMOR = WargearDescription.get(ARMOR_NAME, ARMOR_TYPE);
+	private final Set<WargearDescription> TACMARINE_GEAR = Set.of(BOLTER,POWER_ARMOR);
 	
 	private final List<OptionGroup> OPTION_GROUPS = new ArrayList<>();
 	

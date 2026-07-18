@@ -145,16 +145,13 @@ public class ModelInstance {
 		return activeEffects;
 	}
 	
-	public static ModelInstance fromDescription(ModelDescription model) {
-		return new ModelInstance(model);
-	}
-	
-	public static List<ModelInstance> fromDescriptions(List<ModelDescription> descriptions) {
-		List<ModelInstance> instances = new ArrayList<>();
-		
-		for (ModelDescription d : descriptions) {
-			instances.add(new ModelInstance(d));
-		}
-		return instances;
-	}
+// Now resides in ModelFactory
+//	public static List<ModelInstance> fromDescriptions(List<ModelDescription> descriptions) {
+//		List<ModelInstance> instances = new ArrayList<>();
+//		
+//		for (ModelDescription d : descriptions) {
+//			instances.add(new ModelInstance(d));
+//		}
+//		return instances;
+//	}
 }
