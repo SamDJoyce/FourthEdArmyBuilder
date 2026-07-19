@@ -1,6 +1,7 @@
 package units.options.requirements;
 
 import units.descriptions.models.ModelDescription;
+import units.options.SelectionContext;
 
 public class ModelCountReq implements Requirement {
 
@@ -20,7 +21,7 @@ public class ModelCountReq implements Requirement {
     }
 	
 	@Override
-	public RequirementResult validate(RequirementContext context) {
+	public RequirementResult validate(SelectionContext context) {
 		if (!context.hasUnit()) {
 			message = "ModelCountRequirement needs an UnitInstance";
 			return RequirementResult.failure(message);

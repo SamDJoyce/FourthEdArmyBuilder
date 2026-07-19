@@ -1,17 +1,16 @@
-package units.options.effects;
+package units.options;
 
 import roster.Roster;
 import units.instances.ModelInstance;
 import units.instances.UnitInstance;
-import units.options.SelectedOption;
 
-public final class EffectContext {
+public final class SelectionContext {
 	private final Roster roster;
 	private final UnitInstance unit;
 	private final ModelInstance model;
 	private final SelectedOption option;
 	
-	private EffectContext(Builder builder) {
+	private SelectionContext(Builder builder) {
 		this.roster = builder.roster;
 		this.unit = builder.unit;
 		this.model = builder.model;
@@ -30,7 +29,7 @@ public final class EffectContext {
 		return this.model;
 	}
 	
-	public SelectedOption getChoice() {
+	public SelectedOption getOption() {
 		return this.option;
 	}
 	
@@ -46,29 +45,29 @@ public final class EffectContext {
 		return model != null;
 	}
 	
-	public boolean hasChoice() {
+	public boolean hasOption() {
 		return option != null;
 	}
 	
-	public static EffectContext forRoster(Roster roster) {
+	public static SelectionContext forRoster(Roster roster) {
 		return new Builder()
 					.setRoster(roster)
 					.build();
 	}
 	
-	public static EffectContext forUnit(UnitInstance unit) {
+	public static SelectionContext forUnit(UnitInstance unit) {
 		return new Builder()
 					.setUnit(unit)
 					.build();
 	}
 	
-	public static EffectContext forModel(ModelInstance model) {
+	public static SelectionContext forModel(ModelInstance model) {
 		return new Builder()
 					.setModel(model)
 					.build();
 	}
 	
-	public static EffectContext forModel(
+	public static SelectionContext forModel(
 			UnitInstance unit,
 			ModelInstance model){
 		return new Builder()
@@ -103,8 +102,8 @@ public final class EffectContext {
 			return this;
 		}
 		
-		public EffectContext build(){
-			return new EffectContext(this);
+		public SelectionContext build(){
+			return new SelectionContext(this);
 		}
 	}
 }

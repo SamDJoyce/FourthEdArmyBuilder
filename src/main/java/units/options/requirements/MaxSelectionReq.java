@@ -1,5 +1,7 @@
 package units.options.requirements;
 
+import units.options.SelectionContext;
+
 public class MaxSelectionReq implements Requirement {
 
 	private int maxSelection;
@@ -12,7 +14,7 @@ public class MaxSelectionReq implements Requirement {
 	}
 	
 	@Override
-	public RequirementResult validate(RequirementContext context) {
+	public RequirementResult validate(SelectionContext context) {
 		if (!context.hasOption()) {
 			message = "MaxSelectionRequirement needs a SelectedOption";
 			return RequirementResult.failure(null);

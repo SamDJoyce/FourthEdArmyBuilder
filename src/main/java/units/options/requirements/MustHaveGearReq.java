@@ -2,6 +2,7 @@ package units.options.requirements;
 
 import units.descriptions.wargear.WargearDescription;
 import units.instances.ModelInstance;
+import units.options.SelectionContext;
 
 public class MustHaveGearReq implements Requirement {
 
@@ -12,7 +13,7 @@ public class MustHaveGearReq implements Requirement {
 	}
 	
 	@Override
-	public RequirementResult validate(RequirementContext context) {
+	public RequirementResult validate(SelectionContext context) {
 		ModelInstance model = context.getModel();
 		boolean valid = model.hasGear(requiredGear);
 		String message;

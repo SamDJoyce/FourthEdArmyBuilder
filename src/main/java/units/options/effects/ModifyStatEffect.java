@@ -1,6 +1,7 @@
 package units.options.effects;
 
 import units.descriptions.models.StatLine;
+import units.options.SelectionContext;
 
 public class ModifyStatEffect implements Effect {
 
@@ -13,13 +14,13 @@ public class ModifyStatEffect implements Effect {
 	}
 	
 	@Override
-	public void apply(EffectContext context) {
+	public void apply(SelectionContext context) {
 		StatLine stats = context.getModel().getStats();
 		stats.modify(stat,modifier);
 	}
 	
 	@Override
-	public void remove(EffectContext context) {
+	public void remove(SelectionContext context) {
 		StatLine stats = context.getModel().getStats();
 		stats.modify(stat,modifier*-1);
 	}

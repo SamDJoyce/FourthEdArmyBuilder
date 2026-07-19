@@ -1,6 +1,8 @@
 package units.options.effects;
 
+import units.options.SelectionContext;
+
 public interface Effect {
-	void apply(EffectContext context);
-	void remove(EffectContext context);
+	void apply(SelectionContext context);
+	void remove(SelectionContext context);
 }

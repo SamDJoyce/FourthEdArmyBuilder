@@ -15,9 +15,8 @@ import units.descriptions.wargear.WargearDescription;
 import units.options.OptionChoice;
 import units.options.OptionOwner;
 import units.options.SelectedOption;
+import units.options.SelectionContext;
 import units.options.effects.Effect;
-import units.options.effects.EffectContext;
-import units.options.requirements.RequirementContext;
 import units.options.requirements.RequirementResult;
 
 public class ModelInstance implements OptionOwner{
@@ -146,28 +145,27 @@ public class ModelInstance implements OptionOwner{
 	}
 	
 	@Override
-	public void addSelection(OptionChoice choice) {
-		EffectContext      context = EffectContext.forModel(this);
-		RequirementContext reqContext = RequirementContext.forModel(this);
-		RequirementResult  result = choice.validate(reqContext);
+	public RequirementResult addSelection(OptionChoice choice) {
+		SelectionContext  context = SelectionContext.forModel(this);
+		SelectedOption    option  = SelectedOption.fromChoice(choice);
+		RequirementResult result  = option.select(context);
+		
 		if (result.isValid()) {
-			choice.applyEffects(context);
-			selectedOptions.add(SelectedOption.fromChoice(choice));
+			selectedOptions.add(option);
 		}
+		return result;
 	}
 	
 	@Override
 	public void removeSelection(OptionChoice choice) {
-		EffectContext context = EffectContext.forModel(this);
-		SelectedOption option = findSelection(choice);
+		SelectionContext context = SelectionContext.forModel(this);
+	    SelectedOption option = findSelection(choice);
 
-		for (Effect effect : option.getChoice().getEffects()) {
-
-		    effect.remove(context);
-
-		}
-
-		selectedOptions.remove(option);
+	    if (option == null) {
+	        return;
+	    }
+	    option.unselect(context);
+	    selectedOptions.remove(option);
 	}
 	
 	private SelectedOption findSelection(OptionChoice choice) {

@@ -5,6 +5,7 @@ import java.util.List;
 
 import units.instances.UnitInstance;
 import units.options.OptionChoice;
+import units.options.SelectionContext;
 
 public class MutualExclusionReq implements Requirement {
 
@@ -17,7 +18,7 @@ public class MutualExclusionReq implements Requirement {
 	}
 	
 	@Override
-	public RequirementResult validate(RequirementContext context) {
+	public RequirementResult validate(SelectionContext context) {
 		UnitInstance unit = context.getUnit();
 		
 		for (OptionChoice choice : excluded) {

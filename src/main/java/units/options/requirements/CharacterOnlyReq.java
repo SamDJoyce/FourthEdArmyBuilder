@@ -1,6 +1,7 @@
 package units.options.requirements;
 
 import units.UnitType;
+import units.options.SelectionContext;
 
 public class CharacterOnlyReq implements Requirement {
 
@@ -10,7 +11,7 @@ public class CharacterOnlyReq implements Requirement {
 	}
 	
 	@Override
-	public RequirementResult validate(RequirementContext context) {
+	public RequirementResult validate(SelectionContext context) {
 		if (!context.hasModel()) {
 			message = "CharacterOnlyRequirement needs a ModelInstance";
 			return RequirementResult.failure(message);

@@ -2,6 +2,7 @@ package units.options.requirements;
 
 import units.UnitType;
 import units.instances.ModelInstance;
+import units.options.SelectionContext;
 
 public class MustHaveTypeReq implements Requirement {
 
@@ -12,7 +13,7 @@ public class MustHaveTypeReq implements Requirement {
 	}
 	
 	@Override
-	public RequirementResult validate(RequirementContext context) {
+	public RequirementResult validate(SelectionContext context) {
 		ModelInstance model = context.getModel();
 		boolean valid = model.isType(type);
 		String message;

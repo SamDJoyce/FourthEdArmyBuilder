@@ -16,8 +16,8 @@ import units.options.OptionChoice;
 import units.options.OptionGroup;
 import units.options.OptionOwner;
 import units.options.SelectedOption;
-import units.options.effects.Effect;
-import units.options.effects.EffectContext;
+import units.options.SelectionContext;
+import units.options.requirements.RequirementResult;
 
 public class UnitInstance implements OptionOwner{
 	// Fields
@@ -26,7 +26,6 @@ public class UnitInstance implements OptionOwner{
 	private Set<UnitType> types;
 	private List<ModelInstance> models;
 	private List<SelectedOption> selectedOptions;
-	private List<Effect> activeEffects;
 	
 	public UnitInstance(UnitDescription description) {
 		this.id = UUID.randomUUID().toString();
@@ -34,7 +33,6 @@ public class UnitInstance implements OptionOwner{
 		this.models = ModelFactory.getInstances(description.getModels());
 		this.selectedOptions = new ArrayList<>();
 		this.types = new HashSet<>();
-		this.activeEffects = new ArrayList<>();
 	}
 	
 	public String getId() {
@@ -167,19 +165,14 @@ public class UnitInstance implements OptionOwner{
 	}
 	
 	@Override
-	public void addSelection(OptionChoice choice) {
-		EffectContext context = EffectContext.forUnit(this);
-		
-		for (SelectedOption selected : selectedOptions) {
-			if(selected.getChoice().equals(choice)) {
-				selected.increaseSelected();
-				choice.applyEffects(context);
-				activeEffects.addAll(choice.getEffects());
-				return;
-			}
+	public RequirementResult addSelection(OptionChoice choice) {
+		SelectionContext   context = SelectionContext.forUnit(this);
+		SelectedOption     option  = SelectedOption.fromChoice(choice);
+		RequirementResult  result  = option.select(context);
+		if (result.isValid()) {
+			selectedOptions.add(option);
 		}
-		selectedOptions.add(SelectedOption.fromChoice(choice));
-		choice.applyEffects(context);
+		return result;
 	}
 	
 	@Override

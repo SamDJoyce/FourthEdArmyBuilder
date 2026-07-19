@@ -1,6 +1,7 @@
 package units.options.requirements;
 
 import units.descriptions.models.ModelDescription;
+import units.options.SelectionContext;
 
 public class MaxPerModelCountReq implements Requirement {
 
@@ -17,7 +18,7 @@ public class MaxPerModelCountReq implements Requirement {
 	}
 	
 	@Override
-	public RequirementResult validate(RequirementContext context) {
+	public RequirementResult validate(SelectionContext context) {
 		if (!context.hasUnit()) {
 			message = "ForEachMultipleRequirement needs an UnitInstance.";
 			return RequirementResult.failure(message);

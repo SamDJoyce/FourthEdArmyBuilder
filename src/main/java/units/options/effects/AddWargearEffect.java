@@ -2,6 +2,7 @@ package units.options.effects;
 
 import units.descriptions.wargear.WargearDescription;
 import units.instances.WargearInstance;
+import units.options.SelectionContext;
 
 public class AddWargearEffect implements Effect {
 
@@ -12,12 +13,12 @@ public class AddWargearEffect implements Effect {
 	}
 	
 	@Override
-	public void apply(EffectContext context) {
+	public void apply(SelectionContext context) {
 		context.getModel().addGear(new WargearInstance(gear));
 	}
 	
 	@Override
-	public void remove(EffectContext context) {
+	public void remove(SelectionContext context) {
 		context.getModel().removeGear(gear);
 	}
 
