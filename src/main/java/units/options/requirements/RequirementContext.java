@@ -51,8 +51,26 @@ public final class RequirementContext {
         return option != null;
     }
 
-    public static Builder builder() {
-        return new Builder();
+//    public static Builder builder() {
+//        return new Builder();
+//    }
+    
+    public static RequirementContext forRoster(Roster roster) {
+    	return new RequirementContext.Builder()
+    								 .setRoster(roster)
+    								 .build();
+    }
+    
+    public static RequirementContext forUnit(UnitInstance unit) {
+    	return new RequirementContext.Builder()
+    								 .setUnit(unit)
+    								 .build();
+    }
+    
+    public static RequirementContext forModel(ModelInstance model) {
+    	return new RequirementContext.Builder()
+    								 .setModel(model)
+    								 .build();
     }
 
     public static class Builder {
@@ -62,22 +80,22 @@ public final class RequirementContext {
         private ModelInstance model;
         private SelectedOption option;
 
-        public Builder roster(Roster roster) {
+        public Builder setRoster(Roster roster) {
             this.roster = roster;
             return this;
         }
 
-        public Builder unit(UnitInstance unit) {
+        public Builder setUnit(UnitInstance unit) {
             this.unit = unit;
             return this;
         }
 
-        public Builder model(ModelInstance model) {
+        public Builder setModel(ModelInstance model) {
             this.model = model;
             return this;
         }
 
-        public Builder option(SelectedOption option) {
+        public Builder setOption(SelectedOption option) {
             this.option = option;
             return this;
         }

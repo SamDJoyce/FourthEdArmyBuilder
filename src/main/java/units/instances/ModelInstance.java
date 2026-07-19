@@ -17,6 +17,8 @@ import units.options.OptionOwner;
 import units.options.SelectedOption;
 import units.options.effects.Effect;
 import units.options.effects.EffectContext;
+import units.options.requirements.RequirementContext;
+import units.options.requirements.RequirementResult;
 
 public class ModelInstance implements OptionOwner{
 	private final String 	 id;
@@ -25,7 +27,6 @@ public class ModelInstance implements OptionOwner{
 	private Set<UnitType> currentTypes;
 	private Set<WargearInstance> currentGear;
 	private List<SelectedOption> selectedOptions;
-	private List<Effect> activeEffects;
 	
 	public ModelInstance(ModelDescription description){
 		this.id = UUID.randomUUID().toString();
@@ -36,7 +37,6 @@ public class ModelInstance implements OptionOwner{
 			                .map(WargearInstance::new)
 			                .collect(Collectors.toSet());
 		this.selectedOptions = new ArrayList<>();
-		this.activeEffects = new ArrayList<>();
 	}
 	
 	public ModelDescription getDescription() {
@@ -140,30 +140,46 @@ public class ModelInstance implements OptionOwner{
 		return false;
 	}
 	
+	@Override
 	public List<SelectedOption> getSelectedOptions(){
 		return selectedOptions;
 	}
 	
-	public void addSelection(
-			OptionChoice choice) {
-		EffectContext context = EffectContext.forModel(this);
-		choice.applyEffects(context);
-		activeEffects.addAll(choice.getEffects());
-		selectedOptions.add(SelectedOption.fromChoice(choice,this));
+	@Override
+	public void addSelection(OptionChoice choice) {
+		EffectContext      context = EffectContext.forModel(this);
+		RequirementContext reqContext = RequirementContext.forModel(this);
+		RequirementResult  result = choice.validate(reqContext);
+		if (result.isValid()) {
+			choice.applyEffects(context);
+			selectedOptions.add(SelectedOption.fromChoice(choice));
+		}
 	}
 	
-	public void removeSelection(
-			OptionChoice choice) {
-		for (Effect e : activeEffects) {
-			if (choice.getEffects().contains(e)) {
-				EffectContext context = EffectContext.forModel(this);
-				e.remove(context);
+	@Override
+	public void removeSelection(OptionChoice choice) {
+		EffectContext context = EffectContext.forModel(this);
+		SelectedOption option = findSelection(choice);
+
+		for (Effect effect : option.getChoice().getEffects()) {
+
+		    effect.remove(context);
+
+		}
+
+		selectedOptions.remove(option);
+	}
+	
+	private SelectedOption findSelection(OptionChoice choice) {
+		for (SelectedOption selected : selectedOptions) {
+			if (selected.getChoice().equals(choice)) {
+				return selected;
 			}
 		}
-		selectedOptions.remove(SelectedOption.fromChoice(choice,this));
+		return null;
 	}
 	
 	public List<Effect> getEffects(){
-		return activeEffects;
+		return null; // TODO
 	}
 }
