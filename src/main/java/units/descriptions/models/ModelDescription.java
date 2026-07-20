@@ -2,6 +2,7 @@ package units.descriptions.models;
 
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 import units.UnitType;
@@ -48,5 +49,26 @@ public class ModelDescription {
 		return Collections.unmodifiableSet(defaultGear);
 	}
 	
+	@Override
+	public boolean equals(Object obj) {
+	    if (this == obj) return true;
+	    if (!(obj instanceof ModelDescription other)) return false;
+
+	    return basePoints == other.basePoints
+	        && Objects.equals(name, other.name)
+	        && Objects.equals(stats, other.stats)
+	        && Objects.equals(types, other.types)
+	        && Objects.equals(defaultGear, other.defaultGear);
+	}
+
+	@Override
+	public int hashCode() {
+	    return Objects.hash(
+	        name,
+	        basePoints,
+	        stats,
+	        types,
+	        defaultGear);
+	}
 
 }

@@ -1,23 +1,15 @@
 package units.options;
 
 import units.options.effects.Effect;
+import units.options.requirements.Requirement;
 import units.options.requirements.RequirementResult;
 
 public class SelectedOption {
 	private final OptionChoice choice;
-	private int numSelected;
-	
-	public SelectedOption(
-			OptionChoice choice,
-			int numSelected) {
-		this.choice = choice;
-		this.numSelected = numSelected;
-	}
 	
 	public SelectedOption(
 			OptionChoice choice) {
 		this.choice = choice;
-		this.numSelected = 1;
 	}
 	
 	public static SelectedOption fromChoice(
@@ -25,20 +17,24 @@ public class SelectedOption {
 		return new SelectedOption(choice);
 	}
 	
-	// Apply all effects from this option
+	// Validate and pply all effects from this option
 	public RequirementResult select(SelectionContext context) {
 
-		RequirementResult result = choice.validate(context);
-		
-		if (!result.isValid()) {
-		return result;
-		}
-		// Apply effects if valid
-		for (Effect effect : choice.getEffects()) {
-			effect.apply(context);
-		}
-		
-		return RequirementResult.success("Valid");
+	    for (Requirement requirement : choice.getRequirements()) {
+
+	        RequirementResult result =
+	            requirement.validate(context);
+
+	        if (!result.isValid()) {
+	            return result;
+	        }
+	    }
+
+	    for (Effect effect : choice.getEffects()) {
+	        effect.apply(context);
+	    }
+
+	    return RequirementResult.success("valid");
 	}
     
     // Remove all effects
@@ -50,19 +46,6 @@ public class SelectedOption {
 	
 	public OptionChoice getChoice() {
 		return choice;
-	}
-	
-	public int getNumSelected() {
-		return numSelected;
-	}
-
-	
-	public void increaseSelected() {
-		numSelected++;
-	}
-	
-	public void decreaseSelected() {
-		numSelected--;
 	}
 	
     @Override

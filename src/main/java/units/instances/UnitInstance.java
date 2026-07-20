@@ -3,6 +3,7 @@ package units.instances;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
@@ -31,6 +32,7 @@ public class UnitInstance implements OptionOwner{
 		this.id = UUID.randomUUID().toString();
 		this.description = description;
 		this.models = ModelFactory.getInstances(description.getModels());
+		setParentUnit(models);
 		this.selectedOptions = new ArrayList<>();
 		this.types = new HashSet<>();
 	}
@@ -166,9 +168,9 @@ public class UnitInstance implements OptionOwner{
 	
 	@Override
 	public RequirementResult addSelection(OptionChoice choice) {
-		SelectionContext   context = SelectionContext.forUnit(this);
-		SelectedOption     option  = SelectedOption.fromChoice(choice);
-		RequirementResult  result  = option.select(context);
+		SelectedOption   option  = SelectedOption.fromChoice(choice);
+		SelectionContext context = SelectionContext.forUnit(this, choice);
+		RequirementResult result = option.select(context);
 		if (result.isValid()) {
 			selectedOptions.add(option);
 		}
@@ -177,30 +179,21 @@ public class UnitInstance implements OptionOwner{
 	
 	@Override
 	public void removeSelection(OptionChoice choice) {
-		for (SelectedOption selected : selectedOptions) {
-			if(selected.getChoice().equals(choice)) {
-				selected.decreaseSelected();
-				// Remove effects
-				
-				if (selected.getNumSelected() <= 0) {
-					selectedOptions.remove(selected);
-				}
-				return;
-			}
+		Iterator<SelectedOption> iterator = selectedOptions.iterator();
+
+		while (iterator.hasNext()) {
+
+		    SelectedOption selected = iterator.next();
+		    SelectionContext context = SelectionContext.forUnit(this, choice);
+		    if (selected.getChoice().equals(choice)) {
+		        selected.unselect(context);
+		        iterator.remove();
+		        return;
+		    }
 		}
 	}
 	
-	public int getOptionCount(OptionChoice choice) {
-		int count = 0;
-		for (SelectedOption o : selectedOptions) {
-			if (o.getChoice().equals(choice)) {
-				count += o.getNumSelected();
-			}
-		}
-		return count;
-	}
-	
-	public boolean hasOption(OptionChoice choice) {
+	public boolean hasSelection(OptionChoice choice) {
 		for(SelectedOption o : selectedOptions) {
 			if (o.getChoice().equals(choice)) {
 				return true;
@@ -213,15 +206,10 @@ public class UnitInstance implements OptionOwner{
 		return this.description.getOptions();
 	}
 	
-//	public void applyEffects(UnitInstance unit) {
-//		for (SelectedOption selected : selectedOptions) {
-//			if (selected.getNumSelected() > 0) {
-//				EffectContext context = EffectContext.forModel(unit, null);
-//				for (Effect e :selected.getChoice().getEffects()) {
-//					e.apply(null);
-//				}
-//			}
-//		}
-//	}
+	private void setParentUnit(List<ModelInstance> models) {
+		for (ModelInstance model : models) {
+		    model.setParentUnit(this);
+		}
+	}
 
 }

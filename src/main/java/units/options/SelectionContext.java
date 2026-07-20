@@ -8,13 +8,17 @@ public final class SelectionContext {
 	private final Roster roster;
 	private final UnitInstance unit;
 	private final ModelInstance model;
-	private final SelectedOption option;
+	private final OptionOwner owner;
+	private final OptionChoice choice;
 	
 	private SelectionContext(Builder builder) {
 		this.roster = builder.roster;
 		this.unit = builder.unit;
 		this.model = builder.model;
-		this.option = builder.option;
+		this.choice = (builder.choice == null)
+		        		? null
+		                : builder.choice;
+		this.owner = builder.owner;
 	}
 	
 	public Roster getRoster() {
@@ -29,8 +33,8 @@ public final class SelectionContext {
 		return this.model;
 	}
 	
-	public SelectedOption getOption() {
-		return this.option;
+	public OptionChoice getChoice() {
+		return this.choice;
 	}
 	
 	public boolean hasRoster() {
@@ -45,42 +49,57 @@ public final class SelectionContext {
 		return model != null;
 	}
 	
-	public boolean hasOption() {
-		return option != null;
+	public boolean hasChoice() {
+		return this.choice != null;
 	}
 	
-	public static SelectionContext forRoster(Roster roster) {
+	public boolean hasOwner() {
+		return this.owner != null;
+	}
+	
+	// Factory methods
+
+	public static SelectionContext forRoster(
+			Roster roster,
+			OptionChoice choice) {
+
 		return new Builder()
-					.setRoster(roster)
-					.build();
+				.setRoster(roster)
+				.setChoice(choice)
+				.build();
 	}
-	
-	public static SelectionContext forUnit(UnitInstance unit) {
-		return new Builder()
-					.setUnit(unit)
-					.build();
-	}
-	
-	public static SelectionContext forModel(ModelInstance model) {
-		return new Builder()
-					.setModel(model)
-					.build();
-	}
-	
-	public static SelectionContext forModel(
+
+
+	public static SelectionContext forUnit(
 			UnitInstance unit,
-			ModelInstance model){
+			OptionChoice choice) {
+
 		return new Builder()
-					.setUnit(unit)
-					.setModel(model)
-					.build();
+				.setUnit(unit)
+				.setOwner(unit)
+				.setChoice(choice)
+				.build();
+	}
+
+
+	public static SelectionContext forModel(
+			ModelInstance model,
+			OptionChoice choice) {
+
+		return new Builder()
+				.setModel(model)
+				.setUnit(model.getParentUnit())
+				.setOwner(model)
+				.setChoice(choice)
+				.build();
 	}
 	
 	public static class Builder{
 		private Roster roster;
 		private UnitInstance unit;
 		private ModelInstance model;
-		private SelectedOption option;
+		private OptionChoice choice;
+		private OptionOwner owner;
 		
 		public Builder setRoster(Roster roster) {
 			this.roster = roster;
@@ -97,8 +116,13 @@ public final class SelectionContext {
 			return this;
 		}
 		
-		public Builder setOptionChoice(SelectedOption option) {
-			this.option = option;
+		public Builder setChoice(OptionChoice choice) {
+			this.choice = choice;
+			return this;
+		}
+		
+		public Builder setOwner(OptionOwner owner) {
+			this.owner = owner;
 			return this;
 		}
 		

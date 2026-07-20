@@ -4,6 +4,7 @@ import java.util.List;
 
 import units.UnitType;
 import units.descriptions.models.ModelDescription;
+import units.descriptions.wargear.WargearDescription;
 import units.options.OptionChoice;
 
 public class ReqFactory {
@@ -12,21 +13,21 @@ public class ReqFactory {
 		return  new CharacterOnlyReq();
 	}
 	
-	public static MutualExclusionReq get(List<OptionChoice> excluded) {
+	public static MutualExclusionReq mutualExclusion(List<OptionChoice> excluded) {
 		return new MutualExclusionReq(excluded);
 	}
 	
-	public static MaxSelectionReq get(int maxSelection) {
+	public static MaxSelectionReq maxSelection(int maxSelection) {
 		return new MaxSelectionReq(maxSelection);
 	}
 	
-	public static MaxPerModelCountReq get(
+	public static MaxPerModelCountReq maxPerModelCount(
 			ModelDescription model,
 			int rate) {
 		return new MaxPerModelCountReq(model,rate);
 	}
 	
-	public static ModelCountReq get(
+	public static ModelCountReq modelCount(
 			ModelDescription model,
 			int minimum,
 			int maximum
@@ -37,7 +38,11 @@ public class ReqFactory {
 				maximum);
 	}
 	
-	public static MustHaveTypeReq get(UnitType type){
+	public static MustHaveTypeReq mustHaveType(UnitType type){
 		return new MustHaveTypeReq(type);
+	}
+	
+	public static MustHaveGearReq mustHaveGear(WargearDescription requiredGear) {
+		return new MustHaveGearReq(requiredGear);
 	}
 }

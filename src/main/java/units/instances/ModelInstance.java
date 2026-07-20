@@ -22,10 +22,10 @@ import units.options.requirements.RequirementResult;
 public class ModelInstance implements OptionOwner{
 	private final String 	 id;
 	private final ModelDescription description;
-	//private StatLine currentStats;
 	private Set<UnitType> currentTypes;
 	private Set<WargearInstance> currentGear;
 	private List<SelectedOption> selectedOptions;
+	private UnitInstance parentUnit;
 	
 	public ModelInstance(ModelDescription description){
 		this.id = UUID.randomUUID().toString();
@@ -68,10 +68,6 @@ public class ModelInstance implements OptionOwner{
 
 	public StatLine getStats() {
 		return description.getStats();
-	}
-	
-	public StatLine getCurrentStats() {
-		return null; // TODO will apply effects here
 	}
 
 	public Set<UnitType> getTypes() {
@@ -139,6 +135,14 @@ public class ModelInstance implements OptionOwner{
 		return false;
 	}
 	
+	public UnitInstance getParentUnit() {
+		return this.parentUnit;
+	}
+	
+	public void setParentUnit(UnitInstance parentUnit) {
+		this.parentUnit = parentUnit;
+	}
+	
 	@Override
 	public List<SelectedOption> getSelectedOptions(){
 		return selectedOptions;
@@ -146,8 +150,8 @@ public class ModelInstance implements OptionOwner{
 	
 	@Override
 	public RequirementResult addSelection(OptionChoice choice) {
-		SelectionContext  context = SelectionContext.forModel(this);
 		SelectedOption    option  = SelectedOption.fromChoice(choice);
+		SelectionContext  context = SelectionContext.forModel(this,choice);
 		RequirementResult result  = option.select(context);
 		
 		if (result.isValid()) {
@@ -158,12 +162,14 @@ public class ModelInstance implements OptionOwner{
 	
 	@Override
 	public void removeSelection(OptionChoice choice) {
-		SelectionContext context = SelectionContext.forModel(this);
 	    SelectedOption option = findSelection(choice);
-
 	    if (option == null) {
 	        return;
 	    }
+		SelectionContext  context = new SelectionContext.Builder()
+										.setModel(this)
+										.setChoice(option.getChoice())
+										.build();
 	    option.unselect(context);
 	    selectedOptions.remove(option);
 	}
@@ -175,9 +181,5 @@ public class ModelInstance implements OptionOwner{
 			}
 		}
 		return null;
-	}
-	
-	public List<Effect> getEffects(){
-		return null; // TODO
 	}
 }

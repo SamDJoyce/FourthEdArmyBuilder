@@ -1,6 +1,8 @@
 package units.options.requirements;
 
 import units.descriptions.models.ModelDescription;
+import units.instances.UnitInstance;
+import units.options.OptionChoice;
 import units.options.SelectionContext;
 
 public class MaxPerModelCountReq implements Requirement {
@@ -23,28 +25,31 @@ public class MaxPerModelCountReq implements Requirement {
 			message = "ForEachMultipleRequirement needs an UnitInstance.";
 			return RequirementResult.failure(message);
 		}
-		if (!context.hasOption()) {
+		if (!context.hasChoice()) {
 			message = "ForEachMultipleRequirement needs a SelectedOption";
 		}
 		
-        int modelCount = context.getUnit().getModelCount(model);
-		int allowedSelections = modelCount / rate;
-		int selected = context.getOption().getNumSelected();
-		
-       if (selected <= allowedSelections) {
-            return RequirementResult.success(
-                "Selection limit satisfied."
-            );
-       }
-       return RequirementResult.failure(
-               String.format(
-                   "Only %d selections allowed for %d %s.",
-                   allowedSelections,
-                   modelCount,
-                   model.getName()
-               ));
+        UnitInstance unit = context.getUnit();
+        OptionChoice choice = context.getChoice();
+        // Get number of models in the unit
+        int modelCount = unit.getModelCount(model);
+        // Number of times this choice can be selected per number of models
+        int allowed = modelCount / rate;
+        // Number of times this choice has been selected in this unit
+        int current = unit.getOptionCount(choice);
+        if (current + 1 <= allowed) {
+        	return RequirementResult.success(String.format(
+                    "%d/%d selections used.",
+                    current,allowed));
+        }
+        return RequirementResult.failure(
+                String.format(
+                        "Only %d '%s' may be selected for %d %s%s.",
+                        allowed,
+                        choice.getName(),
+                        modelCount,
+                        model.getName(),
+                        modelCount == 1 ? "" : "s"));
 	}
-	
-	
 
 }

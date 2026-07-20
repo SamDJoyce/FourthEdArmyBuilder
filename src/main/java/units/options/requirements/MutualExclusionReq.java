@@ -10,25 +10,29 @@ import units.options.SelectionContext;
 public class MutualExclusionReq implements Requirement {
 
 	private List<OptionChoice> excluded;
-	private String message;
 	
 	public MutualExclusionReq(
 			List<OptionChoice> excluded){
-		this.excluded = new ArrayList<>( excluded);
+		this.excluded = new ArrayList<>(excluded);
 	}
 	
 	@Override
 	public RequirementResult validate(SelectionContext context) {
-		UnitInstance unit = context.getUnit();
-		
-		for (OptionChoice choice : excluded) {
-			if (unit.getOptionCount(choice) > 0) {
-				message = String.format("%s cannot currently be selected", choice.getName());
-				return RequirementResult.failure(message);
-			}
+		if (!context.hasUnit()) {
+			return RequirementResult.failure("MutualExclusionReq requires a unit instance.");
 		}
-		message = "Option can be selected.";
-		return RequirementResult.success(message);
+		
+	    UnitInstance unit = context.getUnit();
+
+	    for (OptionChoice excludedChoice : excluded) {
+	        if (unit.hasSelection(excludedChoice)) {
+	            return RequirementResult.failure(
+	                excludedChoice.getName() + " is already selected."
+	            );
+	        }
+	    }
+
+	    return RequirementResult.success("Option may be selected.");
 	}
 
 }

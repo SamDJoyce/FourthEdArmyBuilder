@@ -3,18 +3,18 @@ package units.options;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 import units.options.effects.Effect;
 import units.options.requirements.Requirement;
-import units.options.requirements.RequirementResult;
 
 public class OptionChoice {
 	
 	// Fields
-	private String 	id;
-	private String 	name;
-	private int		points;
+	private final String 	id;
+	private final String 	name;
+	private final int		points;
 	private List<Requirement> requirements;
 	private List<Effect> effects;
 	
@@ -44,6 +44,16 @@ public class OptionChoice {
 		this.requirements = new ArrayList<>(requirements);
 		this.effects = new ArrayList<>(effects);
 	}
+	
+	public OptionChoice(
+			String name,
+			int points) {
+		this.id = UUID.randomUUID().toString();
+		this.name = name;
+		this.points = points;
+		this.requirements = new ArrayList<>();
+		this.effects = new ArrayList<>();
+	}
 
 	public String getId() {
 		return id;
@@ -61,25 +71,35 @@ public class OptionChoice {
 		return Collections.unmodifiableList(requirements);
 	}
 	
+	public void setRequirements(List<Requirement> requirements) {
+		this.requirements = requirements;
+	}
+	
 	public List<Effect> getEffects(){
 		return Collections.unmodifiableList(effects);
 	}
 	
-	public void applyEffects(SelectionContext context) {
-		for (Effect e : effects) {
-			e.apply(context);
-		}
+	public void setEffects(List<Effect> effects) {
+		this.effects = effects;
 	}
 	
-	public RequirementResult validate(SelectionContext context) {
-		RequirementResult result;
-		for (Requirement r : requirements) {
-			result = r.validate(context);
-			
-			if (!result.isValid()) {
-				return result; 
-			}
-		}
-		return RequirementResult.success(name + " is available.");
+	public boolean equals(Object obj) {
+	    if (this == obj) {
+	        return true;
+	    }
+	    if (!(obj instanceof OptionChoice other)) {
+	        return false;
+	    }
+
+	    return points == other.points
+	            && Objects.equals(name, other.name)
+	            && Objects.equals(requirements, other.requirements)
+	            && Objects.equals(effects, other.effects);
 	}
+	
+	@Override
+	public int hashCode() {
+	    return Objects.hash(name, points, requirements, effects);
+	}
+
 }

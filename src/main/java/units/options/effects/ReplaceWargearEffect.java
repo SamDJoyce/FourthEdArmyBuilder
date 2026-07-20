@@ -8,7 +8,9 @@ public class ReplaceWargearEffect implements Effect {
 	private final WargearDescription remove;
 	private final WargearDescription add;
 	
-	public ReplaceWargearEffect(WargearDescription remove,WargearDescription add) {
+	public ReplaceWargearEffect(
+			WargearDescription remove,
+			WargearDescription add) {
 		this.remove = remove;
 		this.add = add;
 	}
