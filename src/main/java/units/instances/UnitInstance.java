@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
+import roster.Roster;
 import units.ModelFactory;
 import units.UnitRole;
 import units.UnitType;
@@ -27,6 +28,7 @@ public class UnitInstance implements OptionOwner{
 	private Set<UnitType> types;
 	private List<ModelInstance> models;
 	private List<SelectedOption> selectedOptions;
+	private Roster parentRoster;
 	
 	public UnitInstance(UnitDescription description) {
 		this.id = UUID.randomUUID().toString();
@@ -204,6 +206,14 @@ public class UnitInstance implements OptionOwner{
 	
 	public List<OptionGroup> getOptions() {
 		return this.description.getOptions();
+	}
+	
+	public void setParentRoster(Roster roster) {
+		this.parentRoster = roster;
+	}
+	
+	public Roster getParentRoster() {
+		return this.parentRoster;
 	}
 	
 	private void setParentUnit(List<ModelInstance> models) {

@@ -9,7 +9,7 @@ import units.options.OptionChoice;
 
 public class ReqFactory {
 	
-	public static CharacterOnlyReq get() {
+	public static CharacterOnlyReq charactersOnly() {
 		return  new CharacterOnlyReq();
 	}
 	

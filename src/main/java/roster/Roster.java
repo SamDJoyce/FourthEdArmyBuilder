@@ -4,20 +4,22 @@ import java.util.List;
 
 import forceOrg.ForceOrgChart;
 import units.descriptions.UnitDescription;
+import units.instances.UnitInstance;
 
 public class Roster {
 
 	private ForceOrgChart chart;
-	private List<UnitDescription> units;
+	private List<UnitInstance> units;
 	private int pointsLimit;
 	
 	public Roster(
 			ForceOrgChart chart,
-			List<UnitDescription> units,
+			List<UnitInstance> units,
 			int pointsLimit
 			) {
 		this.chart = chart;
 		this.units = units;
+		setParentRoster(units);
 		this.pointsLimit = pointsLimit;
 	}
 	
@@ -29,11 +31,11 @@ public class Roster {
 		this.chart = chart;
 	}
 
-	public List<UnitDescription> getUnits() {
+	public List<UnitInstance> getUnits() {
 		return units;
 	}
 
-	public void setUnits(List<UnitDescription> units) {
+	public void setUnits(List<UnitInstance> units) {
 		this.units = units;
 	}
 
@@ -45,5 +47,9 @@ public class Roster {
 		this.pointsLimit = pointsLimit;
 	}
 
-
+	public void setParentRoster(List<UnitInstance> units) {
+		for (UnitInstance unit : units) {
+			unit.setParentRoster(this);
+		}
+	}
 }

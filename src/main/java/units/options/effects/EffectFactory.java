@@ -43,5 +43,9 @@ public class EffectFactory {
 		return new ModifyStatEffect(stat,modifier);
 	}
 	
+	public static ChangeModelNameEffect changeModelName(String newName) {
+		return new ChangeModelNameEffect(newName);
+	}
+	
 
 }

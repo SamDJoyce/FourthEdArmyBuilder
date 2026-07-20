@@ -26,6 +26,7 @@ public class ModelInstance implements OptionOwner{
 	private Set<WargearInstance> currentGear;
 	private List<SelectedOption> selectedOptions;
 	private UnitInstance parentUnit;
+	private String customName;
 	
 	public ModelInstance(ModelDescription description){
 		this.id = UUID.randomUUID().toString();
@@ -47,7 +48,18 @@ public class ModelInstance implements OptionOwner{
 	}
 
 	public String getName() {
-		return description.getName();
+		if (customName == null) {
+			return description.getName();
+		}
+		return customName;
+	}
+	
+	public void setName(String newName) {
+		this.customName = newName;
+	}
+	
+	public void resetName() {
+		this.customName = null;
 	}
 
 	public int getBasePoints() {

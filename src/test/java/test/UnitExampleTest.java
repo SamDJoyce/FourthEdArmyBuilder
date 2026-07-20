@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import units.UnitFactory;
 import units.UnitRole;
 import units.UnitType;
 import units.WargearType;
@@ -31,17 +32,19 @@ public class UnitExampleTest {
 	private static final String SQUAD_NAME = "Tactical Squad";
 	private static final String MARINE_NAME = "Tactical Marine";
 	private static final String MARINE_SRG_NAME = "Marine Sergeant";
+	private static final String VETERAN_SRG_NAME = "Veterant Sergeant";
 	private static final String BOLTER_NAME = "Bolter";
 	private static final String ARMOR_NAME = "Power Armor";
 	private static final String PLASMA_GUN_NAME = "Plasma gun";
 	private static final String FLAMER_NAME = "Flamer";
 	private static final String MELTA_NAME = "Melta gun";
+	private static final String CRUX_NAME = "Crux Terminatus";
 	
 	private static final WargearType BOLTER_TYPE = WargearType.TWO_HANDED;
 	private static final WargearType PLASMA_GUN_TYPE = WargearType.TWO_HANDED;
 	private static final WargearType FLAMER_TYPE = WargearType.TWO_HANDED;
 	private static final WargearType MELTA_TYPE = WargearType.TWO_HANDED;
-	private static final WargearType ARMOR_TYPE = WargearType.GEAR;
+	private static final WargearType GEAR = WargearType.GEAR;
 	private static final UnitRole    TROOPS = UnitRole.TROOPS;
 	
 	private static final int MARINE_POINTS = 15;
@@ -67,59 +70,76 @@ public class UnitExampleTest {
 	private final WargearDescription FLAMER;
 	private final WargearDescription MELTA_GUN;
 	private final WargearDescription POWER_ARMOR;
+	private final WargearDescription CRUX_TERMINATUS;
 	private final Set<WargearDescription> TACMARINE_GEAR;
 	
 	// Options and OptionGroups
 	private final OptionGroup SPECIAL_WEAPONS_GROUP;
+	private final OptionGroup CRUX_TERMINATUS_GROUP;
 	private final List<OptionGroup> OPTION_GROUPS;
 	private final OptionChoice PLASMA_CHOICE;
 	private final OptionChoice MELTA_CHOICE;
 	private final OptionChoice FLAMER_CHOICE;
+	private final OptionChoice CRUX_CHOICE;
 	
 	//Effects
 	private final Effect REPLACE_BOLTER_W_PLASMA;
 	private final Effect REPLACE_BOLTER_W_MELTA;
 	private final Effect REPLACE_BOLTER_W_FLAMER;
+	private final Effect INCREASE_LEADERSHIP;
+	private final Effect INCREASE_ATTACKS;
+	private final Effect ADD_CRUX;
+	private final Effect CHANGE_TO_VET_SRG;
 	
 	// Requirements
 	private final Requirement MUST_HAVE_BOLTER;
 	private final Requirement EXCLUSIVE_OF_FLAMER_MELTA;
 	private final Requirement EXCLUSIVE_OF_FLAMER_PLASMA;
 	private final Requirement EXCLUSIVE_OF_MELTA_PLASMA;
+	private final Requirement CHARACTER_ONLY;
 	
 	// Constructor
 	public UnitExampleTest() {
 		
 		TACMARINE_TYPES = Set.of(INFANTRY);
-		SERGEANT_TYPES = Set.of(INFANTRY,CHARACTER);
+		SERGEANT_TYPES  = Set.of(INFANTRY,CHARACTER);
 		
-		MARINE_STATS = StatLineFactory.get(MARINE_NAME,4, 4, 4,4, 1, 4, 1, 8, 3);
+		MARINE_STATS     = StatLineFactory.get(MARINE_NAME,4, 4, 4,4, 1, 4, 1, 8, 3);
 		MARINE_SRG_STATS = StatLineFactory.get(MARINE_SRG_NAME,4, 4, 4,4, 1, 4, 1, 8, 3);
 		
 		BOLTER 	    = WargearDescription.get(BOLTER_NAME,BOLTER_TYPE);
 		PLASMA_GUN  = WargearDescription.get(PLASMA_GUN_NAME,PLASMA_GUN_TYPE, PLASMA_GUN_POINTS);
 		FLAMER      = WargearDescription.get(FLAMER_NAME,FLAMER_TYPE, FLAMER_POINTS);
 		MELTA_GUN   = WargearDescription.get(MELTA_NAME, MELTA_TYPE, MELTA_POINTS);
-		POWER_ARMOR = WargearDescription.get(ARMOR_NAME, ARMOR_TYPE);
-		TACMARINE_GEAR = Set.of(BOLTER,POWER_ARMOR);
+		POWER_ARMOR = WargearDescription.get(ARMOR_NAME, GEAR);
+		CRUX_TERMINATUS = WargearDescription.get(CRUX_NAME, GEAR);
+		TACMARINE_GEAR  = Set.of(BOLTER,POWER_ARMOR);
 	
 		// Option Choices
-		PLASMA_CHOICE = new OptionChoice(
+		PLASMA_CHOICE = OptionChoice.get(
 							PLASMA_GUN_NAME,
 							PLASMA_GUN_POINTS
 							);
-		MELTA_CHOICE  = new OptionChoice(
+		MELTA_CHOICE  = OptionChoice.get(
 							MELTA_NAME,
 							MELTA_POINTS
 							);
-		FLAMER_CHOICE = new OptionChoice(
+		FLAMER_CHOICE = OptionChoice.get(
 							FLAMER_NAME,
 							FLAMER_POINTS);
+		CRUX_CHOICE   = OptionChoice.get(
+							CRUX_NAME,
+							15);
 		
 		// Effects
 		REPLACE_BOLTER_W_PLASMA = EffectFactory.replaceWargear(BOLTER, PLASMA_GUN);
 		REPLACE_BOLTER_W_MELTA  = EffectFactory.replaceWargear(BOLTER, MELTA_GUN);
 		REPLACE_BOLTER_W_FLAMER = EffectFactory.replaceWargear(BOLTER, FLAMER);
+		INCREASE_LEADERSHIP     = EffectFactory.modifyStat("ld", 1);
+		INCREASE_ATTACKS		= EffectFactory.modifyStat("a", 1);
+		ADD_CRUX				= EffectFactory.addWargear(CRUX_TERMINATUS);
+		CHANGE_TO_VET_SRG       = EffectFactory.changeModelName(VETERAN_SRG_NAME);
+		
 		
 		// Requirements
 		MUST_HAVE_BOLTER = ReqFactory.mustHaveGear(BOLTER);
@@ -135,35 +155,54 @@ public class UnitExampleTest {
 										PLASMA_CHOICE,
 										MELTA_CHOICE
 										));
+		CHARACTER_ONLY			   = ReqFactory.charactersOnly();
+		
 		// Assign Requirements and Effects to Option Choices
+			//Plasma
 		PLASMA_CHOICE.setRequirements(List.of(
-										MUST_HAVE_BOLTER,
-										EXCLUSIVE_OF_FLAMER_MELTA));
+									MUST_HAVE_BOLTER,
+									EXCLUSIVE_OF_FLAMER_MELTA));
 		PLASMA_CHOICE.setEffects(List.of(REPLACE_BOLTER_W_PLASMA));
-		
+			//Melta
 		MELTA_CHOICE.setRequirements(List.of(
-										MUST_HAVE_BOLTER,
-										EXCLUSIVE_OF_FLAMER_PLASMA));
+									MUST_HAVE_BOLTER,
+									EXCLUSIVE_OF_FLAMER_PLASMA));
 		MELTA_CHOICE.setEffects(List.of(REPLACE_BOLTER_W_MELTA));
-		
+			// Flamer
 		FLAMER_CHOICE.setRequirements(List.of(
-										MUST_HAVE_BOLTER,
-										EXCLUSIVE_OF_MELTA_PLASMA));
+									MUST_HAVE_BOLTER,
+									EXCLUSIVE_OF_MELTA_PLASMA));
 		FLAMER_CHOICE.setEffects(List.of(REPLACE_BOLTER_W_FLAMER));
+			// Crux
+		CRUX_CHOICE.setEffects(List.of(
+									INCREASE_LEADERSHIP,
+									INCREASE_ATTACKS,
+									ADD_CRUX,
+									CHANGE_TO_VET_SRG));
+		CRUX_CHOICE.setRequirements(List.of(CHARACTER_ONLY));
 		
-		// Assemble the Choices into an Option Group
-		SPECIAL_WEAPONS_GROUP = new OptionGroup(
-									"Special weapons",
+		// Assemble the Choices into the Special Weapons Option Group
+		SPECIAL_WEAPONS_GROUP = OptionGroup.get(
+									"Special Weapons",
 									List.of(PLASMA_CHOICE,
 											MELTA_CHOICE,
 											FLAMER_CHOICE),
-									null,
 									0,
 									1
 									);
 		
-		// Assign the Special Weapons Group to the list of Option Groups
-		OPTION_GROUPS = new ArrayList<>(List.of(SPECIAL_WEAPONS_GROUP));
+		// Assemble the Crux Terminatus option group
+		CRUX_TERMINATUS_GROUP = OptionGroup.get(
+									"Crux Terminatus",
+									List.of(CRUX_CHOICE),
+									0,
+									1);
+		
+		// Assign the Special Weapons Group and the
+		// Crux Terminatus group to the list of Option Groups
+		OPTION_GROUPS = List.of(
+							SPECIAL_WEAPONS_GROUP, 
+							CRUX_TERMINATUS_GROUP);
 	}
 	
 	// MAIN
@@ -171,7 +210,7 @@ public class UnitExampleTest {
 		UnitExampleTest test = new UnitExampleTest();
 		
 		UnitDescription tacticalSquadDesc = test.assembleTacticalSquadDescription();
-		UnitInstance    tacSquad = new UnitInstance(tacticalSquadDesc);
+		UnitInstance    tacSquad = UnitFactory.getInstance(tacticalSquadDesc);
 		// Display the Tactical Squad's information
 		test.printUnitInfo(tacSquad);
 		test.printModelInfo(tacSquad);
@@ -179,16 +218,12 @@ public class UnitExampleTest {
 		// Select and option - Plasma Gun
 		test.selectPlasmaGun(tacSquad);
 		test.printModelInfo(tacSquad);
-	}
-	
-	public void selectPlasmaGun(UnitInstance unit) {
-		ModelInstance model = unit.getModels().get(0);
-		RequirementResult result = model.addSelection(PLASMA_CHOICE);
-		if (result.isValid()) {
-			System.out.println("\n--- Plasma Gun selected ---\n");
-		} else {
-			System.out.println("\n" + result.getMessage() + "\n");
-		}
+		ModelInstance sgt = test.getSergeant(tacSquad);
+		test.selectCrux(sgt);
+		test.printModelInfo(sgt);
+		test.removeCrux(sgt);
+		test.printModelInfo(sgt);
+		
 	}
 	
 	// Construct ModelDescriptions as prototypes
@@ -266,6 +301,17 @@ public class UnitExampleTest {
 		}
 	}
 	
+	public void printModelInfo(ModelInstance model) {
+		System.out.println(model.getName());
+		System.out.println(model.getStats().statsToString());
+		// Print out wargear for each marine to really show everything is in there
+		System.out.println("Equipped with:");	
+		for (WargearInstance gear : model.getGear()) {
+			System.out.println(gear.getName());
+		}
+		System.out.println("");
+	}
+	
 	public void printUnitOptionGroups(UnitInstance tacSquad) {
 		System.out.println("Option Groups:\n");
 		for (OptionGroup og : tacSquad.getOptions()) {
@@ -274,6 +320,44 @@ public class UnitExampleTest {
 				System.out.println(" - Choice: " + c.getName());
 			}
 		}
+	}
+	
+	public void selectPlasmaGun(UnitInstance unit) {
+		ModelInstance model = unit.getModels().get(0);
+		RequirementResult result = model.addSelection(PLASMA_CHOICE);
+		if (result.isValid()) {
+			System.out.println("\n--- Plasma Gun selected ---\n");
+		} else {
+			System.out.println("\n" + result.getMessage() + "\n");
+		}
+	}
+	
+	public void selectCrux(ModelInstance model) {
+		RequirementResult result = model.addSelection(CRUX_CHOICE);
+		if (result.isValid()) {
+			System.out.println("\n--- Crux Terminatus selected ---\n");
+		} else {
+			System.out.println("\n" + result.getMessage() + "\n");
+		}
+	}
+	
+	public void removeCrux(ModelInstance model) {
+		model.removeSelection(CRUX_CHOICE);
+		System.out.println("\n--- Crux Terminatus removed ---\n");
+//		if (result.isValid()) {
+//			System.out.println("\n--- Crux Terminatus selected ---\n");
+//		} else {
+//			System.out.println("\n" + result.getMessage() + "\n");
+//		}
+	}
+	
+	public ModelInstance getSergeant(UnitInstance unit) {
+		for (ModelInstance model : unit.getModels()) {
+			if (MARINE_SRG_NAME.equalsIgnoreCase(model.getName())) {
+				return model;
+			}
+		}
+		return null;
 	}
 
 }

@@ -1,5 +1,6 @@
 package units.options;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import units.options.requirements.Requirement;
@@ -42,6 +43,33 @@ public class OptionGroup {
 	
 	public int getMaxSelections() {
 		return maxSelections;
+	}
+	
+	public static OptionGroup get(
+			String name,
+			List<OptionChoice> choices,
+			int minSelections,
+			int maxSelections) {
+		return new OptionGroup(
+					name,
+					choices,
+					new ArrayList<Requirement>(),
+					minSelections,
+					maxSelections);
+	}
+	
+	public static OptionGroup get(
+			String name,
+			List<OptionChoice> choices,
+			List<Requirement> requirements,
+			int minSelections,
+			int maxSelections) {
+		return new OptionGroup(
+					name,
+					choices,
+					requirements,
+					minSelections,
+					maxSelections);
 	}
 	
 }

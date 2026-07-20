@@ -45,7 +45,7 @@ public class OptionChoice {
 		this.effects = new ArrayList<>(effects);
 	}
 	
-	public OptionChoice(
+	private OptionChoice(
 			String name,
 			int points) {
 		this.id = UUID.randomUUID().toString();
@@ -83,6 +83,11 @@ public class OptionChoice {
 		this.effects = effects;
 	}
 	
+	public static OptionChoice get(String name, int points) {
+		return new OptionChoice(name, points);
+	}
+	
+	@Override
 	public boolean equals(Object obj) {
 	    if (this == obj) {
 	        return true;
