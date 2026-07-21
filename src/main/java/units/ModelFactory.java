@@ -32,10 +32,10 @@ public class ModelFactory {
 	}
 	
 	public static ModelDescription getDescription(
-		String   name, 
-		int      basePoints,
-		StatLine stats,
-		Set<UnitType> types){
+				String   name, 
+				int      basePoints,
+				StatLine stats,
+				Set<UnitType> types){
 	return registry.computeIfAbsent(name,
             key -> new ModelDescription(
 				name,
@@ -69,5 +69,13 @@ public class ModelFactory {
 	
 	public static ModelDescription get(String name) {
 		return registry.get(name);
+	}
+	
+	public static List<ModelDescription> get(List<String> names){
+		List<ModelDescription> models = new ArrayList<>();
+		for (String name : names) {
+			models.add(get(name));
+		}
+		return models;
 	}
 }

@@ -134,29 +134,29 @@ public class UnitExampleTest {
 							CRUX_POINTS);
 		
 		// Effects
-		REPLACE_BOLTER_W_PLASMA = EffectFactory.replaceWargear(BOLTER, PLASMA_GUN);
-		REPLACE_BOLTER_W_MELTA  = EffectFactory.replaceWargear(BOLTER, MELTA_GUN);
-		REPLACE_BOLTER_W_FLAMER = EffectFactory.replaceWargear(BOLTER, FLAMER);
-		INCREASE_LEADERSHIP     = EffectFactory.modifyStat("ld", 1);
-		INCREASE_ATTACKS		= EffectFactory.modifyStat("a", 1);
-		ADD_CRUX				= EffectFactory.addWargear(CRUX_TERMINATUS);
-		CHANGE_TO_VET_SGT       = EffectFactory.changeModelName(VETERAN_SGT_NAME);
+		REPLACE_BOLTER_W_PLASMA = EffectFactory.replaceWargear("REPLACE_BOLTER_W_PLASMA",BOLTER, PLASMA_GUN);
+		REPLACE_BOLTER_W_MELTA  = EffectFactory.replaceWargear("REPLACE_BOLTER_W_MELTA",BOLTER, MELTA_GUN);
+		REPLACE_BOLTER_W_FLAMER = EffectFactory.replaceWargear("REPLACE_BOLTER_W_FLAMER",BOLTER, FLAMER);
+		INCREASE_LEADERSHIP     = EffectFactory.modifyStat("INCREASE_LEADERSHIP","ld", 1);
+		INCREASE_ATTACKS		= EffectFactory.modifyStat("INCREASE_ATTACKS","a", 1);
+		ADD_CRUX				= EffectFactory.addWargear("ADD_CRUX",CRUX_TERMINATUS);
+		CHANGE_TO_VET_SGT       = EffectFactory.changeModelName("CHANGE_TO_VET_SGT",VETERAN_SGT_NAME);
 		
 		// Requirements
-		MUST_HAVE_BOLTER = ReqFactory.mustHaveGear(BOLTER);
-		EXCLUSIVE_OF_FLAMER_MELTA  = ReqFactory.mutualExclusion(List.of(
+		MUST_HAVE_BOLTER = ReqFactory.mustHaveGear("",BOLTER);
+		EXCLUSIVE_OF_FLAMER_MELTA  = ReqFactory.mutualExclusion("",List.of(
 										MELTA_CHOICE,
 										FLAMER_CHOICE
 										)); //exclusiveOfFlamerMeltaReq
-		EXCLUSIVE_OF_FLAMER_PLASMA = ReqFactory.mutualExclusion(List.of(
+		EXCLUSIVE_OF_FLAMER_PLASMA = ReqFactory.mutualExclusion("",List.of(
 										PLASMA_CHOICE,
 										FLAMER_CHOICE
 										));
-		EXCLUSIVE_OF_MELTA_PLASMA  = ReqFactory.mutualExclusion(List.of(
+		EXCLUSIVE_OF_MELTA_PLASMA  = ReqFactory.mutualExclusion("",List.of(
 										PLASMA_CHOICE,
 										MELTA_CHOICE
 										));
-		CHARACTER_ONLY			   = ReqFactory.charactersOnly();
+		CHARACTER_ONLY			   = ReqFactory.charactersOnly("");
 		
 		// Assign Requirements and Effects to Option Choices
 			//Plasma

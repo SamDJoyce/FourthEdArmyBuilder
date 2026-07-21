@@ -1,25 +1,24 @@
 package dto;
 
-import java.util.List;
 import java.util.Set;
 
 public class ModelDTO {
 
     private String name;
     private int points;
-    private String statlineId;
+    private String statlineName;
     private Set<String> typeNames;
     private Set<String> wargearNames;
     
 	public ModelDTO( 
 			String name, 
 			int points, 
-			String statlineId, 
+			String statlineName, 
 			Set<String> typeNames,
 			Set<String> wargearNames) {
 		this.name = name;
 		this.points = points;
-		this.statlineId = statlineId;
+		this.statlineName = statlineName;
 		this.typeNames = typeNames;
 		this.wargearNames = wargearNames;
 	}
@@ -40,12 +39,12 @@ public class ModelDTO {
 		this.points = points;
 	}
 
-	public String getStatlineId() {
-		return statlineId;
+	public String getStatlineName() {
+		return statlineName;
 	}
 
-	public void setStatlineId(String statlineId) {
-		this.statlineId = statlineId;
+	public void setStatlineName(String statlineId) {
+		this.statlineName = statlineId;
 	}
 
 	public Set<String> getTypeNames() {

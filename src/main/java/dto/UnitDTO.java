@@ -3,39 +3,27 @@ package dto;
 import java.util.List;
 
 public class UnitDTO {
-	
-	private String id;
     private String name;
     private int minSize;
     private int maxSize;
     private String role;
-    private List<String> modelIds;
+    private List<String> modelNames;
     private List<String> optionGroupIds;
     
     public UnitDTO(
-    		String id, 
     		String name, 
     		int minSize, 
     		int maxSize, 
     		String role, 
-    		List<String> modelIds,
+    		List<String> modelNames,
 			List<String> optionGroupIds) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.minSize = minSize;
 		this.maxSize = maxSize;
 		this.role = role;
-		this.modelIds = modelIds;
+		this.modelNames = modelNames;
 		this.optionGroupIds = optionGroupIds;
-	}
-    
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
 	}
 
 	public String getName() {
@@ -70,12 +58,12 @@ public class UnitDTO {
 		this.role = role;
 	}
 
-	public List<String> getModelIds() {
-		return modelIds;
+	public List<String> getModelNames() {
+		return modelNames;
 	}
 
-	public void setModelIds(List<String> modelIds) {
-		this.modelIds = modelIds;
+	public void setModelNames(List<String> modelNames) {
+		this.modelNames = modelNames;
 	}
 
 	public List<String> getOptionGroupIds() {

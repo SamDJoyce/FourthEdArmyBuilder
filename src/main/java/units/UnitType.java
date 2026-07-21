@@ -1,5 +1,8 @@
 package units;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public enum UnitType {
 	INFANTRY("Infantry"),
 	JUMP("Jump"),
@@ -69,6 +72,14 @@ public enum UnitType {
 		}
 		// Return Infantry by default
 		return INFANTRY;
+	}
+	
+	public static Set<UnitType> fromStrings(Set<String> typeNames){
+		Set<UnitType> types = new HashSet<>();
+		for (String typeName : typeNames) {
+			types.add(UnitType.fromString(typeName));
+		}
+		return types;
 	}
 	
 	@Override

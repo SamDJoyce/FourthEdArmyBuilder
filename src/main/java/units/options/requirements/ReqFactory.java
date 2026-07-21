@@ -1,5 +1,6 @@
 package units.options.requirements;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -63,5 +64,17 @@ public class ReqFactory {
 	public static Requirement mustHaveGear(String name, WargearDescription requiredGear) {
 		return registry.computeIfAbsent(name,
 	            key -> new MustHaveGearReq(name, requiredGear));
+	}
+	
+	public static Requirement get(String name) {
+		return registry.get(name);
+	}
+	
+	public static List<Requirement> get(List<String> names){
+		List<Requirement> reqs = new ArrayList<>();
+		for (String name : names) {
+			reqs.add(get(name));
+		}
+		return reqs;
 	}
 }

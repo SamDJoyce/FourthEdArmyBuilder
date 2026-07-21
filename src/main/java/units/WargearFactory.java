@@ -1,7 +1,9 @@
 package units;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import units.descriptions.wargear.WargearDescription;
 import units.instances.WargearInstance;
@@ -42,6 +44,14 @@ public class WargearFactory {
 	// Instances
 	public static WargearInstance getInstance(WargearDescription gear) {
 		return new WargearInstance(gear);
+	}
+	
+	public static Set<WargearDescription> get(Set<String> names) {
+		Set<WargearDescription> gear = new HashSet<>();
+		for (String name : names) {
+			gear.add(get(name));
+		}
+		return gear;
 	}
 	
 	public static WargearDescription get(String name) {

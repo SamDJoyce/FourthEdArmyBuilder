@@ -55,6 +55,7 @@ public class UnitFactory {
 		return registry.get(name);
 	}
 	
+	
 //	public static List<UnitInstance> getInstances(UnitDescription unit, int count){
 //		List<UnitInstance> units = new ArrayList<UnitInstance>();
 //		for (int i = 0; i < count; i++) {

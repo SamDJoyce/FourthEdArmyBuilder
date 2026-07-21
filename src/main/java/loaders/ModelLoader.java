@@ -1,11 +1,12 @@
 package loaders;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import dto.ModelDTO;
 import units.ModelFactory;
 import units.UnitType;
+import units.WargearFactory;
 import units.descriptions.models.ModelDescription;
 import units.descriptions.models.StatLineFactory;
 
@@ -13,21 +14,20 @@ public class ModelLoader {
 	public ModelLoader() {}
 	
 	public ModelDescription load(ModelDTO dto) {
-		Set<UnitType> types = fromStrings(dto.getTypeNames());
 		
 		return ModelFactory.getDescription(
 				dto.getName(),
 				dto.getPoints(), 
-				null, // Statline
-				types, 
-				null); // Gear
+				StatLineFactory.get(dto.getStatlineName()),
+				UnitType.fromStrings(dto.getTypeNames()), 
+				WargearFactory.get(dto.getWargearNames()));
 	}
 	
-	private Set<UnitType> fromStrings(Set<String> typeNames){
-		Set<UnitType> types = new HashSet<>();
-		for (String typeName : typeNames) {
-			types.add(UnitType.fromString(typeName));
+	public List<ModelDescription> loadAll(List<ModelDTO> dtos){
+		List<ModelDescription> models = new ArrayList<>();
+		for(ModelDTO d : dtos) {
+			models.add(load(d));
 		}
-		return types;
+		return models;
 	}
 }
