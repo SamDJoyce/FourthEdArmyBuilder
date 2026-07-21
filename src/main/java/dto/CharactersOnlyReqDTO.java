@@ -1,10 +1,13 @@
 package dto;
 
 public class CharactersOnlyReqDTO extends RequirementDTO {
-
-	public CharactersOnlyReqDTO() {
+	private final String name;
+	public CharactersOnlyReqDTO(String name) {
 		super("characters_only");
-		// TODO Auto-generated constructor stub
+		this.name = name;
+	}
+	public String getName() {
+		return name;
 	}
 
 }

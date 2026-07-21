@@ -5,11 +5,21 @@ import units.options.SelectionContext;
 
 public class CharacterOnlyReq implements Requirement {
 
+	private String name;
 	private String message;
 
-	public CharacterOnlyReq() {
+	public CharacterOnlyReq(String name) {
+		this.name = name;
 	}
 	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	@Override
 	public RequirementResult validate(SelectionContext context) {
 		if (!context.hasModel()) {

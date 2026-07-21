@@ -7,18 +7,25 @@ import units.options.SelectionContext;
 
 public class MaxPerModelCountReq implements Requirement {
 
+	private final String name;
 	private final int rate;
 	private final ModelDescription model;
 	private String message;
 	
 	public MaxPerModelCountReq(
+			String name,
 			ModelDescription model,
 			int rate
 			) {
+		this.name = name;
 		this.rate = rate;
 		this.model = model;
 	}
 	
+	public String getName() {
+		return name;
+	}
+
 	@Override
 	public RequirementResult validate(SelectionContext context) {
 		if (!context.hasUnit()) {

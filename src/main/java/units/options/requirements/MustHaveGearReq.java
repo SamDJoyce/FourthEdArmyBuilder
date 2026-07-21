@@ -6,12 +6,18 @@ import units.options.SelectionContext;
 
 public class MustHaveGearReq implements Requirement {
 
+	private final String name;
 	private final WargearDescription requiredGear;
 	
-	public MustHaveGearReq(WargearDescription requiredGear){
+	public MustHaveGearReq(String name, WargearDescription requiredGear){
+		this.name = name;
 		this.requiredGear = requiredGear;
 	}
 	
+	public String getName() {
+		return name;
+	}
+
 	@Override
 	public RequirementResult validate(SelectionContext context) {
 		ModelInstance model = context.getModel();

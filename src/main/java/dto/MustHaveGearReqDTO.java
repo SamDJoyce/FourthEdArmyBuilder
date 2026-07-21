@@ -2,9 +2,15 @@ package dto;
 
 public class MustHaveGearReqDTO extends RequirementDTO {
 
-	public MustHaveGearReqDTO() {
+	private String requiredGear;
+	
+	public MustHaveGearReqDTO(
+			String requiredGear) {
 		super("must_have_gear");
-		// TODO Auto-generated constructor stub
+		this.requiredGear = requiredGear;
 	}
 
+	public String getRequiredGear() {
+		return this.requiredGear;
+	}
 }

@@ -1,69 +1,64 @@
 package units.options.effects;
 
-import dto.EffectDTO;
+import java.util.HashMap;
+import java.util.Map;
+
 import units.descriptions.models.ModelDescription;
+import units.descriptions.models.StatLine;
 import units.descriptions.wargear.WargearDescription;
 import units.instances.ModelInstance;
 
 public class EffectFactory {
 	
-	public static Effect fromDTO(EffectDTO dto) {
-		switch(dto.getType()) {
-		case "add_model": 
-			return null; // addModel()
-		case "replace_model": 
-			return null; // replaceModel()	
-		case "add_wargear":
-			return null; // addWargear()
-		case "replace_wargear":
-			return null; // replaceWargear()
-		case "modify_stat":
-			return null; // modifyStat()
-		case "change_model_name":
-			return null; // changeModelName()
-		}
-		return null;
-	}
+	private static final Map<String, Effect> registry = new HashMap<>();
 	
 	/**
 	 * Construct an AddModelEffect object
 	 */
-	public static AddModelEffect addModel(ModelDescription model) {
-		return new AddModelEffect(model);
+	public static Effect addModel(String name, ModelDescription model) {
+		return registry.computeIfAbsent(name,
+	            key -> new AddModelEffect(name, model));
 	}
 	/**
 	 * Construct a ReplaceModelEffect object
 	 */
-	public static ReplaceModelEffect replaceModel(
+	public static Effect replaceModel(
+			String name,
 			ModelInstance newModel, 
 			ModelInstance oldModel) {
-		return new ReplaceModelEffect(newModel, oldModel);
+		return registry.computeIfAbsent(name,
+	            key -> new ReplaceModelEffect(name, newModel, oldModel));
 	}
 	
 	/**
 	 * Construct a AddWargearEffectDTO object
 	 */
-	public static AddWargearEffect addWargear(WargearDescription gear) {
-		return new AddWargearEffect(gear);
+	public static Effect addWargear(String name,WargearDescription gear) {
+		return registry.computeIfAbsent(name,
+	            key -> new AddWargearEffect(name, gear));
 	}
 	/**
 	 * Construct a ReplaceWargearEffect object
 	 */
-	public static ReplaceWargearEffect replaceWargear(
+	public static Effect replaceWargear(
+			String name,
 			WargearDescription remove,
 			WargearDescription add) {
-		return new ReplaceWargearEffect(remove,add);
+		return registry.computeIfAbsent(name,
+	            key -> new ReplaceWargearEffect(name,remove,add));
 	}
 	/**
 	 * Construct a ModifyStatEffect object
 	 * @return 
 	 */
-	public static ModifyStatEffect modifyStat(String stat, int modifier) {
-		return new ModifyStatEffect(stat,modifier);
+	public static Effect modifyStat(String name, String stat, int modifier) {
+		return registry.computeIfAbsent(name,
+	            key -> new ModifyStatEffect(name, stat,modifier));
 	}
 	
-	public static ChangeModelNameEffect changeModelName(String newName) {
-		return new ChangeModelNameEffect(newName);
+	public static Effect changeModelName(String effectName, String newName) {
+		return registry.computeIfAbsent(effectName,
+	            key -> new ChangeModelNameEffect(effectName, newName));
 	}
 	
 

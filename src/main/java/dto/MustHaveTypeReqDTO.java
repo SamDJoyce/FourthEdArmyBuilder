@@ -2,9 +2,15 @@ package dto;
 
 public class MustHaveTypeReqDTO extends RequirementDTO {
 
-	public MustHaveTypeReqDTO() {
+	private String requiredType;
+	
+	public MustHaveTypeReqDTO(String requiredType) {
 		super("must_have_type");
-		// TODO Auto-generated constructor stub
+		this.requiredType = requiredType;
+	}
+	
+	public String getRequiredType() {
+		return this.requiredType;
 	}
 
 }

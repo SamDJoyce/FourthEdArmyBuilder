@@ -9,13 +9,20 @@ import units.options.SelectionContext;
 
 public class MutualExclusionReq implements Requirement {
 
+	private final String name;
 	private List<OptionChoice> excluded;
 	
 	public MutualExclusionReq(
+			String name,
 			List<OptionChoice> excluded){
+		this.name = name;
 		this.excluded = new ArrayList<>(excluded);
 	}
 	
+	public String getName() {
+		return name;
+	}
+
 	@Override
 	public RequirementResult validate(SelectionContext context) {
 		if (!context.hasUnit()) {

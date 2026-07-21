@@ -5,21 +5,28 @@ import units.options.SelectionContext;
 
 public class ModelCountReq implements Requirement {
 
+	private final String name;
     private final ModelDescription model;
     private final int minimum;
     private final int maximum;
     private String message;
     
     public ModelCountReq(
+    		String name,
     		ModelDescription model,
     		int minimum,
     		int maximum
     		) {
+    	this.name = name;
     	this.model = model;
     	this.minimum = minimum;
     	this.maximum = maximum;
     }
 	
+	public String getName() {
+		return name;
+	}
+
 	@Override
 	public RequirementResult validate(SelectionContext context) {
 		if (!context.hasUnit()) {

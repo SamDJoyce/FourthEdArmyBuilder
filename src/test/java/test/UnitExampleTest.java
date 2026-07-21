@@ -8,6 +8,7 @@ import units.ModelFactory;
 import units.UnitFactory;
 import units.UnitRole;
 import units.UnitType;
+import units.WargearFactory;
 import units.WargearType;
 import units.descriptions.UnitDescription;
 import units.descriptions.models.ModelDescription;
@@ -107,15 +108,15 @@ public class UnitExampleTest {
 		TACMARINE_TYPES = Set.of(INFANTRY);
 		SERGEANT_TYPES  = Set.of(INFANTRY,CHARACTER);
 		
-		MARINE_STATS     = StatLineFactory.get(MARINE_NAME,4, 4, 4,4, 1, 4, 1, 8, 3);
-		MARINE_SGT_STATS = StatLineFactory.get(MARINE_SGT_NAME,4, 4, 4,4, 1, 4, 1, 8, 3);
+		MARINE_STATS     = StatLineFactory.forInfantry(MARINE_NAME,4, 4, 4,4, 1, 4, 1, 8, 3);
+		MARINE_SGT_STATS = StatLineFactory.forInfantry(MARINE_SGT_NAME,4, 4, 4,4, 1, 4, 1, 8, 3);
 		
-		BOLTER 	    = WargearDescription.get(BOLTER_NAME,BOLTER_TYPE);
-		PLASMA_GUN  = WargearDescription.get(PLASMA_GUN_NAME,PLASMA_GUN_TYPE, PLASMA_GUN_POINTS);
-		FLAMER      = WargearDescription.get(FLAMER_NAME,FLAMER_TYPE, FLAMER_POINTS);
-		MELTA_GUN   = WargearDescription.get(MELTA_NAME, MELTA_TYPE, MELTA_POINTS);
-		POWER_ARMOR = WargearDescription.get(ARMOR_NAME, GEAR);
-		CRUX_TERMINATUS = WargearDescription.get(CRUX_NAME, GEAR);
+		BOLTER 	    = WargearFactory.getDescription(BOLTER_NAME,BOLTER_TYPE);
+		PLASMA_GUN  = WargearFactory.getDescription(PLASMA_GUN_NAME,PLASMA_GUN_TYPE, PLASMA_GUN_POINTS);
+		FLAMER      = WargearFactory.getDescription(FLAMER_NAME,FLAMER_TYPE, FLAMER_POINTS);
+		MELTA_GUN   = WargearFactory.getDescription(MELTA_NAME, MELTA_TYPE, MELTA_POINTS);
+		POWER_ARMOR = WargearFactory.getDescription(ARMOR_NAME, GEAR);
+		CRUX_TERMINATUS = WargearFactory.getDescription(CRUX_NAME, GEAR);
 		TACMARINE_GEAR  = Set.of(BOLTER,POWER_ARMOR);
 	
 		// Option Choices

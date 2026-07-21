@@ -9,6 +9,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 import units.UnitType;
+import units.WargearFactory;
 import units.descriptions.models.ModelDescription;
 import units.descriptions.models.StatLine;
 import units.descriptions.wargear.WargearDescription;
@@ -16,7 +17,6 @@ import units.options.OptionChoice;
 import units.options.OptionOwner;
 import units.options.SelectedOption;
 import units.options.SelectionContext;
-import units.options.effects.Effect;
 import units.options.requirements.RequirementResult;
 
 public class ModelInstance implements OptionOwner{
@@ -118,7 +118,7 @@ public class ModelInstance implements OptionOwner{
 		if (hasGear(gear)) {
 			return false;
 		}
-		return this.currentGear.add(WargearInstance.fromDescription(gear));
+		return this.currentGear.add(WargearFactory.getInstance(gear));
 	}
 	
 	public Boolean removeGear(WargearDescription gear) {

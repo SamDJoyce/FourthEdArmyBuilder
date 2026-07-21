@@ -1,5 +1,8 @@
 package units.descriptions.models;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Handles statline creation
  */
@@ -9,9 +12,11 @@ public class StatLineFactory {
 	private static final String VEHICLE = "vehicle";
 	private static final String WALKER = "walker";
 	
+	private static final Map<String, StatLine> registry = new HashMap<>();
+	
 	public static StatLine copy(StatLine stats) {
 		if (INFANTRY.equalsIgnoreCase(stats.getType())) {
-			return get(
+			return forInfantry(
 					stats.getName(),
 					stats.getWs(),
 					stats.getBs(),
@@ -25,7 +30,7 @@ public class StatLineFactory {
 					);
 		}
 		if (VEHICLE.equalsIgnoreCase(stats.getType())) {
-			return get(
+			return forVehicle(
 					stats.getName(),
 					stats.getBs(),
 					stats.getFront(),
@@ -35,7 +40,7 @@ public class StatLineFactory {
 		}
 		
 		if (WALKER.equalsIgnoreCase(stats.getType())) {
-			return get(
+			return forWalker(
 					stats.getName(),
 					stats.getBs(),
 					stats.getWs(),
@@ -65,7 +70,7 @@ public class StatLineFactory {
 	 * @param sv
 	 * @return completed infantry statline
 	 */
-	public static StatLineInfantry get(
+	public static StatLine forInfantry(
 			String name,
 			int ws,
 			int bs,
@@ -76,7 +81,8 @@ public class StatLineFactory {
 			int a, 
 			int ld, 
 			int sv) {
-		return new StatLineInfantry(name,ws,bs,s,t,w,i,a,ld,sv);
+		return  registry.computeIfAbsent(name,
+	            key -> new StatLineInfantry(name,ws,bs,s,t,w,i,a,ld,sv));
 	}
 
 	/**
@@ -89,13 +95,14 @@ public class StatLineFactory {
 	 * @param rear
 	 * @return completed vehicle statline
 	 */
-	public static StatLineVehicle get(
+	public static StatLine forVehicle(
 			String name,
 			int bs,
 			int front,
 			int side,
 			int rear) {
-		return new StatLineVehicle(name, bs, front, side, rear);
+		return registry.computeIfAbsent(name,
+	            key -> new StatLineVehicle(name, bs, front, side, rear));
 	}
 
 	/**
@@ -113,7 +120,7 @@ public class StatLineFactory {
 	 * @param rear
 	 * @return completed walker vehicle statline
 	 */
-	public static StatLineWalker get(
+	public static StatLine forWalker(
 			String name,
 			int bs,
 			int ws,
@@ -123,6 +130,17 @@ public class StatLineFactory {
 			int front,
 			int side,
 			int rear) {
-		return new StatLineWalker(name, bs, ws, s, i, a, front, side, rear);
+		return registry.computeIfAbsent(name,
+	            key -> new StatLineWalker(name, bs, ws, s, i, a, front, side, rear));
+	}
+	
+	/**
+	 * 
+	 * 
+	 * @param name
+	 * @return
+	 */
+	public static StatLine get(String name) {
+		return registry.get(name);
 	}
 }

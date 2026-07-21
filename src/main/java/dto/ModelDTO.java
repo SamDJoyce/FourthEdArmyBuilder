@@ -1,38 +1,27 @@
 package dto;
 
 import java.util.List;
+import java.util.Set;
 
 public class ModelDTO {
 
-    private String id;
     private String name;
     private int points;
     private String statlineId;
-    private List<String> typeIds;
-    private List<String> wargearIds;
+    private Set<String> typeNames;
+    private Set<String> wargearNames;
     
-	public ModelDTO(
-			String id, 
+	public ModelDTO( 
 			String name, 
 			int points, 
 			String statlineId, 
-			List<String> typeIds,
-			List<String> wargearIds) {
-		super();
-		this.id = id;
+			Set<String> typeNames,
+			Set<String> wargearNames) {
 		this.name = name;
 		this.points = points;
 		this.statlineId = statlineId;
-		this.typeIds = typeIds;
-		this.wargearIds = wargearIds;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
+		this.typeNames = typeNames;
+		this.wargearNames = wargearNames;
 	}
 
 	public String getName() {
@@ -59,20 +48,20 @@ public class ModelDTO {
 		this.statlineId = statlineId;
 	}
 
-	public List<String> getTypeIds() {
-		return typeIds;
+	public Set<String> getTypeNames() {
+		return typeNames;
 	}
 
-	public void setTypeIds(List<String> typeIds) {
-		this.typeIds = typeIds;
+	public void setTypeNames(Set<String> typeNames) {
+		this.typeNames = typeNames;
 	}
 
-	public List<String> getWargearIds() {
-		return wargearIds;
+	public Set<String> getWargearNames() {
+		return wargearNames;
 	}
 
-	public void setWargearIds(List<String> wargearIds) {
-		this.wargearIds = wargearIds;
+	public void setWargearNames(Set<String> wargearNamess) {
+		this.wargearNames = wargearNamess;
 	}
 
 	

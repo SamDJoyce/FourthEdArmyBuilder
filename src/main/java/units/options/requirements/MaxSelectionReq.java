@@ -4,15 +4,22 @@ import units.options.SelectionContext;
 
 public class MaxSelectionReq implements Requirement {
 
+	private final String name;
 	private int maxSelection;
 	private String message;
 	
 	public MaxSelectionReq(
+			String name,
 			int maxSelection
 			) {
+		this.name = name;
 		this.maxSelection = maxSelection;
 	}
 	
+	public String getName() {
+		return name;
+	}
+
 	// TODO fix or discard
 	@Override
 	public RequirementResult validate(SelectionContext context) {

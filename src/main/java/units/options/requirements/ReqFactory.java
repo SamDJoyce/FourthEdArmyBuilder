@@ -1,8 +1,9 @@
 package units.options.requirements;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-import dto.RequirementDTO;
 import units.UnitType;
 import units.descriptions.models.ModelDescription;
 import units.descriptions.wargear.WargearDescription;
@@ -10,64 +11,57 @@ import units.options.OptionChoice;
 
 public class ReqFactory {
 	
-	public static Requirement fromDTO(RequirementDTO dto) {
-		switch(dto.getType()){
-		case "characters_only":
-			return null; // charactersOnly()
-		case "mutual_exclusion":
-			return null; // differentiate between list and single exclusions
-		case "max_selection":
-			return null; // maxSelection() - does this duplicate the two below?
-		case "max_per_model_count":
-			return null; // maxPerModelCount()
-		case "model_count":
-			return null; // modelCount()
-		case "must_have_type":
-			return null; // mustHaveType()
-		case "must_have_gear":
-			return null; // mustHaveGear()
-		}
-		return null;
+	private static final Map<String, Requirement> registry = new HashMap<>();
+	
+	public static Requirement charactersOnly(String name) {
+		return registry.computeIfAbsent(name,
+	            key -> new CharacterOnlyReq(name));
 	}
 	
-	public static CharacterOnlyReq charactersOnly() {
-		return  new CharacterOnlyReq();
+	public static Requirement mutualExclusion(String name, List<OptionChoice> excluded) {
+		return registry.computeIfAbsent(name,
+	            key -> new MutualExclusionReq(name,excluded));
 	}
 	
-	public static MutualExclusionReq mutualExclusion(List<OptionChoice> excluded) {
-		return new MutualExclusionReq(excluded);
+	public static Requirement mutualExclusion(String name, OptionChoice excluded) {
+		return registry.computeIfAbsent(name,
+	            key -> new MutualExclusionReq(name, List.of(excluded)));
 	}
 	
-	public static MutualExclusionReq mutualExclusion(OptionChoice excluded) {
-		return new MutualExclusionReq(List.of(excluded));
+	public static Requirement maxSelection(String name, int maxSelection) {
+		return registry.computeIfAbsent(name,
+	            key -> new MaxSelectionReq(name, maxSelection));
 	}
 	
-	public static MaxSelectionReq maxSelection(int maxSelection) {
-		return new MaxSelectionReq(maxSelection);
-	}
-	
-	public static MaxPerModelCountReq maxPerModelCount(
+	public static Requirement maxPerModelCount(
+			String name,
 			ModelDescription model,
 			int rate) {
-		return new MaxPerModelCountReq(model,rate);
+		return registry.computeIfAbsent(name,
+	            key -> new MaxPerModelCountReq(name, model,rate));
 	}
 	
-	public static ModelCountReq modelCount(
+	public static Requirement modelCount(
+			String name,
 			ModelDescription model,
 			int minimum,
 			int maximum
 			) {
-		return new ModelCountReq(
+		return registry.computeIfAbsent(name,
+	            key -> new ModelCountReq(
+				name,
 				model,
 				minimum,
-				maximum);
+				maximum));
 	}
 	
-	public static MustHaveTypeReq mustHaveType(UnitType type){
-		return new MustHaveTypeReq(type);
+	public static Requirement mustHaveType(String name, UnitType type){
+		return registry.computeIfAbsent(name,
+	            key -> new MustHaveTypeReq(name,type));
 	}
 	
-	public static MustHaveGearReq mustHaveGear(WargearDescription requiredGear) {
-		return new MustHaveGearReq(requiredGear);
+	public static Requirement mustHaveGear(String name, WargearDescription requiredGear) {
+		return registry.computeIfAbsent(name,
+	            key -> new MustHaveGearReq(name, requiredGear));
 	}
 }

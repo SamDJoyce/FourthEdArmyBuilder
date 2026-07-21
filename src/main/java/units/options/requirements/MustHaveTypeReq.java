@@ -6,22 +6,28 @@ import units.options.SelectionContext;
 
 public class MustHaveTypeReq implements Requirement {
 
-	private final UnitType type;
+	private final String name;
+	private final UnitType requiredType;
 	
-	public MustHaveTypeReq(UnitType type) {
-		this.type = type;
+	public MustHaveTypeReq(String name, UnitType requiredType) {
+		this.name = name;
+		this.requiredType = requiredType;
+	}
+	
+	public String getRequiredType() {
+		return this.requiredType.toString();
 	}
 	
 	@Override
 	public RequirementResult validate(SelectionContext context) {
 		ModelInstance model = context.getModel();
-		boolean valid = model.isType(type);
+		boolean valid = model.isType(requiredType);
 		String message;
 		if (valid) {
-			message = "Model has the required type.";
+			message = "Model has the required requiredType.";
 			return RequirementResult.success(message);
 		}
-		message = "Model lacks the required type.";
+		message = "Model lacks the required requiredType.";
 		return RequirementResult.failure(message);
 	}
 
