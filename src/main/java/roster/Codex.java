@@ -5,12 +5,12 @@ import java.util.Set;
 import units.descriptions.UnitDescription;
 import units.descriptions.wargear.WargearDescription;
 
-public class Faction {
+public class Codex {
 	private String name;
 	private Set<UnitDescription> units;
 	private Set<WargearDescription> wargear;
 	
-	public Faction( String name, 
+	public Codex( String name, 
 					Set<UnitDescription> units, 
 					Set<WargearDescription> wargear) {
 		this.name = name;

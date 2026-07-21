@@ -34,4 +34,8 @@ public class WargearInstance {
 	public WargearDescription getDescription() {
 		return this.description;
 	}
+	
+	public static WargearInstance fromDescription(WargearDescription gear) {
+		return new WargearInstance(gear);
+	}
 }

@@ -118,7 +118,7 @@ public class ModelInstance implements OptionOwner{
 		if (hasGear(gear)) {
 			return false;
 		}
-		return this.currentGear.add(new WargearInstance(gear));
+		return this.currentGear.add(WargearInstance.fromDescription(gear));
 	}
 	
 	public Boolean removeGear(WargearDescription gear) {

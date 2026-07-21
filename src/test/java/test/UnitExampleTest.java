@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import units.ModelFactory;
 import units.UnitFactory;
 import units.UnitRole;
 import units.UnitType;
@@ -29,38 +30,40 @@ public class UnitExampleTest {
 	// Test container class for unit loading
 	// Not actual unit tests
 	
-	private static final String SQUAD_NAME = "Tactical Squad";
-	private static final String MARINE_NAME = "Tactical Marine";
-	private static final String MARINE_SRG_NAME = "Marine Sergeant";
-	private static final String VETERAN_SRG_NAME = "Veterant Sergeant";
-	private static final String BOLTER_NAME = "Bolter";
-	private static final String ARMOR_NAME = "Power Armor";
-	private static final String PLASMA_GUN_NAME = "Plasma gun";
-	private static final String FLAMER_NAME = "Flamer";
-	private static final String MELTA_NAME = "Melta gun";
-	private static final String CRUX_NAME = "Crux Terminatus";
+	private static final String SQUAD_NAME 		 = "Tactical Squad";
+	private static final String MARINE_NAME 	 = "Tactical Marine";
+	private static final String MARINE_SGT_NAME  = "Marine Sergeant";
+	private static final String VETERAN_SGT_NAME = "Veterant Sergeant";
+	private static final String BOLTER_NAME 	 = "Bolter";
+	private static final String ARMOR_NAME 		 = "Power Armor";
+	private static final String PLASMA_GUN_NAME  = "Plasma gun";
+	private static final String FLAMER_NAME 	 = "Flamer";
+	private static final String MELTA_NAME 		 = "Melta gun";
+	private static final String CRUX_NAME 		 = "Crux Terminatus";
+	private static final String SPECIAL_WEAPONS  = "Special Weapons";
 	
-	private static final WargearType BOLTER_TYPE = WargearType.TWO_HANDED;
+	private static final WargearType BOLTER_TYPE 	 = WargearType.TWO_HANDED;
 	private static final WargearType PLASMA_GUN_TYPE = WargearType.TWO_HANDED;
-	private static final WargearType FLAMER_TYPE = WargearType.TWO_HANDED;
-	private static final WargearType MELTA_TYPE = WargearType.TWO_HANDED;
-	private static final WargearType GEAR = WargearType.GEAR;
-	private static final UnitRole    TROOPS = UnitRole.TROOPS;
+	private static final WargearType FLAMER_TYPE 	 = WargearType.TWO_HANDED;
+	private static final WargearType MELTA_TYPE 	 = WargearType.TWO_HANDED;
+	private static final WargearType GEAR 			 = WargearType.GEAR;
+	private static final UnitRole    TROOPS 		 = UnitRole.TROOPS;
 	
-	private static final int MARINE_POINTS = 15;
-	private static final int PLASMA_GUN_POINTS = 10;
-	private static final int MELTA_POINTS = 10;
-	private static final int FLAMER_POINTS = 6;
-	private static final int TAC_SQUAD_MIN = 5;
-	private static final int TAC_SQUAD_MAX = 10;
-	private static final int COUNT_MARINES = 4;
-	private static final int COUNT_SRG = 1;
-	private static final UnitType INFANTRY = UnitType.INFANTRY;
+	private static final int MARINE_POINTS 		= 15;
+	private static final int PLASMA_GUN_POINTS 	= 10;
+	private static final int MELTA_POINTS 		= 10;
+	private static final int FLAMER_POINTS 		= 6;
+	private static final int CRUX_POINTS 		= 15;
+	private static final int TAC_SQUAD_MIN 		= 5;
+	private static final int TAC_SQUAD_MAX 		= 10;
+	private static final int COUNT_MARINES 		= 4;
+	private static final int COUNT_SRG 			= 1;
+	private static final UnitType INFANTRY  = UnitType.INFANTRY;
 	private static final UnitType CHARACTER = UnitType.CHARACTER;
 	
 	// Unit Stats and types
 	private final StatLine MARINE_STATS;
-	private final StatLine MARINE_SRG_STATS;
+	private final StatLine MARINE_SGT_STATS;
 	private final Set<UnitType> TACMARINE_TYPES;
 	private final Set<UnitType> SERGEANT_TYPES;
 	
@@ -89,7 +92,7 @@ public class UnitExampleTest {
 	private final Effect INCREASE_LEADERSHIP;
 	private final Effect INCREASE_ATTACKS;
 	private final Effect ADD_CRUX;
-	private final Effect CHANGE_TO_VET_SRG;
+	private final Effect CHANGE_TO_VET_SGT;
 	
 	// Requirements
 	private final Requirement MUST_HAVE_BOLTER;
@@ -105,7 +108,7 @@ public class UnitExampleTest {
 		SERGEANT_TYPES  = Set.of(INFANTRY,CHARACTER);
 		
 		MARINE_STATS     = StatLineFactory.get(MARINE_NAME,4, 4, 4,4, 1, 4, 1, 8, 3);
-		MARINE_SRG_STATS = StatLineFactory.get(MARINE_SRG_NAME,4, 4, 4,4, 1, 4, 1, 8, 3);
+		MARINE_SGT_STATS = StatLineFactory.get(MARINE_SGT_NAME,4, 4, 4,4, 1, 4, 1, 8, 3);
 		
 		BOLTER 	    = WargearDescription.get(BOLTER_NAME,BOLTER_TYPE);
 		PLASMA_GUN  = WargearDescription.get(PLASMA_GUN_NAME,PLASMA_GUN_TYPE, PLASMA_GUN_POINTS);
@@ -118,18 +121,16 @@ public class UnitExampleTest {
 		// Option Choices
 		PLASMA_CHOICE = OptionChoice.get(
 							PLASMA_GUN_NAME,
-							PLASMA_GUN_POINTS
-							);
+							PLASMA_GUN_POINTS);
 		MELTA_CHOICE  = OptionChoice.get(
 							MELTA_NAME,
-							MELTA_POINTS
-							);
+							MELTA_POINTS);
 		FLAMER_CHOICE = OptionChoice.get(
 							FLAMER_NAME,
 							FLAMER_POINTS);
 		CRUX_CHOICE   = OptionChoice.get(
 							CRUX_NAME,
-							15);
+							CRUX_POINTS);
 		
 		// Effects
 		REPLACE_BOLTER_W_PLASMA = EffectFactory.replaceWargear(BOLTER, PLASMA_GUN);
@@ -138,8 +139,7 @@ public class UnitExampleTest {
 		INCREASE_LEADERSHIP     = EffectFactory.modifyStat("ld", 1);
 		INCREASE_ATTACKS		= EffectFactory.modifyStat("a", 1);
 		ADD_CRUX				= EffectFactory.addWargear(CRUX_TERMINATUS);
-		CHANGE_TO_VET_SRG       = EffectFactory.changeModelName(VETERAN_SRG_NAME);
-		
+		CHANGE_TO_VET_SGT       = EffectFactory.changeModelName(VETERAN_SGT_NAME);
 		
 		// Requirements
 		MUST_HAVE_BOLTER = ReqFactory.mustHaveGear(BOLTER);
@@ -178,12 +178,12 @@ public class UnitExampleTest {
 									INCREASE_LEADERSHIP,
 									INCREASE_ATTACKS,
 									ADD_CRUX,
-									CHANGE_TO_VET_SRG));
+									CHANGE_TO_VET_SGT));
 		CRUX_CHOICE.setRequirements(List.of(CHARACTER_ONLY));
 		
 		// Assemble the Choices into the Special Weapons Option Group
 		SPECIAL_WEAPONS_GROUP = OptionGroup.get(
-									"Special Weapons",
+									SPECIAL_WEAPONS,
 									List.of(PLASMA_CHOICE,
 											MELTA_CHOICE,
 											FLAMER_CHOICE),
@@ -193,16 +193,15 @@ public class UnitExampleTest {
 		
 		// Assemble the Crux Terminatus option group
 		CRUX_TERMINATUS_GROUP = OptionGroup.get(
-									"Crux Terminatus",
+									CRUX_NAME,
 									List.of(CRUX_CHOICE),
 									0,
 									1);
 		
 		// Assign the Special Weapons Group and the
 		// Crux Terminatus group to the list of Option Groups
-		OPTION_GROUPS = List.of(
-							SPECIAL_WEAPONS_GROUP, 
-							CRUX_TERMINATUS_GROUP);
+		OPTION_GROUPS = List.of(SPECIAL_WEAPONS_GROUP, 
+								CRUX_TERMINATUS_GROUP);
 	}
 	
 	// MAIN
@@ -229,28 +228,27 @@ public class UnitExampleTest {
 	// Construct ModelDescriptions as prototypes
 	
 	public ModelDescription createSpaceMarine() {
-		return new ModelDescription(
-					MARINE_NAME,
-					MARINE_POINTS,
-					MARINE_STATS,
-					TACMARINE_TYPES,
-					TACMARINE_GEAR
-					);
+		return ModelFactory.getDescription(
+					MARINE_NAME, 
+					MARINE_POINTS, 
+					MARINE_STATS, 
+					TACMARINE_TYPES, 
+					TACMARINE_GEAR);
 	}
 	
 	public ModelDescription createSpaceMarineSrg() {
-		return new ModelDescription(
-					MARINE_SRG_NAME,
+		return ModelFactory.getDescription(
+					MARINE_SGT_NAME,
 					MARINE_POINTS,
-					MARINE_SRG_STATS,
+					MARINE_SGT_STATS,
 					SERGEANT_TYPES,
-					TACMARINE_GEAR
-					);
+					TACMARINE_GEAR);
 	}
 	
 	// Construct the minimum Tactical Squad from prototypes
 	public UnitDescription assembleTacticalSquadDescription() {
 		
+		// Create Model Descriptions
 		ModelDescription marine   = createSpaceMarine();
 		ModelDescription sergeant = createSpaceMarineSrg();
 		List<ModelDescription> models = new ArrayList<>();
@@ -295,7 +293,7 @@ public class UnitExampleTest {
 			// Print out wargear for each marine to really show everything is in there
 			System.out.println("Equipped with:");	
 			for (WargearInstance gear : model.getGear()) {
-				System.out.println(gear.getName());
+				System.out.println("- " + gear.getName());
 			}
 			System.out.println("");
 		}
@@ -307,7 +305,7 @@ public class UnitExampleTest {
 		// Print out wargear for each marine to really show everything is in there
 		System.out.println("Equipped with:");	
 		for (WargearInstance gear : model.getGear()) {
-			System.out.println(gear.getName());
+			System.out.println("- " + gear.getName());
 		}
 		System.out.println("");
 	}
@@ -353,7 +351,7 @@ public class UnitExampleTest {
 	
 	public ModelInstance getSergeant(UnitInstance unit) {
 		for (ModelInstance model : unit.getModels()) {
-			if (MARINE_SRG_NAME.equalsIgnoreCase(model.getName())) {
+			if (MARINE_SGT_NAME.equalsIgnoreCase(model.getName())) {
 				return model;
 			}
 		}

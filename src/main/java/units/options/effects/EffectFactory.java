@@ -1,10 +1,29 @@
 package units.options.effects;
 
+import dto.EffectDTO;
 import units.descriptions.models.ModelDescription;
 import units.descriptions.wargear.WargearDescription;
 import units.instances.ModelInstance;
 
 public class EffectFactory {
+	
+	public static Effect fromDTO(EffectDTO dto) {
+		switch(dto.getType()) {
+		case "add_model": 
+			return null; // addModel()
+		case "replace_model": 
+			return null; // replaceModel()	
+		case "add_wargear":
+			return null; // addWargear()
+		case "replace_wargear":
+			return null; // replaceWargear()
+		case "modify_stat":
+			return null; // modifyStat()
+		case "change_model_name":
+			return null; // changeModelName()
+		}
+		return null;
+	}
 	
 	/**
 	 * Construct an AddModelEffect object
@@ -22,7 +41,7 @@ public class EffectFactory {
 	}
 	
 	/**
-	 * Construct a AddWargearEffect object
+	 * Construct a AddWargearEffectDTO object
 	 */
 	public static AddWargearEffect addWargear(WargearDescription gear) {
 		return new AddWargearEffect(gear);
