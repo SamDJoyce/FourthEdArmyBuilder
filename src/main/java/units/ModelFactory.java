@@ -49,6 +49,10 @@ public class ModelFactory {
 		return new ModelInstance(model);
 	}
 	
+	public static ModelInstance getInstance(String name) {
+		return new ModelInstance(get(name));
+	}
+	
 	public static List<ModelInstance> getInstances(List<ModelDescription> descriptions) {
 		List<ModelInstance> instances = new ArrayList<>();
 		

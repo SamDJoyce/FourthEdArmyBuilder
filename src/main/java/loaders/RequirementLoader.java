@@ -8,7 +8,10 @@ import dto.MustHaveGearReqDTO;
 import dto.MustHaveTypeReqDTO;
 import dto.MutualExclusionReqDTO;
 import dto.RequirementDTO;
+import units.ModelFactory;
 import units.UnitType;
+import units.WargearFactory;
+import units.options.OptionChoiceFactory;
 import units.options.requirements.ReqFactory;
 import units.options.requirements.Requirement;
 
@@ -18,33 +21,43 @@ public class RequirementLoader {
 			case "characters_only":
 				CharactersOnlyReqDTO co = (CharactersOnlyReqDTO) dto;
 				return ReqFactory.charactersOnly(co.getName());
+				
 			case "mutual_exclusion":
 				MutualExclusionReqDTO me = (MutualExclusionReqDTO) dto;
-				return null;
+				return ReqFactory.mutualExclusion(me.getName(),
+						OptionChoiceFactory.get(me.getExcluded()));
 				 // differentiate between list and single exclusions
+				
 			case "max_selection":
 				MaxSelectionReqDTO ms = (MaxSelectionReqDTO) dto;
-				return null; // maxSelection() - does this duplicate the two below?
+				return ReqFactory.maxSelection(ms.getName(), ms.getMaxSelection());
+				
 			case "max_per_model_count":
 				MaxPerModelCountReqDTO mpmc = (MaxPerModelCountReqDTO) dto;
-				return null; // maxPerModelCount()
+				return ReqFactory.maxPerModelCount(
+									mpmc.getName(), 
+									ModelFactory.get(mpmc.getModelName()),
+									mpmc.getRate());
 			case "model_count":
 				ModelCountReqDTO mc = (ModelCountReqDTO) dto;
-				 // modelCount()
-				return null;
+				return ReqFactory.modelCount(
+									mc.getName(), 
+									ModelFactory.get(mc.getModelName()), 
+									mc.getMinimum(), 
+									mc.getMaximum());
+				
 			case "must_have_type":
 				MustHaveTypeReqDTO mht = (MustHaveTypeReqDTO) dto;
 				return ReqFactory.mustHaveType(
 						mht.getType(),
-						UnitType.fromString(mht.getRequiredType())); // mustHaveType()
+						UnitType.fromString(mht.getRequiredType()));
+				
 			case "must_have_gear":
 				MustHaveGearReqDTO mhg = (MustHaveGearReqDTO) dto;
-//				return ReqFactory.mustHaveGear(
-//						WargearFactory.getDescription(
-//								mhg.getName(), 
-//								mhg.getRequiredGear(), 
-//								mhg.getPoints()));
+				return ReqFactory.mustHaveGear(mhg.getName(),
+						WargearFactory.get(mhg.getRequiredGear()));
 		}
 		return null;
 	}
+	
 }

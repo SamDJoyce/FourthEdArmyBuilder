@@ -2,9 +2,27 @@ package dto;
 
 public class ModifyStatEffectDTO extends EffectDTO {
 
-	public ModifyStatEffectDTO() {
+	private final String name;
+	private final String stat;
+	private final int modifier;
+	
+	public ModifyStatEffectDTO(String name, String stat, int modifier) {
 		super("modify_stat");
-		// TODO Auto-generated constructor stub
+		this.name = name;
+		this.stat = stat;
+		this.modifier = modifier;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getStat() {
+		return stat;
+	}
+
+	public int getModifier() {
+		return modifier;
 	}
 
 }

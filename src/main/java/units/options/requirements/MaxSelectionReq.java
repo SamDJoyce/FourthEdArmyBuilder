@@ -44,6 +44,6 @@ public class MaxSelectionReq implements Requirement {
 //					);
 //			return RequirementResult.failure(message);
 //		}
-		return null;
+		return RequirementResult.success("");
 	}
 }
