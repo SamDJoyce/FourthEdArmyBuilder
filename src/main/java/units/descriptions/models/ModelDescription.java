@@ -7,6 +7,7 @@ import java.util.Set;
 
 import units.UnitType;
 import units.descriptions.wargear.WargearDescription;
+import units.options.OptionGroup;
 
 public class ModelDescription {
 	
@@ -15,17 +16,20 @@ public class ModelDescription {
 	private final StatLine   stats;
 	private final Set<UnitType> types;
 	private final Set<WargearDescription> defaultGear;
+	private final Set<OptionGroup> options;
 	
 	public ModelDescription(
 			String   name, 
 			int      basePoints,
 			StatLine stats,
 			Set<UnitType> types,
+			Set<OptionGroup> options,
 			Set<WargearDescription> defaultGear) {
 		this.name = name;
 		this.basePoints = basePoints;
 		this.stats = StatLineFactory.copy(stats);
 		this.types = new HashSet<>(types);
+		this.options = new HashSet<>(options);
 		this.defaultGear = new HashSet<>(defaultGear);
 	}
 
@@ -47,6 +51,10 @@ public class ModelDescription {
 
 	public Set<WargearDescription> getGear(){
 		return Collections.unmodifiableSet(defaultGear);
+	}
+	
+	public Set<OptionGroup> getOptions() {
+		return this.options;
 	}
 	
 	@Override

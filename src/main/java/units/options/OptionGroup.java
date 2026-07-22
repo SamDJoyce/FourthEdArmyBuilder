@@ -1,21 +1,21 @@
 package units.options;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import units.options.requirements.Requirement;
 
 public class OptionGroup {
 	private String name;
-	private List<OptionChoice> choices;
-	private List<Requirement> requirements;
+	private Set<OptionChoice> choices;
+	private Set<Requirement> requirements;
 	private int minSelections;
 	private int maxSelections;
 	
 	public OptionGroup(
 			String name,
-			List<OptionChoice> choices,
-			List<Requirement> requirements,
+			Set<OptionChoice> choices,
+			Set<Requirement> requirements,
 			int minSelections,
 			int maxSelections) {
 		this.name = name;
@@ -29,11 +29,11 @@ public class OptionGroup {
 		return name;
 	}
 
-	public List<OptionChoice> getChoices() {
+	public Set<OptionChoice> getChoices() {
 		return choices;
 	}
 
-	public List<Requirement> getRequirements() {
+	public Set<Requirement> getRequirements() {
 		return requirements;
 	}
 	
@@ -47,21 +47,21 @@ public class OptionGroup {
 	
 	public static OptionGroup get(
 			String name,
-			List<OptionChoice> choices,
+			Set<OptionChoice> choices,
 			int minSelections,
 			int maxSelections) {
 		return new OptionGroup(
 					name,
 					choices,
-					new ArrayList<Requirement>(),
+					new HashSet<Requirement>(),
 					minSelections,
 					maxSelections);
 	}
 	
 	public static OptionGroup get(
 			String name,
-			List<OptionChoice> choices,
-			List<Requirement> requirements,
+			Set<OptionChoice> choices,
+			Set<Requirement> requirements,
 			int minSelections,
 			int maxSelections) {
 		return new OptionGroup(

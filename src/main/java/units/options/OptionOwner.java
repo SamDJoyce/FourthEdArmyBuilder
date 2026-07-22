@@ -1,11 +1,11 @@
 package units.options;
 
-import java.util.List;
+import java.util.Set;
 
 import units.options.requirements.RequirementResult;
 
 public interface OptionOwner {
-    List<SelectedOption> getSelectedOptions();
+    Set<SelectedOption> getSelectedOptions();
 
     RequirementResult addSelection(OptionChoice option);
 

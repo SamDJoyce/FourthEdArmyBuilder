@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import units.descriptions.UnitDescription;
 import units.descriptions.models.ModelDescription;
@@ -19,7 +20,7 @@ public class UnitFactory {
 			int minSize, 
 			int maxSize, 
 			UnitRole role,
-			List<OptionGroup> options,
+			Set<OptionGroup> options,
 			List<ModelDescription> models) {
 		return registry.computeIfAbsent(name,
 	            key -> new UnitDescription(
@@ -36,7 +37,7 @@ public class UnitFactory {
 			int minSize, 
 			int maxSize, 
 			UnitRole role,
-			List<OptionGroup> options) {
+			Set<OptionGroup> options) {
 		return registry.computeIfAbsent(name,
 	            key -> new UnitDescription(
 				name,

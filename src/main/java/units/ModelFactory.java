@@ -11,6 +11,7 @@ import units.descriptions.models.ModelDescription;
 import units.descriptions.models.StatLine;
 import units.descriptions.wargear.WargearDescription;
 import units.instances.ModelInstance;
+import units.options.OptionGroup;
 
 public class ModelFactory {
 	
@@ -21,6 +22,7 @@ public class ModelFactory {
 				int      basePoints,
 				StatLine stats,
 				Set<UnitType> types,
+				Set<OptionGroup> options,
 				Set<WargearDescription> defaultGear ){
 	return registry.computeIfAbsent(name,
             key -> new ModelDescription(
@@ -28,6 +30,7 @@ public class ModelFactory {
 				basePoints,
 				stats,
 				types,
+				options,
 				defaultGear));
 	}
 	
@@ -42,6 +45,7 @@ public class ModelFactory {
 				basePoints,
 				stats,
 				types,
+				new HashSet<>(),
 				new HashSet<WargearDescription>()));
 	}
 	
@@ -64,7 +68,6 @@ public class ModelFactory {
 	
 	public static List<ModelInstance> getInstances(ModelDescription description, int count) {
 		List<ModelInstance> instances = new ArrayList<>();
-		
 		for (int i = 0; i < count ; i++) {
 			instances.add(new ModelInstance(description));
 		}

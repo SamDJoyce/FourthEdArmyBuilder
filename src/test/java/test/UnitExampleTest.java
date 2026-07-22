@@ -1,6 +1,7 @@
 package test;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -80,7 +81,7 @@ public class UnitExampleTest {
 	// Options and OptionGroups
 	private final OptionGroup SPECIAL_WEAPONS_GROUP;
 	private final OptionGroup CRUX_TERMINATUS_GROUP;
-	private final List<OptionGroup> OPTION_GROUPS;
+	private final Set<OptionGroup> OPTION_GROUPS;
 	private final OptionChoice PLASMA_CHOICE;
 	private final OptionChoice MELTA_CHOICE;
 	private final OptionChoice FLAMER_CHOICE;
@@ -144,15 +145,15 @@ public class UnitExampleTest {
 		
 		// Requirements
 		MUST_HAVE_BOLTER = ReqFactory.mustHaveGear("",BOLTER);
-		EXCLUSIVE_OF_FLAMER_MELTA  = ReqFactory.mutualExclusion("",List.of(
+		EXCLUSIVE_OF_FLAMER_MELTA  = ReqFactory.mutualExclusion("",Set.of(
 										MELTA_CHOICE,
 										FLAMER_CHOICE
 										)); //exclusiveOfFlamerMeltaReq
-		EXCLUSIVE_OF_FLAMER_PLASMA = ReqFactory.mutualExclusion("",List.of(
+		EXCLUSIVE_OF_FLAMER_PLASMA = ReqFactory.mutualExclusion("",Set.of(
 										PLASMA_CHOICE,
 										FLAMER_CHOICE
 										));
-		EXCLUSIVE_OF_MELTA_PLASMA  = ReqFactory.mutualExclusion("",List.of(
+		EXCLUSIVE_OF_MELTA_PLASMA  = ReqFactory.mutualExclusion("",Set.of(
 										PLASMA_CHOICE,
 										MELTA_CHOICE
 										));
@@ -160,32 +161,32 @@ public class UnitExampleTest {
 		
 		// Assign Requirements and Effects to Option Choices
 			//Plasma
-		PLASMA_CHOICE.setRequirements(List.of(
+		PLASMA_CHOICE.setRequirements(Set.of(
 									MUST_HAVE_BOLTER,
 									EXCLUSIVE_OF_FLAMER_MELTA));
-		PLASMA_CHOICE.setEffects(List.of(REPLACE_BOLTER_W_PLASMA));
+		PLASMA_CHOICE.setEffects(Set.of(REPLACE_BOLTER_W_PLASMA));
 			//Melta
-		MELTA_CHOICE.setRequirements(List.of(
+		MELTA_CHOICE.setRequirements(Set.of(
 									MUST_HAVE_BOLTER,
 									EXCLUSIVE_OF_FLAMER_PLASMA));
-		MELTA_CHOICE.setEffects(List.of(REPLACE_BOLTER_W_MELTA));
+		MELTA_CHOICE.setEffects(Set.of(REPLACE_BOLTER_W_MELTA));
 			// Flamer
-		FLAMER_CHOICE.setRequirements(List.of(
+		FLAMER_CHOICE.setRequirements(Set.of(
 									MUST_HAVE_BOLTER,
 									EXCLUSIVE_OF_MELTA_PLASMA));
-		FLAMER_CHOICE.setEffects(List.of(REPLACE_BOLTER_W_FLAMER));
+		FLAMER_CHOICE.setEffects(Set.of(REPLACE_BOLTER_W_FLAMER));
 			// Crux
-		CRUX_CHOICE.setEffects(List.of(
+		CRUX_CHOICE.setEffects(Set.of(
 									INCREASE_LEADERSHIP,
 									INCREASE_ATTACKS,
 									ADD_CRUX,
 									CHANGE_TO_VET_SGT));
-		CRUX_CHOICE.setRequirements(List.of(CHARACTER_ONLY));
+		CRUX_CHOICE.setRequirements(Set.of(CHARACTER_ONLY));
 		
 		// Assemble the Choices into the Special Weapons Option Group
 		SPECIAL_WEAPONS_GROUP = OptionGroup.get(
 									SPECIAL_WEAPONS,
-									List.of(PLASMA_CHOICE,
+									Set.of(PLASMA_CHOICE,
 											MELTA_CHOICE,
 											FLAMER_CHOICE),
 									0,
@@ -195,13 +196,13 @@ public class UnitExampleTest {
 		// Assemble the Crux Terminatus option group
 		CRUX_TERMINATUS_GROUP = OptionGroup.get(
 									CRUX_NAME,
-									List.of(CRUX_CHOICE),
+									Set.of(CRUX_CHOICE),
 									0,
 									1);
 		
 		// Assign the Special Weapons Group and the
 		// Crux Terminatus group to the list of Option Groups
-		OPTION_GROUPS = List.of(SPECIAL_WEAPONS_GROUP, 
+		OPTION_GROUPS = Set.of(SPECIAL_WEAPONS_GROUP, 
 								CRUX_TERMINATUS_GROUP);
 	}
 	
@@ -234,6 +235,7 @@ public class UnitExampleTest {
 					MARINE_POINTS, 
 					MARINE_STATS, 
 					TACMARINE_TYPES, 
+					new HashSet<OptionGroup>(),
 					TACMARINE_GEAR);
 	}
 	
@@ -243,6 +245,7 @@ public class UnitExampleTest {
 					MARINE_POINTS,
 					MARINE_SGT_STATS,
 					SERGEANT_TYPES,
+					new HashSet<OptionGroup>(),
 					TACMARINE_GEAR);
 	}
 	

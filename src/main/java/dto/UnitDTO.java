@@ -1,6 +1,7 @@
 package dto;
 
 import java.util.List;
+import java.util.Set;
 
 public class UnitDTO {
     private String name;
@@ -8,7 +9,7 @@ public class UnitDTO {
     private int maxSize;
     private String role;
     private List<String> modelNames;
-    private List<String> optionGroupIds;
+    private Set<String> optionGroupIds;
     
     public UnitDTO(
     		String name, 
@@ -16,7 +17,7 @@ public class UnitDTO {
     		int maxSize, 
     		String role, 
     		List<String> modelNames,
-			List<String> optionGroupIds) {
+    		Set<String> optionGroupIds) {
 		super();
 		this.name = name;
 		this.minSize = minSize;
@@ -66,11 +67,11 @@ public class UnitDTO {
 		this.modelNames = modelNames;
 	}
 
-	public List<String> getOptionGroupIds() {
+	public Set<String> getOptionGroupIds() {
 		return optionGroupIds;
 	}
 
-	public void setOptionGroupIds(List<String> optionGroupIds) {
+	public void setOptionGroupIds(Set<String> optionGroupIds) {
 		this.optionGroupIds = optionGroupIds;
 	}
 }

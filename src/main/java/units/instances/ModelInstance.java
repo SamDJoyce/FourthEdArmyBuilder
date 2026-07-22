@@ -24,7 +24,7 @@ public class ModelInstance implements OptionOwner{
 	private final ModelDescription description;
 	private Set<UnitType> currentTypes;
 	private Set<WargearInstance> currentGear;
-	private List<SelectedOption> selectedOptions;
+	private Set<SelectedOption> selectedOptions;
 	private UnitInstance parentUnit;
 	private String customName;
 	
@@ -36,7 +36,7 @@ public class ModelInstance implements OptionOwner{
 			                .stream()
 			                .map(WargearInstance::new)
 			                .collect(Collectors.toSet());
-		this.selectedOptions = new ArrayList<>();
+		this.selectedOptions = new HashSet<>();
 	}
 	
 	public ModelDescription getDescription() {
@@ -156,7 +156,7 @@ public class ModelInstance implements OptionOwner{
 	}
 	
 	@Override
-	public List<SelectedOption> getSelectedOptions(){
+	public Set<SelectedOption> getSelectedOptions(){
 		return selectedOptions;
 	}
 	

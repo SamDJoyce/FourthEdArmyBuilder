@@ -1,19 +1,19 @@
 package dto;
 
-import java.util.List;
+import java.util.Set;
 
 public class OptionGroupDTO {
 	
 	private String name;
-	private List<String> choiceNames;
-	private List<String> requirementNames;
+	private Set<String> choiceNames;
+	private Set<String> requirementNames;
 	private int minSelections;
 	private int maxSelections;
 	
 	public OptionGroupDTO(
 			String name, 
-			List<String> choiceNames,
-			List<String> requirementNames, 
+			Set<String> choiceNames,
+			Set<String> requirementNames, 
 			int minSelections,
 			int maxSelections) {
 		this.name = name;
@@ -31,19 +31,19 @@ public class OptionGroupDTO {
 		this.name = name;
 	}
 
-	public List<String> getChoiceNames() {
+	public Set<String> getChoiceNames() {
 		return choiceNames;
 	}
 
-	public void setChoiceNames(List<String> choiceNames) {
+	public void setChoiceNames(Set<String> choiceNames) {
 		this.choiceNames = choiceNames;
 	}
 
-	public List<String> getRequirementNames() {
+	public Set<String> getRequirementNames() {
 		return requirementNames;
 	}
 
-	public void setRequirementNames(List<String> requirementNames) {
+	public void setRequirementNames(Set<String> requirementNames) {
 		this.requirementNames = requirementNames;
 	}
 

@@ -8,6 +8,7 @@ public class ModelDTO {
     private int points;
     private String statlineName;
     private Set<String> typeNames;
+    private Set<String> optionGroupNames;
     private Set<String> wargearNames;
     
 	public ModelDTO( 
@@ -15,11 +16,13 @@ public class ModelDTO {
 			int points, 
 			String statlineName, 
 			Set<String> typeNames,
+			Set<String> optionGroupNames,
 			Set<String> wargearNames) {
 		this.name = name;
 		this.points = points;
 		this.statlineName = statlineName;
 		this.typeNames = typeNames;
+		this.optionGroupNames = optionGroupNames;
 		this.wargearNames = wargearNames;
 	}
 
@@ -61,6 +64,14 @@ public class ModelDTO {
 
 	public void setWargearNames(Set<String> wargearNamess) {
 		this.wargearNames = wargearNamess;
+	}
+
+	public Set<String> getOptionGroupNames() {
+		return optionGroupNames;
+	}
+
+	public void setOptionGroupNames(Set<String> optionGroupNames) {
+		this.optionGroupNames = optionGroupNames;
 	}
 
 	

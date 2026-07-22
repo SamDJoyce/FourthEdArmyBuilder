@@ -1,9 +1,9 @@
 package units.options;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import units.options.requirements.Requirement;
 
@@ -13,8 +13,8 @@ public class OptionGroupFactory {
 	
 	public static OptionGroup get(
 			String name,
-			List<OptionChoice> choices,
-			List<Requirement> requirements,
+			Set<OptionChoice> choices,
+			Set<Requirement> requirements,
 			int minSelections,
 			int maxSelections ) {
 		return registry.computeIfAbsent(name,
@@ -30,8 +30,8 @@ public class OptionGroupFactory {
 		return registry.get(name);
 	}
 	
-	public static List<OptionGroup> get(List<String> names){
-		List<OptionGroup> groups = new ArrayList<>();
+	public static Set<OptionGroup> get(Set<String> names){
+		Set<OptionGroup> groups = new HashSet<>();
 		for (String name : names) {
 			groups.add(get(name));
 		}

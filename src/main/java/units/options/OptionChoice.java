@@ -2,9 +2,10 @@ package units.options;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
-import java.util.UUID;
+import java.util.Set;
 
 import units.options.effects.Effect;
 import units.options.requirements.Requirement;
@@ -14,19 +15,19 @@ public class OptionChoice {
 	// Fields
 	private final String 	name;
 	private final int		points;
-	private List<Requirement> requirements;
-	private List<Effect> effects;
+	private Set<Requirement> requirements;
+	private Set<Effect> effects;
 	
 	public OptionChoice(
 			String name,
 			int points,
-			List<Requirement> requirements,
-			List<Effect> effects
+			Set<Requirement> requirements,
+			Set<Effect> effects
 			) {
 		this.name = name;
 		this.points = points;
-		this.requirements = new ArrayList<>(requirements);
-		this.effects = new ArrayList<>(effects);
+		this.requirements = new HashSet<>(requirements);
+		this.effects = new HashSet<>(effects);
 	}
 	
 	public OptionChoice(
@@ -34,8 +35,8 @@ public class OptionChoice {
 			int points) {
 		this.name = name;
 		this.points = points;
-		this.requirements = new ArrayList<>();
-		this.effects = new ArrayList<>();
+		this.requirements = new HashSet<>();
+		this.effects = new HashSet<>();
 	}
 
 	public String getName() {
@@ -46,19 +47,19 @@ public class OptionChoice {
 		return points;
 	}
 
-	public List<Requirement> getRequirements() {
-		return Collections.unmodifiableList(requirements);
+	public Set<Requirement> getRequirements() {
+		return Collections.unmodifiableSet(requirements);
 	}
 	
-	public void setRequirements(List<Requirement> requirements) {
+	public void setRequirements(Set<Requirement> requirements) {
 		this.requirements = requirements;
 	}
 	
-	public List<Effect> getEffects(){
-		return Collections.unmodifiableList(effects);
+	public Set<Effect> getEffects(){
+		return Collections.unmodifiableSet(effects);
 	}
 	
-	public void setEffects(List<Effect> effects) {
+	public void setEffects(Set<Effect> effects) {
 		this.effects = effects;
 	}
 	

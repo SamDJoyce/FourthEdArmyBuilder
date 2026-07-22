@@ -1,9 +1,9 @@
 package units.options;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class OptionChoiceFactory {
 	private static final Map<String, OptionChoice> registry = new HashMap<>();
@@ -19,8 +19,8 @@ public class OptionChoiceFactory {
 		return registry.get(name);
 	}
 	
-	public static List<OptionChoice> get(List<String> names){
-		List<OptionChoice> choices = new ArrayList<>();
+	public static Set<OptionChoice> get(Set<String> names){
+		Set<OptionChoice> choices = new HashSet<>();
 		for (String name : names) {
 			choices.add(get(name));
 		}

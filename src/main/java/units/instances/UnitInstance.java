@@ -27,7 +27,7 @@ public class UnitInstance implements OptionOwner{
 	private final UnitDescription description;
 	private Set<UnitType> types;
 	private List<ModelInstance> models;
-	private List<SelectedOption> selectedOptions;
+	private Set<SelectedOption> selectedOptions;
 	private Roster parentRoster;
 	
 	public UnitInstance(UnitDescription description) {
@@ -35,7 +35,7 @@ public class UnitInstance implements OptionOwner{
 		this.description = description;
 		this.models = ModelFactory.getInstances(description.getModels());
 		setParentUnit(models);
-		this.selectedOptions = new ArrayList<>();
+		this.selectedOptions = new HashSet<>();
 		this.types = new HashSet<>();
 	}
 	
@@ -164,8 +164,8 @@ public class UnitInstance implements OptionOwner{
 	}
 	
 	@Override
-	public List<SelectedOption> getSelectedOptions(){
-		return Collections.unmodifiableList(selectedOptions);
+	public Set<SelectedOption> getSelectedOptions(){
+		return Collections.unmodifiableSet(selectedOptions);
 	}
 	
 	@Override
@@ -204,7 +204,7 @@ public class UnitInstance implements OptionOwner{
 		return false;
 	}
 	
-	public List<OptionGroup> getOptions() {
+	public Set<OptionGroup> getOptions() {
 		return this.description.getOptions();
 	}
 	

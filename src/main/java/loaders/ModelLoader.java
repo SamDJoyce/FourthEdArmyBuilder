@@ -9,6 +9,7 @@ import units.UnitType;
 import units.WargearFactory;
 import units.descriptions.models.ModelDescription;
 import units.descriptions.models.StatLineFactory;
+import units.options.OptionGroupFactory;
 
 public class ModelLoader {
 	public ModelLoader() {}
@@ -19,7 +20,8 @@ public class ModelLoader {
 				dto.getName(),
 				dto.getPoints(), 
 				StatLineFactory.get(dto.getStatlineName()),
-				UnitType.fromStrings(dto.getTypeNames()), 
+				UnitType.fromStrings(dto.getTypeNames()),
+				OptionGroupFactory.get(dto.getOptionGroupNames()),
 				WargearFactory.get(dto.getWargearNames()));
 	}
 	

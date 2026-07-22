@@ -1,9 +1,9 @@
 package units.options.requirements;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import units.UnitType;
 import units.descriptions.models.ModelDescription;
@@ -19,14 +19,14 @@ public class ReqFactory {
 	            key -> new CharacterOnlyReq(name));
 	}
 	
-	public static Requirement mutualExclusion(String name, List<OptionChoice> excluded) {
+	public static Requirement mutualExclusion(String name, Set<OptionChoice> excluded) {
 		return registry.computeIfAbsent(name,
 	            key -> new MutualExclusionReq(name,excluded));
 	}
 	
 	public static Requirement mutualExclusion(String name, OptionChoice excluded) {
 		return registry.computeIfAbsent(name,
-	            key -> new MutualExclusionReq(name, List.of(excluded)));
+	            key -> new MutualExclusionReq(name, Set.of(excluded)));
 	}
 	
 	public static Requirement maxSelection(String name, int maxSelection) {
@@ -70,8 +70,8 @@ public class ReqFactory {
 		return registry.get(name);
 	}
 	
-	public static List<Requirement> get(List<String> names){
-		List<Requirement> reqs = new ArrayList<>();
+	public static Set<Requirement> get(Set<String> names){
+		Set<Requirement> reqs = new HashSet<>();
 		for (String name : names) {
 			reqs.add(get(name));
 		}

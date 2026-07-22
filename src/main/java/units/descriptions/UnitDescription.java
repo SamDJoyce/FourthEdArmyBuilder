@@ -21,7 +21,7 @@ public class UnitDescription {
 	private final int      maxSize;
 	private final UnitRole role;
 	private final Set<UnitType> types;
-	private final List<OptionGroup> options;
+	private final Set<OptionGroup> options;
 	private final List<ModelDescription> models;
 	
 	// Constructor
@@ -31,14 +31,14 @@ public class UnitDescription {
 			int maxSize, 
 			UnitRole role, 
 			Set<UnitType> types,
-			List<OptionGroup> options,
+			Set<OptionGroup> options,
 			List<ModelDescription> models) {
 		this.name = name;
 		this.minSize = minSize;
 		this.maxSize = maxSize;
 		this.role = role;
 		this.types = new HashSet<>(types);
-		this.options = new ArrayList<>(options);
+		this.options = new HashSet<>(options);
 		this.models = new ArrayList<>(models);
 	}
 	
@@ -47,13 +47,13 @@ public class UnitDescription {
 			int minSize, 
 			int maxSize, 
 			UnitRole role,
-			List<OptionGroup> options,
+			Set<OptionGroup> options,
 			List<ModelDescription> models) {
 		this.name = name;
 		this.minSize = minSize;
 		this.maxSize = maxSize;
 		this.role = role;
-		this.options = new ArrayList<>(options);
+		this.options = new HashSet<>(options);
 		this.models = new ArrayList<>(models);
 		this.types = new HashSet<>();
 	}
@@ -88,8 +88,8 @@ public class UnitDescription {
 		return maxSize;
 	}
 
-	public List<OptionGroup> getOptions() {
-		return Collections.unmodifiableList(options);
+	public Set<OptionGroup> getOptions() {
+		return Collections.unmodifiableSet(options);
 	}
 
 	public List<ModelDescription> getModels() {

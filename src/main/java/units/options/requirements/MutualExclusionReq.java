@@ -1,7 +1,7 @@
 package units.options.requirements;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import units.instances.UnitInstance;
 import units.options.OptionChoice;
@@ -10,13 +10,13 @@ import units.options.SelectionContext;
 public class MutualExclusionReq implements Requirement {
 
 	private final String name;
-	private List<OptionChoice> excluded;
+	private Set<OptionChoice> excluded;
 	
 	public MutualExclusionReq(
 			String name,
-			List<OptionChoice> excluded){
+			Set<OptionChoice> excluded){
 		this.name = name;
-		this.excluded = new ArrayList<>(excluded);
+		this.excluded = new HashSet<>(excluded);
 	}
 	
 	public String getName() {
