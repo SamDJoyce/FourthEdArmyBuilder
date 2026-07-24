@@ -4,6 +4,8 @@ public class StatLineInfantryDTO extends StatLineDTO{
 	private String name;
 	private int ws, bs, s, t, w, i, a, ld, sv;
 	
+	public StatLineInfantryDTO(){}
+	
 	public StatLineInfantryDTO(
 			String type,
 			String name, 

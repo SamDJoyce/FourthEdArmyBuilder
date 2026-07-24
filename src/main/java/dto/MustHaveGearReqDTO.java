@@ -5,6 +5,8 @@ public class MustHaveGearReqDTO extends RequirementDTO {
 	private String name;
 	private String requiredGear;
 	
+	public MustHaveGearReqDTO() {}
+	
 	public MustHaveGearReqDTO(
 			String name,
 			String requiredGear) {

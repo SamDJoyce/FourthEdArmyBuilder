@@ -5,6 +5,8 @@ public class WargearDTO {
     private String type;
     private int points;
     
+    public WargearDTO() {}
+    
     public WargearDTO(
     		String name,
     		String type,

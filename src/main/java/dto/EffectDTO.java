@@ -3,6 +3,8 @@ package dto;
 public abstract class EffectDTO {
 	private String type;
 	
+	public EffectDTO() {}
+	
 	public EffectDTO(String type) {
 		this.type = type;
 	}

@@ -10,6 +10,8 @@ public class OptionGroupDTO {
 	private int minSelections;
 	private int maxSelections;
 	
+	public OptionGroupDTO() {}
+	
 	public OptionGroupDTO(
 			String name, 
 			Set<String> choiceNames,

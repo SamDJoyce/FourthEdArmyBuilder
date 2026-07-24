@@ -1,5 +1,8 @@
 package loaders;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import dto.UnitDTO;
 import units.ModelFactory;
 import units.UnitFactory;
@@ -18,6 +21,16 @@ public class UnitLoader {
 							UnitRole.fromString(dto.getRole()), 
 							OptionGroupFactory.get(dto.getOptionGroupIds()),
 							ModelFactory.get(dto.getModelNames()));
+	}
+	
+	public List<UnitDescription> loadAll(List<UnitDTO> dtos){
+		List<UnitDescription> units = new ArrayList<>();
+		
+		for (UnitDTO d : dtos) {
+			units.add(load(d));
+		}
+		
+		return units;
 	}
 	
 }

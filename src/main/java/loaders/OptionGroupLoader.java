@@ -1,5 +1,8 @@
 package loaders;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import dto.OptionGroupDTO;
 import units.options.OptionChoiceFactory;
 import units.options.OptionGroup;
@@ -18,5 +21,15 @@ public class OptionGroupLoader {
 				dto.getMinSelections(),
 				dto.getMaxSelections()
 				);
+	}
+	
+	public List<OptionGroup> loadAll(List<OptionGroupDTO> dtos){
+		List<OptionGroup> groups = new ArrayList<>();
+		
+		for (OptionGroupDTO d : dtos) {
+			groups.add(load(d));
+		}
+		
+		return groups;
 	}
 }

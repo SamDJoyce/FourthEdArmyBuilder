@@ -2,8 +2,10 @@ package dto;
 
 public class ChangeModelNameEffectDTO extends EffectDTO {
 
-	private final String effectName;
-	private final String newName;
+	private String effectName;
+	private String newName;
+	
+	public ChangeModelNameEffectDTO() {}
 	
 	public ChangeModelNameEffectDTO(String effectName, String newName) {
 		super("change_model_name");

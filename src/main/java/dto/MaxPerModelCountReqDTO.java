@@ -2,9 +2,11 @@ package dto;
 
 
 public class MaxPerModelCountReqDTO extends RequirementDTO {
-	private final String name;
-	private final int rate;
-	private final String modelName;
+	private String name;
+	private int rate;
+	private String modelName;
+	
+	public MaxPerModelCountReqDTO() {}
 	
 	public MaxPerModelCountReqDTO(String type, String name, int rate, String modelName) {
 		super(type);

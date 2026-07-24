@@ -2,8 +2,10 @@ package dto;
 
 public class AddWargearEffectDTO extends EffectDTO {
 
-	private final String name;
-	private final String gearName;
+	private String name;
+	private String gearName;
+	
+	public AddWargearEffectDTO() {}
 	
 	public AddWargearEffectDTO(String name, String gearName) {
 		super("add_wargear");

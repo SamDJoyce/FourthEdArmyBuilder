@@ -5,6 +5,8 @@ public class StatLineWalkerDTO extends StatLineDTO {
 	String name;
 	int bs, ws, s, i ,a, front, side, rear;
 	
+	public StatLineWalkerDTO() {}
+	
 	public StatLineWalkerDTO(
 			String type, 
 			String name, 

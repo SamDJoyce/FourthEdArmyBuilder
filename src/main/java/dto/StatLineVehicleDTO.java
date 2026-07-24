@@ -4,6 +4,8 @@ public class StatLineVehicleDTO extends StatLineDTO {
 	int bs, front, side, rear;
 	String name;
 	
+	public StatLineVehicleDTO() {}
+	
 	public StatLineVehicleDTO(
 			String type,
 			String name,

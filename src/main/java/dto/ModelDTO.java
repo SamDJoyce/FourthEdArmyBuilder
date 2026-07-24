@@ -11,6 +11,8 @@ public class ModelDTO {
     private Set<String> optionGroupNames;
     private Set<String> wargearNames;
     
+    public ModelDTO() {}
+    
 	public ModelDTO( 
 			String name, 
 			int points, 

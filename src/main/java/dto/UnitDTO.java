@@ -11,6 +11,8 @@ public class UnitDTO {
     private List<String> modelNames;
     private Set<String> optionGroupNames;
     
+    public UnitDTO() {}
+    
     public UnitDTO(
     		String name, 
     		int minSize, 

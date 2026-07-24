@@ -1,5 +1,8 @@
 package loaders;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import dto.CharactersOnlyReqDTO;
 import dto.MaxPerModelCountReqDTO;
 import dto.MaxSelectionReqDTO;
@@ -16,7 +19,7 @@ import units.options.requirements.ReqFactory;
 import units.options.requirements.Requirement;
 
 public class RequirementLoader {
-	public static Requirement load(RequirementDTO dto) {
+	public Requirement load(RequirementDTO dto) {
 		switch(dto.getType()){
 			case "characters_only":
 				CharactersOnlyReqDTO co = (CharactersOnlyReqDTO) dto;
@@ -58,6 +61,16 @@ public class RequirementLoader {
 						WargearFactory.get(mhg.getRequiredGear()));
 		}
 		return null;
+	}
+	
+	public List<Requirement> loadAll(List<RequirementDTO> dtos){
+		List<Requirement> reqs = new ArrayList<>();
+		
+		for (RequirementDTO d : dtos) {
+			reqs.add(load(d));
+		}
+		
+		return reqs;
 	}
 	
 }

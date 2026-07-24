@@ -1,7 +1,10 @@
 package dto;
 
 public class CharactersOnlyReqDTO extends RequirementDTO {
-	private final String name;
+	private String name;
+	
+	public CharactersOnlyReqDTO() {}
+	
 	public CharactersOnlyReqDTO(String name) {
 		super("characters_only");
 		this.name = name;

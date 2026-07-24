@@ -3,6 +3,8 @@ package dto;
 public abstract class RequirementDTO {
 	private String type;
 	
+	public RequirementDTO() {}
+	
 	public RequirementDTO(String type) {
 		this.type = type;
 	}

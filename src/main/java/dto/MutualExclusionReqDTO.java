@@ -7,6 +7,8 @@ public class MutualExclusionReqDTO extends RequirementDTO {
 	private String name;
 	private Set<String> excludedChoiceNames;
 	
+	public MutualExclusionReqDTO() {}
+	
 	public MutualExclusionReqDTO(String name, Set<String> excludedChoiceNames) {
 		super("mutual_exclusion");
 		this.name = name;

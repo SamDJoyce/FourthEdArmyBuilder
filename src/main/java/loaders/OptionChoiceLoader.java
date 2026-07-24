@@ -12,7 +12,7 @@ public class OptionChoiceLoader {
 		return OptionChoiceFactory.create(dto.getName(), dto.getPoints() );
 	}
 	
-	public static List<OptionChoice> loadAll(List<OptionChoiceDTO> dtos){
+	public List<OptionChoice> loadAll(List<OptionChoiceDTO> dtos){
 		List<OptionChoice> choices = new ArrayList<>();
 		for (OptionChoiceDTO d : dtos) {
 			choices.add(OptionChoiceFactory.create(

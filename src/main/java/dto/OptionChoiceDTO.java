@@ -4,10 +4,12 @@ import java.util.Set;
 
 
 public class OptionChoiceDTO {
-	private final String 	name;
-	private final int		points;
+	private String 	name;
+	private int		points;
 	private Set<String> requirementNames;
 	private Set<String> effectNames;
+	
+	public OptionChoiceDTO() {}
 	
 	public OptionChoiceDTO(
 			String name, 

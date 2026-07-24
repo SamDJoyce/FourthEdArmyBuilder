@@ -2,9 +2,11 @@ package dto;
 
 public class ReplaceWargearEffectDTO extends EffectDTO {
 
-	private final String name;
-	private final String remove;
-	private final String add;
+	private String name;
+	private String remove;
+	private String add;
+	
+	public ReplaceWargearEffectDTO() {}
 	
 	public ReplaceWargearEffectDTO(String name, String removeName, String addName) {
 		super("replace_wargear");

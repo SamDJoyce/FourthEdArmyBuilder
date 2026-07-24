@@ -1,5 +1,8 @@
 package loaders;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import dto.AddModelEffectDTO;
 import dto.AddWargearEffectDTO;
 import dto.ChangeModelNameEffectDTO;
@@ -13,7 +16,7 @@ import units.options.effects.Effect;
 import units.options.effects.EffectFactory;
 
 public class EffectLoader {
-	public static Effect load(EffectDTO dto) {
+	public Effect load(EffectDTO dto) {
 		switch(dto.getType()) {
 			case "add_model":
 				AddModelEffectDTO am = (AddModelEffectDTO) dto;
@@ -52,5 +55,15 @@ public class EffectLoader {
 									cmn.getNewName());
 		}
 		return null;
+	}
+	
+	public List<Effect> loadAll(List<EffectDTO> dtos){
+		List<Effect> effects = new ArrayList<>();
+		
+		for (EffectDTO d : dtos) {
+			effects.add(load(d));
+		}
+		
+		return effects;
 	}
 }

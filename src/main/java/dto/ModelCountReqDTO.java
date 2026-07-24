@@ -2,11 +2,13 @@ package dto;
 
 public class ModelCountReqDTO extends RequirementDTO {
 
-	private final String name;
-    private final String modelName;
-    private final int minimum;
-    private final int maximum;
+	private String name;
+    private String modelName;
+    private int minimum;
+    private int maximum;
     private String message;
+    
+    public ModelCountReqDTO() {}
     
 	public ModelCountReqDTO(
 			String type, 

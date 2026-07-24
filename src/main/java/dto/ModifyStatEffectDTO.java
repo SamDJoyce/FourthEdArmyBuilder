@@ -2,9 +2,11 @@ package dto;
 
 public class ModifyStatEffectDTO extends EffectDTO {
 
-	private final String name;
-	private final String stat;
-	private final int modifier;
+	private String name;
+	private String stat;
+	private int modifier;
+	
+	public ModifyStatEffectDTO() {}
 	
 	public ModifyStatEffectDTO(String name, String stat, int modifier) {
 		super("modify_stat");

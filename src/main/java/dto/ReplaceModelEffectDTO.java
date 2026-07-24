@@ -1,9 +1,11 @@
 package dto;
 
 public class ReplaceModelEffectDTO extends EffectDTO {
-	private final String name;
-	private final String newModelName;
-	private final String oldModelName;
+	private String name;
+	private String newModelName;
+	private String oldModelName;
+	
+	public ReplaceModelEffectDTO() {}
 	
 	public ReplaceModelEffectDTO(
 			String name, 

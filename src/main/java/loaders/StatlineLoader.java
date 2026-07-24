@@ -1,5 +1,8 @@
 package loaders;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import dto.StatLineDTO;
 import dto.StatLineInfantryDTO;
 import dto.StatLineVehicleDTO;
@@ -54,4 +57,15 @@ public class StatlineLoader {
 		}
 		return null;	
 	}
+	
+	public List<StatLine> loadAll(List<StatLineDTO> dtos){
+		List<StatLine> statLines = new ArrayList<>();
+		
+		for(StatLineDTO d : dtos) {
+			statLines.add(load(d));
+		}
+		
+		return statLines;
+	}
+	
 }

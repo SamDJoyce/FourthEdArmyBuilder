@@ -1,10 +1,11 @@
 package dto;
 
 public class MaxSelectionReqDTO extends RequirementDTO {
-	private final String name;
+	private String name;
 	private int maxSelection;
 	private String message;
 
+	public MaxSelectionReqDTO() {}
 
 	public MaxSelectionReqDTO(String name, int maxSelection, String message) {
 		super("max_selection");
