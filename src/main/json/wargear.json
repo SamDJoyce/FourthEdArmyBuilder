@@ -1,7 +1,7 @@
 [
 	{	
 	  	"name":"bolter",
-	  	"type":"TWO_HANDED",
+	  	"type":"TWO HANDED",
 	  	"points":0
 	},
 	{
@@ -11,17 +11,17 @@
 	},
 	{
 	  	"name":"plasma gun",
-	  	"type":"TWO_HANDED",
+	  	"type":"TWO HANDED",
 	  	"points":10
 	},
 	{
 	  	"name":"melta gun",
-	  	"type":"TWO_HANDED",
+	  	"type":"TWO HANDED",
 	  	"points":10
 	},
 	{
 	  	"name":"flamer",
-	  	"type":"TWO_HANDED",
+	  	"type":"TWO HANDED",
 	  	"points":6
 	},
 	{
