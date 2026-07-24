@@ -8,7 +8,7 @@ import java.util.Set;
 public class OptionChoiceFactory {
 	private static final Map<String, OptionChoice> registry = new HashMap<>();
 	
-	public static OptionChoice get(String name, int points) {
+	public static OptionChoice create(String name, int points) {
 		return registry.computeIfAbsent(name,
 	            key -> new OptionChoice(
 	            			name, points

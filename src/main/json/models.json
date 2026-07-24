@@ -1,0 +1,29 @@
+[
+	{
+		"name":"tactical marine",
+		"points":"15",
+		"statlineName":"tactical marine",
+		"typeNames":[
+			"INFANTRY"
+		],
+		"optionGroupNames":[""],
+		"wargearNames":[
+			"power armor",
+			"bolter"
+		]
+	},
+	{
+		"name":"tactical marine sgt",
+		"basepoints":"15",
+		"statline":"tactical marine sgt",
+		"typeNames":[
+			"INFANTRY",
+			"CHARACTER"
+		],
+		"optionGroupNames":[""],
+		"wargearNames":[
+			"power armor",
+			"bolter"
+		]
+	}
+]

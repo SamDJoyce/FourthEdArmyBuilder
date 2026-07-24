@@ -11,7 +11,7 @@ public class UnitLoader {
 	public UnitLoader() {}
 	
 	public UnitDescription load(UnitDTO dto) {
-		return UnitFactory.getDescription(
+		return UnitFactory.createDescription(
 							dto.getName(), 
 							dto.getMinSize(), 
 							dto.getMaxSize(), 

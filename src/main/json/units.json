@@ -1,0 +1,16 @@
+[
+	{
+		"name":"tactical squad",
+		"minSize":"5",
+		"maxSize":"10",
+		"role":"TROOPS",
+		"modelNames":[
+			"tactical marine sgt",
+			"tactical marine",
+			"tactical marine",
+			"tactical marine",
+			"tactical marine"
+		],
+		"optionGroupNames":[""]
+	}
+]

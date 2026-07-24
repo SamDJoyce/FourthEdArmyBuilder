@@ -9,7 +9,7 @@ public class UnitDTO {
     private int maxSize;
     private String role;
     private List<String> modelNames;
-    private Set<String> optionGroupIds;
+    private Set<String> optionGroupNames;
     
     public UnitDTO(
     		String name, 
@@ -17,14 +17,14 @@ public class UnitDTO {
     		int maxSize, 
     		String role, 
     		List<String> modelNames,
-    		Set<String> optionGroupIds) {
+    		Set<String> optionGroupNames) {
 		super();
 		this.name = name;
 		this.minSize = minSize;
 		this.maxSize = maxSize;
 		this.role = role;
 		this.modelNames = modelNames;
-		this.optionGroupIds = optionGroupIds;
+		this.optionGroupNames = optionGroupNames;
 	}
 
 	public String getName() {
@@ -68,10 +68,10 @@ public class UnitDTO {
 	}
 
 	public Set<String> getOptionGroupIds() {
-		return optionGroupIds;
+		return optionGroupNames;
 	}
 
-	public void setOptionGroupIds(Set<String> optionGroupIds) {
-		this.optionGroupIds = optionGroupIds;
+	public void setOptionGroupIds(Set<String> optionGroupNames) {
+		this.optionGroupNames = optionGroupNames;
 	}
 }

@@ -11,7 +11,7 @@ public class OptionGroupFactory {
 	
 	private static final Map<String, OptionGroup> registry = new HashMap<>();
 	
-	public static OptionGroup get(
+	public static OptionGroup create(
 			String name,
 			Set<OptionChoice> choices,
 			Set<Requirement> requirements,

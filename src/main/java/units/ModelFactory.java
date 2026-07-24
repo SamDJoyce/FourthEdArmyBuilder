@@ -17,7 +17,7 @@ public class ModelFactory {
 	
 	private static final Map<String, ModelDescription> registry = new HashMap<>();
 	
-	public static ModelDescription getDescription(
+	public static ModelDescription createDescription(
 				String   name, 
 				int      basePoints,
 				StatLine stats,
@@ -34,7 +34,7 @@ public class ModelFactory {
 				defaultGear));
 	}
 	
-	public static ModelDescription getDescription(
+	public static ModelDescription createDescription(
 				String   name, 
 				int      basePoints,
 				StatLine stats,

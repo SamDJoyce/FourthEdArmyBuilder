@@ -16,7 +16,7 @@ public class ModelLoader {
 	
 	public ModelDescription load(ModelDTO dto) {
 		
-		return ModelFactory.getDescription(
+		return ModelFactory.createDescription(
 				dto.getName(),
 				dto.getPoints(), 
 				StatLineFactory.get(dto.getStatlineName()),

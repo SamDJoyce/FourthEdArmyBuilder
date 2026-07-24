@@ -15,7 +15,7 @@ public class UnitFactory {
 	
 	private static final Map<String, UnitDescription> registry = new HashMap<>();
 	
-	public static UnitDescription getDescription(			
+	public static UnitDescription createDescription(			
 			String name, 
 			int minSize, 
 			int maxSize, 
@@ -32,7 +32,7 @@ public class UnitFactory {
 				models));
 	}
 	
-	public static UnitDescription getDescription(			
+	public static UnitDescription createDescription(			
 			String name, 
 			int minSize, 
 			int maxSize, 

@@ -12,7 +12,7 @@ public class WargearLoader {
 	public WargearLoader() {}
 	
 	public WargearDescription load(WargearDTO dto) {
-		return WargearFactory.getDescription(
+		return WargearFactory.createDescription(
 				dto.getName(), 
 				dto.getType(),
 				dto.getPoints());

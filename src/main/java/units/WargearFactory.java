@@ -11,21 +11,21 @@ import units.instances.WargearInstance;
 public class WargearFactory {
 	private static final Map<String, WargearDescription> registry = new HashMap<>();
 	// Descriptions
-	public static WargearDescription getDescription(
+	public static WargearDescription createDescription(
 					String name,
 					WargearType type) {
 		return  registry.computeIfAbsent(name,
 	            key -> new WargearDescription (name,type));
 	}
 	
-	public static WargearDescription getDescription(
+	public static WargearDescription createDescription(
 			String name,
 			String type) {
 		return   registry.computeIfAbsent(name,
 	            key -> new WargearDescription (name,WargearType.fromString(type)));
 	}
 	
-	public static WargearDescription getDescription(
+	public static WargearDescription createDescription(
 			String name,
 			WargearType type,
 			int points) {
@@ -33,7 +33,7 @@ public class WargearFactory {
             key -> new WargearDescription (name,type,points));
 	}
 	
-	public static WargearDescription getDescription(
+	public static WargearDescription createDescription(
 			String name,
 			String type,
 			int points) {

@@ -1,0 +1,33 @@
+[
+	{	
+	  	"name":"bolter",
+	  	"type":"TWO_HANDED",
+	  	"points":0
+	},
+	{
+	  	"name":"power armor",
+	  	"type":"GEAR",
+	  	"points":0
+	},
+	{
+	  	"name":"plasma gun",
+	  	"type":"TWO_HANDED",
+	  	"points":10
+	},
+	{
+	  	"name":"melta gun",
+	  	"type":"TWO_HANDED",
+	  	"points":10
+	},
+	{
+	  	"name":"flamer",
+	  	"type":"TWO_HANDED",
+	  	"points":6
+	},
+	{
+	  	"name":"crux terminatus",
+	  	"type":"GEAR",
+	  	"points":15
+	}
+	
+]

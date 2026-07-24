@@ -112,12 +112,12 @@ public class UnitExampleTest {
 		MARINE_STATS     = StatLineFactory.forInfantry(MARINE_NAME,4, 4, 4,4, 1, 4, 1, 8, 3);
 		MARINE_SGT_STATS = StatLineFactory.forInfantry(MARINE_SGT_NAME,4, 4, 4,4, 1, 4, 1, 8, 3);
 		
-		BOLTER 	    = WargearFactory.getDescription(BOLTER_NAME,BOLTER_TYPE);
-		PLASMA_GUN  = WargearFactory.getDescription(PLASMA_GUN_NAME,PLASMA_GUN_TYPE, PLASMA_GUN_POINTS);
-		FLAMER      = WargearFactory.getDescription(FLAMER_NAME,FLAMER_TYPE, FLAMER_POINTS);
-		MELTA_GUN   = WargearFactory.getDescription(MELTA_NAME, MELTA_TYPE, MELTA_POINTS);
-		POWER_ARMOR = WargearFactory.getDescription(ARMOR_NAME, GEAR);
-		CRUX_TERMINATUS = WargearFactory.getDescription(CRUX_NAME, GEAR);
+		BOLTER 	    = WargearFactory.createDescription(BOLTER_NAME,BOLTER_TYPE);
+		PLASMA_GUN  = WargearFactory.createDescription(PLASMA_GUN_NAME,PLASMA_GUN_TYPE, PLASMA_GUN_POINTS);
+		FLAMER      = WargearFactory.createDescription(FLAMER_NAME,FLAMER_TYPE, FLAMER_POINTS);
+		MELTA_GUN   = WargearFactory.createDescription(MELTA_NAME, MELTA_TYPE, MELTA_POINTS);
+		POWER_ARMOR = WargearFactory.createDescription(ARMOR_NAME, GEAR);
+		CRUX_TERMINATUS = WargearFactory.createDescription(CRUX_NAME, GEAR);
 		TACMARINE_GEAR  = Set.of(BOLTER,POWER_ARMOR);
 	
 		// Option Choices
@@ -230,7 +230,7 @@ public class UnitExampleTest {
 	// Construct ModelDescriptions as prototypes
 	
 	public ModelDescription createSpaceMarine() {
-		return ModelFactory.getDescription(
+		return ModelFactory.createDescription(
 					MARINE_NAME, 
 					MARINE_POINTS, 
 					MARINE_STATS, 
@@ -240,7 +240,7 @@ public class UnitExampleTest {
 	}
 	
 	public ModelDescription createSpaceMarineSrg() {
-		return ModelFactory.getDescription(
+		return ModelFactory.createDescription(
 					MARINE_SGT_NAME,
 					MARINE_POINTS,
 					MARINE_SGT_STATS,

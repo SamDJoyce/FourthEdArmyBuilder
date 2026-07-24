@@ -11,7 +11,7 @@ public class OptionGroupLoader {
 	public OptionGroupLoader() {};
 	
 	public OptionGroup load(OptionGroupDTO dto) {
-		return OptionGroupFactory.get(
+		return OptionGroupFactory.create(
 				dto.getName(),
 				OptionChoiceFactory.get(dto.getChoiceNames()),
 				ReqFactory.get(dto.getRequirementNames()),
