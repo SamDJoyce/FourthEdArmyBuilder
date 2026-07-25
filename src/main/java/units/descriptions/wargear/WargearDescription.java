@@ -37,17 +37,9 @@ public class WargearDescription {
 		return this.points;
 	}
 	
-//	public static WargearDescription get(
-//			String name,
-//			WargearType type) {
-//		return new WargearDescription(name,type);
-//	}
-//	
-//	public static WargearDescription get(
-//			String name,
-//			WargearType type,
-//			int points) {
-//		return new WargearDescription(name,type,points);
-//	}
+	@Override
+	public String toString() {
+		return name + " " + type.toString() + " " + points + " points";
+	}
 	
 }

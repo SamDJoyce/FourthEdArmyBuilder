@@ -15,6 +15,7 @@ import dto.RequirementDTO;
 import dto.StatLineDTO;
 import dto.UnitDTO;
 import dto.WargearDTO;
+import units.descriptions.wargear.WargearDescription;
 
 public class CodexLoader {
 	private final WargearLoader  	 wargearLoader;
@@ -39,12 +40,12 @@ public class CodexLoader {
 		mapper 			   = new ObjectMapper();
 	}
 
-	public void loadWargear(Path file) throws IOException {
+	public List<WargearDescription> loadWargear(Path file) throws IOException {
 		List<WargearDTO> dtos = mapper.readValue(
 	            file.toFile(),
 	            new TypeReference<List<WargearDTO>>() {}
 	    );
-		wargearLoader.loadAll(dtos);
+		return wargearLoader.loadAll(dtos);
 	}
 	
 	public void loadStatLines(Path file)  throws IOException{
