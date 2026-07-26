@@ -58,6 +58,13 @@ public class ModelDescription {
 	}
 	
 	@Override
+	public String toString() {
+		return String.format(
+				"Name: %s\nPoints: %d\nTypes: %s\nStats:\n%s",
+				name, basePoints,types,stats.toString());
+	}
+	
+	@Override
 	public boolean equals(Object obj) {
 	    if (this == obj) return true;
 	    if (!(obj instanceof ModelDescription other)) return false;

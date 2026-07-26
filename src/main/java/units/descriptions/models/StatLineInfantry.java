@@ -62,6 +62,11 @@ public class StatLineInfantry implements StatLine {
 				"SV = " + this.sv + "+";
 	}
 	
+	@Override
+	public String toString() {
+		return statsToString();
+	}
+	
 	public void modify(String stat, int modifier) {
 		if ("ws".equalsIgnoreCase(stat)) {
 			ws += modifier;

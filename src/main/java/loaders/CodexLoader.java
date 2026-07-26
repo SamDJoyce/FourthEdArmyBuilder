@@ -15,7 +15,12 @@ import dto.RequirementDTO;
 import dto.StatLineDTO;
 import dto.UnitDTO;
 import dto.WargearDTO;
+import units.descriptions.models.ModelDescription;
+import units.descriptions.models.StatLine;
 import units.descriptions.wargear.WargearDescription;
+import units.options.OptionChoice;
+import units.options.effects.Effect;
+import units.options.requirements.Requirement;
 
 public class CodexLoader {
 	private final WargearLoader  	 wargearLoader;
@@ -48,44 +53,44 @@ public class CodexLoader {
 		return wargearLoader.loadAll(dtos);
 	}
 	
-	public void loadStatLines(Path file)  throws IOException{
+	public List<StatLine> loadStatLines(Path file)  throws IOException{
 		List<StatLineDTO> dtos = mapper.readValue(
 				file.toFile(),
 				new TypeReference<List<StatLineDTO>>(){}
 				);
-		statLineLoader.loadAll(dtos);
+		return statLineLoader.loadAll(dtos);
 	}
 	
-	public void loadModels(Path file) throws IOException{
+	public List<ModelDescription> loadModels(Path file) throws IOException{
 		List<ModelDTO> dtos = mapper.readValue(
 				file.toFile(),
 				new TypeReference<List<ModelDTO>>(){}
 				);
-		modelLoader.loadAll(dtos);
+		return modelLoader.loadAll(dtos);
 	}
 	
-	public void loadRequirements (Path file) throws IOException {
+	public List<Requirement> loadRequirements (Path file) throws IOException {
 		List<RequirementDTO> dtos = mapper.readValue(
 				file.toFile(),
 				new TypeReference<List<RequirementDTO>>(){}
 				);
-		reqLoader.loadAll(dtos);
+		return reqLoader.loadAll(dtos);
 	}
 	
-	public void loadEffects(Path file) throws IOException {
+	public List<Effect> loadEffects(Path file) throws IOException {
 		List<EffectDTO> dtos = mapper.readValue(
 				file.toFile(),
 				new TypeReference<List<EffectDTO>>(){}
 				);
-		effectLoader.loadAll(dtos);
+		return effectLoader.loadAll(dtos);
 	}
 	
-	public void loadOptionChoices(Path file) throws IOException {
+	public List<OptionChoice> loadOptionChoices(Path file) throws IOException {
 		List<OptionChoiceDTO> choices = mapper.readValue(
 				file.toFile(),
 				new TypeReference<List<OptionChoiceDTO>>(){}
 				);
-		optionChoiceLoader.loadAll(choices);
+		return optionChoiceLoader.loadAll(choices);
 	}
 	
 	public void loadOptionGroups(Path file) throws IOException {

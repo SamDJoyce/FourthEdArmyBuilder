@@ -15,7 +15,7 @@
 	{
 		"name":"tactical marine sgt",
 		"basepoints":"15",
-		"statline":"tactical marine sgt",
+		"statline":"tactical marine",
 		"typeNames":[
 			"INFANTRY",
 			"CHARACTER"

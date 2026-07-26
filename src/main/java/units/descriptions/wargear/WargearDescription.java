@@ -39,7 +39,27 @@ public class WargearDescription {
 	
 	@Override
 	public String toString() {
-		return name + " " + type.toString() + " " + points + " points";
+	    String wargear = String.format(
+	        "%s - %s - %d points",
+	        name,
+	        type.toString().replace('_', ' '),
+	        points
+	    );
+		return toTitleCase(wargear);
 	}
-	
+
+	private String toTitleCase(String text) {
+	    String[] words = text.toLowerCase().split("\\s+");
+	    StringBuilder result = new StringBuilder();
+
+	    for (String word : words) {
+	        if (!word.isEmpty()) {
+	            result.append(Character.toUpperCase(word.charAt(0)))
+	                  .append(word.substring(1))
+	                  .append(" ");
+	        }
+	    }
+
+	    return result.toString().trim();
+	}
 }
