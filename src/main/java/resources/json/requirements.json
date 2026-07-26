@@ -1,0 +1,32 @@
+[
+	{
+		"type":"characters_only",
+		"name":"characters only"
+	},
+	{
+		"type":"must_have_gear",
+		"name":"must have bolter",
+		"requiredGear":"bolter"
+	},
+	{
+		"type":"mutual_exclusion",
+		"name":"exclusive of flamer melta",
+		"excludedChoiceNames":
+			["select flamer",
+			 "select melta"]
+	},
+	{
+		"type":"mutual_exclusion",
+		"name":"exclusive of plasma melta",
+		"excludedChoiceNames":
+			["select plasma",
+			 "select melta"]
+	},
+	{
+		"type":"mutual_exclusion",
+		"name":"exclusive of flamer plasma",
+		"excludedChoiceNames":
+			["select flamer",
+			 "select plasma"]
+	}
+]

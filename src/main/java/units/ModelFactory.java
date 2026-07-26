@@ -49,6 +49,15 @@ public class ModelFactory {
 				new HashSet<WargearDescription>()));
 	}
 	
+	public static ModelDescription createDescription(
+			String   name, 
+			int      basePoints) {
+		return registry.computeIfAbsent(name,
+	            key -> new ModelDescription(
+					name,
+					basePoints));
+	}
+	
 	public static ModelInstance getInstance(ModelDescription model) {
 		return new ModelInstance(model);
 	}
@@ -84,5 +93,9 @@ public class ModelFactory {
 			models.add(get(name));
 		}
 		return models;
+	}
+	
+	public static Map<String, ModelDescription> getRegistry(){
+		return registry;
 	}
 }

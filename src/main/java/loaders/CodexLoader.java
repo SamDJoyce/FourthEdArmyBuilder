@@ -33,7 +33,18 @@ public class CodexLoader {
 	private final OptionChoiceLoader optionChoiceLoader;
 	private final ObjectMapper 		 mapper;
 	
-	public CodexLoader() {
+	private final String codexFolder;
+	private final Path wargearFile;
+	private final Path statLineFile;
+	private final Path modelFile;
+	private final Path effectFile;
+	private final Path requirementFile;
+	private final Path optionChoiceFile;
+	private final Path optionGroupFile;
+	private final Path unitFile;
+	
+	
+	public CodexLoader(String codexFolder) {
 		wargearLoader 	   = new WargearLoader();
 		statLineLoader 	   = new StatlineLoader();
 		modelLoader 	   = new ModelLoader();
@@ -43,6 +54,36 @@ public class CodexLoader {
 		optionGroupLoader  = new OptionGroupLoader();
 		optionChoiceLoader = new OptionChoiceLoader();
 		mapper 			   = new ObjectMapper();
+		
+		this.codexFolder = codexFolder;
+		wargearFile  	  = Path.of(codexFolder, "/wargear.json");
+		statLineFile 	  = Path.of(codexFolder, "/statlines.json");
+		modelFile 	  	  = Path.of(codexFolder, "/models.json");
+		effectFile   	  = Path.of(codexFolder, "/effects.json");
+		requirementFile   = Path.of(codexFolder, "/requirements.json");
+		optionChoiceFile  = Path.of(codexFolder, "/optionChoices.json");
+		optionGroupFile   = Path.of(codexFolder, "/optionGroups.json");
+		unitFile		  = Path.of(codexFolder, "/units.json");
+	}
+	
+	public void loadCodex(String codexFolder){
+		Path wargearFile  	  = Path.of(codexFolder, "/wargear.json");
+		Path statLineFile 	  = Path.of(codexFolder, "/statlines.json");
+		Path modelFile 	  	  = Path.of(codexFolder, "/models.json");
+		Path effectFile   	  = Path.of(codexFolder, "/effects.json");
+		Path requirementFile  = Path.of(codexFolder, "/requirements.json");
+		Path optionChoiceFile = Path.of(codexFolder, "/optionChoices.json");
+		Path optionGroupFile  = Path.of(codexFolder, "/optionGroups.json");
+		Path unitFile		  = Path.of(codexFolder, "/units.json");
+		
+		try {
+			loadWargear(wargearFile);
+			loadStatLines(statLineFile);
+			loadModels(modelFile);
+		} catch (Exception e) {
+			System.out.println("There was a problem loading the codex data.");
+			System.out.println(e);
+		}
 	}
 
 	public List<WargearDescription> loadWargear(Path file) throws IOException {

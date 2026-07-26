@@ -14,11 +14,24 @@ import units.options.OptionGroupFactory;
 public class ModelLoader {
 	public ModelLoader() {}
 	
+	public ModelDescription create(ModelDTO dto) {
+		return ModelFactory.createDescription(
+				dto.getName(),
+				dto.getBasePoints()
+				);
+	}
+	
+	public ModelDescription resolveReferences(ModelDTO dto) {
+		ModelDescription model = ModelFactory.get(dto.getName());
+		// assign stats, types (in constructor), optionGroups, wargear
+		return model;
+	}
+	
 	public ModelDescription load(ModelDTO dto) {
 		
 		return ModelFactory.createDescription(
 				dto.getName(),
-				dto.getPoints(), 
+				dto.getBasePoints(), 
 				StatLineFactory.get(dto.getStatlineName()),
 				UnitType.fromStrings(dto.getTypeNames()),
 				OptionGroupFactory.get(dto.getOptionGroupNames()),

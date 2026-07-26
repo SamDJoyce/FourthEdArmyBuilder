@@ -1,0 +1,43 @@
+[
+	
+	{
+		"type":"replace_wargear",
+		"name":"replace_bolter_with_plasma",
+		"remove":"bolter",
+		"add":"plasma gun"
+	},
+	{
+		"type":"replace_wargear",
+		"name":"replace_bolter_with_plasma",
+		"remove":"bolter",
+		"add":"melta gun"
+	},
+	{
+		"type":"replace_wargear",
+		"name":"replace_bolter_with_flamer",
+		"remove":"bolter",
+		"add":"flamer"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add_crux_terminatus",
+		"gearName":"crux terminatus"
+	},
+	{
+		"type":"change_stat",
+		"name":"increase_ld_by_one",
+		"stat":"ld",
+		"modifier": 1
+	},
+	{
+		"type":"change_stat",
+		"name":"increase_attacks_by_one",
+		"stat":"a",
+		"modifier": 1
+	},
+	{
+		"type":"change_model_name",
+		"name":"change_to_veteran_sergeant",
+		"newName":"Veteran Sergeant"
+	}
+]

@@ -13,10 +13,10 @@ public class ModelDescription {
 	
 	private final String 	 name;
 	private final int	   	 basePoints;
-	private final StatLine   stats;
-	private final Set<UnitType> types;
-	private final Set<WargearDescription> defaultGear;
-	private final Set<OptionGroup> options;
+	private StatLine   stats;
+	private Set<UnitType> types;
+	private Set<WargearDescription> defaultGear;
+	private Set<OptionGroup> options;
 	
 	public ModelDescription(
 			String   name, 
@@ -32,6 +32,15 @@ public class ModelDescription {
 		this.options = new HashSet<>(options);
 		this.defaultGear = new HashSet<>(defaultGear);
 	}
+	
+	public ModelDescription(String name, int basePoints) {
+		this.name = name;
+		this.basePoints = basePoints;
+		this.stats = StatLineFactory.copy(stats);
+		this.types = new HashSet<>();
+		this.options = new HashSet<>();
+		this.defaultGear = new HashSet<>();
+	}
 
 	public String getName() {
 		return name;
@@ -40,17 +49,33 @@ public class ModelDescription {
 	public int getBasePoints() {
 		return basePoints;
 	}
+	
+	public void setStats(StatLine stats) {
+		this.stats = stats;
+	}
 
 	public StatLine getStats() {
 		return stats;
+	}
+	
+	public void setTypes (Set<UnitType> types) {
+		this.types = types;
 	}
 	
 	public Set<UnitType> getTypes(){
 		return Collections.unmodifiableSet(types);
 	}
 
+	public void setGear(Set<WargearDescription> gear) {
+		this.defaultGear = gear;
+	}
+	
 	public Set<WargearDescription> getGear(){
 		return Collections.unmodifiableSet(defaultGear);
+	}
+	
+	public void setOptions(Set<OptionGroup> options) {
+		this.options = options;
 	}
 	
 	public Set<OptionGroup> getOptions() {
@@ -60,8 +85,8 @@ public class ModelDescription {
 	@Override
 	public String toString() {
 		return String.format(
-				"Name: %s\nPoints: %d\nTypes: %s\nStats:\n%s",
-				name, basePoints,types,stats.toString());
+				"Name: %s\nPoints: %d\nTypes: %s\nStats:\n%s\nGear: %s\n",
+				name, basePoints,types, stats.toString(), defaultGear);
 	}
 	
 	@Override

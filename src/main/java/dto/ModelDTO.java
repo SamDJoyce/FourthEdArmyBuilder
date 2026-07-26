@@ -5,7 +5,7 @@ import java.util.Set;
 public class ModelDTO {
 
     private String name;
-    private int points;
+    private int basePoints;
     private String statlineName;
     private Set<String> typeNames;
     private Set<String> optionGroupNames;
@@ -15,13 +15,13 @@ public class ModelDTO {
     
 	public ModelDTO( 
 			String name, 
-			int points, 
+			int basePoints, 
 			String statlineName, 
 			Set<String> typeNames,
 			Set<String> optionGroupNames,
 			Set<String> wargearNames) {
 		this.name = name;
-		this.points = points;
+		this.basePoints = basePoints;
 		this.statlineName = statlineName;
 		this.typeNames = typeNames;
 		this.optionGroupNames = optionGroupNames;
@@ -36,12 +36,12 @@ public class ModelDTO {
 		this.name = name;
 	}
 
-	public int getPoints() {
-		return points;
+	public int getBasePoints() {
+		return basePoints;
 	}
 
-	public void setPoints(int points) {
-		this.points = points;
+	public void setBasePoints(int points) {
+		this.basePoints = points;
 	}
 
 	public String getStatlineName() {

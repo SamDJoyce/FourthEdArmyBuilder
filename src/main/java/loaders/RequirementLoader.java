@@ -27,7 +27,8 @@ public class RequirementLoader {
 				
 			case "mutual_exclusion":
 				MutualExclusionReqDTO me = (MutualExclusionReqDTO) dto;
-				return ReqFactory.mutualExclusion(me.getName(),
+				return ReqFactory.mutualExclusion(
+						me.getName(),
 						OptionChoiceFactory.get(me.getExcluded()));
 				 // differentiate between list and single exclusions
 				
