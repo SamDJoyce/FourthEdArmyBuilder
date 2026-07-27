@@ -19,7 +19,7 @@ public class OptionChoiceFactory {
 		return registry.get(name);
 	}
 	
-	public static Set<OptionChoice> get(Set<String> names){
+	public static Set<OptionChoice> getAll(Set<String> names){
 		Set<OptionChoice> choices = new HashSet<>();
 		for (String name : names) {
 			choices.add(get(name));

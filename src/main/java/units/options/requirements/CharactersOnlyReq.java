@@ -3,12 +3,12 @@ package units.options.requirements;
 import units.UnitType;
 import units.options.SelectionContext;
 
-public class CharacterOnlyReq implements Requirement {
+public class CharactersOnlyReq implements Requirement {
 
 	private String name;
 	private String message;
 
-	public CharacterOnlyReq(String name) {
+	public CharactersOnlyReq(String name) {
 		this.name = name;
 	}
 	

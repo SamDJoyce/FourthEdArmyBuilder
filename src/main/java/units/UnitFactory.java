@@ -79,6 +79,10 @@ public class UnitFactory {
 		return units;
 	}
 	
+	public static Map<String, UnitDescription> getRegistry(){
+		return registry;
+	}
+	
 	
 //	public static List<UnitInstance> getInstances(UnitDescription unit, int count){
 //		List<UnitInstance> units = new ArrayList<UnitInstance>();

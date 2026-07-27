@@ -36,7 +36,6 @@ public class ModelDescription {
 	public ModelDescription(String name, int basePoints, Set<UnitType> types) {
 		this.name = name;
 		this.basePoints = basePoints;
-		this.stats = StatLineFactory.copy(stats);
 		this.types = types;
 		this.options = new HashSet<>();
 		this.defaultGear = new HashSet<>();

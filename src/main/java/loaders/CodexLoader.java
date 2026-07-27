@@ -53,14 +53,14 @@ public class CodexLoader {
 	private List<UnitDTO> 		  unitDtos;
 	
 	public CodexLoader(String codexFolder) {
-		wargearLoader 	   = new WargearLoader();
-		statLineLoader 	   = new StatlineLoader();
-		modelLoader 	   = new ModelLoader();
-		unitLoader 		   = new UnitLoader();
-		reqLoader 		   = new RequirementLoader();
-		effectLoader 	   = new EffectLoader();
-		optionGroupLoader  = new OptionGroupLoader();
-		optionChoiceLoader = new OptionChoiceLoader();
+		wargearLoader 	   = LoaderFactory.forWargear();
+		statLineLoader 	   = LoaderFactory.forStats();
+		modelLoader 	   = LoaderFactory.forModels();
+		unitLoader 		   = LoaderFactory.forUnits();
+		reqLoader 		   = LoaderFactory.forReqs();
+		effectLoader 	   = LoaderFactory.forEffects();
+		optionGroupLoader  = LoaderFactory.forOptionGroups();
+		optionChoiceLoader = LoaderFactory.forChoices();
 		mapper 			   = new ObjectMapper();
 		
 		this.codexFolder  = codexFolder;
@@ -88,6 +88,7 @@ public class CodexLoader {
 		} catch (Exception e) {
 			System.out.println("There was a problem loading codex data.");
 			System.out.println(e);
+			e.printStackTrace();
 		}
 		// Populate objects by resolving references
 		try {
@@ -100,6 +101,7 @@ public class CodexLoader {
 		} catch (Exception e) {
 			System.out.println("There was a problem resolving object references.");
 			System.out.println(e);
+			e.printStackTrace();
 		}
 	}
 	
@@ -151,6 +153,7 @@ public class CodexLoader {
 				);
 		return reqLoader.createAll(reqDtos);
 	}
+	
 	
 	public List<Requirement> resolveRequirements(){
 		return reqLoader.resolveAllReferences(reqDtos);

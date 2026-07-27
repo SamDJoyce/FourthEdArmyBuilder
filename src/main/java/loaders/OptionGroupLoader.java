@@ -43,7 +43,7 @@ public class OptionGroupLoader {
 	
 	public OptionGroup resolveReferences(OptionGroupDTO dto) {
 		OptionGroup group = OptionGroupFactory.get(dto.getName());
-		group.setChoices(OptionChoiceFactory.get(dto.getChoiceNames()));
+		group.setChoices(OptionChoiceFactory.getAll(dto.getChoiceNames()));
 		group.setRequirements(ReqFactory.getAll(dto.getRequirementNames()));
 		return group;
 	}

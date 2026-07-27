@@ -35,7 +35,6 @@ public class UnitDescription {
 		this.minSize = minSize;
 		this.maxSize = maxSize;
 		this.role = role;
-		this.types = new HashSet<>(types);;
 	}
 	
 	public UnitDescription(
@@ -123,6 +122,18 @@ public class UnitDescription {
 
 	public void setModels(List<ModelDescription> models) {
 		this.models = models;
+	}
+	
+	@Override
+	public String toString() {
+		String unit = new String();
+		
+		for (ModelDescription m : models) {
+			unit += m.toString() + "\n";
+		}
+		unit += "Unit Options:\n" + options + "\n";
+		
+		return unit;
 	}
 
 }

@@ -2,6 +2,7 @@ package loaders;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import dto.UnitDTO;
 import units.ModelFactory;
@@ -34,11 +35,21 @@ public class UnitLoader {
 	
 	public UnitDescription resolveReferences(UnitDTO dto) {
 		UnitDescription unit = UnitFactory.get(dto.getName());
-		
-		unit.setOptions(OptionGroupFactory.getAll(dto.getOptionGroupIds()));
-		unit.setModels(ModelFactory.getAll(dto.getModelNames()));
-		unit.setTypes(UnitType.fromStrings(dto.getTypes()));
-		
+		if (dto.getOptionGroupNames() != null) {
+			unit.setOptions(OptionGroupFactory.getAll(dto.getOptionGroupNames()));
+		} else {
+			unit.setOptions(Set.of());
+		}
+		if (dto.getModelNames() != null) {
+			unit.setModels(ModelFactory.getAll(dto.getModelNames()));	
+		} else {
+			unit.setModels(List.of());
+		}
+		if (dto.getTypes() != null) {
+			unit.setTypes(UnitType.fromStrings(dto.getTypes()));
+		} else {
+			unit.setTypes(Set.of());
+		}
 		return unit;
 	}
 	

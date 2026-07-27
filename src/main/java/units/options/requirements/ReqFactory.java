@@ -16,7 +16,7 @@ public class ReqFactory {
 	
 	public static Requirement charactersOnly(String name) {
 		return registry.computeIfAbsent(name,
-	            key -> new CharacterOnlyReq(name));
+	            key -> new CharactersOnlyReq(name));
 	}
 	
 	public static Requirement mutualExclusion(String name) {

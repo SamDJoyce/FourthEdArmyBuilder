@@ -89,4 +89,9 @@ public class OptionGroup {
 					maxSelections);
 	}
 	
+	@Override
+	public String toString() {
+		return name;
+	}
+	
 }

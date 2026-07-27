@@ -6,10 +6,12 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 @JsonTypeInfo(
 	    use = JsonTypeInfo.Id.NAME,
 	    include = JsonTypeInfo.As.PROPERTY,
-	    property = "type"
+	    property = "type",
+	    visible = true
+	    
 	)
 	@JsonSubTypes({
-	    @JsonSubTypes.Type(value = CharactersOnlyReqDTO.class, name   = "character_only"),
+	    @JsonSubTypes.Type(value = CharactersOnlyReqDTO.class, name   = "characters_only"),
 	    @JsonSubTypes.Type(value = MaxPerModelCountReqDTO.class, name = "max_per_model_count"),
 	    @JsonSubTypes.Type(value = MaxSelectionReqDTO.class, name     = "max_selection"),
 	    @JsonSubTypes.Type(value = ModelCountReqDTO.class, name       = "model_count"),

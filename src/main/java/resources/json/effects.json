@@ -24,20 +24,20 @@
 		"gearName":"crux terminatus"
 	},
 	{
-		"type":"change_stat",
+		"type":"modify_stat",
 		"name":"increase_ld_by_one",
 		"stat":"ld",
 		"modifier": 1
 	},
 	{
-		"type":"change_stat",
+		"type":"modify_stat",
 		"name":"increase_attacks_by_one",
 		"stat":"a",
 		"modifier": 1
 	},
 	{
 		"type":"change_model_name",
-		"name":"change_to_veteran_sergeant",
+		"effectName":"change_to_veteran_sergeant",
 		"newName":"Veteran Sergeant"
 	}
 ]

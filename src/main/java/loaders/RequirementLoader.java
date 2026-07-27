@@ -82,7 +82,7 @@ public class RequirementLoader {
 				MutualExclusionReqDTO me = (MutualExclusionReqDTO) dto;
 				MutualExclusionReq mutualExclusion = 
 						(MutualExclusionReq) ReqFactory.get(me.getName());
-				mutualExclusion.setExcluded(OptionChoiceFactory.get(me.getExcluded()));
+				mutualExclusion.setExcluded(OptionChoiceFactory.getAll(me.getExcludedChoiceNames()));
 				
 				return mutualExclusion;
 				 // differentiate between list and single exclusions eventually

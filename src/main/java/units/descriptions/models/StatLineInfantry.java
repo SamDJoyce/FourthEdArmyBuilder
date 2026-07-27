@@ -1,7 +1,7 @@
 package units.descriptions.models;
 
 public class StatLineInfantry implements StatLine {
-	private final static String type = "infantry";
+	private final String type = "infantry";
 	
 	private String name;
 	private int bs;

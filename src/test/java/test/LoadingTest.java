@@ -6,6 +6,8 @@ import java.util.List;
 
 import loaders.CodexLoader;
 import units.ModelFactory;
+import units.UnitFactory;
+import units.descriptions.UnitDescription;
 import units.descriptions.models.ModelDescription;
 import units.descriptions.models.StatLine;
 import units.descriptions.wargear.WargearDescription;
@@ -28,7 +30,8 @@ public class LoadingTest {
 	
 	private void loadCodex(CodexLoader loader) {
 		loader.loadCodex();
-		printModels();
+		printUnitInfo();
+		//printModels();
 	}
 	
 	private void loadGear(CodexLoader loader) {
@@ -83,6 +86,12 @@ public class LoadingTest {
 	private void printModels() {
 		for (ModelDescription m : ModelFactory.getRegistry().values()) {
 			System.out.println(m);
+		}
+	}
+	
+	private void printUnitInfo() {
+		for (UnitDescription u : UnitFactory.getRegistry().values()) {
+			System.out.println(u);
 		}
 	}
 }

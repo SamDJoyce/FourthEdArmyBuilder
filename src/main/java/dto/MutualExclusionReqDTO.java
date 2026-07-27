@@ -23,11 +23,11 @@ public class MutualExclusionReqDTO extends RequirementDTO {
 		this.name = name;
 	}
 
-	public Set<String> getExcluded() {
+	public Set<String> getExcludedChoiceNames() {
 		return excludedChoiceNames;
 	}
 
-	public void setExcluded(Set<String> excluded) {
+	public void setExcludedChoiceNames(Set<String> excluded) {
 		this.excludedChoiceNames = excluded;
 	}
 

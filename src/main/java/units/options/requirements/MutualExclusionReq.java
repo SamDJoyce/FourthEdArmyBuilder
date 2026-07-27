@@ -10,7 +10,7 @@ import units.options.SelectionContext;
 public class MutualExclusionReq implements Requirement {
 
 	private final String name;
-	private Set<OptionChoice> excluded;
+	private Set<OptionChoice> excludedChoiceNames;
 	
 	public MutualExclusionReq(String name){
 		this.name = name;
@@ -18,9 +18,9 @@ public class MutualExclusionReq implements Requirement {
 	
 	public MutualExclusionReq(
 			String name,
-			Set<OptionChoice> excluded){
+			Set<OptionChoice> excludedChoiceNames){
 		this.name = name;
-		this.excluded = new HashSet<>(excluded);
+		this.excludedChoiceNames = new HashSet<>(excludedChoiceNames);
 	}
 	
 	public String getName() {
@@ -28,11 +28,11 @@ public class MutualExclusionReq implements Requirement {
 	}
 
 	public Set<OptionChoice> getExcluded() {
-		return excluded;
+		return excludedChoiceNames;
 	}
 
-	public void setExcluded(Set<OptionChoice> excluded) {
-		this.excluded = excluded;
+	public void setExcluded(Set<OptionChoice> excludedChoiceNames) {
+		this.excludedChoiceNames = excludedChoiceNames;
 	}
 
 	@Override
@@ -43,7 +43,7 @@ public class MutualExclusionReq implements Requirement {
 		
 	    UnitInstance unit = context.getUnit();
 
-	    for (OptionChoice excludedChoice : excluded) {
+	    for (OptionChoice excludedChoice : excludedChoiceNames) {
 	        if (unit.hasSelection(excludedChoice)) {
 	            return RequirementResult.failure(
 	                excludedChoice.getName() + " is already selected."

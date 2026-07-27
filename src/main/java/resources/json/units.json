@@ -11,6 +11,9 @@
 			"tactical marine",
 			"tactical marine"
 		],
-		"optionGroupNames":[""]
+		"optionGroupNames":[
+			"special weapons group",
+			"crux terminatus group"
+		]
 	}
 ]

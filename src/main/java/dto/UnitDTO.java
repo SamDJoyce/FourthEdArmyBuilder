@@ -72,14 +72,6 @@ public class UnitDTO {
 		this.modelNames = modelNames;
 	}
 
-	public Set<String> getOptionGroupIds() {
-		return optionGroupNames;
-	}
-
-	public void setOptionGroupIds(Set<String> optionGroupNames) {
-		this.optionGroupNames = optionGroupNames;
-	}
-
 	public Set<String> getOptionGroupNames() {
 		return optionGroupNames;
 	}

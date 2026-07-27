@@ -27,4 +27,16 @@ public class ReplaceWargearEffectDTO extends EffectDTO {
 		return add;
 	}
 
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setRemove(String remove) {
+		this.remove = remove;
+	}
+
+	public void setAdd(String add) {
+		this.add = add;
+	}
+
 }
