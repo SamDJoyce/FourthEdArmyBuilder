@@ -6,8 +6,12 @@ import units.options.SelectionContext;
 public class ReplaceWargearEffect implements Effect {
 
 	private final String name;
-	private final WargearDescription remove;
-	private final WargearDescription add;
+	private WargearDescription remove;
+	private WargearDescription add;
+	
+	public ReplaceWargearEffect(String name) {
+		this.name = name;
+	}
 	
 	public ReplaceWargearEffect(
 			String name,
@@ -40,6 +44,14 @@ public class ReplaceWargearEffect implements Effect {
 	public void remove(SelectionContext context) {
 		context.getModel().removeGear(add);
 		context.getModel().addGear(remove);
+	}
+
+	public void setRemove(WargearDescription remove) {
+		this.remove = remove;
+	}
+
+	public void setAdd(WargearDescription add) {
+		this.add = add;
 	}
 
 }

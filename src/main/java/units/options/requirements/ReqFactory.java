@@ -19,6 +19,11 @@ public class ReqFactory {
 	            key -> new CharacterOnlyReq(name));
 	}
 	
+	public static Requirement mutualExclusion(String name) {
+		return registry.computeIfAbsent(name,
+	            key -> new MutualExclusionReq(name));
+	}
+	
 	public static Requirement mutualExclusion(String name, Set<OptionChoice> excluded) {
 		return registry.computeIfAbsent(name,
 	            key -> new MutualExclusionReq(name,excluded));
@@ -36,6 +41,13 @@ public class ReqFactory {
 	
 	public static Requirement maxPerModelCount(
 			String name,
+			int rate) {
+		return registry.computeIfAbsent(name,
+	            key -> new MaxPerModelCountReq(name, rate));
+	}
+	
+	public static Requirement maxPerModelCount(
+			String name,
 			ModelDescription model,
 			int rate) {
 		return registry.computeIfAbsent(name,
@@ -44,14 +56,12 @@ public class ReqFactory {
 	
 	public static Requirement modelCount(
 			String name,
-			ModelDescription model,
 			int minimum,
 			int maximum
 			) {
 		return registry.computeIfAbsent(name,
 	            key -> new ModelCountReq(
 				name,
-				model,
 				minimum,
 				maximum));
 	}
@@ -59,6 +69,11 @@ public class ReqFactory {
 	public static Requirement mustHaveType(String name, UnitType type){
 		return registry.computeIfAbsent(name,
 	            key -> new MustHaveTypeReq(name,type));
+	}
+	
+	public static Requirement mustHaveGear(String name) {
+		return registry.computeIfAbsent(name,
+	            key -> new MustHaveGearReq(name));
 	}
 	
 	public static Requirement mustHaveGear(String name, WargearDescription requiredGear) {
@@ -70,7 +85,7 @@ public class ReqFactory {
 		return registry.get(name);
 	}
 	
-	public static Set<Requirement> get(Set<String> names){
+	public static Set<Requirement> getAll(Set<String> names){
 		Set<Requirement> reqs = new HashSet<>();
 		for (String name : names) {
 			reqs.add(get(name));

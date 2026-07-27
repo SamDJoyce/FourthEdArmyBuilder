@@ -33,11 +33,11 @@ public class ModelDescription {
 		this.defaultGear = new HashSet<>(defaultGear);
 	}
 	
-	public ModelDescription(String name, int basePoints) {
+	public ModelDescription(String name, int basePoints, Set<UnitType> types) {
 		this.name = name;
 		this.basePoints = basePoints;
 		this.stats = StatLineFactory.copy(stats);
-		this.types = new HashSet<>();
+		this.types = types;
 		this.options = new HashSet<>();
 		this.defaultGear = new HashSet<>();
 	}

@@ -7,7 +7,7 @@ import units.options.SelectionContext;
 public class MustHaveTypeReq implements Requirement {
 
 	private final String name;
-	private final UnitType requiredType;
+	private UnitType requiredType;
 	
 	public MustHaveTypeReq(String name, UnitType requiredType) {
 		this.name = name;
@@ -18,6 +18,14 @@ public class MustHaveTypeReq implements Requirement {
 		return this.requiredType.toString();
 	}
 	
+	public String getName() {
+		return name;
+	}
+
+	public void setRequiredType(UnitType requiredType) {
+		this.requiredType = requiredType;
+	}
+
 	@Override
 	public RequirementResult validate(SelectionContext context) {
 		ModelInstance model = context.getModel();

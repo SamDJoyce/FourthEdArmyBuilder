@@ -10,6 +10,7 @@ public class UnitDTO {
     private String role;
     private List<String> modelNames;
     private Set<String> optionGroupNames;
+    private Set<String> types;
     
     public UnitDTO() {}
     
@@ -19,7 +20,8 @@ public class UnitDTO {
     		int maxSize, 
     		String role, 
     		List<String> modelNames,
-    		Set<String> optionGroupNames) {
+    		Set<String> optionGroupNames,
+    		Set<String> types) {
 		super();
 		this.name = name;
 		this.minSize = minSize;
@@ -27,6 +29,7 @@ public class UnitDTO {
 		this.role = role;
 		this.modelNames = modelNames;
 		this.optionGroupNames = optionGroupNames;
+		this.types = types;
 	}
 
 	public String getName() {
@@ -75,5 +78,21 @@ public class UnitDTO {
 
 	public void setOptionGroupIds(Set<String> optionGroupNames) {
 		this.optionGroupNames = optionGroupNames;
+	}
+
+	public Set<String> getOptionGroupNames() {
+		return optionGroupNames;
+	}
+
+	public void setOptionGroupNames(Set<String> optionGroupNames) {
+		this.optionGroupNames = optionGroupNames;
+	}
+
+	public Set<String> getTypes() {
+		return types;
+	}
+
+	public void setTypes(Set<String> types) {
+		this.types = types;
 	}
 }

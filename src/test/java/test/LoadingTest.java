@@ -17,17 +17,17 @@ public class LoadingTest {
 	private final static String codexLoc    = "src/main/java/resources/json";
 	
 	public static void main(String[] args) {
-		CodexLoader loader = new CodexLoader();
+		CodexLoader loader = new CodexLoader(codexLoc);
 		LoadingTest test = new LoadingTest();
 		
 //		test.loadGear(loader);
 //		test.loadStatLines(loader);
 //		test.loadModel(loader);
-		test.loadCodex(loader, codexLoc);
+		test.loadCodex(loader);
 	}
 	
-	private void loadCodex(CodexLoader loader, String codexLocation) {
-		loader.loadCodex(codexLoc);
+	private void loadCodex(CodexLoader loader) {
+		loader.loadCodex();
 		printModels();
 	}
 	
@@ -36,7 +36,7 @@ public class LoadingTest {
 		Path wargearFile = Path.of(wargearLoc);
 		
 		try {
-			loadedGear = loader.loadWargear(wargearFile);
+			loadedGear = loader.createWargear(wargearFile);
 			System.out.println("\nGear has been loaded.");
 		} catch (Exception e) {
 			System.out.println("\nGear loading went wrong");
@@ -53,7 +53,7 @@ public class LoadingTest {
 		Path statFile = Path.of(statLineLoc);
 		
 		try {
-			loadedStats = loader.loadStatLines(statFile);
+			loadedStats = loader.createStatLines(statFile);
 			System.out.println("\nStats have been loaded.");
 		} catch (Exception e) {
 			System.out.println("\nStat loading went wrong");
@@ -69,7 +69,7 @@ public class LoadingTest {
 		Path modelFile = Path.of(modelLoc);
 		
 		try {
-			loadedModels = loader.loadModels(modelFile);
+			loadedModels = loader.createModels(modelFile);
 			System.out.println("\nModels have been loaded.");
 		} catch (Exception e) {
 			System.out.println("\nModel loaded went wrong.");

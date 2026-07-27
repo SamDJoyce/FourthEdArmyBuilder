@@ -51,11 +51,13 @@ public class ModelFactory {
 	
 	public static ModelDescription createDescription(
 			String   name, 
-			int      basePoints) {
+			int      basePoints,
+			Set<UnitType> types) {
 		return registry.computeIfAbsent(name,
 	            key -> new ModelDescription(
 					name,
-					basePoints));
+					basePoints,
+					types));
 	}
 	
 	public static ModelInstance getInstance(ModelDescription model) {
@@ -87,7 +89,7 @@ public class ModelFactory {
 		return registry.get(name);
 	}
 	
-	public static List<ModelDescription> get(List<String> names){
+	public static List<ModelDescription> getAll(List<String> names){
 		List<ModelDescription> models = new ArrayList<>();
 		for (String name : names) {
 			models.add(get(name));

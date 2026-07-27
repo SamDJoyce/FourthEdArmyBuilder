@@ -7,7 +7,11 @@ import units.options.SelectionContext;
 public class MustHaveGearReq implements Requirement {
 
 	private final String name;
-	private final WargearDescription requiredGear;
+	private WargearDescription requiredGear;
+	
+	public MustHaveGearReq(String name){
+		this.name = name;
+	}
 	
 	public MustHaveGearReq(String name, WargearDescription requiredGear){
 		this.name = name;
@@ -16,6 +20,10 @@ public class MustHaveGearReq implements Requirement {
 	
 	public String getName() {
 		return name;
+	}
+
+	public void setRequiredGear(WargearDescription requiredGear) {
+		this.requiredGear = requiredGear;
 	}
 
 	@Override

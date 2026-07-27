@@ -3,7 +3,6 @@ package dto;
 public class ModelCountReqDTO extends RequirementDTO {
 
 	private String name;
-    private String modelName;
     private int minimum;
     private int maximum;
     private String message;
@@ -12,14 +11,12 @@ public class ModelCountReqDTO extends RequirementDTO {
     
 	public ModelCountReqDTO(
 			String type, 
-			String name, 
-			String modelName, 
+			String name,  
 			int minimum, 
 			int maximum,
 			String message) {
 		super(type);
 		this.name = name;
-		this.modelName = modelName;
 		this.minimum = minimum;
 		this.maximum = maximum;
 		this.message = message;
@@ -35,10 +32,6 @@ public class ModelCountReqDTO extends RequirementDTO {
 
 	public String getName() {
 		return name;
-	}
-
-	public String getModelName() {
-		return modelName;
 	}
 
 	public int getMinimum() {

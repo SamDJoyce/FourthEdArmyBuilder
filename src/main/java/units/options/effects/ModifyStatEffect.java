@@ -5,8 +5,12 @@ import units.options.SelectionContext;
 
 public class ModifyStatEffect implements Effect {
 	private final String name;
-	private final String stat;
-	private final int    modifier;
+	private String stat;
+	private int    modifier;
+	
+	public ModifyStatEffect(String name) {
+		this.name = name;
+	}
 	
 	public ModifyStatEffect(String name, String stat, int modifier) {
 		this.name = name;
@@ -16,6 +20,14 @@ public class ModifyStatEffect implements Effect {
 	
 	public String getName() {
 		return name;
+	}
+	
+	public void setStat(String stat) {
+		this.stat = stat;
+	}
+	
+	public void setModifier(int modifier) {
+		this.modifier = modifier;
 	}
 	
 	@Override

@@ -1,9 +1,7 @@
 package units.options;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -35,8 +33,6 @@ public class OptionChoice {
 			int points) {
 		this.name = name;
 		this.points = points;
-		this.requirements = new HashSet<>();
-		this.effects = new HashSet<>();
 	}
 
 	public String getName() {

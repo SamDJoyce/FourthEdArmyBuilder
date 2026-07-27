@@ -1,24 +1,20 @@
 package units.options.requirements;
 
-import units.descriptions.models.ModelDescription;
 import units.options.SelectionContext;
 
 public class ModelCountReq implements Requirement {
 
 	private final String name;
-    private final ModelDescription model;
     private final int minimum;
     private final int maximum;
     private String message;
     
     public ModelCountReq(
     		String name,
-    		ModelDescription model,
     		int minimum,
     		int maximum
     		) {
     	this.name = name;
-    	this.model = model;
     	this.minimum = minimum;
     	this.maximum = maximum;
     }
@@ -34,20 +30,18 @@ public class ModelCountReq implements Requirement {
 			return RequirementResult.failure(message);
 		}
 		
-		int count = context.getUnit().getModelCount(model);
+		int count = context.getUnit().getCurrentSize();
 		boolean valid = count >= minimum && count <= maximum;
 		if (valid) {
 			message = String.format(
-		            "%s count is valid (%d).",
-		            model.getName(),
+		            "Unit count is valid (%d).",
 		            count
 		        );
 			return RequirementResult.success(message);
 		}
 		else {
 	        message = String.format(
-	                "%s count must be between %d and %d (currently %d).",
-	                model.getName(),
+	                "Unit size must be between %d and %d (currently %d).",
 	                minimum,
 	                maximum,
 	                count

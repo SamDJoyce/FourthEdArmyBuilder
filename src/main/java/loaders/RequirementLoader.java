@@ -15,11 +15,14 @@ import units.ModelFactory;
 import units.UnitType;
 import units.WargearFactory;
 import units.options.OptionChoiceFactory;
+import units.options.requirements.MaxPerModelCountReq;
+import units.options.requirements.MustHaveGearReq;
+import units.options.requirements.MutualExclusionReq;
 import units.options.requirements.ReqFactory;
 import units.options.requirements.Requirement;
 
 public class RequirementLoader {
-	public Requirement load(RequirementDTO dto) {
+	public Requirement create(RequirementDTO dto) {
 		switch(dto.getType()){
 			case "characters_only":
 				CharactersOnlyReqDTO co = (CharactersOnlyReqDTO) dto;
@@ -27,9 +30,7 @@ public class RequirementLoader {
 				
 			case "mutual_exclusion":
 				MutualExclusionReqDTO me = (MutualExclusionReqDTO) dto;
-				return ReqFactory.mutualExclusion(
-						me.getName(),
-						OptionChoiceFactory.get(me.getExcluded()));
+				return ReqFactory.mutualExclusion(me.getName());
 				 // differentiate between list and single exclusions
 				
 			case "max_selection":
@@ -39,14 +40,12 @@ public class RequirementLoader {
 			case "max_per_model_count":
 				MaxPerModelCountReqDTO mpmc = (MaxPerModelCountReqDTO) dto;
 				return ReqFactory.maxPerModelCount(
-									mpmc.getName(), 
-									ModelFactory.get(mpmc.getModelName()),
+									mpmc.getName(),
 									mpmc.getRate());
 			case "model_count":
 				ModelCountReqDTO mc = (ModelCountReqDTO) dto;
 				return ReqFactory.modelCount(
 									mc.getName(), 
-									ModelFactory.get(mc.getModelName()), 
 									mc.getMinimum(), 
 									mc.getMaximum());
 				
@@ -58,20 +57,73 @@ public class RequirementLoader {
 				
 			case "must_have_gear":
 				MustHaveGearReqDTO mhg = (MustHaveGearReqDTO) dto;
-				return ReqFactory.mustHaveGear(mhg.getName(),
-						WargearFactory.get(mhg.getRequiredGear()));
+				return ReqFactory.mustHaveGear(mhg.getName());
 		}
 		return null;
 	}
 	
-	public List<Requirement> loadAll(List<RequirementDTO> dtos){
+	public List<Requirement> createAll(List<RequirementDTO> dtos){
 		List<Requirement> reqs = new ArrayList<>();
 		
 		for (RequirementDTO d : dtos) {
-			reqs.add(load(d));
+			reqs.add(create(d));
 		}
 		
 		return reqs;
 	}
+	
+	public Requirement resolveReferences(RequirementDTO dto) {
+		switch(dto.getType()){
+			case "characters_only":
+				CharactersOnlyReqDTO co = (CharactersOnlyReqDTO) dto;
+				return ReqFactory.charactersOnly(co.getName());
+				
+			case "mutual_exclusion":
+				MutualExclusionReqDTO me = (MutualExclusionReqDTO) dto;
+				MutualExclusionReq mutualExclusion = 
+						(MutualExclusionReq) ReqFactory.get(me.getName());
+				mutualExclusion.setExcluded(OptionChoiceFactory.get(me.getExcluded()));
+				
+				return mutualExclusion;
+				 // differentiate between list and single exclusions eventually
+				
+			case "max_selection":
+				MaxSelectionReqDTO ms = (MaxSelectionReqDTO) dto;
+				return ReqFactory.get(ms.getName());
+				
+			case "max_per_model_count":
+				MaxPerModelCountReqDTO mpmc = (MaxPerModelCountReqDTO) dto;
+				MaxPerModelCountReq maxPerModelCount = (MaxPerModelCountReq) ReqFactory.get(mpmc.getName());
+				maxPerModelCount.setModel(ModelFactory.get(mpmc.getModelName()));
+				return maxPerModelCount;
+				
+			case "model_count":
+				ModelCountReqDTO mc = (ModelCountReqDTO) dto;
+				return ReqFactory.get(mc.getName());
+				
+			case "must_have_type":
+				MustHaveTypeReqDTO mht = (MustHaveTypeReqDTO) dto;
+				//MustHaveTypeReq mustHaveType = (MustHaveTypeReq) ReqFactory.get(mht.getName());
+				return ReqFactory.get(mht.getName());
+				
+			case "must_have_gear":
+				MustHaveGearReqDTO mhg = (MustHaveGearReqDTO) dto;
+				MustHaveGearReq mustHaveGear = (MustHaveGearReq) ReqFactory.get(mhg.getName());
+				mustHaveGear.setRequiredGear(WargearFactory.get(mhg.getRequiredGear()));
+				return mustHaveGear;
+		}
+		return null;
+	}
+	
+	public List<Requirement> resolveAllReferences(List<RequirementDTO> dtos){
+		List<Requirement> reqs = new ArrayList<>();
+		
+		for (RequirementDTO d : dtos) {
+			reqs.add(resolveReferences(d));
+		}
+		
+		return reqs;
+	}
+	
 	
 }

@@ -20,11 +20,24 @@ public class UnitDescription {
 	private final int      minSize;
 	private final int      maxSize;
 	private final UnitRole role;
-	private final Set<UnitType> types;
-	private final Set<OptionGroup> options;
-	private final List<ModelDescription> models;
+	private Set<UnitType> types;
+	private Set<OptionGroup> options;
+	private List<ModelDescription> models;
 	
 	// Constructor
+	
+	public UnitDescription(
+			String name, 
+			int minSize, 
+			int maxSize, 
+			UnitRole role) {
+		this.name = name;
+		this.minSize = minSize;
+		this.maxSize = maxSize;
+		this.role = role;
+		this.types = new HashSet<>(types);;
+	}
+	
 	public UnitDescription(
 			String name, 
 			int minSize, 
@@ -98,6 +111,18 @@ public class UnitDescription {
 	
 	public Boolean containsModel(ModelDescription model) {
 		return models.contains(model);
+	}
+
+	public void setTypes(Set<UnitType> types) {
+		this.types = types;
+	}
+
+	public void setOptions(Set<OptionGroup> options) {
+		this.options = options;
+	}
+
+	public void setModels(List<ModelDescription> models) {
+		this.models = models;
 	}
 
 }

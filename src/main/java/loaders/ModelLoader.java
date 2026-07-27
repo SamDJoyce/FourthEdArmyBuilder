@@ -17,14 +17,33 @@ public class ModelLoader {
 	public ModelDescription create(ModelDTO dto) {
 		return ModelFactory.createDescription(
 				dto.getName(),
-				dto.getBasePoints()
+				dto.getBasePoints(),
+				UnitType.fromStrings(dto.getTypeNames())
 				);
+	}
+	
+	public List<ModelDescription> createAll(List<ModelDTO> dtos){
+		List<ModelDescription> models = new ArrayList<>();
+		for(ModelDTO d : dtos) {
+			models.add(create(d));
+		}
+		return models;
 	}
 	
 	public ModelDescription resolveReferences(ModelDTO dto) {
 		ModelDescription model = ModelFactory.get(dto.getName());
-		// assign stats, types (in constructor), optionGroups, wargear
+		model.setStats(StatLineFactory.get(dto.getStatlineName()));
+		model.setOptions(OptionGroupFactory.getAll(dto.getOptionGroupNames()));
+		model.setGear(WargearFactory.get(dto.getWargearNames()));
 		return model;
+	}
+	
+	public List<ModelDescription> resolveAllReferences(List<ModelDTO> dtos){
+		List<ModelDescription> models = new ArrayList<>();
+		for(ModelDTO d : dtos) {
+			models.add(resolveReferences(d));
+		}
+		return models;
 	}
 	
 	public ModelDescription load(ModelDTO dto) {
@@ -34,7 +53,7 @@ public class ModelLoader {
 				dto.getBasePoints(), 
 				StatLineFactory.get(dto.getStatlineName()),
 				UnitType.fromStrings(dto.getTypeNames()),
-				OptionGroupFactory.get(dto.getOptionGroupNames()),
+				OptionGroupFactory.getAll(dto.getOptionGroupNames()),
 				WargearFactory.get(dto.getWargearNames()));
 	}
 	

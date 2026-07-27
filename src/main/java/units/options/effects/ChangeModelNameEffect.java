@@ -6,7 +6,11 @@ import units.options.SelectionContext;
 public class ChangeModelNameEffect implements Effect {
 
 	private final String effectName;
-	private final String newName;
+	private String newName;
+	
+	public ChangeModelNameEffect(String effectName) {
+		this.effectName = effectName;
+	}
 	
 	public ChangeModelNameEffect(String effectName, String newName) {
 		this.effectName = effectName;
@@ -19,6 +23,10 @@ public class ChangeModelNameEffect implements Effect {
 
 	public String getNewName() {
 		return newName;
+	}
+	
+	public void setNewName(String newName) {
+		this.newName = newName;
 	}
 
 	@Override

@@ -7,7 +7,11 @@ import units.options.SelectionContext;
 public class AddWargearEffect implements Effect {
 
 	private final String name;
-	private final WargearDescription gear;
+	private WargearDescription gear;
+	
+	public AddWargearEffect(String name) {
+		this.name = name;
+	}
 	
 	public AddWargearEffect(String name, WargearDescription gear) {
 		this.name = name;
@@ -20,6 +24,10 @@ public class AddWargearEffect implements Effect {
 
 	public WargearDescription getGear() {
 		return gear;
+	}
+	
+	public void setGear(WargearDescription gear) {
+		this.gear = gear;
 	}
 
 	@Override

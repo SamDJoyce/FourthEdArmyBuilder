@@ -9,7 +9,11 @@ import units.options.SelectionContext;
 public class AddModelEffect implements Effect {
 
 	private final String name;
-	private final ModelDescription model;
+	private ModelDescription model;
+	
+	public AddModelEffect(String name) {
+		this.name = name;
+	}
 	
 	public AddModelEffect(String name, ModelDescription model) {
 		this.name = name;
@@ -22,6 +26,10 @@ public class AddModelEffect implements Effect {
 
 	public ModelDescription getModel() {
 		return model;
+	}
+	
+	public void setModel(ModelDescription model) {
+		this.model = model;
 	}
 
 	@Override

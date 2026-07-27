@@ -13,23 +13,50 @@ public class OptionGroupLoader {
 	
 	public OptionGroupLoader() {};
 	
-	public OptionGroup load(OptionGroupDTO dto) {
+	public OptionGroup create(OptionGroupDTO dto) {
 		return OptionGroupFactory.create(
 				dto.getName(),
-				OptionChoiceFactory.get(dto.getChoiceNames()),
-				ReqFactory.get(dto.getRequirementNames()),
 				dto.getMinSelections(),
 				dto.getMaxSelections()
 				);
 	}
 	
-	public List<OptionGroup> loadAll(List<OptionGroupDTO> dtos){
+//	public OptionGroup create(OptionGroupDTO dto) {
+//		return OptionGroupFactory.create(
+//				dto.getName(),
+//				OptionChoiceFactory.get(dto.getChoiceNames()),
+//				ReqFactory.getAll(dto.getRequirementNames()),
+//				dto.getMinSelections(),
+//				dto.getMaxSelections()
+//				);
+//	}
+	
+	public List<OptionGroup> createAll(List<OptionGroupDTO> dtos){
 		List<OptionGroup> groups = new ArrayList<>();
 		
 		for (OptionGroupDTO d : dtos) {
-			groups.add(load(d));
+			groups.add(create(d));
 		}
 		
 		return groups;
 	}
+	
+	public OptionGroup resolveReferences(OptionGroupDTO dto) {
+		OptionGroup group = OptionGroupFactory.get(dto.getName());
+		group.setChoices(OptionChoiceFactory.get(dto.getChoiceNames()));
+		group.setRequirements(ReqFactory.getAll(dto.getRequirementNames()));
+		return group;
+	}
+	
+	public List<OptionGroup> resolveAllReferences(List<OptionGroupDTO> dtos){
+		List<OptionGroup> groups = new ArrayList<>();
+		
+		for (OptionGroupDTO d : dtos) {
+			groups.add(resolveReferences(d));
+		}
+		
+		return groups;
+	}
+	
+	
 }

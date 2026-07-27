@@ -36,6 +36,19 @@ public class UnitFactory {
 			String name, 
 			int minSize, 
 			int maxSize, 
+			UnitRole role) {
+		return registry.computeIfAbsent(name,
+	            key -> new UnitDescription(
+				name,
+				minSize,
+				maxSize,
+				role));
+	}
+	
+	public static UnitDescription createDescription(			
+			String name, 
+			int minSize, 
+			int maxSize, 
 			UnitRole role,
 			Set<OptionGroup> options) {
 		return registry.computeIfAbsent(name,
@@ -54,6 +67,16 @@ public class UnitFactory {
 	
 	public static UnitDescription get(String name) {
 		return registry.get(name);
+	}
+	
+	public static List<UnitDescription> getAll(List<String> names){
+		List<UnitDescription> units = new ArrayList<>();
+		
+		for (String name : names) {
+			units.add(get(name));
+		}
+		
+		return units;
 	}
 	
 	

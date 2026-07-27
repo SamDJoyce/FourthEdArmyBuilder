@@ -13,6 +13,17 @@ public class OptionGroupFactory {
 	
 	public static OptionGroup create(
 			String name,
+			int minSelections,
+			int maxSelections ) {
+		return registry.computeIfAbsent(name,
+	            key -> new OptionGroup(
+	            			name, 
+	            			minSelections, 
+	            			maxSelections));
+	}
+	
+	public static OptionGroup create(
+			String name,
 			Set<OptionChoice> choices,
 			Set<Requirement> requirements,
 			int minSelections,
@@ -30,7 +41,7 @@ public class OptionGroupFactory {
 		return registry.get(name);
 	}
 	
-	public static Set<OptionGroup> get(Set<String> names){
+	public static Set<OptionGroup> getAll(Set<String> names){
 		Set<OptionGroup> groups = new HashSet<>();
 		for (String name : names) {
 			groups.add(get(name));

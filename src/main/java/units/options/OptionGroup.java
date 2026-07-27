@@ -14,13 +14,22 @@ public class OptionGroup {
 	
 	public OptionGroup(
 			String name,
+			int minSelections,
+			int maxSelections) {
+		this.name = name;
+		this.minSelections = minSelections;
+		this.maxSelections = maxSelections;
+	}
+	
+	public OptionGroup(
+			String name,
 			Set<OptionChoice> choices,
 			Set<Requirement> requirements,
 			int minSelections,
 			int maxSelections) {
-		this.name = name;
-		this.choices = choices;
-		this.requirements = requirements;
+		this.name 		   = name;
+		this.choices 	   = new HashSet<>(choices) ;
+		this.requirements  = new HashSet<>(requirements);
 		this.minSelections = minSelections;
 		this.maxSelections = maxSelections;
 	}
@@ -45,6 +54,14 @@ public class OptionGroup {
 		return maxSelections;
 	}
 	
+	public void setChoices(Set<OptionChoice> choices) {
+		this.choices = choices;
+	}
+
+	public void setRequirements(Set<Requirement> requirements) {
+		this.requirements = requirements;
+	}
+
 	public static OptionGroup get(
 			String name,
 			Set<OptionChoice> choices,

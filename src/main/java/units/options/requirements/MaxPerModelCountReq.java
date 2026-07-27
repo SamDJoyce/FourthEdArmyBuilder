@@ -9,8 +9,14 @@ public class MaxPerModelCountReq implements Requirement {
 
 	private final String name;
 	private final int rate;
-	private final ModelDescription model;
+	private ModelDescription model;
 	private String message;
+	
+	public MaxPerModelCountReq(
+			String name, int rate) {
+		this.name = name;
+		this.rate = rate;
+	}
 	
 	public MaxPerModelCountReq(
 			String name,
@@ -24,6 +30,10 @@ public class MaxPerModelCountReq implements Requirement {
 	
 	public String getName() {
 		return name;
+	}
+
+	public void setModel(ModelDescription model) {
+		this.model = model;
 	}
 
 	@Override

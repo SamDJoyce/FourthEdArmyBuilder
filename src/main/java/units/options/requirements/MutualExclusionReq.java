@@ -12,6 +12,10 @@ public class MutualExclusionReq implements Requirement {
 	private final String name;
 	private Set<OptionChoice> excluded;
 	
+	public MutualExclusionReq(String name){
+		this.name = name;
+	}
+	
 	public MutualExclusionReq(
 			String name,
 			Set<OptionChoice> excluded){
@@ -21,6 +25,14 @@ public class MutualExclusionReq implements Requirement {
 	
 	public String getName() {
 		return name;
+	}
+
+	public Set<OptionChoice> getExcluded() {
+		return excluded;
+	}
+
+	public void setExcluded(Set<OptionChoice> excluded) {
+		this.excluded = excluded;
 	}
 
 	@Override
