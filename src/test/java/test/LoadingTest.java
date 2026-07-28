@@ -13,10 +13,10 @@ import units.descriptions.models.StatLine;
 import units.descriptions.wargear.WargearDescription;
 
 public class LoadingTest {
-	private final static String wargearLoc  = "src/main/java/resources/json/wargear.json";
-	private final static String statLineLoc = "src/main/java/resources/json/statlines.json";
-	private final static String modelLoc    = "src/main/java/resources/json/models.json";
-	private final static String codexLoc    = "src/main/java/resources/json";
+	private final static String wargearLoc  = "src/main/resources/json/wargear.json";
+	private final static String statLineLoc = "src/main/resources/json/statlines.json";
+	private final static String modelLoc    = "src/main/resources/json/models.json";
+	private final static String codexLoc    = "src/main/resources/json";
 	
 	public static void main(String[] args) {
 		CodexLoader loader = new CodexLoader(codexLoc);
@@ -25,13 +25,8 @@ public class LoadingTest {
 //		test.loadGear(loader);
 //		test.loadStatLines(loader);
 //		test.loadModel(loader);
-		test.loadCodex(loader);
-	}
-	
-	private void loadCodex(CodexLoader loader) {
 		loader.loadCodex();
-		printUnitInfo();
-		//printModels();
+		test.printUnitInfo();
 	}
 	
 	private void loadGear(CodexLoader loader) {

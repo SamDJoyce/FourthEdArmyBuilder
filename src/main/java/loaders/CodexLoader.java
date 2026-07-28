@@ -76,6 +76,12 @@ public class CodexLoader {
 	
 	public void loadCodex(){
 		// Load objects from file to create placeholders
+		createObjectsFromFiles();
+		// Populate objects by resolving references
+		resolveObjectReferences();
+	}
+	
+	private void createObjectsFromFiles() {
 		try {
 			createWargear(wargearFile);
 			createStatLines(statLineFile);
@@ -90,7 +96,9 @@ public class CodexLoader {
 			System.out.println(e);
 			e.printStackTrace();
 		}
-		// Populate objects by resolving references
+	}
+	
+	private void resolveObjectReferences() {
 		try {
 			resolveEffects();
 			resolveRequirements();

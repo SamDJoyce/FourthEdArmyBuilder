@@ -1,0 +1,194 @@
+[
+	
+	{
+		"type":"replace_wargear",
+		"name":"replace bolter with plasma",
+		"remove":"bolter",
+		"add":"plasma gun"
+	},
+	{
+		"type":"replace_wargear",
+		"name":"replace bolter with plasma",
+		"remove":"bolter",
+		"add":"melta gun"
+	},
+	{
+		"type":"replace_wargear",
+		"name":"replace bolter with flamer",
+		"remove":"bolter",
+		"add":"flamer"
+	},
+	{
+		"type":"replace_wargear",
+		"name":"replace bolter with heavy bolter",
+		"remove":"bolter",
+		"add":"heavy bolter"
+	},
+	{
+		"type":"replace_wargear",
+		"name":"replace bolter with missile launcher",
+		"remove":"bolter",
+		"add":"missile launcher"
+	},
+	{
+		"type":"replace_wargear",
+		"name":"replace bolter with multi melta",
+		"remove":"bolter",
+		"add":"multi melta"
+	},
+	{
+		"type":"replace_wargear",
+		"name":"replace bolter with lascannon",
+		"remove":"bolter",
+		"add":"lascannon"
+	},
+	{
+		"type":"replace_wargear",
+		"name":"replace bolter with plasma cannon",
+		"remove":"bolter",
+		"add":"plasma cannon"
+	},
+	{
+		"type":"replace_wargear",
+		"name":"replace bolter with bolt pistol",
+		"remove":"bolter",
+		"add":"bolt pistol"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add close combat weapon",
+		"gearName":"close combat weapon"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add crux terminatus",
+		"gearName":"crux terminatus"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add bolt pistol from armoury",
+		"gearName":"bolt pistol armoury"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add chain fist from armoury",
+		"gearName":"chain fist armoury"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add ccw from armoury",
+		"gearName":"close combat weapon armoury"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add single lightning claw mw from armoury",
+		"gearName":"lightning claw single mw armoury"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add single lightning claw sw from armoury",
+		"gearName":"lightning claw single sw armoury"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add pair lightning claws from armoury",
+		"gearName":"lightning claw pair armoury"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add plasma pistol mw from armoury",
+		"gearName":"plasma pistol mw armoury"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add plasma pistol sw from armoury",
+		"gearName":"plasma pistol sw armoury"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add power weapon mw from armoury",
+		"gearName":"power weapon mw armoury"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add power weapon sw from armoury",
+		"gearName":"power weapon sw armoury"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add power fist mw from armoury",
+		"gearName":"power fist mw armoury"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add power fist sw from armoury",
+		"gearName":"power fist sw armoury"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add storm shield from armoury",
+		"gearName":"storm shield armoury"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add thunder hammer from armoury",
+		"gearName":"thunder hammer armoury"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add bolter from armoury",
+		"gearName":"bolter armoury"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add combi melta mw from armoury",
+		"gearName":"combi melta mw armoury"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add combi melta sw from armoury",
+		"gearName":"combi melta sw armoury"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add combi plasma mw from armoury",
+		"gearName":"combi plasma mw armoury"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add combi plasma sw from armoury",
+		"gearName":"combi plasma sw armoury"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add combi flamer mw from armoury",
+		"gearName":"combi flamer mw armoury"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add combi flamer sw from armoury",
+		"gearName":"combi flamer sw armoury"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add storm bolter from armoury",
+		"gearName":"storm bolter armoury"
+	},
+	{
+		"type":"modify_stat",
+		"name":"increase ld by one",
+		"stat":"ld",
+		"modifier": 1
+	},
+	{
+		"type":"modify_stat",
+		"name":"increase attacks by one",
+		"stat":"a",
+		"modifier": 1
+	},
+	{
+		"type":"change_model_name",
+		"effectName":"change to veteran sergeant",
+		"newName":"Veteran Sergeant"
+	}
+]

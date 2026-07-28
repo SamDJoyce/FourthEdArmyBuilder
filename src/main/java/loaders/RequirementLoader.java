@@ -3,6 +3,7 @@ package loaders;
 import java.util.ArrayList;
 import java.util.List;
 
+import dto.ArmouryPointsLimitReqDTO;
 import dto.CharactersOnlyReqDTO;
 import dto.MaxPerModelCountReqDTO;
 import dto.MaxSelectionReqDTO;
@@ -58,6 +59,10 @@ public class RequirementLoader {
 			case "must_have_gear":
 				MustHaveGearReqDTO mhg = (MustHaveGearReqDTO) dto;
 				return ReqFactory.mustHaveGear(mhg.getName());
+			
+			case "armoury_points_limit":
+				ArmouryPointsLimitReqDTO apl = (ArmouryPointsLimitReqDTO) dto;
+				return ReqFactory.armouryPointsLimit(apl.getName(), apl.getLimit());
 		}
 		return null;
 	}
@@ -111,6 +116,11 @@ public class RequirementLoader {
 				MustHaveGearReq mustHaveGear = (MustHaveGearReq) ReqFactory.get(mhg.getName());
 				mustHaveGear.setRequiredGear(WargearFactory.get(mhg.getRequiredGear()));
 				return mustHaveGear;
+				
+			case "armoury_points_limit":
+				ArmouryPointsLimitReqDTO apl = (ArmouryPointsLimitReqDTO) dto;
+				return ReqFactory.get(apl.getName());
+				
 		}
 		return null;
 	}

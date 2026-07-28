@@ -1,6 +1,7 @@
 package units.options;
 
 import roster.Roster;
+import units.descriptions.wargear.WargearDescription;
 import units.instances.ModelInstance;
 import units.instances.UnitInstance;
 
@@ -10,6 +11,7 @@ public final class SelectionContext {
 	private final ModelInstance model;
 	private final OptionOwner owner;
 	private final OptionChoice choice;
+	private final WargearDescription gear;
 	
 	private SelectionContext(Builder builder) {
 		this.roster = builder.roster;
@@ -19,6 +21,7 @@ public final class SelectionContext {
 		        		? null
 		                : builder.choice;
 		this.owner = builder.owner;
+		this.gear = builder.gear;
 	}
 	
 	public Roster getRoster() {
@@ -35,6 +38,10 @@ public final class SelectionContext {
 	
 	public OptionChoice getChoice() {
 		return this.choice;
+	}
+	
+	public WargearDescription getWargear() {
+		return this.gear;
 	}
 	
 	public boolean hasRoster() {
@@ -55,6 +62,10 @@ public final class SelectionContext {
 	
 	public boolean hasOwner() {
 		return this.owner != null;
+	}
+	
+	public boolean hasWargear() {
+		return this.gear != null;
 	}
 	
 	// Factory methods
@@ -100,6 +111,7 @@ public final class SelectionContext {
 		private ModelInstance model;
 		private OptionChoice choice;
 		private OptionOwner owner;
+		private WargearDescription gear;
 		
 		public Builder setRoster(Roster roster) {
 			this.roster = roster;
@@ -123,6 +135,11 @@ public final class SelectionContext {
 		
 		public Builder setOwner(OptionOwner owner) {
 			this.owner = owner;
+			return this;
+		}
+		
+		public Builder setWargear(WargearDescription gear) {
+			this.gear = gear;
 			return this;
 		}
 		

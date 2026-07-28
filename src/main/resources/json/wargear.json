@@ -1,0 +1,327 @@
+[
+	{	
+	  	"name":"bolter",
+	  	"type":"TWO HANDED",
+	  	"points":0
+	},
+	{
+	  	"name":"close combat weapon",
+	  	"type":"ONE HANDED",
+	  	"points":0
+	},
+	{
+	  	"name":"bolt pistol",
+	  	"type":"ONE HANDED",
+	  	"points":0
+	},
+	{
+	  	"name":"power armor",
+	  	"type":"GEAR",
+	  	"points":0
+	},
+	{
+	  	"name":"plasma gun",
+	  	"type":"TWO HANDED",
+	  	"points":10
+	},
+	{
+	  	"name":"melta gun",
+	  	"type":"TWO HANDED",
+	  	"points":10
+	},
+	{
+	  	"name":"flamer",
+	  	"type":"TWO HANDED",
+	  	"points":6
+	},
+	{
+	  	"name":"crux terminatus",
+	  	"type":"GEAR",
+	  	"points":15
+	},
+	{
+	  	"name":"heavy bolter",
+	  	"type":"TWO HANDED",
+	  	"points":5
+	},
+	{
+	  	"name":"missile launcher",
+	  	"type":"TWO HANDED",
+	  	"points":10
+	},
+	{
+	  	"name":"multi melta",
+	  	"type":"TWO HANDED",
+	  	"points":10
+	},
+	{
+	  	"name":"lascannon",
+	  	"type":"TWO HANDED",
+	  	"points":15
+	},
+	{
+	  	"name":"plasma cannon",
+	  	"type":"TWO HANDED",
+	  	"points":20
+	},
+	{
+	  	"name":"frag grenades",
+	  	"type":"GEAR",
+	  	"points":1
+	},
+	{
+	  	"name":"krak grenades",
+	  	"type":"GEAR",
+	  	"points":2
+	},
+	{
+	  	"name":"bolt pistol armoury",
+	  	"type":"ONE HANDED",
+	  	"points":1
+	},
+	{
+	  	"name":"chainfist armoury",
+	  	"type":"ONE HANDED",
+	  	"points":30
+	},
+	{
+	  	"name":"close combat weapon armoury",
+	  	"type":"ONE HANDED",
+	  	"points":1
+	},
+	{
+	  	"name":"lightning claw single mw armoury",
+	  	"type":"ONE HANDED",
+	  	"points":25
+	},
+	{
+	  	"name":"lightning claw single sw armoury",
+	  	"type":"ONE HANDED",
+	  	"points":15
+	},
+	{
+	  	"name":"lightning claw pair armoury",
+	  	"type":"TWO HANDED",
+	  	"points":30
+	},
+	{
+	  	"name":"plasma pistol mw armoury",
+	  	"type":"ONE HANDED",
+	  	"points":15
+	},
+	{
+	  	"name":"plasma pistol sw armoury",
+	  	"type":"ONE HANDED",
+	  	"points":10
+	},
+	{
+	  	"name":"power fist mw armoury",
+	  	"type":"ONE HANDED",
+	  	"points":25
+	},
+	{
+	  	"name":"power fist sw armoury",
+	  	"type":"ONE HANDED",
+	  	"points":15
+	},
+	{
+	  	"name":"power weapon mw armoury",
+	  	"type":"ONE HANDED",
+	  	"points":15
+	},
+	{
+	  	"name":"power fist sw armoury",
+	  	"type":"ONE HANDED",
+	  	"points":10
+	},
+	{
+	  	"name":"storm shield armoury",
+	  	"type":"ONE HANDED",
+	  	"points":10
+	},
+	{
+	  	"name":"thunder hammer armoury",
+	  	"type":"ONE HANDED",
+	  	"points":30
+	},
+	{
+	  	"name":"combi melta mw armoury",
+	  	"type":"TWO HANDED",
+	  	"points":15
+	},
+	{
+	  	"name":"bolter armoury",
+	  	"type":"TWO HANDED",
+	  	"points":1
+	},
+	{
+	  	"name":"combi melta sw armoury",
+	  	"type":"TWO HANDED",
+	  	"points":10
+	},
+	{
+	  	"name":"combi plasma mw armoury",
+	  	"type":"TWO HANDED",
+	  	"points":15
+	},
+	{
+	  	"name":"combi plasma sw armoury",
+	  	"type":"TWO HANDED",
+	  	"points":10
+	},
+	{
+	  	"name":"combi flamer mw armoury",
+	  	"type":"TWO HANDED",
+	  	"points":10
+	},
+	{
+	  	"name":"combi flamer sw armoury",
+	  	"type":"TWO HANDED",
+	  	"points":5
+	},
+	{
+	  	"name":"storm bolter armoury",
+	  	"type":"TWO HANDED",
+	  	"points":5
+	},
+	{
+	  	"name":"artificer armour armoury",
+	  	"type":"GEAR",
+	  	"points":20
+	},
+	{
+	  	"name":"auspex armoury",
+	  	"type":"GEAR",
+	  	"points":2
+	},
+	{
+	  	"name":"bionics",
+	  	"type":"GEAR",
+	  	"points":5
+	},
+	{
+	  	"name":"combat shield mw armoury",
+	  	"type":"GEAR",
+	  	"points":10
+	},
+	{
+	  	"name":"combat shield sw armoury",
+	  	"type":"GEAR",
+	  	"points":5
+	},
+	{
+	  	"name":"familiar armoury",
+	  	"type":"GEAR",
+	  	"points":10
+	},
+	{
+	  	"name":"frag grenades armoury",
+	  	"type":"GEAR",
+	  	"points":1
+	},
+	{
+	  	"name":"jump pack",
+	  	"type":"GEAR",
+	  	"points":20
+	},
+	{
+	  	"name":"krak grenades armoury",
+	  	"type":"GEAR",
+	  	"points":2
+	},
+	{
+	  	"name":"master crafter weapon armoury",
+	  	"type":"GEAR",
+	  	"points":15
+	},
+	{
+	  	"name":"melta bombs armoury",
+	  	"type":"GEAR",
+	  	"points":5
+	},
+	{
+	  	"name":"purity seals armoury",
+	  	"type":"GEAR",
+	  	"points":5
+	},
+	{
+	  	"name":"space marine bike armoury",
+	  	"type":"GEAR",
+	  	"points":30
+	},
+	{
+	  	"name":"teleport homer armoury",
+	  	"type":"GEAR",
+	  	"points":5
+	},
+	{
+	  	"name":"terminator armour armoury",
+	  	"type":"GEAR",
+	  	"points":25
+	},
+	{
+	  	"name":"terminator honours armoury",
+	  	"type":"GEAR",
+	  	"points":15
+	},
+	{
+	  	"name":"chapter banner armoury",
+	  	"type":"RELIC",
+	  	"points":25
+	},
+	{
+	  	"name":"holy relic armoury",
+	  	"type":"RELIC",
+	  	"points":30
+	},
+	{
+	  	"name":"Iron Halo armoury",
+	  	"type":"RELIC",
+	  	"points":25
+	},
+	{
+	  	"name":"sacred standard armoury",
+	  	"type":"RELIC",
+	  	"points":20
+	},
+	{
+	  	"name":"adamantine mantle armoury",
+	  	"type":"RELIC",
+	  	"points":35
+	},
+	{
+	  	"name":"dozer blade armoury",
+	  	"type":"VEHICLE_UPGRADE",
+	  	"points":5
+	},
+	{
+	  	"name":"extra armor armoury",
+	  	"type":"VEHICLE_UPGRADE",
+	  	"points":5
+	},
+	{
+	  	"name":"hunter killer missile armoury",
+	  	"type":"VEHICLE_UPGRADE",
+	  	"points":15
+	},
+	{
+	  	"name":"pintle mounted storm bolter armoury",
+	  	"type":"VEHICLE_UPGRADE",
+	  	"points":10
+	},
+	{
+	  	"name":"machine spirit armoury",
+	  	"type":"VEHICLE_UPGRADE",
+	  	"points":30
+	},
+	{
+	  	"name":"searchlight armoury",
+	  	"type":"VEHICLE_UPGRADE",
+	  	"points":1
+	},
+	{
+	  	"name":"smoke launchers armoury",
+	  	"type":"VEHICLE_UPGRADE",
+	  	"points":3
+	}
+]

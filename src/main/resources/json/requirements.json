@@ -28,5 +28,15 @@
 		"excludedChoiceNames":
 			["select flamer",
 			 "select plasma"]
+	},
+	{
+		"type":"armoury_points_limit",
+		"name":"space marine armoury points limit",
+		"limit":100
+	},
+	{
+		"type":"must_have_gear",
+		"name":"must have terminator armor",
+		"requiredGear":"terminator armor"
 	}
 ]

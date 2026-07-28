@@ -81,6 +81,11 @@ public class ReqFactory {
 	            key -> new MustHaveGearReq(name, requiredGear));
 	}
 	
+	public static Requirement armouryPointsLimit(String name, int limit) {
+		return registry.computeIfAbsent(name,
+				key -> new ArmouryPointsLimitReq(name, limit));
+	}
+	
 	public static Requirement get(String name) {
 		return registry.get(name);
 	}

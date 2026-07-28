@@ -1,0 +1,265 @@
+[
+	{
+		"name":"select plasma",
+		"points":10,
+		"requirementNames":
+		["must have bolter"],
+		"effectNames":
+		["replace bolter with plasma"]
+	},
+	{
+		"name":"select melta",
+		"points":10,
+		"requirementNames":
+		["must have bolter"],
+		"effectNames":
+		["replace bolter with melta"]
+	},
+	{
+		"name":"select flamer",
+		"points":6,
+		"requirementNames":
+		["must have bolter"],
+		"effectNames":
+		["replace bolter with flamer"]
+	},
+	{
+		"name":"select heavy bolter",
+		"points":"5",
+		"requirementNames":
+		["must have bolter"],
+		"effectNames":
+		["replace bolter with heavy bolter"]
+	},
+	{
+		"name":"select missile launcher",
+		"points":"10",
+		"requirementNames":
+		["must have bolter"],
+		"effectNames":
+		["replace bolter with missile launcher"]
+	},
+	{
+		"name":"select multi melta",
+		"points":"10",
+		"requirementNames":
+		["must have bolter"],
+		"effectNames":
+		["replace bolter with multi melta"]
+	},
+	{
+		"name":"select lascannon",
+		"points":"15",
+		"requirementNames":
+		["must have bolter"],
+		"effectNames":
+		["replace bolter with lascannon"]
+	},
+	{
+		"name":"select plasma cannon",
+		"points":"20",
+		"requirementNames":
+		["must have bolter"],
+		"effectNames":
+		["replace bolter with plasma cannon"]
+	},
+	{
+		"name":"select bolt pistol and ccw for sergeant",
+		"points":"0",
+		"requirementNames":
+			["must have bolter",
+		 	 "characters only"],
+		"effectNames":
+			["replace bolter with bolt pistol",
+		 	 "add close combat weapon"]
+	},
+	{
+		"name":"select crux terminatus",
+		"points":15,
+		"requirementNames":
+		["characters only"],
+		"effectNames":
+		["add crux terminatus",
+		 "increase ld by one",
+	 	 "increase attacks by one",
+	 	 "change to veteran sergeant"]
+	},
+	{
+		"name":"select bolt pistol from armoury",
+		"points":1,
+		"requirementNames":
+		["characters only"],
+		"effectNames":
+		["add bolt pistol from armoury"]
+	},
+	{
+		"name":"select chain fist from armoury",
+		"points":30,
+		"requirementNames":
+		["characters only",
+		 "must have terminator armour"],
+		"effectNames":
+		["add chain fist from armoury"]
+	},
+	{
+		"name":"select ccw from armoury",
+		"points":1,
+		"requirementNames":
+		["characters only"],
+		"effectNames":
+		["add ccw from armoury"]
+	},
+	{
+		"name":"select single lightning claw mw from armoury",
+		"points":25,
+		"requirementNames":
+		["characters only"],
+		"effectNames":
+		["add single lightning claw mw from armoury"]
+	},
+	{
+		"name":"select single lightning claw sw from armoury",
+		"points":15,
+		"requirementNames":
+		["characters only"],
+		"effectNames":
+		["add single lightning claw sw from armoury"]
+	},
+	{
+		"name":"select pair lightning claws from armoury",
+		"points":30,
+		"requirementNames":
+		["characters only"],
+		"effectNames":
+		["add pair lightning claws from armoury"]
+	},
+	{
+		"name":"select plasma pistol mw from armoury",
+		"points":15,
+		"requirementNames":
+		["characters only"],
+		"effectNames":
+		["add plasma pistol mw from armoury"]
+	},
+	{
+		"name":"select plasma pistol sw from armoury",
+		"points":10,
+		"requirementNames":
+		["characters only"],
+		"effectNames":
+		["add plasma pistol sw from armoury"]
+	},
+	{
+		"name":"select power weapon mw from armoury",
+		"points":15,
+		"requirementNames":
+		["characters only"],
+		"effectNames":
+		["add power weapon mw from armoury"]
+	},
+	{
+		"name":"select power weapon sw from armoury",
+		"points":10,
+		"requirementNames":
+		["characters only"],
+		"effectNames":
+		["add power weapon sw from armoury"]
+	},
+	{
+		"name":"select power fist mw from armoury",
+		"points":25,
+		"requirementNames":
+		["characters only"],
+		"effectNames":
+		["add power fist mw from armoury"]
+	},
+	{
+		"name":"select power fist sw from armoury",
+		"points":15,
+		"requirementNames":
+		["characters only"],
+		"effectNames":
+		["add power fist sw from armoury"]
+	},
+	{
+		"name":"select storm shield from armoury",
+		"points":10,
+		"requirementNames":
+		["characters only"],
+		"effectNames":
+		["add storm shield from armoury"]
+	},
+	{
+		"name":"select thunder hammer from armoury",
+		"points":30,
+		"requirementNames":
+		["characters only"],
+		"effectNames":
+		["add thunder hammer from armoury"]
+	},
+	{
+		"name":"select bolter from armoury",
+		"points":1,
+		"requirementNames":
+		["characters only"],
+		"effectNames":
+		["add bolter from armoury"]
+	},
+	{
+		"name":"select combi melta mw from armoury",
+		"points":15,
+		"requirementNames":
+		["characters only"],
+		"effectNames":
+		["add combi melta mw from armoury"]
+	},
+	{
+		"name":"select combi melta sw from armoury",
+		"points":10,
+		"requirementNames":
+		["characters only"],
+		"effectNames":
+		["add combi melta sw from armoury"]
+	},
+	{
+		"name":"select combi plasma mw from armoury",
+		"points":15,
+		"requirementNames":
+		["characters only"],
+		"effectNames":
+		["add combi plasma mw from armoury"]
+	},
+	{
+		"name":"select combi plasma sw from armoury",
+		"points":10,
+		"requirementNames":
+		["characters only"],
+		"effectNames":
+		["add combi plasma sw from armoury"]
+	},
+	{
+		"name":"select combi flamer mw from armoury",
+		"points":15,
+		"requirementNames":
+		["characters only"],
+		"effectNames":
+		["add combi flamer mw from armoury"]
+	},
+	{
+		"name":"select combi flamer sw from armoury",
+		"points":10,
+		"requirementNames":
+		["characters only"],
+		"effectNames":
+		["add combi flamer sw from armoury"]
+	},
+	{
+		"name":"select storm bolter from armoury",
+		"points":5,
+		"requirementNames":
+		["characters only"],
+		"effectNames":
+		["add storm bolter from armoury"]
+	}
+	
+]

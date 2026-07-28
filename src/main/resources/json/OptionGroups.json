@@ -1,0 +1,81 @@
+[
+	{
+		"name":"special weapons group",
+		"choiceNames":
+			["select plasma",
+			 "select melta",
+		 	 "select flamer"],
+		"requirementNames":
+			[],
+		"minSelections":0,
+		"maxSelections":1
+	},
+	{
+		"name":"heavy weapons group",
+				"choiceNames":
+					["select heavy bolter",
+					 "select missile launcher",
+				 	 "select multi melta",
+				 	 "select lascannon",
+				 	 "select plasma cannon"],
+				"requirementNames":
+					[],
+				"minSelections":"0",
+				"maxSelections":"1"
+	},
+	{
+		"name":"sergeant weapons group",
+				"choiceNames":
+					["select bolt pistol and ccw for sergeant"],
+				"requirementNames":
+					["characters only"],
+				"minSelections":"0",
+				"maxSelections":"1"
+	},
+	{
+		"name":"crux terminatus group",
+		"choiceNames":
+		["select crux terminatus"],
+		"requirementNames":["characters_only"],
+		"minSelections":"0",
+		"maxSelections":"1"
+	},
+	{
+		"name":"armoury sw group",
+				"choiceNames":[
+					"select bolt pistol from armoury",
+					"select chain fist from armoury",
+				 	"select ccw from armoury",
+			 		"select single lightning claw sw from armoury",
+				 	"select pair lightning claws from armoury",
+					"select plasma pistol sw from armoury",
+					"select power weapon sw from armoury",
+					"select power fist sw from armoury",
+					"select storm shield from armoury",
+					"select thunder hammer from armoury"],
+				"requirementNames":
+					["characters only",
+					 "space marine armoury points limit"],
+				"minSelections":"0",
+				"maxSelections":"99"
+	},
+	{
+		"name":"armoury mw group",
+				"choiceNames":[
+					"select bolt pistol from armoury",
+					"select chain fist from armoury",
+					"select ccw from armoury",
+					"select single lightning claw mw from armoury",
+					"select pair lightning claws from armoury",
+					"select plasma pistol mw from armoury",
+					"select power weapon mw from armoury",
+					"select power fist mw from armoury",
+					"select storm shield from armoury",
+					"select thunder hammer from armoury"],
+				"requirementNames":
+					["characters only",
+					 "space marine armoury points limit"],
+				"minSelections":"0",
+				"maxSelections":"99"
+	}
+]
