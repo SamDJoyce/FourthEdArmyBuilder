@@ -19,6 +19,11 @@
 		"requiredGear":"power armour"
 	},
 	{
+		"type":"must_have_gear",
+		"name":"must have terminator armor",
+		"requiredGear":"terminator armor"
+	},
+	{
 		"type":"cannot_have_gear",
 		"name":"cannot have terminator armour from armoury",
 		"blockingGearName":"terminator armour armoury"
@@ -31,23 +36,26 @@
 	{
 		"type":"mutual_exclusion",
 		"name":"exclusive of flamer melta",
-		"excludedChoiceNames":
-			["select flamer",
-			 "select melta"]
+		"excludedChoiceNames":[
+			"select flamer",
+			"select melta"
+		]
 	},
 	{
 		"type":"mutual_exclusion",
 		"name":"exclusive of plasma melta",
-		"excludedChoiceNames":
-			["select plasma",
-			 "select melta"]
+		"excludedChoiceNames":[
+			"select plasma",
+			"select melta"
+		]
 	},
 	{
 		"type":"mutual_exclusion",
 		"name":"exclusive of flamer plasma",
-		"excludedChoiceNames":
-			["select flamer",
-			 "select plasma"]
+		"excludedChoiceNames":[
+			"select flamer",
+			"select plasma"
+		 ]
 	},
 	{
 		"type":"armoury_points_limit",
@@ -55,8 +63,8 @@
 		"limit":100
 	},
 	{
-		"type":"must_have_gear",
-		"name":"must have terminator armor",
-		"requiredGear":"terminator armor"
+		"type":"max_selection",
+		"name":"one selection per squad",
+		"maxSelection":1
 	}
 ]

@@ -15,7 +15,8 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 	    @JsonSubTypes.Type(value = ChangeModelNameEffectDTO.class, name = "change_model_name"),
 	    @JsonSubTypes.Type(value = ModifyStatEffectDTO.class, name = "modify_stat"),
 	    @JsonSubTypes.Type(value = ReplaceModelEffectDTO.class, name = "replace_model"),
-	    @JsonSubTypes.Type(value = ReplaceWargearEffectDTO.class, name = "replace_wargear")
+	    @JsonSubTypes.Type(value = ReplaceWargearEffectDTO.class, name = "replace_wargear"),
+	    @JsonSubTypes.Type(value = AddGearToSquadEffectDTO.class, name = "add_gear_to_squad")
 	})
 public abstract class EffectDTO {
 	private String type;

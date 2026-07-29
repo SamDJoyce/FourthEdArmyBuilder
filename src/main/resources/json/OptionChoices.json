@@ -1,88 +1,139 @@
 [
 	{
+		"name":"select add tactical marine",
+		"points":15,
+		"requirementNames":[""],
+		"effectNames":[
+			"add tactical marine to squad"
+		]
+	},
+	{
 		"name":"select plasma",
 		"points":10,
 		"requirementNames":
 		["must have bolter"],
-		"effectNames":
-		["replace bolter with plasma"]
+		"effectNames":[
+			"replace bolter with plasma",
+			"change to marine with plasma gun"
+		]
 	},
 	{
 		"name":"select melta",
 		"points":10,
 		"requirementNames":
 		["must have bolter"],
-		"effectNames":
-		["replace bolter with melta"]
+		"effectNames":[
+			"replace bolter with melta",
+			"change to marine with melta gun"
+		]
 	},
 	{
 		"name":"select flamer",
 		"points":6,
 		"requirementNames":
 		["must have bolter"],
-		"effectNames":
-		["replace bolter with flamer"]
+		"effectNames":[
+			"replace bolter with flamer",
+			"change to marine with flamer"
+		]
 	},
 	{
 		"name":"select heavy bolter",
 		"points":"5",
-		"requirementNames":
-		["must have bolter"],
-		"effectNames":
-		["replace bolter with heavy bolter"]
+		"requirementNames":[
+			"must have bolter"
+		],
+		"effectNames":[
+			"replace bolter with heavy bolter",
+			"change to marine with heavy bolter"
+		]
 	},
 	{
 		"name":"select missile launcher",
 		"points":"10",
-		"requirementNames":
-		["must have bolter"],
-		"effectNames":
-		["replace bolter with missile launcher"]
+		"requirementNames":[
+			"must have bolter"
+		],
+		"effectNames":[
+			"replace bolter with missile launcher",
+			"change to marine with missile launcher"
+		]
 	},
 	{
 		"name":"select multi melta",
 		"points":"10",
-		"requirementNames":
-		["must have bolter"],
-		"effectNames":
-		["replace bolter with multi melta"]
+		"requirementNames":[
+			"must have bolter"
+		],
+		"effectNames":[
+			"replace bolter with multi melta",
+			"change to marine with multi melta"
+		]
 	},
 	{
 		"name":"select lascannon",
 		"points":"15",
-		"requirementNames":
-		["must have bolter"],
-		"effectNames":
-		["replace bolter with lascannon"]
+		"requirementNames":[
+			"must have bolter"
+		],
+		"effectNames":[
+			"replace bolter with lascannon",
+			"change to marine with lascannon"
+		]
 	},
 	{
 		"name":"select plasma cannon",
 		"points":"20",
-		"requirementNames":
-		["must have bolter"],
-		"effectNames":
-		["replace bolter with plasma cannon"]
+		"requirementNames":[
+			"must have bolter"
+		],
+		"effectNames":[
+			"replace bolter with plasma cannon",
+			"change to marine with plasma cannon"
+		]
 	},
 	{
 		"name":"select bolt pistol and ccw for sergeant",
 		"points":"0",
-		"requirementNames":
-			["must have bolter",
-		 	 "characters only"],
-		"effectNames":
-			["replace bolter with bolt pistol",
-		 	 "add close combat weapon"]
+		"requirementNames":[
+			"must have bolter",
+		 	"characters only"
+		],
+		"effectNames":[
+			"replace bolter with bolt pistol",
+		 	"add close combat weapon"
+		]
 	},
 	{
 		"name":"select crux terminatus",
 		"points":15,
-		"requirementNames":
-		["characters only"],
-		"effectNames":
-		["add crux terminatus",
-		 "increase ld by one",
-	 	 "increase attacks by one",
-	 	 "change to veteran sergeant"]
+		"requirementNames":[
+			"characters only"
+		],
+		"effectNames":[
+			"add crux terminatus",
+		 	"increase ld by one",
+	 	 	"increase attacks by one",
+	 	 	"change to veteran sergeant"
+		]
+	},
+	{
+		"name":"select frag grenades for squad",
+		"points":1,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"add frag grenades to squad"
+		]
+	},
+	{
+		"name":"select krak grenades for squad",
+		"points":2,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"add krak grenades to squad"
+		]
 	},
 	{
 		"name":"select bolt pistol from armoury",
@@ -92,8 +143,9 @@
 			"cannot have terminator armour",
 			"space marine armoury points limit"
 		],
-		"effectNames":
-		["add bolt pistol from armoury"]
+		"effectNames":[
+			"add bolt pistol from armoury"
+		]
 	},
 	{
 		"name":"select chain fist from armoury",
@@ -103,8 +155,9 @@
 		 	"must have terminator armour",
 			"space marine armoury points limit"
 		],
-		"effectNames":
-		["add chain fist from armoury"]
+		"effectNames":[
+			"add chain fist from armoury"
+		]
 	},
 	{
 		"name":"select ccw from armoury",
@@ -114,8 +167,9 @@
 			"cannot have terminator armour",
 			"space marine armoury points limit"
 		],
-		"effectNames":
-		["add ccw from armoury"]
+		"effectNames":[
+			"add ccw from armoury"
+		]
 	},
 	{
 		"name":"select single lightning claw mw from armoury",
@@ -124,8 +178,9 @@
 			"characters only",
 			"space marine armoury points limit"
 		],
-		"effectNames":
-		["add single lightning claw mw from armoury"]
+		"effectNames":[
+			"add single lightning claw mw from armoury"
+		]
 	},
 	{
 		"name":"select single lightning claw sw from armoury",
@@ -134,8 +189,9 @@
 			"characters only",
 			"space marine armoury points limit"
 		],
-		"effectNames":
-		["add single lightning claw sw from armoury"]
+		"effectNames":[
+			"add single lightning claw sw from armoury"
+		]
 	},
 	{
 		"name":"select pair lightning claws from armoury",
@@ -144,8 +200,9 @@
 			"characters only",
 			"space marine armoury points limit"
 		],
-		"effectNames":
-		["add pair lightning claws from armoury"]
+		"effectNames":[
+			"add pair lightning claws from armoury"
+		]
 	},
 	{
 		"name":"select plasma pistol mw from armoury",
@@ -155,8 +212,9 @@
 			"cannot have terminator armour",
 			"space marine armoury points limit"
 		],
-		"effectNames":
-		["add plasma pistol mw from armoury"]
+		"effectNames":[
+			"add plasma pistol mw from armoury"
+		]
 	},
 	{
 		"name":"select plasma pistol sw from armoury",
@@ -166,8 +224,9 @@
 			"cannot have terminator armour",
 			"space marine armoury points limit"
 		],
-		"effectNames":
-		["add plasma pistol sw from armoury"]
+		"effectNames":[
+			"add plasma pistol sw from armoury"
+		]
 	},
 	{
 		"name":"select power weapon mw from armoury",

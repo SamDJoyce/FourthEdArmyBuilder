@@ -7,8 +7,8 @@
 			"INFANTRY"
 		],
 		"optionGroupNames":[
-			"special weapons group",
-			"heavy weapons group"],
+			"special weapons group tactical squad",
+			"heavy weapons group tactical squad"],
 		"wargearNames":[
 			"power armor",
 			"bolter"
@@ -23,7 +23,7 @@
 			"CHARACTER"
 		],
 		"optionGroupNames":[
-			"sergeant weapons group",
+			"sergeant weapons group tactical squad",
 			"crux terminatus group",
 			"armoury sw group"],
 		"wargearNames":[

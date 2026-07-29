@@ -1,115 +1,144 @@
 [
 	{
-		"name":"special weapons group",
+		"name":"special weapons group tactical squad",
 		"choiceNames":[
 			"select plasma",
 			"select melta",
 		 	"select flamer"
 		 ],
 		"requirementNames":[
-			"must have bolter"
+			"must have bolter",
+			"one selection per squad"
 		],
 		"minSelections":0,
 		"maxSelections":1
 	},
 	{
-		"name":"heavy weapons group",
-			"choiceNames":[
-				"select heavy bolter",
-				"select missile launcher",
-			 	"select multi melta",
-			 	"select lascannon",
-			 	"select plasma cannon"
-			],
-			"requirementNames":[
-				"must have bolter"
-			],
-			"minSelections":"0",
-			"maxSelections":"1"
-	},
-	{
-		"name":"sergeant weapons group",
-				"choiceNames":
-					["select bolt pistol and ccw for sergeant"],
-				"requirementNames":
-					["characters only"],
-				"minSelections":"0",
-				"maxSelections":"1"
-	},
-	{
-		"name":"crux terminatus group",
-		"choiceNames":
-		["select crux terminatus"],
-		"requirementNames":["characters_only"],
+		"name":"heavy weapons group tactical squad",
+		"choiceNames":[
+			"select heavy bolter",
+			"select missile launcher",
+		 	"select multi melta",
+		 	"select lascannon",
+		 	"select plasma cannon"
+		],
+		"requirementNames":[
+			"must have bolter",
+			"one selection per squad"
+		],
 		"minSelections":"0",
 		"maxSelections":"1"
 	},
 	{
+		"name":"grenades group tactical squad",
+		"choiceNames":[
+			"select frag grenades for squad",
+			"select krak grenades for squad"
+		],
+		"requirementNames":[
+		],
+		"minSelections":"0",
+		"maxSelections":"2"
+	},
+	{
+		"name":"sergeant weapons group tactical squad",
+		"choiceNames":[
+			"select bolt pistol and ccw for sergeant"
+		],
+		"requirementNames":[
+			"characters only"
+		],
+		"minSelections":"0",
+		"maxSelections":"1"
+	},
+	{
+		"name":"crux terminatus group",
+		"choiceNames":[
+			"select crux terminatus"
+		],
+		"requirementNames":[
+			"characters_only"
+		],
+		"minSelections":"0",
+		"maxSelections":"1"
+	},
+	{
+		"name":"add tactical marine group",
+		"choiceNames":[
+			"select add tactical marine"
+		],
+		"requirementNames":[
+			""
+		],
+		"minSelections":"0",
+		"maxSelections":"5"
+	},
+	{
 		"name":"armoury sw group",
-				"choiceNames":[
-					"select bolt pistol from armoury",
-					"select chain fist from armoury",
-				 	"select ccw from armoury",
-			 		"select single lightning claw sw from armoury",
-				 	"select pair lightning claws from armoury",
-					"select plasma pistol sw from armoury",
-					"select power weapon sw from armoury",
-					"select power fist sw from armoury",
-					"select storm shield from armoury",
-					"select thunder hammer from armoury",
-					"select artificer armour from armoury",
-					"select auspex from armoury",
-					"select bionics from armoury",
-					"select combat shield sw from armoury",
-					"select frag grenades from armoury",
-					"select jump pack from armoury",
-					"select krak grenades from armoury",
-					"select melta bombs from armoury",
-					"select purity seals from armoury",
-					"select space marine bike from armoury",
-					"select teleport homer from armoury",
-					"select terminator armour from armoury",
-					"select terminator honours from armoury"
-				],
-				"requirementNames":[
-					"characters only",
-					"must have crux terminatus"
-				],
-				"minSelections":"0",
-				"maxSelections":"99"
+		"choiceNames":[
+			"select bolt pistol from armoury",
+			"select chain fist from armoury",
+		 	"select ccw from armoury",
+	 		"select single lightning claw sw from armoury",
+		 	"select pair lightning claws from armoury",
+			"select plasma pistol sw from armoury",
+			"select power weapon sw from armoury",
+			"select power fist sw from armoury",
+			"select storm shield from armoury",
+			"select thunder hammer from armoury",
+			"select artificer armour from armoury",
+			"select auspex from armoury",
+			"select bionics from armoury",
+			"select combat shield sw from armoury",
+			"select frag grenades from armoury",
+			"select jump pack from armoury",
+			"select krak grenades from armoury",
+			"select melta bombs from armoury",
+			"select purity seals from armoury",
+			"select space marine bike from armoury",
+			"select teleport homer from armoury",
+			"select terminator armour from armoury",
+			"select terminator honours from armoury"
+		],
+		"requirementNames":[
+			"characters only",
+			"must have crux terminatus"
+		],
+		"minSelections":"0",
+		"maxSelections":"99"
 	},
 	{
 		"name":"armoury mw group",
-				"choiceNames":[
-					"select bolt pistol from armoury",
-					"select chain fist from armoury",
-					"select ccw from armoury",
-					"select single lightning claw mw from armoury",
-					"select pair lightning claws from armoury",
-					"select plasma pistol mw from armoury",
-					"select power weapon mw from armoury",
-					"select power fist mw from armoury",
-					"select storm shield from armoury",
-					"select thunder hammer from armoury",
-					"select artificer armour from armoury",
-					"select auspex from armoury",
-					"select bionics from armoury",
-					"select combat shield mw from armoury",
-					"select familiar from armoury",
-					"select frag grenades from armoury",
-					"select jump pack from armoury",
-					"select krak grenades from armoury",
-					"select melta bombs from armoury",
-					"select purity seals from armoury",
-					"select space marine bike from armoury",
-					"select teleport homer from armoury",
-					"select terminator armour from armoury",
-					"select terminator honours from armoury"
-				],
-				"requirementNames":[
-					"characters only"
-				],
-				"minSelections":"0",
-				"maxSelections":"99"
+		"choiceNames":[
+			"select bolt pistol from armoury",
+			"select chain fist from armoury",
+			"select ccw from armoury",
+			"select single lightning claw mw from armoury",
+			"select pair lightning claws from armoury",
+			"select plasma pistol mw from armoury",
+			"select power weapon mw from armoury",
+			"select power fist mw from armoury",
+			"select storm shield from armoury",
+			"select thunder hammer from armoury",
+			"select artificer armour from armoury",
+			"select auspex from armoury",
+			"select bionics from armoury",
+			"select combat shield mw from armoury",
+			"select familiar from armoury",
+			"select frag grenades from armoury",
+			"select jump pack from armoury",
+			"select krak grenades from armoury",
+			"select melta bombs from armoury",
+			"select purity seals from armoury",
+			"select space marine bike from armoury",
+			"select teleport homer from armoury",
+			"select terminator armour from armoury",
+			"select terminator honours from armoury"
+		],
+		"requirementNames":[
+			"characters only"
+		],
+		"minSelections":"0",
+		"maxSelections":"99"
 	}
 ]

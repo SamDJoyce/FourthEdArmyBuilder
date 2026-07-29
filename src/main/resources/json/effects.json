@@ -278,5 +278,61 @@
 		"type":"change_model_name",
 		"effectName":"change to veteran sergeant",
 		"newName":"Veteran Sergeant"
+	},
+	{
+		"type":"change_model_name",
+		"effectName":"change to marine with plasma gun",
+		"newName":"Tactical Marine w. Plasma Gun"
+	},
+	{
+		"type":"change_model_name",
+		"effectName":"change to marine with melta gun",
+		"newName":"Tactical Marine w. Melta-gun"
+	},
+	{
+		"type":"change_model_name",
+		"effectName":"change to marine with flamer",
+		"newName":"Tactical Marine w. Flamer"
+	},
+	{
+		"type":"change_model_name",
+		"effectName":"change to marine with heavy bolter",
+		"newName":"Tactical Marine w. Heavy Bolter"
+	},
+	{
+		"type":"change_model_name",
+		"effectName":"change to marine with missile launcher",
+		"newName":"Tactical Marine w. Missile Launcher"
+	},
+	{
+		"type":"change_model_name",
+		"effectName":"change to marine with multi melta",
+		"newName":"Tactical Marine w. Multi-melta"
+	},
+	{
+		"type":"change_model_name",
+		"effectName":"change to marine with lascannon",
+		"newName":"Tactical Marine w. Lascannon"
+	},
+	{
+		"type":"change_model_name",
+		"effectName":"change to marine with plasma cannon",
+		"newName":"Tactical Marine w. Plasma Cannon"
+	},
+	{
+		"type":"add_gear_to_squad",
+		"name":"add frag grenades to squad",
+		"gearName":"frag grenades"
+	},
+	{
+		"type":"add_gear_to_squad",
+		"name":"add krak grenades to squad",
+		"gearName":"krak grenades"
+	},
+	{
+		"type":"add_model",
+		"name":"add tactical marine to squad",
+		"modelName":"tactical marine"
 	}
+
 ]

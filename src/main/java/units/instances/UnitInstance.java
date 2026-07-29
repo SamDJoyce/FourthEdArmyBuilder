@@ -1,6 +1,5 @@
 package units.instances;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -14,6 +13,7 @@ import units.UnitRole;
 import units.UnitType;
 import units.descriptions.UnitDescription;
 import units.descriptions.models.ModelDescription;
+import units.descriptions.wargear.WargearDescription;
 import units.options.OptionChoice;
 import units.options.OptionGroup;
 import units.options.OptionOwner;
@@ -115,6 +115,18 @@ public class UnitInstance implements OptionOwner{
 			return false;
 		}
 		return models.remove(model);
+	}
+	
+	public void addGearToEachModel(WargearDescription gear) {
+		for (ModelInstance m : models) {
+			m.addGear(gear);
+		}
+	}
+	
+	public void removeGearFromEachModel(WargearDescription gear) {
+		for (ModelInstance m : models) {
+			m.removeGear(gear);
+		}
 	}
 	
 	public boolean addType(UnitType type){

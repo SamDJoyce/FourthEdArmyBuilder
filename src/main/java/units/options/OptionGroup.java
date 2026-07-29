@@ -29,10 +29,13 @@ public class OptionGroup {
 			int maxSelections) {
 		this.name 		   = name;
 		this.choices 	   = new HashSet<>(choices) ;
+		assignAllParents(this.choices);
 		this.requirements  = new HashSet<>(requirements);
 		this.minSelections = minSelections;
 		this.maxSelections = maxSelections;
 	}
+	
+
 
 	public String getName() {
 		return name;
@@ -56,6 +59,7 @@ public class OptionGroup {
 	
 	public void setChoices(Set<OptionChoice> choices) {
 		this.choices = choices;
+		assignAllParents(this.choices);
 	}
 
 	public void setRequirements(Set<Requirement> requirements) {
@@ -98,6 +102,16 @@ public class OptionGroup {
 		}
 		
 		return group;
+	}
+	
+	private void assignAllParents(Set<OptionChoice> choices) {
+		for (OptionChoice c : choices) {
+			assignParent(c);
+		}
+	}
+	
+	private void assignParent(OptionChoice choice) {
+		choice.setParentGroup(this);
 	}
 	
 }

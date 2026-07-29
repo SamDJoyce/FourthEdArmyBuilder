@@ -3,6 +3,7 @@ package loaders;
 import java.util.ArrayList;
 import java.util.List;
 
+import dto.AddGearToSquadEffectDTO;
 import dto.AddModelEffectDTO;
 import dto.AddWargearEffectDTO;
 import dto.ChangeModelNameEffectDTO;
@@ -12,6 +13,7 @@ import dto.ReplaceModelEffectDTO;
 import dto.ReplaceWargearEffectDTO;
 import units.ModelFactory;
 import units.WargearFactory;
+import units.options.effects.AddGearToSquadEffect;
 import units.options.effects.AddModelEffect;
 import units.options.effects.AddWargearEffect;
 import units.options.effects.Effect;
@@ -52,6 +54,9 @@ public class EffectLoader {
 				return EffectFactory.changeModelName(
 									cmn.getEffectName(), 
 									cmn.getNewName());
+			case "add_gear_to_squad":
+				AddGearToSquadEffectDTO agts = (AddGearToSquadEffectDTO) dto;
+				return EffectFactory.addGearToSquad(agts.getName());
 		}
 		return null;
 	}
@@ -100,6 +105,12 @@ public class EffectLoader {
 			case "change_model_name":
 				ChangeModelNameEffectDTO cmn = (ChangeModelNameEffectDTO) dto;
 				return EffectFactory.get(cmn.getEffectName());
+			case "add_gear_to_squad":
+				AddGearToSquadEffectDTO agts = (AddGearToSquadEffectDTO) dto;
+				AddGearToSquadEffect addGearToSquad =
+					(AddGearToSquadEffect) EffectFactory.get(agts.getName());
+				addGearToSquad.setGear(WargearFactory.get(agts.getGearName()));
+				return addGearToSquad;
 		}
 		return null;
 	}

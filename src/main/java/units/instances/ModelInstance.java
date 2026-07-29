@@ -152,6 +152,15 @@ public class ModelInstance implements OptionOwner{
 		this.parentUnit = parentUnit;
 	}
 	
+	public boolean hasSelectedOption(OptionChoice choice) {
+		for (SelectedOption s : selectedOptions) {
+			if (s.getChoice().equals(choice)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	@Override
 	public Set<SelectedOption> getSelectedOptions(){
 		return selectedOptions;
@@ -191,4 +200,5 @@ public class ModelInstance implements OptionOwner{
 		}
 		return null;
 	}
+	
 }

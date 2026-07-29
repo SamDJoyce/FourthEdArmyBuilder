@@ -13,6 +13,7 @@ public class OptionChoice {
 	// Fields
 	private final String 	name;
 	private final int		points;
+	private OptionGroup     parentGroup;
 	private Set<Requirement> requirements;
 	private Set<Effect> effects;
 	
@@ -41,6 +42,14 @@ public class OptionChoice {
 
 	public int getPoints() {
 		return points;
+	}
+
+	public OptionGroup getParentGroup() {
+		return parentGroup;
+	}
+
+	public void setParentGroup(OptionGroup parentGroup) {
+		this.parentGroup = parentGroup;
 	}
 
 	public Set<Requirement> getRequirements() {

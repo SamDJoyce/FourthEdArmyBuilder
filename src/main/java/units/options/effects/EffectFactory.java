@@ -9,6 +9,9 @@ import units.descriptions.models.ModelDescription;
 import units.descriptions.wargear.WargearDescription;
 import units.instances.ModelInstance;
 
+/**
+ * 
+ */
 public class EffectFactory {
 	
 	private static final Map<String, Effect> registry = new HashMap<>();
@@ -82,6 +85,29 @@ public class EffectFactory {
 			WargearDescription add) {
 		return registry.computeIfAbsent(name,
 	            key -> new ReplaceWargearEffect(name,remove,add));
+	}
+	/**
+	 * Construct an AddGearToSquadEffect object
+	 * 
+	 * @param name
+	 * @return
+	 */
+	public static Effect addGearToSquad(String name) {
+		return registry.computeIfAbsent(name,
+	            key -> new AddGearToSquadEffect(name));
+	}
+	
+	/**
+	 * Construct an AddGearToSquadEffect object
+	 * 
+	 * @param name
+	 * @return
+	 */
+	public static Effect addGearToSquad(
+			String name,
+			WargearDescription gear) {
+		return registry.computeIfAbsent(name,
+	            key -> new AddGearToSquadEffect(name, gear));
 	}
 	
 	/**
