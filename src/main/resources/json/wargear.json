@@ -20,6 +20,16 @@
 	  	"points":0
 	},
 	{
+	  	"name":"terminator armor",
+	  	"type":"GEAR",
+	  	"points":0
+	},
+	{
+	  	"name":"artificer armor",
+	  	"type":"GEAR",
+	  	"points":0
+	},
+	{
 	  	"name":"plasma gun",
 	  	"type":"TWO HANDED",
 	  	"points":10

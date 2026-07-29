@@ -29,6 +29,13 @@ public class WargearDescription {
 		return this.name;
 	}
 	
+	public String getBaseName() {
+		String baseName = name.replaceFirst("\\s+armoury$", "");
+		baseName = baseName.replaceFirst("\\s+aw$", "");
+		baseName = baseName.replaceFirst("\\s+mw$", "");
+		return baseName.strip();
+	}
+	
 	public WargearType getType() {
 		return this.type;
 	}

@@ -9,6 +9,26 @@
 		"requiredGear":"bolter"
 	},
 	{
+		"type":"must_have_gear",
+		"name":"must have crux terminatus",
+		"requiredGear":"crux terminatus"
+	},
+	{
+		"type":"must_have_gear",
+		"name":"must have power armour",
+		"requiredGear":"power armour"
+	},
+	{
+		"type":"cannot_have_gear",
+		"name":"cannot have terminator armour from armoury",
+		"blockingGearName":"terminator armour armoury"
+	},
+	{
+		"type":"cannot_have_gear",
+		"name":"cannot have terminator armour",
+		"blockingGearName":"terminator armour"
+	},
+	{
 		"type":"mutual_exclusion",
 		"name":"exclusive of flamer melta",
 		"excludedChoiceNames":

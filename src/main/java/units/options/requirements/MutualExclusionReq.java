@@ -37,7 +37,7 @@ public class MutualExclusionReq implements Requirement {
 
 	@Override
 	public RequirementResult validate(SelectionContext context) {
-		if (!context.hasUnit()) {
+		if (context.hasUnit()) {
 			return RequirementResult.failure("MutualExclusionReq requires a unit instance.");
 		}
 		

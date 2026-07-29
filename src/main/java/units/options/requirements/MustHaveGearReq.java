@@ -35,7 +35,9 @@ public class MustHaveGearReq implements Requirement {
 			message = "Model has the required gear.";
 			return RequirementResult.success(message);
 		}
-		message = "Model lacks the required equipment";
+		message = String.format(
+				"Model lacks the required equipment: %s", 
+				requiredGear.getName());
 		return RequirementResult.failure(message);
 	}
 

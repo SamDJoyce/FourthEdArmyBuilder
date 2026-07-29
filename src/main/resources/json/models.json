@@ -6,7 +6,9 @@
 		"typeNames":[
 			"INFANTRY"
 		],
-		"optionGroupNames":[""],
+		"optionGroupNames":[
+			"special weapons group",
+			"heavy weapons group"],
 		"wargearNames":[
 			"power armor",
 			"bolter"
@@ -20,7 +22,10 @@
 			"INFANTRY",
 			"CHARACTER"
 		],
-		"optionGroupNames":[""],
+		"optionGroupNames":[
+			"sergeant weapons group",
+			"crux terminatus group",
+			"armoury sw group"],
 		"wargearNames":[
 			"power armor",
 			"bolter"

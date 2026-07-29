@@ -1,9 +1,7 @@
 package units.instances;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -134,18 +132,17 @@ public class ModelInstance implements OptionOwner{
 		return this.currentGear.remove(gear);
 	}
 	
-	public Boolean hasGear(WargearInstance gear) {
-		return this.currentGear.contains(gear);
-	}
-	
-	public boolean hasGear(WargearDescription gear) {
+	public Boolean hasGear(WargearDescription gear) {
+
 		for (WargearInstance i : currentGear) {
-			if (i.getDescription().equals(gear)) {
+			if (gear.getBaseName().equalsIgnoreCase(i.getBaseName()) ) {
 				return true;
 			}
 		}
+		
 		return false;
 	}
+
 	
 	public UnitInstance getParentUnit() {
 		return this.parentUnit;

@@ -19,6 +19,10 @@ public class WargearInstance {
 		return this.description.getName();
 	}
 	
+	public String getBaseName() {
+		return description.getBaseName();
+	}
+	
 	public WargearType getType() {
 		return description.getType();
 	}

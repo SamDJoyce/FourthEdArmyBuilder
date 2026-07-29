@@ -91,7 +91,13 @@ public class OptionGroup {
 	
 	@Override
 	public String toString() {
-		return name;
+		String group = "\nGroup: " + name + "\n";
+		
+		for (OptionChoice c : choices) {
+			group += "	Option: " + c.getName() + "\n";
+		}
+		
+		return group;
 	}
 	
 }

@@ -175,6 +175,88 @@
 		"gearName":"storm bolter armoury"
 	},
 	{
+		"type":"add_wargear",
+		"name":"add artificer armour from armoury",
+		"gearName":"artificer armour armoury"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add auspex from armoury",
+		"gearName":"auspex armoury"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add bionics from armoury",
+		"gearName":"bionics armoury"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add combat shield mw from armoury",
+		"gearName":"combat shield mw armoury"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add combat shield sw from armoury",
+		"gearName":"combat shield sw armoury"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add familiar from armoury",
+		"gearName":"familiar armoury"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add frag grenades from armoury",
+		"gearName":"frag grenades armoury"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add jump pack from armoury",
+		"gearName":"jump pack armoury"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add krak grenades from armoury",
+		"gearName":"krak grenades armoury"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add melta bombs from armoury",
+		"gearName":"melta bombs armoury"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add purity seals from armoury",
+		"gearName":"purity seals armoury"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add master crafted weapon from armoury",
+		"gearName":"master crafted weapon armoury"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add space marine bike from armoury",
+		"gearName":"space marine bike armoury"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add teleport homer from armoury",
+		"gearName":"teleport homer armoury"
+	},
+	{
+		"type":"replace_wargear",
+		"name":"add terminator armour from armoury",
+		"remove":"power armour",
+		"add":"terminator armour"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add terminator honours from armoury",
+		"gearName":"terminator honours armoury"
+	},
+
+	{
 		"type":"modify_stat",
 		"name":"increase ld by one",
 		"stat":"ld",
@@ -185,6 +267,12 @@
 		"name":"increase attacks by one",
 		"stat":"a",
 		"modifier": 1
+	},
+	{
+		"type":"modify_stat",
+		"name":"improve save by one",
+		"stat":"sv",
+		"modifier": -1
 	},
 	{
 		"type":"change_model_name",

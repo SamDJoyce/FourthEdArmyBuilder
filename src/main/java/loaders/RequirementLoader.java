@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dto.ArmouryPointsLimitReqDTO;
+import dto.CannotHaveGearReqDTO;
 import dto.CharactersOnlyReqDTO;
 import dto.MaxPerModelCountReqDTO;
 import dto.MaxSelectionReqDTO;
@@ -16,6 +17,7 @@ import units.ModelFactory;
 import units.UnitType;
 import units.WargearFactory;
 import units.options.OptionChoiceFactory;
+import units.options.requirements.CannotHaveGearReq;
 import units.options.requirements.MaxPerModelCountReq;
 import units.options.requirements.MustHaveGearReq;
 import units.options.requirements.MutualExclusionReq;
@@ -59,6 +61,10 @@ public class RequirementLoader {
 			case "must_have_gear":
 				MustHaveGearReqDTO mhg = (MustHaveGearReqDTO) dto;
 				return ReqFactory.mustHaveGear(mhg.getName());
+				
+			case "cannot_have_gear":
+				CannotHaveGearReqDTO chg = (CannotHaveGearReqDTO) dto;
+				return ReqFactory.cannotHaveGear(chg.getName());
 			
 			case "armoury_points_limit":
 				ArmouryPointsLimitReqDTO apl = (ArmouryPointsLimitReqDTO) dto;
@@ -116,6 +122,12 @@ public class RequirementLoader {
 				MustHaveGearReq mustHaveGear = (MustHaveGearReq) ReqFactory.get(mhg.getName());
 				mustHaveGear.setRequiredGear(WargearFactory.get(mhg.getRequiredGear()));
 				return mustHaveGear;
+				
+			case "cannot_have_gear":
+				CannotHaveGearReqDTO chg = (CannotHaveGearReqDTO) dto;
+				CannotHaveGearReq cannotHaveGear = (CannotHaveGearReq) ReqFactory.get(chg.getName());
+				cannotHaveGear.setBlockingGear(WargearFactory.get(chg.getBlockingGearName()));
+				return cannotHaveGear;
 				
 			case "armoury_points_limit":
 				ArmouryPointsLimitReqDTO apl = (ArmouryPointsLimitReqDTO) dto;

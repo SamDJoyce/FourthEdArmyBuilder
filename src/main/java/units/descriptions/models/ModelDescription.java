@@ -84,8 +84,8 @@ public class ModelDescription {
 	@Override
 	public String toString() {
 		return String.format(
-				"Name: %s\nPoints: %d\nTypes: %s\nStats:\n%s\nGear: %s\n",
-				name, basePoints,types, stats.toString(), defaultGear);
+				"Name: %s\nPoints: %d\nTypes: %s\nStats:\n%s\nGear: %s\nOptions: %s\n",
+				name, basePoints,types, stats.toString(), defaultGear, options);
 	}
 	
 	@Override
