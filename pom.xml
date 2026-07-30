@@ -1,27 +1,88 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>FourthEdArmyBuilder</groupId>
-  <artifactId>FourthEdArmyBuilder</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>FourthEdArmyBuilder</name>
-      <properties>
-        <maven.compiler.release>17</maven.compiler.release>
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>FourthEdArmyBuilder</groupId>
+    <artifactId>FourthEdArmyBuilder</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>FourthEdArmyBuilder</name>
+
+    <properties>
+        <maven.compiler.release>21</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
         <junit.jupiter.version>5.10.1</junit.jupiter.version>
+        <javafx.version>21</javafx.version>
     </properties>
-  <dependencies>
-  	        <!-- JUnit 5 -->
+
+    <dependencies>
+
+        <!-- JUnit 5 -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
             <version>${junit.jupiter.version}</version>
             <scope>test</scope>
         </dependency>
-        	<!-- Jackson JSON Loader -->
+
+
+        <!-- Jackson JSON Loader -->
         <dependency>
-	        <groupId>com.fasterxml.jackson.core</groupId>
-	        <artifactId>jackson-databind</artifactId>
-	        <version>2.20.0</version>
-    	</dependency>
-  </dependencies>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.20.0</version>
+        </dependency>
+
+
+        <!-- JavaFX Controls -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
+
+
+        <!-- JavaFX FXML -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
+
+    </dependencies>
+
+
+    <build>
+        <plugins>
+
+            <!-- JavaFX Launcher -->
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>0.0.8</version>
+
+                <configuration>
+                    <mainClass>gui.ABMain</mainClass>
+                </configuration>
+
+            </plugin>
+
+
+            <!-- Java Compiler -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
+
+                <configuration>
+                    <release>21</release>
+                </configuration>
+
+            </plugin>
+
+        </plugins>
+    </build>
+
 </project>

@@ -17,7 +17,7 @@ public class SelectedOption {
 		return new SelectedOption(choice);
 	}
 	
-	// Validate and pply all effects from this option
+	// Validate and apply all effects from this option
 	public RequirementResult select(SelectionContext context) {
 
 	    for (Requirement requirement : choice.getRequirements()) {
@@ -46,6 +46,10 @@ public class SelectedOption {
 	
 	public OptionChoice getChoice() {
 		return choice;
+	}
+	
+	public String toString() {
+		return choice.getName();
 	}
 	
     @Override

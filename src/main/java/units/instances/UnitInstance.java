@@ -238,7 +238,7 @@ public class UnitInstance implements OptionOwner{
 		String unit = String.format("Unit Name: %s\n",getName());
 		
 		for (ModelInstance i : models) {
-			unit += i.toString();
+			unit += i.toString() + "\n";
 		}
 		
 		return unit;
