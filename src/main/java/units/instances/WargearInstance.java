@@ -38,5 +38,9 @@ public class WargearInstance {
 	public WargearDescription getDescription() {
 		return this.description;
 	}
+	
+	public String toString() {
+		return description.getName();
+	}
 
 }

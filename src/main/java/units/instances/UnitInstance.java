@@ -233,5 +233,15 @@ public class UnitInstance implements OptionOwner{
 		    model.setParentUnit(this);
 		}
 	}
+	
+	public String toString() {
+		String unit = String.format("Unit Name: %s\n",getName());
+		
+		for (ModelInstance i : models) {
+			unit += i.toString();
+		}
+		
+		return unit;
+	}
 
 }

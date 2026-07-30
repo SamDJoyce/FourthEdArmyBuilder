@@ -162,6 +162,20 @@ public class ModelInstance implements OptionOwner{
 	}
 	
 	@Override
+	public String toString() {
+		
+		return String.format(
+				"Name: %s\nPoints: %d\nTypes: %s\nStats:\n%s\nGear: %s\nOptions: %s\n",
+				customName != null ? customName : getName(), 
+				getTotalPoints(),
+				currentTypes, 
+				description.getStats().toString(), 
+				currentGear, 
+				selectedOptions);
+
+	}
+	
+	@Override
 	public Set<SelectedOption> getSelectedOptions(){
 		return selectedOptions;
 	}
@@ -184,12 +198,18 @@ public class ModelInstance implements OptionOwner{
 	    if (option == null) {
 	        return;
 	    }
-		SelectionContext  context = new SelectionContext.Builder()
-										.setModel(this)
-										.setChoice(option.getChoice())
-										.build();
+		SelectionContext  context = SelectionContext.forModel(this, option.getChoice());
 	    option.unselect(context);
 	    selectedOptions.remove(option);
+	}
+	
+	public boolean hasSelection(OptionChoice choice) {
+		for(SelectedOption o : selectedOptions) {
+			if (o.getChoice().equals(choice)) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	private SelectedOption findSelection(OptionChoice choice) {

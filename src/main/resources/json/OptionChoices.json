@@ -2,7 +2,7 @@
 	{
 		"name":"select add tactical marine",
 		"points":15,
-		"requirementNames":[""],
+		"requirementNames":[],
 		"effectNames":[
 			"add tactical marine to squad"
 		]
