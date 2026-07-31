@@ -89,7 +89,8 @@ public class CodexLoader {
 		createObjectsFromFiles();
 		// Populate objects by resolving references
 		resolveObjectReferences();
-		// return assembled codex
+		// return assembled codex and clear everything 
+		// in preparation for loading next codex
 		return assembleCodex();
 	}
 	
@@ -103,6 +104,7 @@ public class CodexLoader {
 		Map<String, ModelDescription>   models  	 = ModelFactory.getRegistry();
 		Map<String, UnitDescription>    units  	 	 = UnitFactory.getRegistry();
 		Map<String, WargearDescription> gear    	 = WargearFactory.getRegistry();
+		clearRegistries();
 		return new Codex(
 				name,
 				gear,
@@ -146,6 +148,17 @@ public class CodexLoader {
 			System.out.println(e);
 			e.printStackTrace();
 		}
+	}
+	
+	private void clearRegistries() {
+		WargearFactory.clearRegistry();
+		StatLineFactory.clearRegistry();
+		EffectFactory.clearRegistry();
+		ReqFactory.clearRegistry();
+		OptionChoiceFactory.clearRegistry();
+		OptionGroupFactory.clearRegistry();
+		ModelFactory.clearRegistry();
+		UnitFactory.clearRegistry();
 	}
 	
 	public List<WargearDescription> createWargear(Path file) throws IOException {

@@ -147,4 +147,8 @@ public class StatLineFactory {
 	public static Map<String, StatLine> getRegistry(){
 		return registry;
 	}
+	
+	public static void clearRegistry() {
+		registry.clear();
+	}
 }

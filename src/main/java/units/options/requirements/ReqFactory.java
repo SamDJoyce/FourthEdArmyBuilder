@@ -111,4 +111,8 @@ public class ReqFactory {
 	public static Map<String, Requirement> getRegistry(){
 		return registry;
 	}
+	
+	public static void clearRegistry() {
+		registry.clear();
+	}
 }

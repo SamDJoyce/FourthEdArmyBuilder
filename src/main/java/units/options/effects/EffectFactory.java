@@ -153,5 +153,9 @@ public class EffectFactory {
 	public static Map<String, Effect> getRegistry(){
 		return registry;
 	}
+	
+	public static void clearRegistry() {
+		registry.clear();
+	}
 
 }

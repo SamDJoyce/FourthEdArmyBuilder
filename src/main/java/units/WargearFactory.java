@@ -62,4 +62,8 @@ public class WargearFactory {
 		return registry;
 	}
 	
+	public static void clearRegistry() {
+		registry.clear();
+	}
+	
 }

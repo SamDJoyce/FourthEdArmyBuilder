@@ -52,8 +52,12 @@ public class Codex {
 		this.name = name;
 	}
 
-	public Map<String, UnitDescription> getUnits() {
+	public Map<String, UnitDescription> getAllUnits() {
 		return units;
+	}
+	
+	public UnitDescription getUnit(String name) {
+		return units.get(name);
 	}
 
 	public void setUnits(Map<String, UnitDescription> units) {
@@ -68,58 +72,86 @@ public class Codex {
 		units.remove(unit.getName());
 	}
 
-	public Map<String, WargearDescription> getWargear() {
+	public Map<String, WargearDescription> getAllWargear() {
 		return wargear;
+	}
+	
+	public WargearDescription geWargear(String name) {
+		return wargear.get(name);
 	}
 
 	public void setWargear(Map<String, WargearDescription> wargear) {
 		this.wargear = wargear;
 	}
 
-	public Map<String, StatLine> getStatLines() {
+	public Map<String, StatLine> getAllStatLines() {
 		return statLines;
+	}
+	
+	public StatLine getStatline(String name) {
+		return statLines.get(name);
 	}
 
 	public void setStatLines(Map<String, StatLine> statLines) {
 		this.statLines = statLines;
 	}
 
-	public Map<String, Effect> getEffects() {
+	public Map<String, Effect> getAllEffects() {
 		return effects;
+	}
+	
+	public Effect getEffect(String name) {
+		return effects.get(name);
 	}
 
 	public void setEffects(Map<String, Effect> effects) {
 		this.effects = effects;
 	}
 
-	public Map<String, Requirement> getRequirements() {
+	public Map<String, Requirement> getAllRequirements() {
 		return requirements;
+	}
+	
+	public Requirement getRequirement(String name) {
+		return requirements.get(name);
 	}
 
 	public void setRequirements(Map<String, Requirement> requirements) {
 		this.requirements = requirements;
 	}
 
-	public Map<String, OptionChoice> getChoices() {
+	public Map<String, OptionChoice> getAllChoices() {
 		return choices;
+	}
+	
+	public OptionChoice getChoice(String name) {
+		return choices.get(name);
 	}
 
 	public void setChoices(Map<String, OptionChoice> choices) {
 		this.choices = choices;
 	}
 
-	public Map<String, OptionGroup> getGroups() {
+	public Map<String, OptionGroup> getAllGroups() {
 		return groups;
+	}
+	
+	public OptionGroup getGroup(String name) {
+		return groups.get(name);
 	}
 
 	public void setGroups(Map<String, OptionGroup> groups) {
 		this.groups = groups;
 	}
 
-	public Map<String, ModelDescription> getModels() {
+	public Map<String, ModelDescription> getAllModels() {
 		return models;
 	}
 
+	public ModelDescription getModel(String name) {
+		return models.get(name);
+	}
+	
 	public void setModels(Map<String, ModelDescription> models) {
 		this.models = models;
 	}

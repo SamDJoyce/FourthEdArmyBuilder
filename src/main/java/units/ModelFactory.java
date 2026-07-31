@@ -100,4 +100,8 @@ public class ModelFactory {
 	public static Map<String, ModelDescription> getRegistry(){
 		return registry;
 	}
+	
+	public static void clearRegistry() {
+		registry.clear();
+	}
 }

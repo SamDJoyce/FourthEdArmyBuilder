@@ -53,4 +53,8 @@ public class OptionGroupFactory {
 		return registry;
 	}
 	
+	public static void clearRegistry() {
+		registry.clear();
+	}
+	
 }

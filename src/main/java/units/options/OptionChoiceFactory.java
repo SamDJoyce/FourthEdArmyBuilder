@@ -30,4 +30,8 @@ public class OptionChoiceFactory {
 	public static Map<String, OptionChoice> getRegistry(){
 		return registry;
 	}
+	
+	public static void clearRegistry() {
+		registry.clear();
+	}
 }

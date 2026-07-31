@@ -92,11 +92,7 @@ public class UnitFactory {
 		return units;
 	}
 	
-//	public static List<UnitInstance> getInstances(UnitDescription unit, int count){
-//		List<UnitInstance> units = new ArrayList<UnitInstance>();
-//		for (int i = 0; i < count; i++) {
-//			units.add(getInstance(unit));
-//		}
-//		return units;
-//	}
+	public static void clearRegistry() {
+		registry.clear();
+	}
 }
