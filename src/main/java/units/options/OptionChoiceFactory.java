@@ -26,4 +26,8 @@ public class OptionChoiceFactory {
 		}
 		return choices;
 	}
+	
+	public static Map<String, OptionChoice> getRegistry(){
+		return registry;
+	}
 }

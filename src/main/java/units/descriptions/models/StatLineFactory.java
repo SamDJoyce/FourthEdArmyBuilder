@@ -143,4 +143,8 @@ public class StatLineFactory {
 	public static StatLine get(String name) {
 		return registry.get(name);
 	}
+	
+	public static Map<String, StatLine> getRegistry(){
+		return registry;
+	}
 }

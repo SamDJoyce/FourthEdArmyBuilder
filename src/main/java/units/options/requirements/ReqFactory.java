@@ -107,4 +107,8 @@ public class ReqFactory {
 		}
 		return reqs;
 	}
+	
+	public static Map<String, Requirement> getRegistry(){
+		return registry;
+	}
 }

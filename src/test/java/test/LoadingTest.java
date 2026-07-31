@@ -11,7 +11,7 @@ public class LoadingTest {
 //	private final static String wargearLoc  = "src/main/resources/json/wargear.json";
 //	private final static String statLineLoc = "src/main/resources/json/statlines.json";
 //	private final static String modelLoc    = "src/main/resources/json/models.json";
-	private final static String codexLoc    = "src/main/resources/json";
+	private final static String codexLoc    = "src/main/resources/json/codex space marines";
 
 	
 	public static void main(String[] args) {

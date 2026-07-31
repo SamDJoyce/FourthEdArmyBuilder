@@ -57,4 +57,9 @@ public class WargearFactory {
 	public static WargearDescription get(String name) {
 		return registry.get(name);
 	}
+	
+	public static Map<String, WargearDescription> getRegistry(){
+		return registry;
+	}
+	
 }

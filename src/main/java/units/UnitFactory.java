@@ -2,6 +2,7 @@ package units;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -83,6 +84,13 @@ public class UnitFactory {
 		return registry;
 	}
 	
+	public static Set<UnitDescription> getAllUnits(){
+		Set<UnitDescription> units = new HashSet<>();
+		for (UnitDescription u : registry.values()) {
+			units.add(u);
+		}
+		return units;
+	}
 	
 //	public static List<UnitInstance> getInstances(UnitDescription unit, int count){
 //		List<UnitInstance> units = new ArrayList<UnitInstance>();

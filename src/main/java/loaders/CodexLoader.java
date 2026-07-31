@@ -3,6 +3,7 @@ package loaders;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.List;
+import java.util.Map;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,13 +16,22 @@ import dto.RequirementDTO;
 import dto.StatLineDTO;
 import dto.UnitDTO;
 import dto.WargearDTO;
+import roster.Codex;
+import units.ModelFactory;
+import units.UnitFactory;
+import units.WargearFactory;
 import units.descriptions.UnitDescription;
 import units.descriptions.models.ModelDescription;
 import units.descriptions.models.StatLine;
+import units.descriptions.models.StatLineFactory;
 import units.descriptions.wargear.WargearDescription;
 import units.options.OptionChoice;
+import units.options.OptionChoiceFactory;
 import units.options.OptionGroup;
+import units.options.OptionGroupFactory;
 import units.options.effects.Effect;
+import units.options.effects.EffectFactory;
+import units.options.requirements.ReqFactory;
 import units.options.requirements.Requirement;
 
 public class CodexLoader {
@@ -74,11 +84,36 @@ public class CodexLoader {
 		unitFile		  = Path.of(this.codexFolder, "/units.json");
 	}
 	
-	public void loadCodex(){
+	public Codex loadCodex(){
 		// Load objects from file to create placeholders
 		createObjectsFromFiles();
 		// Populate objects by resolving references
 		resolveObjectReferences();
+		// return assembled codex
+		return assembleCodex();
+	}
+	
+	private Codex assembleCodex() {
+		String name = getFolderName(codexFolder);
+		Map<String, StatLine> 			statLines 	 = StatLineFactory.getRegistry();
+		Map<String, Effect> 			effects 	 = EffectFactory.getRegistry();
+		Map<String, Requirement> 		requirements = ReqFactory.getRegistry();
+		Map<String, OptionChoice> 		choices 	 = OptionChoiceFactory.getRegistry();
+		Map<String, OptionGroup> 		groups  	 = OptionGroupFactory.getRegistry();;
+		Map<String, ModelDescription>   models  	 = ModelFactory.getRegistry();
+		Map<String, UnitDescription>    units  	 	 = UnitFactory.getRegistry();
+		Map<String, WargearDescription> gear    	 = WargearFactory.getRegistry();
+		return new Codex(
+				name,
+				gear,
+				statLines,
+				effects,
+				requirements,
+				choices,
+				groups,
+				models,
+				units
+				);
 	}
 	
 	private void createObjectsFromFiles() {
@@ -201,5 +236,13 @@ public class CodexLoader {
 	
 	public List<UnitDescription> resolveUnits(){
 		return unitLoader.resolveAllReferences(unitDtos);
+	}
+	
+	private String getFolderName(String path) {
+	    int lastSlash = path.lastIndexOf('/');
+	    if (lastSlash == -1) {
+	        return path;
+	    }
+	    return path.substring(lastSlash + 1);
 	}
 }

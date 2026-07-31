@@ -48,4 +48,9 @@ public class OptionGroupFactory {
 		}
 		return groups;
 	}
+	
+	public static Map<String, OptionGroup> getRegistry(){
+		return registry;
+	}
+	
 }

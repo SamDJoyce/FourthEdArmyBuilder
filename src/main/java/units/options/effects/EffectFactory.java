@@ -149,5 +149,9 @@ public class EffectFactory {
 		}
 		return effects;
 	}
+	
+	public static Map<String, Effect> getRegistry(){
+		return registry;
+	}
 
 }
