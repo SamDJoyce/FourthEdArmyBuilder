@@ -209,6 +209,19 @@ public class Codex {
 		return heavySupport;
 	}
 	
+	public Set<UnitDescription> getUnitsByRole(UnitRole role) {
+
+	    Set<UnitDescription> result = new HashSet<>();
+
+	    for (UnitDescription unit : units.values()) {
+	        if (unit.getRole() == role) {
+	            result.add(unit);
+	        }
+	    }
+
+	    return result;
+	}
+	
 	public static Codex create(
 			String name, 
 			Map<String, WargearDescription> wargear,

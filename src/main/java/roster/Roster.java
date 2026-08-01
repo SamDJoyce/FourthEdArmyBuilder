@@ -23,6 +23,8 @@ public class Roster {
 		this.pointsLimit = pointsLimit;
 	}
 	
+	public Roster() {}
+	
 	public ForceOrgChart getChart() {
 		return chart;
 	}
