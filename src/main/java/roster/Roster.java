@@ -11,6 +11,7 @@ public class Roster {
 	private ForceOrgChart chart;
 	private List<UnitInstance> units;
 	private int pointsLimit;
+	private RosterValidator validator;
 	
 	public Roster(
 			ForceOrgChart chart,
@@ -21,6 +22,7 @@ public class Roster {
 		this.units = units;
 		setParentRoster(units);
 		this.pointsLimit = pointsLimit;
+		validator = RosterValidator.createFor(this);
 	}
 	
 	public Roster() {}
@@ -47,6 +49,14 @@ public class Roster {
 
 	public void setPointsLimit(int pointsLimit) {
 		this.pointsLimit = pointsLimit;
+	}
+	
+	public int getCurrentPoints() {
+		int total = 0;
+		for (UnitInstance u : units) {
+			total += u.getTotalPoints();
+		}
+		return total;
 	}
 
 	public void setParentRoster(List<UnitInstance> units) {
@@ -75,6 +85,14 @@ public class Roster {
 		return count;
 	}
 	
+	public int getMaxHQ() {
+		return chart.getMaxHQ();
+	}
+	
+	public int getMinHQ() {
+		return chart.getMinHQ();
+	}
+	
 	public int getElitesCount() {
 		int count = 0;
 		for (UnitInstance u : units) {
@@ -83,6 +101,14 @@ public class Roster {
 			}
 		}
 		return count;
+	}
+	
+	public int getMaxElites() {
+		return chart.getMaxElites();
+	}
+	
+	public int getMinElites() {
+		return chart.getMinElites();
 	}
 	
 	public int getTroopsCount() {
@@ -95,6 +121,14 @@ public class Roster {
 		return count;
 	}
 	
+	public int getMaxTroops() {
+		return chart.getMaxTroops();
+	}
+	
+	public int getMinTroops() {
+		return chart.getMinTroops();
+	}
+	
 	public int getFastAttackCount() {
 		int count = 0;
 		for (UnitInstance u : units) {
@@ -104,6 +138,15 @@ public class Roster {
 		}
 		return count;
 	}
+	
+	public int getMaxFastAttack() {
+		return chart.getMaxFastAttack();
+	}
+	
+	public int getMinFastAttack() {
+		return chart.getMinFastAttack();
+	}
+	
 	public int getHeavySupportCount() {
 		int count = 0;
 		for (UnitInstance u : units) {
@@ -112,6 +155,18 @@ public class Roster {
 			}
 		}
 		return count;
+	}
+	
+	public int getMaxHeavySupport() {
+		return chart.getMaxHeavySupport();
+	}
+	
+	public int getMinHeavySupport() {
+		return chart.getMinHeavySupport();
+	}
+	
+	public RosterResult validate() {
+		return validator.validate();
 	}
 	
 }

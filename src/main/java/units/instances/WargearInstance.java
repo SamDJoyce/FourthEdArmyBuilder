@@ -1,19 +1,24 @@
 package units.instances;
 
+import java.util.UUID;
+
 import units.WargearType;
 import units.descriptions.wargear.WargearDescription;
 
 public class WargearInstance {
 
+	private final String id;
 	private final WargearDescription description;
-	private Integer points;
 	
 	public WargearInstance(
 			WargearDescription description) {
+		this.id = UUID.randomUUID().toString();
 		this.description = description;
-		this.points = description.getPoints();
 	}
 
+	public String getId() {
+		return this.id;
+	}
 	
 	public String getName() {
 		return this.description.getName();
@@ -27,12 +32,8 @@ public class WargearInstance {
 		return description.getType();
 	}
 	
-	public void setPoints(int points) {
-		this.points = points;
-	}
-	
 	public int getPoints() {
-		return this.points;
+		return description.getPoints();
 	}
 	
 	public WargearDescription getDescription() {
