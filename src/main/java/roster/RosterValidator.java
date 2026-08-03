@@ -1,5 +1,8 @@
 package roster;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RosterValidator {
 	private Roster roster;
 	
@@ -7,85 +10,154 @@ public class RosterValidator {
 		this.roster = roster;
 	}
 	
+
+	
 	public RosterResult validate() {
 		
+		List<RosterResult> results = new ArrayList<>();
+		
 		// Check HQs max
-		if (roster.getHQCount() > roster.getMaxHQ()) {
-			return RosterResult.invalid(String.format(
+		if (!hqMaxIsValid()) {
+			results.add(RosterResult.invalid(String.format(
 					"HQ selections exceed limit of %d (currently %d)",
 					roster.getMaxHQ(),
-					roster.getHQCount()));
+					roster.getHQCount()))) ;
 		}
 		// Check HQ min
-		if (roster.getHQCount() < roster.getMinHQ()) {
-			return RosterResult.invalid(String.format(
+		if (!hqMinIsValid()) {
+			results.add(RosterResult.invalid(String.format(
 					"Must make at least %d HQ selections",
-					roster.getMinHQ()));
+					roster.getMinHQ())));
 		}
 		// Check Elites max
-		if (roster.getElitesCount() > roster.getMaxElites()) {
-			return RosterResult.invalid(String.format(
+		if (!elitesMaxIsValid()) {
+			results.add(RosterResult.invalid(String.format(
 					"Elites selections exceed limit of %d (currently %d)",
 					roster.getMaxElites(),
-					roster.getElitesCount()));
+					roster.getElitesCount())));
 		}
 		// Check Elites min
-		if (roster.getElitesCount() < roster.getMinElites()) {
-			return RosterResult.invalid(String.format(
+		if (!elitesMinIsValid()) {
+			results.add(RosterResult.invalid(String.format(
 					"Must make at least %d Elites selections",
-					roster.getMinElites()));
+					roster.getMinElites())));
 		}
 		// Check Troops max
-		if (roster.getTroopsCount() > roster.getMaxTroops()) {
-			return RosterResult.invalid(String.format(
+		if (!troopsMaxIsValid()) {
+			results.add(RosterResult.invalid(String.format(
 					"Troops selections exceed limit of %d (currently %d)",
 					roster.getMaxTroops(),
-					roster.getTroopsCount()));
+					roster.getTroopsCount())));
 		}
 		// Check Troops min
-		if (roster.getTroopsCount() < roster.getMinTroops()) {
-			return RosterResult.invalid(String.format(
+		if (!troopsMinIsValid()) {
+			results.add( RosterResult.invalid(String.format(
 					"Must make at least %d Troops selections",
-					roster.getMinTroops()));
+					roster.getMinTroops())));
 		}
 		// Check Fast Attack max
-		if (roster.getFastAttackCount() > roster.getMaxFastAttack()) {
-			return RosterResult.invalid(String.format(
+		if (!fastAttackMaxIsValid()) {
+			results.add( RosterResult.invalid(String.format(
 					"Fast Attack selections exceed limit of %d (currently %d)",
 					roster.getMaxFastAttack(),
-					roster.getFastAttackCount()));
+					roster.getFastAttackCount())));
 		}
 		// Check Fast Attack min
-		if (roster.getFastAttackCount() < roster.getMinFastAttack()) {
-			return RosterResult.invalid(String.format(
+		if (!fastAttackMinIsValid()) {
+			results.add( RosterResult.invalid(String.format(
 					"Must make at least %d Fast Attack selections",
-					roster.getMinFastAttack()));
+					roster.getMinFastAttack())));
 		}
 		// Check Heavy Support max
-		if (roster.getHeavySupportCount() > roster.getMaxHeavySupport()) {
-			return RosterResult.invalid(String.format(
+		if (!heavySupportMaxIsValid()) {
+			results.add( RosterResult.invalid(String.format(
 					"Heavy Support selections exceed limit of %d (currently %d)",
 					roster.getMaxHeavySupport(),
-					roster.getHeavySupportCount()));
+					roster.getHeavySupportCount())));
 		}
 		// Check Heavy Support min
-		if (roster.getHeavySupportCount() < roster.getMinHeavySupport()) {
-			return RosterResult.invalid(String.format(
+		if (!heavySupportMinIsValid()) {
+			results.add( RosterResult.invalid(String.format(
 					"Must make at least %d Heavy Support selections",
-					roster.getMinHeavySupport()));
+					roster.getMinHeavySupport())));
 		}
 		// Check Points
-		if (roster.getCurrentPoints() > roster.getPointsLimit()) {
-			return RosterResult.invalid(String.format(
+		if (!pointsAreValid()) {
+			results.add( RosterResult.invalid(String.format(
 					"%d point limit exceeded (currently %d)",
 					roster.getPointsLimit(),
-					roster.getCurrentPoints()));
+					roster.getCurrentPoints())));
 		}
 		
-		return RosterResult.valid("Roster is valid.");
+		return consolidateResults(results);
 	}
 	
 	public static RosterValidator createFor(Roster roster) {
 		return new RosterValidator(roster);
+	}
+	
+	private RosterResult consolidateResults(List<RosterResult> results) {
+		if (noRosterErrors(results)) {
+			return RosterResult.valid("Roster is valid");
+		}
+		
+		RosterResult invalid = RosterResult.invalid("");
+		for (RosterResult r : results) {
+			invalid.setMessage(String.format(
+					"%s\n%s", 
+					invalid.getMessage(),
+					r.getMessage()
+					));
+		}
+		return invalid;
+	}
+	
+	private boolean noRosterErrors(List<RosterResult> results) {
+		return results == null 
+			|| results.isEmpty();
+	}
+	
+	private boolean hqMaxIsValid() {
+		return roster.getHQCount() <= roster.getMaxHQ();
+	}
+	
+	private boolean hqMinIsValid() {
+		return roster.getHQCount() >= roster.getMinHQ();
+	}
+	
+	private boolean elitesMaxIsValid() {
+		return roster.getElitesCount() <= roster.getMaxElites();
+	}
+	
+	private boolean elitesMinIsValid() {
+		return roster.getElitesCount() >= roster.getMinElites();
+	}
+	
+	private boolean  troopsMaxIsValid() {
+		return roster.getTroopsCount() <= roster.getMaxTroops();
+	}
+	
+	private boolean troopsMinIsValid() {
+		return roster.getTroopsCount() >= roster.getMinTroops();
+	}
+	
+	private boolean fastAttackMaxIsValid() {
+		return roster.getFastAttackCount() <= roster.getMaxFastAttack();
+	}
+	
+	private boolean fastAttackMinIsValid() {
+		return roster.getFastAttackCount() >= roster.getMinFastAttack();
+	}
+	
+	private boolean heavySupportMaxIsValid() {
+		return roster.getHeavySupportCount() <= roster.getMaxHeavySupport();
+	}
+	
+	private boolean heavySupportMinIsValid() {
+		return roster.getHeavySupportCount() >= roster.getMinHeavySupport();
+	}
+	
+	private boolean pointsAreValid() {
+		return roster.getCurrentPoints() <= roster.getPointsLimit();
 	}
 }

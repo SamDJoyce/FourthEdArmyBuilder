@@ -14,6 +14,14 @@ public class RosterResult {
 		return valid;
 	}
 	
+	public String getMessage() {
+		return message;
+	}
+	
+	public void setMessage(String message) {
+		this.message = message;
+	}
+	
 	public static RosterResult valid(String message) {
 		return new RosterResult(true,message);
 	}

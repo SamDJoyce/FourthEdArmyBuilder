@@ -167,6 +167,7 @@ public class Roster {
 	
 	public RosterResult validate() {
 		return validator.validate();
+		
 	}
 	
 }
