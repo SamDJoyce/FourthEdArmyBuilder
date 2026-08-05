@@ -20,8 +20,16 @@ public class RosterResult {
 		issues.add(new RosterIssue(issue));
 	}
 	
+	public void addIssues(List<RosterIssue> issues) {
+		issues.addAll(issues);
+	}
+	
 	public boolean isValid() {
 		return issues.isEmpty();
+	}
+	
+	public boolean hasIssues() {
+		return !issues.isEmpty();
 	}
 
 	public String getMessage() {

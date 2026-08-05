@@ -8,6 +8,7 @@ import java.util.Set;
 import java.util.UUID;
 
 import roster.Roster;
+import roster.RosterResult;
 import units.ModelFactory;
 import units.UnitRole;
 import units.UnitType;
@@ -25,6 +26,7 @@ public class UnitInstance implements OptionOwner{
 	// Fields
 	private final String   id;
 	private final UnitDescription description;
+	private final UnitValidator validator;
 	private Set<UnitType> types;
 	private List<ModelInstance> models;
 	private Set<SelectedOption> selectedOptions;
@@ -33,6 +35,7 @@ public class UnitInstance implements OptionOwner{
 	public UnitInstance(UnitDescription description) {
 		this.id = UUID.randomUUID().toString();
 		this.description = description;
+		validator = UnitValidator.create();
 		this.models = ModelFactory.getInstances(description.getModels());
 		setParentUnit(models);
 		this.selectedOptions = new HashSet<>();
@@ -244,8 +247,8 @@ public class UnitInstance implements OptionOwner{
 		return unit;
 	}
 	
-//	public RosterResult validate() {
-//		return null;
-//	}
+	public RosterResult validate() {
+		return validator.validate(this);
+	}
 
 }

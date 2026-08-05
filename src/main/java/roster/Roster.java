@@ -11,10 +11,10 @@ import units.instances.UnitInstance;
 public class Roster {
 
 	String name;
-	private ForceOrgChart chart;
-	private List<UnitInstance> units;
-	private int pointsLimit;
-	private RosterValidator validator;
+	private ForceOrgChart 		chart;
+	private List<UnitInstance> 	units;
+	private int 				pointsLimit;
+	private RosterValidator 	validator;
 	
 	public Roster(
 			String name,
@@ -22,12 +22,12 @@ public class Roster {
 			List<UnitInstance> units,
 			int pointsLimit
 			) {
-		this.name = name;
+		this.name  = name;
 		this.chart = chart;
 		this.units = units;
 		setParentRoster(units);
 		this.pointsLimit = pointsLimit;
-		validator = RosterValidator.create();
+		validator 		 = RosterValidator.create();
 	}
 	
 	public Roster() {
@@ -57,21 +57,22 @@ public class Roster {
 		return units;
 	}
 
-	public void setUnits(List<UnitInstance> units) {
+	public RosterResult setUnits(List<UnitInstance> units) {
 		this.units = units;
 		setParentRoster(this.units);
+		return validate();
 	}
 	
 	public RosterResult addUnit(UnitInstance unit) {
 		units.add(unit);
 		unit.setParentRoster(this);
-		return validator.validate(this);
+		return validate();
 	}
 	
 	public RosterResult removeUnit(UnitInstance unit) {
 		units.remove(unit);
 		unit.setParentRoster(null);
-		return validator.validate(this);
+		return validate();
 	}
 
 	public int getPointsLimit() {

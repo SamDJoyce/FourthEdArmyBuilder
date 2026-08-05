@@ -6,6 +6,7 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+import roster.RosterResult;
 import units.UnitType;
 import units.WargearFactory;
 import units.descriptions.models.ModelDescription;
@@ -18,17 +19,19 @@ import units.options.SelectionContext;
 import units.options.requirements.RequirementResult;
 
 public class ModelInstance implements OptionOwner{
-	private final String 	 id;
-	private final ModelDescription description;
-	private Set<UnitType> currentTypes;
-	private Set<WargearInstance> currentGear;
-	private Set<SelectedOption> selectedOptions;
-	private UnitInstance parentUnit;
-	private String customName;
+	private final String 	 		id;
+	private final ModelDescription 	description;
+	private final ModelValidator 	validator;
+	private Set<UnitType> 		 	currentTypes;
+	private Set<WargearInstance> 	currentGear;
+	private Set<SelectedOption>  	selectedOptions;
+	private UnitInstance 		 	parentUnit;
+	private String 				 	customName;
 	
 	public ModelInstance(ModelDescription description){
 		this.id = UUID.randomUUID().toString();
 		this.description = description;
+		this.validator = ModelValidator.create();
 		this.currentTypes = new HashSet<>(description.getTypes());
 		this.currentGear = description.getGear()
 			                .stream()
@@ -46,10 +49,7 @@ public class ModelInstance implements OptionOwner{
 	}
 
 	public String getName() {
-		if (customName == null) {
-			return description.getName();
-		}
-		return customName;
+		return customName == null ? description.getName() : customName;
 	}
 	
 	public void setName(String newName) {
@@ -159,6 +159,10 @@ public class ModelInstance implements OptionOwner{
 			}
 		}
 		return false;
+	}
+	
+	public RosterResult validate() {
+		return validator.validate(this);
 	}
 	
 	@Override

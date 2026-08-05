@@ -20,21 +20,16 @@ public class SelectedOption {
 	// Validate and apply all effects from this option
 	public RequirementResult select(SelectionContext context) {
 
-	    for (Requirement requirement : choice.getRequirements()) {
-
-	        RequirementResult result =
-	            requirement.validate(context);
-
-	        if (!result.isValid()) {
-	            return result;
-	        }
-	    }
+		RequirementResult result = validate(context);
+		if (!result.isValid()) {
+			return result;
+		}
 
 	    for (Effect effect : choice.getEffects()) {
 	        effect.apply(context);
 	    }
 
-	    return RequirementResult.success("valid");
+	    return result;
 	}
     
     // Remove all effects
@@ -46,6 +41,19 @@ public class SelectedOption {
 	
 	public OptionChoice getChoice() {
 		return choice;
+	}
+	
+	public RequirementResult validate(SelectionContext context) {
+	    for (Requirement requirement : choice.getRequirements()) {
+
+	        RequirementResult result =
+	            requirement.validate(context);
+
+	        if (!result.isValid()) {
+	            return result;
+	        }
+	    }
+	    return RequirementResult.success("valid");
 	}
 	
 	public String toString() {
