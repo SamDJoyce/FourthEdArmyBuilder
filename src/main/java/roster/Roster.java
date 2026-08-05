@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import forceOrg.ForceOrgChart;
+import forceOrg.OrgChartFactory;
 import units.UnitRole;
 import units.instances.UnitInstance;
 
@@ -26,12 +27,12 @@ public class Roster {
 		this.units = units;
 		setParentRoster(units);
 		this.pointsLimit = pointsLimit;
-		validator = RosterValidator.createFor(this);
+		validator = RosterValidator.create();
 	}
 	
 	public Roster() {
 		this.name = "New Roster";
-		this.chart = ForceOrgChart.createStandard();
+		this.chart = OrgChartFactory.createStandard();
 		this.units = new ArrayList<>();
 		this.pointsLimit = 0;
 	}
@@ -61,14 +62,16 @@ public class Roster {
 		setParentRoster(this.units);
 	}
 	
-	public void addUnit(UnitInstance unit) {
+	public RosterResult addUnit(UnitInstance unit) {
 		units.add(unit);
 		unit.setParentRoster(this);
+		return validator.validate(this);
 	}
 	
-	public void removeUnit(UnitInstance unit) {
+	public RosterResult removeUnit(UnitInstance unit) {
 		units.remove(unit);
 		unit.setParentRoster(null);
+		return validator.validate(this);
 	}
 
 	public int getPointsLimit() {
@@ -103,98 +106,16 @@ public class Roster {
 		return count;
 	}
 	
-	public int getHQCount() {
-		int count = 0;
-		for (UnitInstance u : units) {
-			if (UnitRole.HQ.equals(u.getRole()) ){
-				count++;
-			}
-		}
-		return count;
+	public int getMax(UnitRole role) {
+		return chart.getMaxRole(role);
 	}
 	
-	public int getMaxHQ() {
-		return chart.getMaxHQ();
-	}
-	
-	public int getMinHQ() {
-		return chart.getMinHQ();
-	}
-	
-	public int getElitesCount() {
-		int count = 0;
-		for (UnitInstance u : units) {
-			if (UnitRole.ELITES.equals(u.getRole()) ){
-				count++;
-			}
-		}
-		return count;
-	}
-	
-	public int getMaxElites() {
-		return chart.getMaxElites();
-	}
-	
-	public int getMinElites() {
-		return chart.getMinElites();
-	}
-	
-	public int getTroopsCount() {
-		int count = 0;
-		for (UnitInstance u : units) {
-			if (UnitRole.TROOPS.equals(u.getRole()) ){
-				count++;
-			}
-		}
-		return count;
-	}
-	
-	public int getMaxTroops() {
-		return chart.getMaxTroops();
-	}
-	
-	public int getMinTroops() {
-		return chart.getMinTroops();
-	}
-	
-	public int getFastAttackCount() {
-		int count = 0;
-		for (UnitInstance u : units) {
-			if (UnitRole.FAST_ATTACK.equals(u.getRole()) ){
-				count++;
-			}
-		}
-		return count;
-	}
-	
-	public int getMaxFastAttack() {
-		return chart.getMaxFastAttack();
-	}
-	
-	public int getMinFastAttack() {
-		return chart.getMinFastAttack();
-	}
-	
-	public int getHeavySupportCount() {
-		int count = 0;
-		for (UnitInstance u : units) {
-			if (UnitRole.HEAVY_SUPPORT.equals(u.getRole()) ){
-				count++;
-			}
-		}
-		return count;
-	}
-	
-	public int getMaxHeavySupport() {
-		return chart.getMaxHeavySupport();
-	}
-	
-	public int getMinHeavySupport() {
-		return chart.getMinHeavySupport();
+	public int getMin(UnitRole role) {
+		return chart.getMinRole(role);
 	}
 	
 	public RosterResult validate() {
-		return validator.validate();
+		return validator.validate(this);
 		
 	}
 	

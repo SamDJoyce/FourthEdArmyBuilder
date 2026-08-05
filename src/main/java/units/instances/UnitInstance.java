@@ -243,5 +243,9 @@ public class UnitInstance implements OptionOwner{
 		
 		return unit;
 	}
+	
+//	public RosterResult validate() {
+//		return null;
+//	}
 
 }

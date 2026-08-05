@@ -1,32 +1,41 @@
 package roster;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class RosterResult {
-	boolean valid;
-	String message;
+
+	private final List<RosterIssue> issues;
 	
-	public RosterResult(
-			boolean valid,
-			String message) {
-		
+	public RosterResult() {
+		issues = new ArrayList<>();
+	}
+	
+	public List<RosterIssue> getIssues() {
+		return Collections.unmodifiableList(issues);
+	}
+	
+	public void addIssue(String issue) {
+		issues.add(new RosterIssue(issue));
 	}
 	
 	public boolean isValid() {
-		return valid;
+		return issues.isEmpty();
 	}
-	
+
 	public String getMessage() {
-		return message;
-	}
-	
-	public void setMessage(String message) {
-		this.message = message;
-	}
-	
-	public static RosterResult valid(String message) {
-		return new RosterResult(true,message);
-	}
-	
-	public static RosterResult invalid(String message) {
-		return new RosterResult(false, message);
-	}
+
+        if (isValid()) {
+            return "Roster is valid";
+        }
+
+        StringBuilder sb = new StringBuilder();
+
+        for (RosterIssue issue : issues) {
+            sb.append(issue.getMessage()).append("\n");
+        }
+
+        return sb.toString();
+    }
 }
