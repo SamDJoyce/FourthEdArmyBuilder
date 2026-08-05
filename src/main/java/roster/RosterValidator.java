@@ -21,72 +21,88 @@ public class RosterValidator {
 			results.add(RosterResult.invalid(String.format(
 					"HQ selections exceed limit of %d (currently %d)",
 					roster.getMaxHQ(),
-					roster.getHQCount()))) ;
+					roster.getHQCount()
+					))) ;
 		}
 		// Check HQ min
 		if (!hqMinIsValid()) {
 			results.add(RosterResult.invalid(String.format(
-					"Must make at least %d HQ selections",
-					roster.getMinHQ())));
+					"Must make at least %d HQ selections (currently %d)",
+					roster.getMinHQ(),
+					roster.getHQCount()
+					)));
 		}
 		// Check Elites max
 		if (!elitesMaxIsValid()) {
 			results.add(RosterResult.invalid(String.format(
 					"Elites selections exceed limit of %d (currently %d)",
 					roster.getMaxElites(),
-					roster.getElitesCount())));
+					roster.getElitesCount()
+					)));
 		}
 		// Check Elites min
 		if (!elitesMinIsValid()) {
 			results.add(RosterResult.invalid(String.format(
-					"Must make at least %d Elites selections",
-					roster.getMinElites())));
+					"Must make at least %d Elites selections (currently %d)",
+					roster.getMinElites(),
+					roster.getElitesCount()
+					)));
 		}
 		// Check Troops max
 		if (!troopsMaxIsValid()) {
 			results.add(RosterResult.invalid(String.format(
 					"Troops selections exceed limit of %d (currently %d)",
 					roster.getMaxTroops(),
-					roster.getTroopsCount())));
+					roster.getTroopsCount()
+					)));
 		}
 		// Check Troops min
 		if (!troopsMinIsValid()) {
 			results.add( RosterResult.invalid(String.format(
-					"Must make at least %d Troops selections",
-					roster.getMinTroops())));
+					"Must make at least %d Troops selections (currently %d)",
+					roster.getMinTroops(),
+					roster.getTroopsCount()
+					)));
 		}
 		// Check Fast Attack max
 		if (!fastAttackMaxIsValid()) {
 			results.add( RosterResult.invalid(String.format(
 					"Fast Attack selections exceed limit of %d (currently %d)",
 					roster.getMaxFastAttack(),
-					roster.getFastAttackCount())));
+					roster.getFastAttackCount()
+					)));
 		}
 		// Check Fast Attack min
 		if (!fastAttackMinIsValid()) {
 			results.add( RosterResult.invalid(String.format(
-					"Must make at least %d Fast Attack selections",
-					roster.getMinFastAttack())));
+					"Must make at least %d Fast Attack selections (currently %d)",
+					roster.getMinFastAttack(),
+					roster.getFastAttackCount()
+					)));
 		}
 		// Check Heavy Support max
 		if (!heavySupportMaxIsValid()) {
 			results.add( RosterResult.invalid(String.format(
 					"Heavy Support selections exceed limit of %d (currently %d)",
 					roster.getMaxHeavySupport(),
-					roster.getHeavySupportCount())));
+					roster.getHeavySupportCount()
+					)));
 		}
 		// Check Heavy Support min
 		if (!heavySupportMinIsValid()) {
 			results.add( RosterResult.invalid(String.format(
-					"Must make at least %d Heavy Support selections",
-					roster.getMinHeavySupport())));
+					"Must make at least %d Heavy Support selections (currently %d)",
+					roster.getMinHeavySupport(),
+					roster.getHeavySupportCount()
+					)));
 		}
 		// Check Points
 		if (!pointsAreValid()) {
 			results.add( RosterResult.invalid(String.format(
 					"%d point limit exceeded (currently %d)",
 					roster.getPointsLimit(),
-					roster.getCurrentPoints())));
+					roster.getCurrentPoints()
+					)));
 		}
 		
 		return consolidateResults(results);

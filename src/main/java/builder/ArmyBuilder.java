@@ -10,7 +10,7 @@ public class ArmyBuilder {
 
     public ArmyBuilder(Codex codex) {
         this.codex = codex;
-        this.roster = new Roster();
+        this.roster = Roster.createEmpty();
     }
 
     public Codex getCodex() {

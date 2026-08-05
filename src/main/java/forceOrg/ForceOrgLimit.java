@@ -40,5 +40,24 @@ public class ForceOrgLimit {
 	public void setMax(int max) {
 		this.max = max;
 	}
+	
+	public static ForceOrgLimit forHQ(int min, int max) {
+		return new ForceOrgLimit(UnitRole.HQ, min, max);
+	}
+	
+	public static ForceOrgLimit forElites(int min, int max) {
+		return new ForceOrgLimit(UnitRole.ELITES, min, max);
+	}
+	
+	public static ForceOrgLimit forTroops(int min, int max) {
+		return new ForceOrgLimit(UnitRole.TROOPS, min, max);
+	}
+	
+	public static ForceOrgLimit forFastAttack(int min, int max) {
+		return new ForceOrgLimit(UnitRole.FAST_ATTACK, min, max);
+	}
 
+	public static ForceOrgLimit forHeavySupport(int min, int max) {
+		return new ForceOrgLimit(UnitRole.HEAVY_SUPPORT, min, max);
+	}
 }

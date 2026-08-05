@@ -1,5 +1,6 @@
 package roster;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import forceOrg.ForceOrgChart;
@@ -8,16 +9,19 @@ import units.instances.UnitInstance;
 
 public class Roster {
 
+	String name;
 	private ForceOrgChart chart;
 	private List<UnitInstance> units;
 	private int pointsLimit;
 	private RosterValidator validator;
 	
 	public Roster(
+			String name,
 			ForceOrgChart chart,
 			List<UnitInstance> units,
 			int pointsLimit
 			) {
+		this.name = name;
 		this.chart = chart;
 		this.units = units;
 		setParentRoster(units);
@@ -25,7 +29,20 @@ public class Roster {
 		validator = RosterValidator.createFor(this);
 	}
 	
-	public Roster() {}
+	public Roster() {
+		this.name = "New Roster";
+		this.chart = ForceOrgChart.createStandard();
+		this.units = new ArrayList<>();
+		this.pointsLimit = 0;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
 	
 	public ForceOrgChart getChart() {
 		return chart;
@@ -41,6 +58,17 @@ public class Roster {
 
 	public void setUnits(List<UnitInstance> units) {
 		this.units = units;
+		setParentRoster(this.units);
+	}
+	
+	public void addUnit(UnitInstance unit) {
+		units.add(unit);
+		unit.setParentRoster(this);
+	}
+	
+	public void removeUnit(UnitInstance unit) {
+		units.remove(unit);
+		unit.setParentRoster(null);
 	}
 
 	public int getPointsLimit() {
@@ -168,6 +196,18 @@ public class Roster {
 	public RosterResult validate() {
 		return validator.validate();
 		
+	}
+	
+	public static Roster create(
+			String name,
+			ForceOrgChart chart,
+			List<UnitInstance> units,
+			int pointsLimit) {
+		return new Roster(name, chart, units, pointsLimit);
+	}
+	
+	public static Roster createEmpty() {
+		return new Roster();
 	}
 	
 }
