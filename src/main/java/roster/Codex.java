@@ -159,56 +159,6 @@ public class Codex {
 		this.models = models;
 	}
 	
-	public Set<UnitDescription> getHQUnits(){
-		Set<UnitDescription> hq = new HashSet<>();
-		for (UnitDescription unit : units.values()) {
-			if (UnitRole.HQ.equals(unit.getRole())) {
-				hq.add(unit);
-			}
-		}
-		return hq;
-	}
-	
-	public Set<UnitDescription> getElitesUnits(){
-		Set<UnitDescription> elites = new HashSet<>();
-		for (UnitDescription unit : units.values()) {
-			if (UnitRole.ELITES.equals(unit.getRole())) {
-				elites.add(unit);
-			}
-		}
-		return elites;
-	}
-	
-	public Set<UnitDescription> getTroopsUnits(){
-		Set<UnitDescription> troops = new HashSet<>();
-		for (UnitDescription unit : units.values()) {
-			if (UnitRole.TROOPS.equals(unit.getRole())) {
-				troops.add(unit);
-			}
-		}
-		return troops;
-	}
-	
-	public Set<UnitDescription> getFastAttackUnits(){
-		Set<UnitDescription> fastAttack = new HashSet<>();
-		for (UnitDescription unit : units.values()) {
-			if (UnitRole.FAST_ATTACK.equals(unit.getRole())) {
-				fastAttack.add(unit);
-			}
-		}
-		return fastAttack;
-	}
-	
-	public Set<UnitDescription> getHeavySupportUnits(){
-		Set<UnitDescription> heavySupport = new HashSet<>();
-		for (UnitDescription unit : units.values()) {
-			if (UnitRole.HEAVY_SUPPORT.equals(unit.getRole())) {
-				heavySupport.add(unit);
-			}
-		}
-		return heavySupport;
-	}
-	
 	public Set<UnitDescription> getUnitsByRole(UnitRole role) {
 
 	    Set<UnitDescription> result = new HashSet<>();

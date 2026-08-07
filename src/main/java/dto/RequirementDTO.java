@@ -16,10 +16,11 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 	    @JsonSubTypes.Type(value = MaxSelectionReqDTO.class, name     = "max_selection"),
 	    @JsonSubTypes.Type(value = ModelCountReqDTO.class, name       = "model_count"),
 	    @JsonSubTypes.Type(value = MustHaveGearReqDTO.class, name     = "must_have_gear"),
-	    @JsonSubTypes.Type(value = CannotHaveGearReqDTO.class, name     = "cannot_have_gear"),
+	    @JsonSubTypes.Type(value = CannotHaveGearReqDTO.class, name   = "cannot_have_gear"),
 	    @JsonSubTypes.Type(value = MustHaveTypeReqDTO.class, name     = "must_have_type"),
 	    @JsonSubTypes.Type(value = MutualExclusionReqDTO.class, name  = "mutual_exclusion"),
-	    @JsonSubTypes.Type(value = ArmouryPointsLimitReqDTO.class, name  = "armoury_points_limit")
+	    @JsonSubTypes.Type(value = ArmouryPointsLimitReqDTO.class, name  = "armoury_points_limit"),
+	    @JsonSubTypes.Type(value = ArmouryWeaponLimitReqDTO.class, name  = "armoury_weapon_limit")
 	})
 public abstract class RequirementDTO {
 	private String type;

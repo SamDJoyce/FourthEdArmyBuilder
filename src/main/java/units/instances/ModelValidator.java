@@ -12,6 +12,7 @@ public class ModelValidator {
 		RosterResult result = new RosterResult();
 		
 		validateChoices(model, result);
+		//validateGear(model, result);
 		
 		return result;
 	}
