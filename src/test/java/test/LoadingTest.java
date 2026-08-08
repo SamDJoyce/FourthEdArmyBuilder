@@ -1,6 +1,7 @@
 package test;
 
 import loaders.CodexLoader;
+import roster.Codex;
 import units.UnitFactory;
 import units.descriptions.UnitDescription;
 import units.instances.UnitInstance;
@@ -17,16 +18,20 @@ public class LoadingTest {
 	public static void main(String[] args) {
 		// Load data from files
 		CodexLoader loader = new CodexLoader(codexLoc);
-		loader.loadCodex();
+		Codex codex = loader.loadCodex();
+		System.out.println(codex.getName());
+		
 		// Create a unit description from loaded data
-		UnitDescription u = UnitFactory.get("tactical squad");
+		UnitDescription u = codex.getUnit("tactical squad");
 		System.out.println(u);
+		
 		// Create a unit instance where options can be selected
 		UnitInstance unit = UnitFactory.getInstance(u);
 		System.out.println("Tactical Squad has " + unit.getCurrentSize() + " models");
 		System.out.println(String.format(
 				"Squad Points Cost: %d", 
 				unit.getTotalPoints()) );
+		
 		// Create and select the 'add marine choice'
 		OptionChoice addMarine = OptionChoiceFactory.get("select add tactical marine");
 		System.out.println("Select option to add a marine");
@@ -36,6 +41,7 @@ public class LoadingTest {
 				"Squad Points Cost: %d", 
 				unit.getTotalPoints()) );
 		System.out.println("\n");
+		
 		// Create and select frag grenades for the squad
 		OptionChoice addFrag = OptionChoiceFactory.get("select frag grenades for squad");
 		unit.addSelection(addFrag);
@@ -43,6 +49,7 @@ public class LoadingTest {
 		System.out.println(String.format(
 				"Squad Points Cost: %d", 
 				unit.getTotalPoints()) );
+		
 		// Create and select heavy bolter
 		OptionChoice addHB = OptionChoiceFactory.get("select heavy bolter");
 		unit.getModels().get(2).addSelection(addHB);

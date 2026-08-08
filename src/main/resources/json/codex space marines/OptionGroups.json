@@ -26,8 +26,8 @@
 			"must have bolter",
 			"one selection per squad"
 		],
-		"minSelections":"0",
-		"maxSelections":"1"
+		"minSelections":0,
+		"maxSelections":1
 	},
 	{
 		"name":"grenades group tactical squad",
@@ -37,8 +37,8 @@
 		],
 		"requirementNames":[
 		],
-		"minSelections":"0",
-		"maxSelections":"2"
+		"minSelections":0,
+		"maxSelections":2
 	},
 	{
 		"name":"sergeant weapons group tactical squad",
@@ -48,8 +48,8 @@
 		"requirementNames":[
 			"characters only"
 		],
-		"minSelections":"0",
-		"maxSelections":"1"
+		"minSelections":0,
+		"maxSelections":1
 	},
 	{
 		"name":"crux terminatus group",
@@ -59,8 +59,8 @@
 		"requirementNames":[
 			"characters_only"
 		],
-		"minSelections":"0",
-		"maxSelections":"1"
+		"minSelections":0,
+		"maxSelections":1
 	},
 	{
 		"name":"add tactical marine group",
@@ -70,8 +70,8 @@
 		"requirementNames":[
 			""
 		],
-		"minSelections":"0",
-		"maxSelections":"5"
+		"minSelections":0,
+		"maxSelections":5
 	},
 	{
 		"name":"armoury sw group",
@@ -104,8 +104,8 @@
 			"characters only",
 			"must have crux terminatus"
 		],
-		"minSelections":"0",
-		"maxSelections":"99"
+		"minSelections":0,
+		"maxSelections":99
 	},
 	{
 		"name":"armoury mw group",
@@ -138,7 +138,7 @@
 		"requirementNames":[
 			"characters only"
 		],
-		"minSelections":"0",
-		"maxSelections":"99"
+		"minSelections":0,
+		"maxSelections":99
 	}
 ]

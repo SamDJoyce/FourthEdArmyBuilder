@@ -39,7 +39,7 @@
 	},
 	{
 		"name":"select heavy bolter",
-		"points":"5",
+		"points":5,
 		"requirementNames":[
 			"must have bolter"
 		],
@@ -50,7 +50,7 @@
 	},
 	{
 		"name":"select missile launcher",
-		"points":"10",
+		"points":10,
 		"requirementNames":[
 			"must have bolter"
 		],
@@ -61,7 +61,7 @@
 	},
 	{
 		"name":"select multi melta",
-		"points":"10",
+		"points":10,
 		"requirementNames":[
 			"must have bolter"
 		],
@@ -72,7 +72,7 @@
 	},
 	{
 		"name":"select lascannon",
-		"points":"15",
+		"points":15,
 		"requirementNames":[
 			"must have bolter"
 		],
@@ -83,7 +83,7 @@
 	},
 	{
 		"name":"select plasma cannon",
-		"points":"20",
+		"points":20,
 		"requirementNames":[
 			"must have bolter"
 		],
@@ -94,7 +94,7 @@
 	},
 	{
 		"name":"select bolt pistol and ccw for sergeant",
-		"points":"0",
+		"points":0,
 		"requirementNames":[
 			"must have bolter",
 		 	"characters only"

@@ -2,6 +2,7 @@ package loaders;
 
 import java.io.IOException;
 import java.nio.file.Path;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -96,14 +97,22 @@ public class CodexLoader {
 	
 	private Codex assembleCodex() {
 		String name = getFolderName(codexFolder);
-		Map<String, StatLine> 			statLines 	 = StatLineFactory.getRegistry();
-		Map<String, Effect> 			effects 	 = EffectFactory.getRegistry();
-		Map<String, Requirement> 		requirements = ReqFactory.getRegistry();
-		Map<String, OptionChoice> 		choices 	 = OptionChoiceFactory.getRegistry();
-		Map<String, OptionGroup> 		groups  	 = OptionGroupFactory.getRegistry();;
-		Map<String, ModelDescription>   models  	 = ModelFactory.getRegistry();
-		Map<String, UnitDescription>    units  	 	 = UnitFactory.getRegistry();
-		Map<String, WargearDescription> gear    	 = WargearFactory.getRegistry();
+		Map<String, StatLine> 			statLines = 
+				new HashMap<String, StatLine>(StatLineFactory.getRegistry()) ;
+		Map<String, Effect> 			effects = 
+				new HashMap<String, Effect>(EffectFactory.getRegistry());
+		Map<String, Requirement> 		requirements = 
+				new HashMap<String, Requirement>(ReqFactory.getRegistry());
+		Map<String, OptionChoice> 		choices = 
+				new HashMap<String, OptionChoice>(OptionChoiceFactory.getRegistry());
+		Map<String, OptionGroup> 		groups = 
+				new HashMap<String, OptionGroup>(OptionGroupFactory.getRegistry());
+		Map<String, ModelDescription>   models = 
+				new HashMap<String, ModelDescription>(ModelFactory.getRegistry());
+		Map<String, UnitDescription>    units = 
+				new HashMap<String, UnitDescription>(UnitFactory.getRegistry());
+		Map<String, WargearDescription> gear = 
+				new HashMap<String, WargearDescription>(WargearFactory.getRegistry());
 		clearRegistries();
 		return new Codex(
 				name,
