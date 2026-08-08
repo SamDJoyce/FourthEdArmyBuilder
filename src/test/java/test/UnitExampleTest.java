@@ -211,7 +211,7 @@ public class UnitExampleTest {
 		UnitExampleTest test = new UnitExampleTest();
 		
 		UnitDescription tacticalSquadDesc = test.assembleTacticalSquadDescription();
-		UnitInstance    tacSquad = UnitFactory.getInstance(tacticalSquadDesc);
+		UnitInstance    tacSquad = UnitFactory.createInstance(tacticalSquadDesc);
 		// Display the Tactical Squad's information
 		test.printUnitInfo(tacSquad);
 		test.printModelInfo(tacSquad);

@@ -97,19 +97,19 @@ public class CodexLoader {
 	
 	private Codex assembleCodex() {
 		String name = getFolderName(codexFolder);
-		Map<String, StatLine> 			statLines = 
+		Map<String, StatLine> statLines = 
 				new HashMap<String, StatLine>(StatLineFactory.getRegistry()) ;
-		Map<String, Effect> 			effects = 
+		Map<String, Effect> effects = 
 				new HashMap<String, Effect>(EffectFactory.getRegistry());
-		Map<String, Requirement> 		requirements = 
+		Map<String, Requirement> requirements = 
 				new HashMap<String, Requirement>(ReqFactory.getRegistry());
-		Map<String, OptionChoice> 		choices = 
+		Map<String, OptionChoice> choices = 
 				new HashMap<String, OptionChoice>(OptionChoiceFactory.getRegistry());
-		Map<String, OptionGroup> 		groups = 
+		Map<String, OptionGroup> groups = 
 				new HashMap<String, OptionGroup>(OptionGroupFactory.getRegistry());
-		Map<String, ModelDescription>   models = 
+		Map<String, ModelDescription>models = 
 				new HashMap<String, ModelDescription>(ModelFactory.getRegistry());
-		Map<String, UnitDescription>    units = 
+		Map<String, UnitDescription> units = 
 				new HashMap<String, UnitDescription>(UnitFactory.getRegistry());
 		Map<String, WargearDescription> gear = 
 				new HashMap<String, WargearDescription>(WargearFactory.getRegistry());

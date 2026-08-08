@@ -62,7 +62,7 @@ public class UnitFactory {
 				new ArrayList<ModelDescription>()));
 	}
 	
-	public static UnitInstance getInstance(UnitDescription unit) {
+	public static UnitInstance createInstance(UnitDescription unit) {
 		return new UnitInstance(unit);
 	}
 	

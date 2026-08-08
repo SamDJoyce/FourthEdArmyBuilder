@@ -24,10 +24,10 @@ public class Roster {
 			) {
 		this.name  = name;
 		this.chart = chart;
-		this.units = units;
+		this.units = new ArrayList<>(units);
 		setParentRoster(units);
 		this.pointsLimit = pointsLimit;
-		validator 		 = RosterValidator.create();
+		this.validator   = RosterValidator.create();
 	}
 	
 	public Roster() {
@@ -35,6 +35,7 @@ public class Roster {
 		this.chart = OrgChartFactory.createStandard();
 		this.units = new ArrayList<>();
 		this.pointsLimit = 0;
+		this.validator   = RosterValidator.create();
 	}
 	
 	public String getName() {
