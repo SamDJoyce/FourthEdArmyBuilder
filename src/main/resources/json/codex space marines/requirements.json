@@ -24,6 +24,11 @@
 		"requiredGear":"terminator armor"
 	},
 	{
+		"type":"must_have_gear",
+		"name":"must have storm bolter",
+		"requiredGear":"storm bolter"
+	},
+	{
 		"type":"cannot_have_gear",
 		"name":"cannot have terminator armour from armoury",
 		"blockingGearName":"terminator armour armoury"
@@ -66,5 +71,10 @@
 		"type":"max_selection",
 		"name":"one selection per squad",
 		"maxSelection":1
+	},
+	{
+		"type":"max_selection",
+		"name":"two selections per squad",
+		"maxSelection":2
 	}
 ]

@@ -39,6 +39,8 @@
 			"INFANTRY"
 		],
 		"optionGroupNames":[
+			"scout weapons group",
+			"scout heavy weapons group"
 			],
 		"wargearNames":[
 			"scout armor",
@@ -55,6 +57,9 @@
 			"CHARACTER"
 		],
 		"optionGroupNames":[
+			"scout weapons group",
+			"veteran scout sgt group",
+			"armoury sw group"
 			],
 		"wargearNames":[
 			"scout armor",

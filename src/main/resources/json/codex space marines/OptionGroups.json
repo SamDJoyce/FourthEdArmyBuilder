@@ -63,6 +63,17 @@
 		"maxSelections":1
 	},
 	{
+		"name":"veteran scout sgt group",
+		"choiceNames":[
+			"select scout crux terminatus"
+		],
+		"requirementNames":[
+			"characters_only"
+		],
+		"minSelections":0,
+		"maxSelections":1
+	},
+	{
 		"name":"add tactical marine group",
 		"choiceNames":[
 			"select add tactical marine"
@@ -106,6 +117,53 @@
 		"requirementNames":[
 			"must have bolt pistol",
 			"one selection per squad"
+		],
+		"minSelections":0,
+		"maxSelections":1
+	},
+	{
+		"name":"veteran skills group",
+		"choiceNames":[
+			"select furious charge",
+			"select tank hunters"
+		],
+		"requirementNames":[
+		],
+		"minSelections":0,
+		"maxSelections":1
+	},
+	{
+		"name":"add terminator group",
+		"choiceNames":[
+			"select add terminator"
+		],
+		"requirementNames":[
+			"add terminator to squad"
+		],
+		"minSelections":0,
+		"maxSelections":5
+	},
+	{
+		"name":"terminator heavy weapons group",
+		"choiceNames":[
+			"select assault cannon",
+			"select heavy flamer",
+			"select cyclone missile launcher"
+		],
+		"requirementNames":[
+			"must have storm bolter",
+			"two selections per squad"
+		],
+		"minSelections":0,
+		"maxSelections":1
+	},
+	{
+		"name":"terminator chainfist group",
+		"choiceNames":[
+			"select chain fist"
+		],
+		"requirementNames":[
+			"must have power fist"
 		],
 		"minSelections":0,
 		"maxSelections":1

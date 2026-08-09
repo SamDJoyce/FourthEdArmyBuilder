@@ -53,7 +53,7 @@ public class EffectFactory {
 	}
 	
 	/**
-	 * Construct a AddWargearEffectDTO object
+	 * Construct a AddWargearEffect object
 	 */
 	public static Effect addWargear(String name) {
 		return registry.computeIfAbsent(name,
@@ -61,11 +61,19 @@ public class EffectFactory {
 	}
 	
 	/**
-	 * Construct a AddWargearEffectDTO object
+	 * Construct a AddWargearEffect object
 	 */
 	public static Effect addWargear(String name,WargearDescription gear) {
 		return registry.computeIfAbsent(name,
 	            key -> new AddWargearEffect(name, gear));
+	}
+	
+	/**
+	 * Construct a RemoveWargearEffect object
+	 */
+	public static Effect removeWargear(String name,WargearDescription remove) {
+		return registry.computeIfAbsent(name,
+	            key -> new RemoveWargearEffect(name, remove));
 	}
 	
 	/**

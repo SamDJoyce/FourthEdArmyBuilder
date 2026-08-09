@@ -5,14 +5,29 @@
 	  	"points":0
 	},
 	{
+	  	"name":"storm bolter",
+	  	"type":"TWO HANDED",
+	  	"points":0
+	},
+	{
 	  	"name":"shotgun",
 	  	"type":"TWO HANDED",
 	  	"points":0
 	},
 	{
-	  	"name":"sniper rifle",
+	  	"name":"sniper",
 	  	"type":"TWO HANDED",
 	  	"points":0
+	},
+	{
+	  	"name":"assault cannon",
+	  	"type":"TWO HANDED",
+	  	"points":20
+	},
+	{
+	  	"name":"heavy flamer",
+	  	"type":"TWO HANDED",
+	  	"points":10
 	},
 	{
 	  	"name":"close combat weapon",
@@ -21,6 +36,21 @@
 	},
 	{
 	  	"name":"bolt pistol",
+	  	"type":"ONE HANDED",
+	  	"points":0
+	},
+	{
+	  	"name":"power fist",
+	  	"type":"ONE HANDED",
+	  	"points":0
+	},
+	{
+	  	"name":"chain fist",
+	  	"type":"ONE HANDED",
+	  	"points":5
+	},
+	{
+	  	"name":"power weapon",
 	  	"type":"ONE HANDED",
 	  	"points":0
 	},
@@ -43,6 +73,21 @@
 	  	"name":"artificer armor",
 	  	"type":"GEAR",
 	  	"points":0
+	},
+	{
+	  	"name":"cyclone missile launcher",
+	  	"type":"GEAR",
+	  	"points":25
+	},
+	{
+	  	"name":"furious charge",
+	  	"type":"GEAR",
+	  	"points":3
+	},
+	{
+	  	"name":"tank hunters",
+	  	"type":"GEAR",
+	  	"points":3
 	},
 	{
 	  	"name":"plasma gun",
@@ -156,7 +201,7 @@
 	  	"points":15
 	},
 	{
-	  	"name":"power fist sw armoury",
+	  	"name":"power weapon sw armoury",
 	  	"type":"ONE HANDED",
 	  	"points":10
 	},

@@ -61,6 +61,36 @@
 		"add":"bolter"
 	},
 	{
+		"type":"replace_wargear",
+		"name":"replace bolt pistol with shotgun",
+		"remove":"bolt pistol",
+		"add":"shotgun"
+	},
+	{
+		"type":"replace_wargear",
+		"name":"replace bolt pistol with sniper",
+		"remove":"bolt pistol",
+		"add":"sniper"
+	},
+	{
+		"type":"replace_wargear",
+		"name":"replace power fist with chainfist",
+		"remove":"power fist",
+		"add":"chain fist"
+	},
+	{
+		"type":"replace_wargear",
+		"name":"replace storm bolter with assault cannon",
+		"remove":"storm bolter",
+		"add":"assault cannon"
+	},
+	{
+		"type":"replace_wargear",
+		"name":"replace storm bolter with heavy flamer",
+		"remove":"heavy flamer",
+		"add":"assault cannon"
+	},
+	{
 		"type":"add_wargear",
 		"name":"add close combat weapon",
 		"gearName":"close combat weapon"
@@ -69,6 +99,21 @@
 		"type":"add_wargear",
 		"name":"add crux terminatus",
 		"gearName":"crux terminatus"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add cyclone missile launcher",
+		"gearName":"cyclone missile launcher"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add furious charge",
+		"gearName":"furious charge"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add tank hunters",
+		"gearName":"tank hunters"
 	},
 	{
 		"type":"add_wargear",
@@ -261,7 +306,11 @@
 		"name":"add terminator honours from armoury",
 		"gearName":"terminator honours armoury"
 	},
-
+	{
+		"type":"remove_wargear",
+		"name":"remove ccw",
+		"gearName":"close combat weapon"
+	},
 	{
 		"type":"modify_stat",
 		"name":"increase ld by one",
@@ -339,6 +388,16 @@
 		"type":"add_model",
 		"name":"add tactical marine to squad",
 		"modelName":"tactical marine"
+	},
+	{
+		"type":"add_model",
+		"name":"add scout to squad",
+		"modelName":"scout"
+	},
+	{
+		"type":"add_model",
+		"name":"add terminator to squad",
+		"modelName":"terminator"
 	}
 
 ]

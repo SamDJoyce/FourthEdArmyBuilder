@@ -8,6 +8,24 @@
 		]
 	},
 	{
+		"name":"select add terminator",
+		"points":40,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"add terminator to squad"
+		]
+	},
+	{
+		"name":"select add scout",
+		"points":40,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"add scout to squad"
+		]
+	},
+	{
 		"name":"select plasma",
 		"points":10,
 		"requirementNames":
@@ -118,6 +136,19 @@
 		]
 	},
 	{
+		"name":"select scout crux terminatus",
+		"points":13,
+		"requirementNames":[
+			"characters only"
+		],
+		"effectNames":[
+			"add crux terminatus",
+		 	"increase ld by one",
+	 	 	"increase attacks by one",
+	 	 	"change to veteran sergeant"
+		]
+	},
+	{
 		"name":"select frag grenades for squad",
 		"points":1,
 		"requirementNames":[
@@ -144,6 +175,86 @@
 		"effectNames":[
 			"replace bolt pistol with bolter",
 			"remove ccw"
+		]
+	},
+	{
+		"name":"select shotgun for scout",
+		"points":0,
+		"requirementNames":[
+			"must have bolt pistol"
+		],
+		"effectNames":[
+			"replace bolt pistol with shotgun",
+			"remove ccw"
+		]
+	},
+	{
+		"name":"select sniper for scout",
+		"points":0,
+		"requirementNames":[
+			"must have bolt pistol"
+		],
+		"effectNames":[
+			"replace bolt pistol with sniper",
+			"remove ccw"
+		]
+	},	
+	{
+		"name":"select furious charge",
+		"points":3,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"add furious charge"
+		]
+	},
+	{
+		"name":"select tank hunters",
+		"points":3,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"add tank hunters"
+		]
+	},
+	{
+		"name":"select assault cannon",
+		"points":20,
+		"requirementNames":[
+			"must have storm bolter"
+		],
+		"effectNames":[
+			"replace storm bolter with assault cannon"
+		]
+	},
+	{
+		"name":"select heavy flamer",
+		"points":10,
+		"requirementNames":[
+			"must have storm bolter"
+		],
+		"effectNames":[
+			"replace storm bolter with heavy flamer"
+		]
+	},
+	{
+		"name":"select cyclone missile launcher",
+		"points":25,
+		"requirementNames":[
+			"must have storm bolter"
+		],
+		"effectNames":[
+			"add cyclone missile launcher"
+		]
+	},
+	{
+		"name":"select chain fist",
+		"points":5,
+		"requirementNames":[
+			"must have power fist"
+		],
+		"effectNames":[
+			"add chain fist"
 		]
 	},
 	{
