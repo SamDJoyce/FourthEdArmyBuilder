@@ -30,5 +30,36 @@
 			"power armor",
 			"bolter"
 		]
+	},
+	{
+		"name":"scout",
+		"basePoints":13,
+		"statlineName":"scout",
+		"typeNames":[
+			"INFANTRY"
+		],
+		"optionGroupNames":[
+			],
+		"wargearNames":[
+			"scout armor",
+			"bolt pistol",
+			"close combat weapon"
+		]
+	},
+	{
+		"name":"scout sgt",
+		"basePoints":13,
+		"statlineName":"scout",
+		"typeNames":[
+			"INFANTRY",
+			"CHARACTER"
+		],
+		"optionGroupNames":[
+			],
+		"wargearNames":[
+			"scout armor",
+			"bolt pistol",
+			"close combat weapon"
+		]
 	}
 ]

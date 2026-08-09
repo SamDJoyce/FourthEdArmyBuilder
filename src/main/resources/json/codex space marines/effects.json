@@ -55,6 +55,12 @@
 		"add":"bolt pistol"
 	},
 	{
+		"type":"replace_wargear",
+		"name":"replace bolt pistol with bolter",
+		"remove":"bolt pistol",
+		"add":"bolter"
+	},
+	{
 		"type":"add_wargear",
 		"name":"add close combat weapon",
 		"gearName":"close combat weapon"

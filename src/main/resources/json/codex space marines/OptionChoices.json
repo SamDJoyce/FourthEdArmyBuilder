@@ -136,6 +136,17 @@
 		]
 	},
 	{
+		"name":"select bolter for scout",
+		"points":0,
+		"requirementNames":[
+			"must have bolt pistol"
+		],
+		"effectNames":[
+			"replace bolt pistol with bolter",
+			"remove ccw"
+		]
+	},
+	{
 		"name":"select bolt pistol from armoury",
 		"points":1,
 		"requirementNames":[

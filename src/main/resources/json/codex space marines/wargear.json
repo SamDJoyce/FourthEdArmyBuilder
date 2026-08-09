@@ -5,6 +5,16 @@
 	  	"points":0
 	},
 	{
+	  	"name":"shotgun",
+	  	"type":"TWO HANDED",
+	  	"points":0
+	},
+	{
+	  	"name":"sniper rifle",
+	  	"type":"TWO HANDED",
+	  	"points":0
+	},
+	{
 	  	"name":"close combat weapon",
 	  	"type":"ONE HANDED",
 	  	"points":0
@@ -12,6 +22,11 @@
 	{
 	  	"name":"bolt pistol",
 	  	"type":"ONE HANDED",
+	  	"points":0
+	},
+	{
+	  	"name":"scout armor",
+	  	"type":"GEAR",
 	  	"points":0
 	},
 	{
@@ -44,6 +59,7 @@
 	  	"type":"TWO HANDED",
 	  	"points":6
 	},
+
 	{
 	  	"name":"crux terminatus",
 	  	"type":"GEAR",

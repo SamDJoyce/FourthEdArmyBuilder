@@ -12,8 +12,25 @@
 			"tactical marine"
 		],
 		"optionGroupNames":[
-			"grenades group tactical squad",
+			"grenades group",
 			"add tactical marine group"
+		]
+	},
+	{
+		"name":"scout squad",
+		"minSize":"5",
+		"maxSize":"10",
+		"role":"TROOPS",
+		"modelNames":[
+			"scout sgt",
+			"scout",
+			"scout",
+			"scout",
+			"scout"
+		],
+		"optionGroupNames":[
+			"grenades group",
+			"add scout group"
 		]
 	}
 ]

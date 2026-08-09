@@ -30,7 +30,7 @@
 		"maxSelections":1
 	},
 	{
-		"name":"grenades group tactical squad",
+		"name":"grenades group",
 		"choiceNames":[
 			"select frag grenades for squad",
 			"select krak grenades for squad"
@@ -72,6 +72,43 @@
 		],
 		"minSelections":0,
 		"maxSelections":5
+	},
+	{
+		"name":"add scout group",
+		"choiceNames":[
+			"select add scout"
+		],
+		"requirementNames":[
+			""
+		],
+		"minSelections":0,
+		"maxSelections":5
+	},
+	{
+		"name":"scout weapons group",
+		"choiceNames":[
+			"select bolter for scout",
+			"select shotgun for scout",
+			"select sniper rifle for scout"
+		],
+		"requirementNames":[
+			"must have bolt pistol"
+		],
+		"minSelections":0,
+		"maxSelections":1
+	},
+	{
+		"name":"scout heavy weapons group",
+		"choiceNames":[
+			"select heavy bolter",
+			"select missile launcher"
+		],
+		"requirementNames":[
+			"must have bolt pistol",
+			"one selection per squad"
+		],
+		"minSelections":0,
+		"maxSelections":1
 	},
 	{
 		"name":"armoury sw group",

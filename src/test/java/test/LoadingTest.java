@@ -9,10 +9,12 @@ import units.options.OptionChoice;
 
 public class LoadingTest {
 	
-	private final static String spaceMarineCodex = "src/main/resources/json/codex space marines";
+	private final static String spaceMarineCodex = 
+			"src/main/resources/json/codex space marines";
 	
 	public static void main(String[] args) {
 		LoadingTest test = new LoadingTest();
+		// Load data from files
 		ArmyBuilder army = test.loadData();
 		// Create a unit description from loaded data
 		UnitDescription description = test.createDescription(army);
@@ -27,7 +29,6 @@ public class LoadingTest {
 	}
 	
 	private ArmyBuilder loadData() {
-		// Load data from files
 		CodexLoader loader = new CodexLoader(spaceMarineCodex);
 		ArmyBuilder army = new ArmyBuilder(loader.loadCodex());
 		System.out.println(army.getCodex().getName());
