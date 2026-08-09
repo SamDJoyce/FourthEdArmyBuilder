@@ -32,5 +32,22 @@
 			"grenades group",
 			"add scout group"
 		]
+	},
+	{
+		"name":"terminator squad",
+		"minSize":"5",
+		"maxSize":"10",
+		"role":"ELITES",
+		"modelNames":[
+			"terminator sgt",
+			"terminator",
+			"terminator",
+			"terminator",
+			"terminator"
+		],
+		"optionGroupNames":[
+			"add terminator group",
+			"veteran skills group"
+		]
 	}
 ]

@@ -66,5 +66,40 @@
 			"bolt pistol",
 			"close combat weapon"
 		]
+	},
+	{
+		"name":"terminator",
+		"basePoints":40,
+		"statlineName":"terminator",
+		"typeNames":[
+			"INFANTRY"
+		],
+		"optionGroupNames":[
+			"terminator heavy weapons group",
+			"terminator chainfist group"
+			],
+		"wargearNames":[
+			"terminator armour",
+			"storm bolter",
+			"power fist"
+		]
+	},
+	{
+		"name":"terminator sgt",
+		"basePoints":40,
+		"statlineName":"terminator",
+		"typeNames":[
+			"INFANTRY",
+			"CHARACTER"
+		],
+		"optionGroupNames":[
+			"armoury sw group",
+			"terminator chainfist group"
+			],
+		"wargearNames":[
+			"terminator armour",
+			"storm bolter",
+			"power weapon"
+		]
 	}
 ]
