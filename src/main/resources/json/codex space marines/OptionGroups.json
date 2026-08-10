@@ -169,6 +169,81 @@
 		"maxSelections":1
 	},
 	{
+		"name":"upgrade to master group",
+		"choiceNames":[
+			"select upgrade to master"
+		],
+		"requirementNames":[
+		],
+		"minSelections":0,
+		"maxSelections":1
+	},
+	{
+		"name":"upgrade to master of sanctity group",
+		"choiceNames":[
+			"select upgrade to master of sanctity"
+		],
+		"requirementNames":[
+		],
+		"minSelections":0,
+		"maxSelections":1
+	},
+	{
+		"name":"upgrade to epistolary group",
+		"choiceNames":[
+			"select upgrade to epistolary"
+		],
+		"requirementNames":[
+		],
+		"minSelections":0,
+		"maxSelections":1
+	},
+	{
+		"name":"replace psychic power group",
+		"choiceNames":[
+			"select replace power with fury of the ancients",
+			"select replace power with fear of the darkness",
+			"select replace power with might of heroes",
+			"select replace power with veil of time",
+			"select replace power with vortex of doom"
+		],
+		"requirementNames":[
+			"must be librarian"
+		],
+		"minSelections":0,
+		"maxSelections":1
+	},
+	{
+		"name":"replace psychic power group epistolary",
+		"choiceNames":[
+			"select replace power with fury of the ancients epistolary",
+			"select replace power with fear of the darkness epistolary",
+			"select replace power with might of heroes epistolary",
+			"select replace power with veil of time epistolary",
+			"select replace power with vortex of doom epistolary"
+		],
+		"requirementNames":[
+			"must be epistolary"
+		],
+		"minSelections":0,
+		"maxSelections":1
+	},
+	{
+		"name":"add psychic power group",
+		"choiceNames":[
+			"select add fury of the ancients epistolary",
+			"select add with fear of the darkness epistolary",
+			"select add might of heroes epistolary",
+			"select add veil of time epistolary",
+			"select add vortex of doom epistolary"
+		],
+		"requirementNames":[
+			"must be epistolary"
+		],
+		"minSelections":0,
+		"maxSelections":1
+	},
+	{
 		"name":"armoury sw group",
 		"choiceNames":[
 			"select bolt pistol from armoury",

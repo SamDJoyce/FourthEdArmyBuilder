@@ -55,6 +55,26 @@
 	  	"points":0
 	},
 	{
+	  	"name":"crozius arcanum",
+	  	"type":"ONE HANDED",
+	  	"points":0
+	},
+	{
+	  	"name":"force weapon",
+	  	"type":"ONE HANDED",
+	  	"points":0
+	},
+	{
+	  	"name":"psychic hood",
+	  	"type":"GEAR",
+	  	"points":0
+	},
+	{
+	  	"name":"rosarius",
+	  	"type":"GEAR",
+	  	"points":0
+	},
+	{
 	  	"name":"scout armor",
 	  	"type":"GEAR",
 	  	"points":0
@@ -404,5 +424,65 @@
 	  	"name":"smoke launchers armoury",
 	  	"type":"VEHICLE_UPGRADE",
 	  	"points":3
+	},
+	{
+	  	"name":"upgrade to epistolary",
+	  	"type":"PSYCHIC",
+	  	"points":15
+	},
+	{
+	  	"name":"storm of the emperors wrath",
+	  	"type":"PSYCHIC",
+	  	"points":0
+	},
+	{
+	  	"name":"fury of the ancients",
+	  	"type":"PSYCHIC",
+	  	"points":3
+	},
+	{
+	  	"name":"fear of the darkness",
+	  	"type":"PSYCHIC",
+	  	"points":5
+	},
+	{
+	  	"name":"might of heroes",
+	  	"type":"PSYCHIC",
+	  	"points":5
+	},
+	{
+	  	"name":"veil of time",
+	  	"type":"PSYCHIC",
+	  	"points":10
+	},
+	{
+	  	"name":"vortex of doom",
+	  	"type":"PSYCHIC",
+	  	"points":10
+	},
+	{
+	  	"name":"fury of the ancients epistolary",
+	  	"type":"PSYCHIC",
+	  	"points":9
+	},
+	{
+	  	"name":"fear of the darkness epistolary",
+	  	"type":"PSYCHIC",
+	  	"points":15
+	},
+	{
+	  	"name":"might of heroes epistolary",
+	  	"type":"PSYCHIC",
+	  	"points":15
+	},
+	{
+	  	"name":"veil of time epistolary",
+	  	"type":"PSYCHIC",
+	  	"points":30
+	},
+	{
+	  	"name":"vortex of doom epistolary",
+	  	"type":"PSYCHIC",
+	  	"points":30
 	}
 ]

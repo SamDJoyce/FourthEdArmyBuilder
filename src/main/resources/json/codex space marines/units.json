@@ -1,5 +1,55 @@
 [
 	{
+		"name":"captain",
+		"minSize":"1",
+		"maxSize":"1",
+		"role":"HQ",
+		"modelNames":[
+			"captain"
+		],
+		"optionGroupNames":[
+		]
+	},
+	{
+		"name":"chaplain",
+		"minSize":"1",
+		"maxSize":"1",
+		"role":"HQ",
+		"modelNames":[
+			"chaplain"
+		],
+		"optionGroupNames":[
+		]
+	},
+	{
+		"name":"librarian",
+		"minSize":"1",
+		"maxSize":"1",
+		"role":"HQ",
+		"modelNames":[
+			"librarian"
+		],
+		"optionGroupNames":[
+		]
+	},
+	{
+		"name":"terminator squad",
+		"minSize":"5",
+		"maxSize":"10",
+		"role":"ELITES",
+		"modelNames":[
+			"terminator sgt",
+			"terminator",
+			"terminator",
+			"terminator",
+			"terminator"
+		],
+		"optionGroupNames":[
+			"add terminator group",
+			"veteran skills group"
+		]
+	},
+	{
 		"name":"tactical squad",
 		"minSize":"5",
 		"maxSize":"10",
@@ -31,23 +81,6 @@
 		"optionGroupNames":[
 			"grenades group",
 			"add scout group"
-		]
-	},
-	{
-		"name":"terminator squad",
-		"minSize":"5",
-		"maxSize":"10",
-		"role":"ELITES",
-		"modelNames":[
-			"terminator sgt",
-			"terminator",
-			"terminator",
-			"terminator",
-			"terminator"
-		],
-		"optionGroupNames":[
-			"add terminator group",
-			"veteran skills group"
 		]
 	}
 ]

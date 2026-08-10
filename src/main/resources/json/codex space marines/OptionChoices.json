@@ -699,5 +699,175 @@
 			"add crux terminatus",
 			"increase attacks by one"
 		]
+	},
+	{
+		"name":"select upgrade to master",
+		"points":15,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"change to master",
+			"increase wounds by one",
+			"increase ld by one"
+		]
+	},
+	{
+		"name":"select upgrade to master of sanctity",
+		"points":15,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"change to master of sanctity",
+			"increase wounds by one",
+			"increase ld by one"
+		]
+	},
+	{
+		"name":"select upgrade to epistolary",
+		"points":15,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"change to epistolary",
+			"add upgrade to epistolary",
+			"increase wounds by one",
+			"increase ld by one"
+		]
+	},
+	{
+		"name":"select replace power with fury of the ancients",
+		"points":3,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"replace power with fury of the ancients"
+		]
+	},
+	{
+		"name":"select replace power with fear of the darkness",
+		"points":5,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"replace power with fear of the darkness"
+		]
+	},
+	{
+		"name":"select replace power with might of heroes",
+		"points":5,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"replace power with might of heroes"
+		]
+	},
+	{
+		"name":"select replace power with veil of time",
+		"points":10,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"replace power with veil of time"
+		]
+	},
+	{
+		"name":"select replace power with vortex of doom",
+		"points":10,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"replace power with vortex of doom"
+		]
+	},
+	{
+		"name":"select replace power with fury of the ancients epistolary",
+		"points":3,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"replace power with fury of the ancients epistolary"
+		]
+	},
+	{
+		"name":"select replace power with fear of the darkness epistolary",
+		"points":5,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"replace power with fear of the darkness epistolary"
+		]
+	},
+	{
+		"name":"select replace power with might of heroes epistolary",
+		"points":5,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"replace power with might of heroes epistolary"
+		]
+	},
+	{
+		"name":"select replace power with veil of time epistolary",
+		"points":10,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"replace power with veil of time epistolary"
+		]
+	},
+	{
+		"name":"select replace power with vortex of doom epistolary",
+		"points":10,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"replace power with vortex of doom epistolary"
+		]
+	},
+	
+	{
+		"name":"select add fury of the ancients epistolary",
+		"points":9,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"add fury of the ancients epistolary"
+		]
+	},
+	{
+		"name":"select add fear of the darkness epistolary",
+		"points":15,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"add fear of the darkness epistolary"
+		]
+	},
+	{
+		"name":"select add might of heroes epistolary",
+		"points":15,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"add might of heroes epistolary"
+		]
+	},
+	{
+		"name":"select add veil of time epistolary",
+		"points":30,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"add veil of time epistolary"
+		]
+	},
+	{
+		"name":"select add vortex of doom epistolary",
+		"points":30,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"add vortex of doom epistolary"
+		]
 	}
 ]

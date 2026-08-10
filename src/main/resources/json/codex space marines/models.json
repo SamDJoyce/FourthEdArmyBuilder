@@ -1,5 +1,96 @@
 [
 	{
+		"name":"captain",
+		"basePoints":60,
+		"statlineName":"character",
+		"typeNames":[
+			"INFANTRY",
+			"CHARACTER"
+		],
+		"optionGroupNames":[
+			"armoury mw group",
+			"upgrade to master group"
+			],
+		"wargearNames":[
+			"power armour"
+		]
+	},
+	{
+		"name":"chaplain",
+		"basePoints":85,
+		"statlineName":"character",
+		"typeNames":[
+			"INFANTRY",
+			"CHARACTER"
+		],
+		"optionGroupNames":[
+			"armoury mw group",
+			"upgrade to master of sanctity group"
+			],
+		"wargearNames":[
+			"power armour",
+			"crozius arcanum",
+			"rosarius"
+		]
+	},
+	{
+		"name":"librarian",
+		"basePoints":100,
+		"statlineName":"character",
+		"typeNames":[
+			"INFANTRY",
+			"CHARACTER"
+		],
+		"optionGroupNames":[
+			"armoury mw group",
+			"upgrade to epistolary group",
+			"replace psychic power group",
+			"add psychic power group"
+			],
+		"wargearNames":[
+			"power armour",
+			"psychic hood",
+			"force weapon"
+		]
+	},
+	{
+		"name":"terminator",
+		"basePoints":40,
+		"statlineName":"terminator",
+		"typeNames":[
+			"INFANTRY"
+		],
+		"optionGroupNames":[
+			"terminator heavy weapons group",
+			"terminator chainfist group"
+			],
+		"wargearNames":[
+			"terminator armour",
+			"crux terminatus",
+			"storm bolter",
+			"power fist"
+		]
+	},
+	{
+		"name":"terminator sgt",
+		"basePoints":40,
+		"statlineName":"terminator",
+		"typeNames":[
+			"INFANTRY",
+			"CHARACTER"
+		],
+		"optionGroupNames":[
+			"armoury sw group",
+			"terminator chainfist group"
+		],
+		"wargearNames":[
+			"terminator armour",
+			"crux terminatus",
+			"storm bolter",
+			"power weapon"
+		]
+	},
+	{
 		"name":"tactical marine",
 		"basePoints":15,
 		"statlineName":"tactical marine",
@@ -65,43 +156,6 @@
 			"scout armor",
 			"bolt pistol",
 			"close combat weapon"
-		]
-	},
-	{
-		"name":"terminator",
-		"basePoints":40,
-		"statlineName":"terminator",
-		"typeNames":[
-			"INFANTRY"
-		],
-		"optionGroupNames":[
-			"terminator heavy weapons group",
-			"terminator chainfist group"
-			],
-		"wargearNames":[
-			"terminator armour",
-			"crux terminatus",
-			"storm bolter",
-			"power fist"
-		]
-	},
-	{
-		"name":"terminator sgt",
-		"basePoints":40,
-		"statlineName":"terminator",
-		"typeNames":[
-			"INFANTRY",
-			"CHARACTER"
-		],
-		"optionGroupNames":[
-			"armoury sw group",
-			"terminator chainfist group"
-		],
-		"wargearNames":[
-			"terminator armour",
-			"crux terminatus",
-			"storm bolter",
-			"power weapon"
 		]
 	}
 ]

@@ -91,6 +91,96 @@
 		"add":"assault cannon"
 	},
 	{
+		"type":"replace_wargear",
+		"name":"replace power with fury of the ancients",
+		"remove":"storm of the emperor's wrath",
+		"add":"fury of the ancients"
+	},
+	{
+		"type":"replace_wargear",
+		"name":"replace power with fear of the darkness",
+		"remove":"storm of the emperor's wrath",
+		"add":"fear of the darkness"
+	},
+	{
+		"type":"replace_wargear",
+		"name":"replace power with might of heroes",
+		"remove":"storm of the emperor's wrath",
+		"add":"might of heroes"
+	},
+	{
+		"type":"replace_wargear",
+		"name":"replace power with veil of time",
+		"remove":"storm of the emperor's wrath",
+		"add":"veil of time"
+	},
+	{
+		"type":"replace_wargear",
+		"name":"replace power with vortex of doom",
+		"remove":"storm of the emperor's wrath",
+		"add":"vortex of doom"
+	},
+	{
+		"type":"replace_wargear",
+		"name":"replace power with fury of the ancients epistolary",
+		"remove":"storm of the emperor's wrath",
+		"add":"fury of the ancients epistolary"
+	},
+	{
+		"type":"replace_wargear",
+		"name":"replace power with fear of the darkness epistolary",
+		"remove":"storm of the emperor's wrath",
+		"add":"fear of the darkness"
+	},
+	{
+		"type":"replace_wargear",
+		"name":"replace power with might of heroes epistolary",
+		"remove":"storm of the emperor's wrath",
+		"add":"might of heroes epistolary"
+	},
+	{
+		"type":"replace_wargear",
+		"name":"replace power with veil of time epistolary",
+		"remove":"storm of the emperor's wrath",
+		"add":"veil of time epistolary"
+	},
+	{
+		"type":"replace_wargear",
+		"name":"replace power with vortex of doom epistolary",
+		"remove":"storm of the emperor's wrath",
+		"add":"vortex of doom epistolary"
+	},
+	
+	
+	
+	{
+		"type":"add_wargear",
+		"name":"add fury of the ancients epistolary",
+		"gearName":"fury of the ancients epistolary"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add fear of the darkness epistolary",
+		"gearName":"fear of the darkness epistolary"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add might of heroes epistolary",
+		"gearName":"might of heroes epistolary"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add veil of time epistolary",
+		"gearName":"veil of time epistolary"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add vortex of doom epistolary",
+		"gearName":"vortex of doom epistolary"
+	},
+	
+	
+	{
 		"type":"add_wargear",
 		"name":"add close combat weapon",
 		"gearName":"close combat weapon"
@@ -99,6 +189,11 @@
 		"type":"add_wargear",
 		"name":"add tactical squad sergeant veterancy",
 		"gearName":"tactical squad sergeant veterancy"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add upgrade to epistolary",
+		"gearName":"upgrade to epistolary"
 	},
 	{
 		"type":"add_wargear",
@@ -335,9 +430,30 @@
 	},
 	{
 		"type":"modify_stat",
+		"name":"increase wounds by one",
+		"stat":"w",
+		"modifier": 1
+	},
+	{
+		"type":"modify_stat",
 		"name":"improve save by one",
 		"stat":"sv",
 		"modifier": -1
+	},
+	{
+		"type":"change_model_name",
+		"effectName":"change to master",
+		"newName":"Master"
+	},
+	{
+		"type":"change_model_name",
+		"effectName":"change to master of sanctity",
+		"newName":"Master of Sanctity"
+	},
+	{
+		"type":"change_model_name",
+		"effectName":"change to epistolary",
+		"newName":"Epistolary"
 	},
 	{
 		"type":"change_model_name",
