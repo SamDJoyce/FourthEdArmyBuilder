@@ -97,6 +97,16 @@
 	},
 	{
 		"type":"add_wargear",
+		"name":"add tactical squad sergeant veterancy",
+		"gearName":"tactical squad sergeant veterancy"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add scout sergeant veterancy",
+		"gearName":"scout sergeant veterancy"
+	},
+	{
+		"type":"add_wargear",
 		"name":"add crux terminatus",
 		"gearName":"crux terminatus"
 	},

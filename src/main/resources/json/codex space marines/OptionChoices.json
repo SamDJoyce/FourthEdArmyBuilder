@@ -123,12 +123,13 @@
 		]
 	},
 	{
-		"name":"select crux terminatus",
+		"name":"select tactical squad sergeant veterancy",
 		"points":15,
 		"requirementNames":[
 			"characters only"
 		],
 		"effectNames":[
+			"add tactical squad sergeant veterancy",
 			"add crux terminatus",
 		 	"increase ld by one",
 	 	 	"increase attacks by one",
@@ -136,12 +137,13 @@
 		]
 	},
 	{
-		"name":"select scout crux terminatus",
+		"name":"select scout sergeant veterancy",
 		"points":13,
 		"requirementNames":[
 			"characters only"
 		],
 		"effectNames":[
+			"add scout sergeant veterancy",
 			"add crux terminatus",
 		 	"increase ld by one",
 	 	 	"increase attacks by one",

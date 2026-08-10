@@ -52,9 +52,9 @@
 		"maxSelections":1
 	},
 	{
-		"name":"crux terminatus group",
+		"name":"tactical squad sergeant veterancy group",
 		"choiceNames":[
-			"select crux terminatus"
+			"select tactical squad sergeant veterancy"
 		],
 		"requirementNames":[
 			"characters_only"
@@ -63,9 +63,9 @@
 		"maxSelections":1
 	},
 	{
-		"name":"veteran scout sgt group",
+		"name":"scout sergeant veterancy group",
 		"choiceNames":[
-			"select scout crux terminatus"
+			"select scout sergeant veterancy"
 		],
 		"requirementNames":[
 			"characters_only"

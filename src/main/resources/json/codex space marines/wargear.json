@@ -108,7 +108,17 @@
 	{
 	  	"name":"crux terminatus",
 	  	"type":"GEAR",
+	  	"points":0
+	},
+	{
+	  	"name":"tactical squad sergeant veterancy",
+	  	"type":"GEAR",
 	  	"points":15
+	},
+	{
+	  	"name":"scout sergeant veterancy",
+	  	"type":"GEAR",
+	  	"points":13
 	},
 	{
 	  	"name":"heavy bolter",

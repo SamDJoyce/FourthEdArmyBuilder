@@ -24,7 +24,7 @@
 		],
 		"optionGroupNames":[
 			"sergeant weapons group tactical squad",
-			"crux terminatus group",
+			"tactical squad sergeant veterancy group",
 			"armoury sw group"],
 		"wargearNames":[
 			"power armor",
@@ -58,7 +58,7 @@
 		],
 		"optionGroupNames":[
 			"scout weapons group",
-			"veteran scout sgt group",
+			"scout sergeant veterancy group",
 			"armoury sw group"
 			],
 		"wargearNames":[
@@ -80,6 +80,7 @@
 			],
 		"wargearNames":[
 			"terminator armour",
+			"crux terminatus",
 			"storm bolter",
 			"power fist"
 		]
@@ -95,9 +96,10 @@
 		"optionGroupNames":[
 			"armoury sw group",
 			"terminator chainfist group"
-			],
+		],
 		"wargearNames":[
 			"terminator armour",
+			"crux terminatus",
 			"storm bolter",
 			"power weapon"
 		]
