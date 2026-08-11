@@ -29,6 +29,26 @@
 		"requiredGear":"storm bolter"
 	},
 	{
+		"type":"must_start_with_gear",
+		"name":"must start with bolter",
+		"requiredGear":"bolter"
+	},
+	{
+		"type":"must_start_with_gear",
+		"name":"must start with bolt pistol",
+		"requiredGear":"bolt pistol"
+	},
+	{
+		"type":"must_start_with_gear",
+		"name":"must start with storm bolter",
+		"requiredGear":"storm bolter"
+	},
+	{
+		"type":"must_start_with_gear",
+		"name":"must start with power fist",
+		"requiredGear":"power fist"
+	},
+	{
 		"type":"must_have_gear",
 		"name":"must be epistolary",
 		"requiredGear":"upgrade to epistolary"
@@ -71,6 +91,10 @@
 			"select flamer",
 			"select plasma"
 		 ]
+	},
+	{
+		"type":"armoury_weapons_limit",
+		"name":"space marine armoury weapons limit"
 	},
 	{
 		"type":"armoury_points_limit",

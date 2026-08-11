@@ -7,7 +7,7 @@
 		 	"select flamer"
 		 ],
 		"requirementNames":[
-			"must have bolter",
+			"must start with bolter",
 			"one selection per squad"
 		],
 		"minSelections":0,
@@ -23,7 +23,7 @@
 		 	"select plasma cannon"
 		],
 		"requirementNames":[
-			"must have bolter",
+			"must start with bolter",
 			"one selection per squad"
 		],
 		"minSelections":0,
@@ -103,7 +103,7 @@
 			"select sniper rifle for scout"
 		],
 		"requirementNames":[
-			"must have bolt pistol"
+			"must start with bolt pistol"
 		],
 		"minSelections":0,
 		"maxSelections":1
@@ -115,7 +115,7 @@
 			"select missile launcher"
 		],
 		"requirementNames":[
-			"must have bolt pistol",
+			"must start with bolt pistol",
 			"one selection per squad"
 		],
 		"minSelections":0,
@@ -151,7 +151,7 @@
 			"select cyclone missile launcher"
 		],
 		"requirementNames":[
-			"must have storm bolter",
+			"must start with storm bolter",
 			"two selections per squad"
 		],
 		"minSelections":0,
@@ -163,7 +163,7 @@
 			"select chain fist"
 		],
 		"requirementNames":[
-			"must have power fist"
+			"must start with power fist"
 		],
 		"minSelections":0,
 		"maxSelections":1
@@ -272,7 +272,8 @@
 		],
 		"requirementNames":[
 			"characters only",
-			"must have crux terminatus"
+			"must have crux terminatus",
+			""
 		],
 		"minSelections":0,
 		"maxSelections":99

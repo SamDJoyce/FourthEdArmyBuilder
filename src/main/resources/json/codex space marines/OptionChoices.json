@@ -29,7 +29,7 @@
 		"name":"select plasma",
 		"points":10,
 		"requirementNames":
-		["must have bolter"],
+		["must start with bolter"],
 		"effectNames":[
 			"replace bolter with plasma",
 			"change to marine with plasma gun"
@@ -39,7 +39,7 @@
 		"name":"select melta",
 		"points":10,
 		"requirementNames":
-		["must have bolter"],
+		["must start with bolter"],
 		"effectNames":[
 			"replace bolter with melta",
 			"change to marine with melta gun"
@@ -49,7 +49,7 @@
 		"name":"select flamer",
 		"points":6,
 		"requirementNames":
-		["must have bolter"],
+		["must start with bolter"],
 		"effectNames":[
 			"replace bolter with flamer",
 			"change to marine with flamer"
@@ -59,7 +59,7 @@
 		"name":"select heavy bolter",
 		"points":5,
 		"requirementNames":[
-			"must have bolter"
+			"must start with bolter"
 		],
 		"effectNames":[
 			"replace bolter with heavy bolter",
@@ -70,7 +70,7 @@
 		"name":"select missile launcher",
 		"points":10,
 		"requirementNames":[
-			"must have bolter"
+			"must start with bolter"
 		],
 		"effectNames":[
 			"replace bolter with missile launcher",
@@ -81,7 +81,7 @@
 		"name":"select multi melta",
 		"points":10,
 		"requirementNames":[
-			"must have bolter"
+			"must start with bolter"
 		],
 		"effectNames":[
 			"replace bolter with multi melta",
@@ -92,7 +92,7 @@
 		"name":"select lascannon",
 		"points":15,
 		"requirementNames":[
-			"must have bolter"
+			"must start with bolter"
 		],
 		"effectNames":[
 			"replace bolter with lascannon",
@@ -103,7 +103,7 @@
 		"name":"select plasma cannon",
 		"points":20,
 		"requirementNames":[
-			"must have bolter"
+			"must start with bolter"
 		],
 		"effectNames":[
 			"replace bolter with plasma cannon",
@@ -114,7 +114,7 @@
 		"name":"select bolt pistol and ccw for sergeant",
 		"points":0,
 		"requirementNames":[
-			"must have bolter",
+			"must start with bolter",
 		 	"characters only"
 		],
 		"effectNames":[
@@ -172,7 +172,7 @@
 		"name":"select bolter for scout",
 		"points":0,
 		"requirementNames":[
-			"must have bolt pistol"
+			"must start with bolt pistol"
 		],
 		"effectNames":[
 			"replace bolt pistol with bolter",
@@ -183,7 +183,7 @@
 		"name":"select shotgun for scout",
 		"points":0,
 		"requirementNames":[
-			"must have bolt pistol"
+			"must start with bolt pistol"
 		],
 		"effectNames":[
 			"replace bolt pistol with shotgun",
@@ -194,7 +194,7 @@
 		"name":"select sniper for scout",
 		"points":0,
 		"requirementNames":[
-			"must have bolt pistol"
+			"must start with bolt pistol"
 		],
 		"effectNames":[
 			"replace bolt pistol with sniper",
@@ -223,7 +223,7 @@
 		"name":"select assault cannon",
 		"points":20,
 		"requirementNames":[
-			"must have storm bolter"
+			"must start with storm bolter"
 		],
 		"effectNames":[
 			"replace storm bolter with assault cannon"
@@ -233,7 +233,7 @@
 		"name":"select heavy flamer",
 		"points":10,
 		"requirementNames":[
-			"must have storm bolter"
+			"must start with storm bolter"
 		],
 		"effectNames":[
 			"replace storm bolter with heavy flamer"
@@ -243,7 +243,8 @@
 		"name":"select cyclone missile launcher",
 		"points":25,
 		"requirementNames":[
-			"must have storm bolter"
+			"must have storm bolter",
+			"must start with storm bolter"
 		],
 		"effectNames":[
 			"add cyclone missile launcher"
@@ -265,7 +266,8 @@
 		"requirementNames":[
 			"characters only",
 			"cannot have terminator armour",
-			"space marine armoury points limit"
+			"space marine armoury points limit",
+			"space marine armoury weapons limit"
 		],
 		"effectNames":[
 			"add bolt pistol from armoury"
@@ -277,7 +279,8 @@
 		"requirementNames":[
 			"characters only",
 		 	"must have terminator armour",
-			"space marine armoury points limit"
+			"space marine armoury points limit",
+			"space marine armoury weapons limit"
 		],
 		"effectNames":[
 			"add chain fist from armoury"
@@ -289,7 +292,8 @@
 		"requirementNames":[
 			"characters only",
 			"cannot have terminator armour",
-			"space marine armoury points limit"
+			"space marine armoury points limit",
+			"space marine armoury weapons limit"
 		],
 		"effectNames":[
 			"add ccw from armoury"
@@ -300,7 +304,8 @@
 		"points":25,
 		"requirementNames":[
 			"characters only",
-			"space marine armoury points limit"
+			"space marine armoury points limit",
+			"space marine armoury weapons limit"
 		],
 		"effectNames":[
 			"add single lightning claw mw from armoury"
@@ -311,7 +316,8 @@
 		"points":15,
 		"requirementNames":[
 			"characters only",
-			"space marine armoury points limit"
+			"space marine armoury points limit",
+			"space marine armoury weapons limit"
 		],
 		"effectNames":[
 			"add single lightning claw sw from armoury"
@@ -322,7 +328,8 @@
 		"points":30,
 		"requirementNames":[
 			"characters only",
-			"space marine armoury points limit"
+			"space marine armoury points limit",
+			"space marine armoury weapons limit"
 		],
 		"effectNames":[
 			"add pair lightning claws from armoury"
@@ -334,7 +341,8 @@
 		"requirementNames":[
 			"characters only",
 			"cannot have terminator armour",
-			"space marine armoury points limit"
+			"space marine armoury points limit",
+			"space marine armoury weapons limit"
 		],
 		"effectNames":[
 			"add plasma pistol mw from armoury"
@@ -346,7 +354,8 @@
 		"requirementNames":[
 			"characters only",
 			"cannot have terminator armour",
-			"space marine armoury points limit"
+			"space marine armoury points limit",
+			"space marine armoury weapons limit"
 		],
 		"effectNames":[
 			"add plasma pistol sw from armoury"
@@ -357,7 +366,8 @@
 		"points":15,
 		"requirementNames":[
 			"characters only",
-			"space marine armoury points limit"
+			"space marine armoury points limit",
+			"space marine armoury weapons limit"
 		],
 		"effectNames":[
 			"add power weapon mw from armoury"
@@ -379,7 +389,8 @@
 		"points":25,
 		"requirementNames":[
 			"characters only",
-			"space marine armoury points limit"
+			"space marine armoury points limit",
+			"space marine armoury weapons limit"
 		],
 		"effectNames":[
 			"add power fist mw from armoury"
@@ -390,7 +401,8 @@
 		"points":15,
 		"requirementNames":[
 			"characters only",
-			"space marine armoury points limit"
+			"space marine armoury points limit",
+			"space marine armoury weapons limit"
 		],
 		"effectNames":[
 			"add power fist sw from armoury"
@@ -401,7 +413,8 @@
 		"points":10,
 		"requirementNames":[
 			"characters only",
-			"space marine armoury points limit"
+			"space marine armoury points limit",
+			"space marine armoury weapons limit"
 		],
 		"effectNames":[
 			"add storm shield from armoury"
@@ -412,7 +425,8 @@
 		"points":30,
 		"requirementNames":[
 			"characters only",
-			"space marine armoury points limit"
+			"space marine armoury points limit",
+			"space marine armoury weapons limit"
 		],
 		"effectNames":[
 			"add thunder hammer from armoury"
@@ -424,7 +438,8 @@
 		"requirementNames":[
 			"characters only",
 			"cannot have terminator armour",
-			"space marine armoury points limit"
+			"space marine armoury points limit",
+			"space marine armoury weapons limit"
 		],
 		"effectNames":[
 			"add bolter from armoury"
@@ -435,7 +450,8 @@
 		"points":15,
 		"requirementNames":[
 			"characters only",
-			"space marine armoury points limit"
+			"space marine armoury points limit",
+			"space marine armoury weapons limit"
 		],
 		"effectNames":[
 			"add combi melta mw from armoury"
@@ -446,7 +462,8 @@
 		"points":10,
 		"requirementNames":[
 			"characters only",
-			"space marine armoury points limit"
+			"space marine armoury points limit",
+			"space marine armoury weapons limit"
 		],
 		"effectNames":[
 			"add combi melta sw from armoury"
@@ -457,7 +474,8 @@
 		"points":15,
 		"requirementNames":[
 			"characters only",
-			"space marine armoury points limit"
+			"space marine armoury points limit",
+			"space marine armoury weapons limit"
 		],
 		"effectNames":[
 			"add combi plasma mw from armoury"
@@ -468,7 +486,8 @@
 		"points":10,
 		"requirementNames":[
 			"characters only",
-			"space marine armoury points limit"
+			"space marine armoury points limit",
+			"space marine armoury weapons limit"
 		],
 		"effectNames":[
 			"add combi plasma sw from armoury"
@@ -479,7 +498,8 @@
 		"points":15,
 		"requirementNames":[
 			"characters only",
-			"space marine armoury points limit"
+			"space marine armoury points limit",
+			"space marine armoury weapons limit"
 		],
 		"effectNames":[
 			"add combi flamer mw from armoury"
@@ -490,7 +510,8 @@
 		"points":10,
 		"requirementNames":[
 			"characters only",
-			"space marine armoury points limit"
+			"space marine armoury points limit",
+			"space marine armoury weapons limit"
 		],
 		"effectNames":[
 			"add combi flamer sw from armoury"
@@ -501,7 +522,8 @@
 		"points":5,
 		"requirementNames":[
 			"characters only",
-			"space marine armoury points limit"
+			"space marine armoury points limit",
+			"space marine armoury weapons limit"
 		],
 		"effectNames":[
 			"add storm bolter from armoury"
@@ -513,6 +535,7 @@
 		"requirementNames":[
 			"characters only",
 			"space marine armoury points limit",
+			"space marine armoury weapons limit",
 			"must have power armour",
 			"cannot have terminator armour"
 		],
@@ -526,7 +549,8 @@
 		"points":2,
 		"requirementNames":[
 			"characters only",
-			"space marine armoury points limit"
+			"space marine armoury points limit",
+			"space marine armoury weapons limit"
 		],
 		"effectNames":[
 			"add auspex from armoury"
@@ -537,7 +561,8 @@
 		"points":5,
 		"requirementNames":[
 			"characters only",
-			"space marine armoury points limit"
+			"space marine armoury points limit",
+			"space marine armoury weapons limit"
 		],
 		"effectNames":[
 			"add bionics from armoury"
@@ -549,7 +574,8 @@
 		"requirementNames":[
 			"characters only",
 			"cannot have terminator armour",
-			"space marine armoury points limit"
+			"space marine armoury points limit",
+			"space marine armoury weapons limit"
 		],
 		"effectNames":[
 			"add combat shield mw from armoury"
@@ -561,7 +587,8 @@
 		"requirementNames":[
 			"characters only",
 			"cannot have terminator armour",
-			"space marine armoury points limit"
+			"space marine armoury points limit",
+			"space marine armoury weapons limit"
 		],
 		"effectNames":[
 			"add combat shield sw from armoury"
@@ -573,7 +600,8 @@
 		"requirementNames":[
 			"characters only",
 			"cannot have terminator armour",
-			"space marine armoury points limit"
+			"space marine armoury points limit",
+			"space marine armoury weapons limit"
 		],
 		"effectNames":[
 			"add familiar from armoury"
@@ -585,7 +613,8 @@
 		"requirementNames":[
 			"characters only",
 			"cannot have terminator armour",
-			"space marine armoury points limit"
+			"space marine armoury points limit",
+			"space marine armoury weapons limit"
 		],
 		"effectNames":[
 			"add frag grenades from armoury"
@@ -597,7 +626,8 @@
 		"requirementNames":[
 			"characters only",
 			"cannot have terminator armour",
-			"space marine armoury points limit"
+			"space marine armoury points limit",
+			"space marine armoury weapons limit"
 		],
 		"effectNames":[
 			"add jump pack from armoury"
@@ -609,7 +639,8 @@
 		"requirementNames":[
 			"characters only",
 			"cannot have terminator armour",
-			"space marine armoury points limit"
+			"space marine armoury points limit",
+			"space marine armoury weapons limit"
 		],
 		"effectNames":[
 			"add krak grenades from armoury"
@@ -621,7 +652,8 @@
 		"requirementNames":[
 			"characters only",
 			"cannot have terminator armour",
-			"space marine armoury points limit"
+			"space marine armoury points limit",
+			"space marine armoury weapons limit"
 		],
 		"effectNames":[
 			"add melta bombs from armoury"
@@ -635,7 +667,8 @@
 		],
 		"effectNames":[
 			"add master crafted weapon from armoury",
-			"space marine armoury points limit"
+			"space marine armoury points limit",
+			"space marine armoury weapons limit"
 		]
 	},
 	{
@@ -643,7 +676,8 @@
 		"points":5,
 		"requirementNames":[
 			"characters only",
-			"space marine armoury points limit"
+			"space marine armoury points limit",
+			"space marine armoury weapons limit"
 		],
 		"effectNames":[
 			"add purity seals from armoury"
@@ -655,7 +689,8 @@
 		"requirementNames":[
 			"characters only",
 			"cannot have terminator armour",
-			"space marine armoury points limit"
+			"space marine armoury points limit",
+			"space marine armoury weapons limit"
 		],
 		"effectNames":[
 			"add space marine bike from armoury"
@@ -666,7 +701,8 @@
 		"points":5,
 		"requirementNames":[
 			"characters only",
-			"space marine armoury points limit"
+			"space marine armoury points limit",
+			"space marine armoury weapons limit"
 		],
 		"effectNames":[
 			"add teleport homer from armoury"
@@ -678,7 +714,8 @@
 		"requirementNames":[
 			"characters only",
 			"cannot have terminator armour",
-			"space marine armoury points limit"
+			"space marine armoury points limit",
+			"space marine armoury weapons limit"
 		],
 		"effectNames":[
 			"add terminator armour from armoury",
@@ -692,7 +729,8 @@
 		"requirementNames":[
 			"characters only",
 			"cannot have terminator armour",
-			"space marine armoury points limit"
+			"space marine armoury points limit",
+			"space marine armoury weapons limit"
 		],
 		"effectNames":[
 			"add terminator honours from armoury",
