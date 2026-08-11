@@ -81,6 +81,16 @@ public class ReqFactory {
 	            key -> new MustHaveGearReq(name, requiredGear));
 	}
 	
+	public static Requirement mustStartWithGear(String name) {
+		return registry.computeIfAbsent(name,
+	            key -> new MustStartWithGearReq(name));
+	}
+	
+	public static Requirement mustStartWithGear(String name, WargearDescription requiredGear) {
+		return registry.computeIfAbsent(name,
+	            key -> new MustStartWithGearReq(name));
+	}
+	
 	public static Requirement cannotHaveGear(String name) {
 		return registry.computeIfAbsent(name,
 	            key -> new CannotHaveGearReq(name));

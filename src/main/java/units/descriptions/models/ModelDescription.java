@@ -73,7 +73,7 @@ public class ModelDescription {
 		return Collections.unmodifiableSet(defaultGear);
 	}
 	
-	public boolean hasGear(WargearDescription gear) {
+	public boolean startsWithGear(WargearDescription gear) {
 		return defaultGear.contains(gear);
 	}
 	
