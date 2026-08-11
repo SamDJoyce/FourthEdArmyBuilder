@@ -1,5 +1,6 @@
 package units.options.requirements;
 
+import roster.RosterResult;
 import units.options.SelectionContext;
 
 public class ModelCountReq implements Requirement {
@@ -24,7 +25,7 @@ public class ModelCountReq implements Requirement {
 	}
 
 	@Override
-	public RequirementResult validate(SelectionContext context) {
+	public RequirementResult isMet(SelectionContext context) {
 		if (!context.hasUnit()) {
 			message = "ModelCountRequirement needs an UnitInstance";
 			return RequirementResult.failure(message);
@@ -49,6 +50,17 @@ public class ModelCountReq implements Requirement {
 	        return RequirementResult.failure(message);
 		}
 		
+	}
+	@Override
+	public RosterResult validate(SelectionContext context) {
+		RequirementResult req = isMet(context);
+		RosterResult result = new RosterResult();
+		
+		if (!req.isValid()) {
+			result.addIssue(req.getMessage());
+		}
+		
+		return result;
 	}
 
 }

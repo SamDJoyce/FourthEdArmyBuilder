@@ -3,7 +3,6 @@ package units.instances;
 import roster.RosterResult;
 import units.options.SelectedOption;
 import units.options.SelectionContext;
-import units.options.requirements.RequirementResult;
 
 public class ModelValidator {
 	private ModelValidator() {};
@@ -12,7 +11,6 @@ public class ModelValidator {
 		RosterResult result = new RosterResult();
 		
 		validateChoices(model, result);
-		//validateGear(model, result);
 		
 		return result;
 	}
@@ -22,10 +20,11 @@ public class ModelValidator {
 			RosterResult result) {
 		
 		for (SelectedOption o : model.getSelectedOptions()) {
-			SelectionContext context = SelectionContext.forModel(model, o.getChoice());
-			RequirementResult reqResult = o.validate(context);
-			if (!reqResult.isValid()) {
-				result.addIssue(reqResult.getMessage());
+			SelectionContext context = SelectionContext.forModel(model,o.getChoice());
+			
+			RosterResult r = o.getChoice().validate(context);
+			if (r.hasIssues()) {
+				result.addIssues(r.getIssues());
 			}
 		}
 	}

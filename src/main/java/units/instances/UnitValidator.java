@@ -35,9 +35,10 @@ public class UnitValidator {
 		
 		for (SelectedOption o : unit.getSelectedOptions()) {
 			SelectionContext context = SelectionContext.forUnit(unit,o.getChoice());
-			RequirementResult reqResult = o.validate(context);
-			if (!reqResult.isValid()) {
-				result.addIssue(reqResult.getMessage());
+			
+			RosterResult r = o.getChoice().validate(context);
+			if (r.hasIssues()) {
+				result.addIssues(r.getIssues());
 			}
 		}
 	}

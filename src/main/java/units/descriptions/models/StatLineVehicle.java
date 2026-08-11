@@ -85,7 +85,7 @@ public class StatLineVehicle implements StatLine {
 		this.rear = rear;
 	}
 	
-	public String statsToString() {
+	public String toString() {
 		return  "BS = " + this.bs + " \n " +
 				"Front = " + this.front + " \n " +
 				"Side = " + this.side + " \n " +

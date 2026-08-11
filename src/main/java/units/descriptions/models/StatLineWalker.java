@@ -130,7 +130,8 @@ public class StatLineWalker implements StatLine {
 
 	}
 	
-	public String statsToString() {
+	@Override
+	public String toString() {
 		return 	"WS = " + this.ws + " \n " +
 				"BS = " + this.bs + " \n " +
 				"S = " + this.s + " \n " +

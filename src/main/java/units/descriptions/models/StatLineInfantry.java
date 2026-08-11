@@ -50,7 +50,8 @@ public class StatLineInfantry implements StatLine {
 		return type;
 	}
 	
-	public String statsToString() {
+	@Override
+	public String toString() {
 		return  "WS = " + this.ws + " \n" +
 				"BS = " + this.bs + " \n" +
 				"S = " + this.s + " \n" +
@@ -60,11 +61,6 @@ public class StatLineInfantry implements StatLine {
 				"A = " + this.a + " \n" +
 				"LD = " + this.ld + " \n" +
 				"SV = " + this.sv + "+";
-	}
-	
-	@Override
-	public String toString() {
-		return statsToString();
 	}
 	
 	public void modify(String stat, int modifier) {

@@ -1,7 +1,9 @@
 package units.options.requirements;
 
+import roster.RosterResult;
 import units.descriptions.wargear.WargearDescription;
 import units.instances.ModelInstance;
+import units.options.OptionChoice;
 import units.options.SelectionContext;
 
 public class CannotHaveGearReq implements Requirement {
@@ -31,20 +33,35 @@ public class CannotHaveGearReq implements Requirement {
 	}
 
 	@Override
-	public RequirementResult validate(SelectionContext context) {
-		
-		if (!context.hasModel()) {
-			return RequirementResult.failure("Context must contain a model.");
-		}
+	public RequirementResult isMet(SelectionContext context) {
 		
 		ModelInstance model = context.getModel();
+		OptionChoice choice = context.getChoice();
+		
 		if (model.hasGear(blockingGear)) {
 			return RequirementResult.failure(String.format(
-					"This option cannot be selected while model is equipped with %s",
+					"%s cannot be selected while model is equipped with %s",
+					choice.getName(),
 					blockingGear.getName()));
 		}
 		
 		return RequirementResult.success("Valid");
+	}
+	
+	@Override
+	public RosterResult validate(SelectionContext context) {
+		RosterResult result = new RosterResult();
+		ModelInstance model = context.getModel();
+		OptionChoice choice = context.getChoice();
+		
+		if (model.hasGear(blockingGear)) {
+			result.addIssue(String.format(
+					"%s cannot be selected while model is equipped with %s",
+					choice.getName(),
+					blockingGear.getName()));
+		}
+		
+		return result;
 	}
 
 }

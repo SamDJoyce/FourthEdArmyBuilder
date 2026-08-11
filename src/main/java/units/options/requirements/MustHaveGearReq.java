@@ -1,5 +1,6 @@
 package units.options.requirements;
 
+import roster.RosterResult;
 import units.descriptions.wargear.WargearDescription;
 import units.instances.ModelInstance;
 import units.options.SelectionContext;
@@ -27,7 +28,7 @@ public class MustHaveGearReq implements Requirement {
 	}
 
 	@Override
-	public RequirementResult validate(SelectionContext context) {
+	public RequirementResult isMet(SelectionContext context) {
 		ModelInstance model = context.getModel();
 		boolean valid = model.hasGear(requiredGear);
 		String message;
@@ -36,9 +37,21 @@ public class MustHaveGearReq implements Requirement {
 			return RequirementResult.success(message);
 		}
 		message = String.format(
-				"Model lacks the required equipment: %s", 
+				"Model lacks the required wargear: %s", 
 				requiredGear.getName());
 		return RequirementResult.failure(message);
 	}
 
+	@Override
+	public RosterResult validate(SelectionContext context) {
+		RosterResult result = new RosterResult();
+		RequirementResult req = isMet(context);
+		
+		if(!req.isValid()) {
+			result.addIssue(req.getMessage());
+		}
+		
+		return result;
+	}
+	
 }

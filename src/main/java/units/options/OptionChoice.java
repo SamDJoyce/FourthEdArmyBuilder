@@ -5,8 +5,10 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+import roster.RosterResult;
 import units.options.effects.Effect;
 import units.options.requirements.Requirement;
+import units.options.requirements.RequirementResult;
 
 public class OptionChoice {
 	
@@ -74,6 +76,42 @@ public class OptionChoice {
 	
 	public String toString() {
 		return name;
+	}
+	
+	public RequirementResult checkRequirements(SelectionContext context) {
+	    for (Requirement r : requirements) {
+
+	        RequirementResult result =
+	            r.isMet(context);
+
+	        if (!result.isValid()) {
+	            return result;
+	        }
+	    }
+	    return RequirementResult.success("valid");
+	}
+	
+	public RosterResult validate(SelectionContext context) {
+		RosterResult result = new RosterResult();
+		
+		for (Requirement req : requirements) {
+			RosterResult r = req.validate(context);
+			if (r.hasIssues()) {
+				result.addIssues(r.getIssues());
+			}
+		}
+		
+		return result;
+	}
+	
+	// Apply all effects from this option
+	public SelectedOption select(SelectionContext context) {
+
+	    for (Effect effect : getEffects()) {
+	        effect.apply(context);
+	    }
+
+	    return SelectedOption.fromChoice(this);
 	}
 	
 	@Override

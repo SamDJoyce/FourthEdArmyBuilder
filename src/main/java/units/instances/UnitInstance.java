@@ -185,11 +185,11 @@ public class UnitInstance implements OptionOwner{
 	
 	@Override
 	public RequirementResult addSelection(OptionChoice choice) {
-		SelectedOption   option  = SelectedOption.fromChoice(choice);
 		SelectionContext context = SelectionContext.forUnit(this, choice);
-		RequirementResult result = option.select(context);
+		RequirementResult result = choice.checkRequirements(context);
+		
 		if (result.isValid()) {
-			selectedOptions.add(option);
+			selectedOptions.add(choice.select(context));
 		}
 		return result;
 	}

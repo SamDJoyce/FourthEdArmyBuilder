@@ -3,6 +3,7 @@ package units.options.requirements;
 import java.util.HashSet;
 import java.util.Set;
 
+import roster.RosterResult;
 import units.instances.UnitInstance;
 import units.options.OptionChoice;
 import units.options.SelectionContext;
@@ -36,7 +37,7 @@ public class MutualExclusionReq implements Requirement {
 	}
 
 	@Override
-	public RequirementResult validate(SelectionContext context) {
+	public RequirementResult isMet(SelectionContext context) {
 		if (context.hasUnit()) {
 			return RequirementResult.failure("MutualExclusionReq requires a unit instance.");
 		}
@@ -52,6 +53,16 @@ public class MutualExclusionReq implements Requirement {
 	    }
 
 	    return RequirementResult.success("Option may be selected.");
+	}
+	
+	
+	@Override
+	public RosterResult validate(SelectionContext context) {
+		RosterResult result = new RosterResult();
+		// TODO should this still exist?
+		result.addIssue("NOT IMPLEMENTED");
+		
+		return result;
 	}
 
 }

@@ -1,8 +1,11 @@
 package units.options.requirements;
 
+import roster.RosterResult;
 import units.options.SelectionContext;
 
 public interface Requirement {
 
-	RequirementResult validate(SelectionContext context);
+	RequirementResult isMet(SelectionContext context);
+	RosterResult validate(SelectionContext context);
+	
 }

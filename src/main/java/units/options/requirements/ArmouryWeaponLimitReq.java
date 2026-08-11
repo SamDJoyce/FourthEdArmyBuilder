@@ -2,6 +2,7 @@ package units.options.requirements;
 
 import java.util.Set;
 
+import roster.RosterResult;
 import units.WargearType;
 import units.instances.WargearInstance;
 import units.options.SelectionContext;
@@ -19,37 +20,66 @@ public class ArmouryWeaponLimitReq implements Requirement {
 	}
 	
 	@Override
-	public RequirementResult validate(SelectionContext context) {
+	public RequirementResult isMet(SelectionContext context) {
 		Set<WargearInstance> gear = context.getModel().getGear();
-		int oneHanded = 0;
-		int twoHanded = 0;
+		int oneHanded = getCount(gear, WargearType.ONE_HANDED);
+		int twoHanded = getCount(gear, WargearType.TWO_HANDED);
 		int weaponCount = oneHanded + twoHanded;
 		
-		for (WargearInstance g : gear) {
-			if (WargearType.ONE_HANDED.equals(g.getType())) {
-				oneHanded++;
-			}
-			if (WargearType.TWO_HANDED.equals(g.getType())) {
-				twoHanded++;
-			}
+		// May only have two weapons
+		if (weaponCount + 1 > MAX_WEAPON_COUNT) {
+			return RequirementResult.failure(String.format(
+					"%s may not select another weapon", 
+					context.getModel().getName()));
 		}
+		// May only have one two-handed weapon
+		if (twoHanded  + 1 > MAX_TWO_HANDED) {
+			return RequirementResult.failure(String.format(
+					"%s may not select another two-handed weapon", 
+					context.getModel().getName()));
+		}
+		return RequirementResult.success("May select another weapon");
+	}
+	
+	@Override
+	public RosterResult validate(SelectionContext context) {
+		RosterResult result = new RosterResult();
+		
+		Set<WargearInstance> gear = context.getModel().getGear();
+		int oneHanded = getCount(gear, WargearType.ONE_HANDED);
+		int twoHanded = getCount(gear, WargearType.TWO_HANDED);
+		int weaponCount = oneHanded + twoHanded;
+		
 		// May only have two weapons
 		if (weaponCount > MAX_WEAPON_COUNT) {
-			return RequirementResult.failure(String.format(
-					"May only select 2 weapons (currently %d)", 
+			result.addIssue(String.format(
+					"%s has selected too many weapons (%d selected)", 
+					context.getModel().getName(),
 					weaponCount));
 		}
 		// May only have one two-handed weapon
 		if (twoHanded > MAX_TWO_HANDED) {
-			return RequirementResult.failure(String.format(
-					"May only select 1 two-handed weapon (currently %d)", 
+			result.addIssue(String.format(
+					"%s may have only one two-handed weapon (%d selected)", 
+					context.getModel().getName(),
 					twoHanded));
 		}
-		return RequirementResult.success("valid");
+		
+		return result;
 	}
 
 	public String getName() {
 		return name;
+	}
+	
+	private int getCount(Set<WargearInstance> gear, WargearType type) {
+		int count = 0;
+		for (WargearInstance g : gear) {
+			if (type.equals(g.getType())) {
+				count++;
+			}
+		}
+		return count;
 	}
 
 }

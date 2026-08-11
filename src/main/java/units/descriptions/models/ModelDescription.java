@@ -73,6 +73,10 @@ public class ModelDescription {
 		return Collections.unmodifiableSet(defaultGear);
 	}
 	
+	public boolean hasGear(WargearDescription gear) {
+		return defaultGear.contains(gear);
+	}
+	
 	public void setOptions(Set<OptionGroup> options) {
 		this.options = options;
 	}

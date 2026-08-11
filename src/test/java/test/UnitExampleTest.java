@@ -293,7 +293,7 @@ public class UnitExampleTest {
 		// Print out each model and its stats
 		for (ModelInstance model : tacSquad.getModels()) {
 			System.out.println(model.getName());
-			System.out.println(model.getStats().statsToString());
+			System.out.println(model.getStats().toString());
 			// Print out wargear for each marine to really show everything is in there
 			System.out.println("Equipped with:");	
 			for (WargearInstance gear : model.getGear()) {
@@ -305,7 +305,7 @@ public class UnitExampleTest {
 	
 	public void printModelInfo(ModelInstance model) {
 		System.out.println(model.getName());
-		System.out.println(model.getStats().statsToString());
+		System.out.println(model.getStats().toString());
 		// Print out wargear for each marine to really show everything is in there
 		System.out.println("Equipped with:");	
 		for (WargearInstance gear : model.getGear()) {

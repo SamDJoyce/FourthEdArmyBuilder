@@ -1,5 +1,6 @@
 package units.options.requirements;
 
+import roster.RosterResult;
 import units.UnitType;
 import units.instances.ModelInstance;
 import units.options.SelectionContext;
@@ -27,16 +28,27 @@ public class MustHaveTypeReq implements Requirement {
 	}
 
 	@Override
-	public RequirementResult validate(SelectionContext context) {
+	public RequirementResult isMet(SelectionContext context) {
 		ModelInstance model = context.getModel();
 		boolean valid = model.isType(requiredType);
-		String message;
 		if (valid) {
-			message = "Model has the required requiredType.";
-			return RequirementResult.success(message);
+			return RequirementResult.success("Model has the required Type.");
 		}
-		message = "Model lacks the required requiredType.";
-		return RequirementResult.failure(message);
+		return RequirementResult.failure(String.format(
+				"Model lacks the required Type: %s.", 
+				requiredType.toString()));
 	}
 
+	@Override
+	public RosterResult validate(SelectionContext context) {
+		RosterResult result = new RosterResult();
+		RequirementResult req = isMet(context);
+		
+		if (!req.isValid()) {
+			result.addIssue(req.getMessage());
+		}
+		
+		return result;
+	}
+	
 }

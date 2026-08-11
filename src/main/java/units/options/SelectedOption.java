@@ -1,5 +1,6 @@
 package units.options;
 
+import roster.RosterResult;
 import units.options.effects.Effect;
 import units.options.requirements.Requirement;
 import units.options.requirements.RequirementResult;
@@ -18,18 +19,9 @@ public class SelectedOption {
 	}
 	
 	// Validate and apply all effects from this option
-	public RequirementResult select(SelectionContext context) {
+	public SelectedOption select(SelectionContext context) {
 
-		RequirementResult result = validate(context);
-		if (!result.isValid()) {
-			return result;
-		}
-
-	    for (Effect effect : choice.getEffects()) {
-	        effect.apply(context);
-	    }
-
-	    return result;
+		return choice.select(context);
 	}
     
     // Remove all effects
@@ -43,17 +35,8 @@ public class SelectedOption {
 		return choice;
 	}
 	
-	public RequirementResult validate(SelectionContext context) {
-	    for (Requirement requirement : choice.getRequirements()) {
-
-	        RequirementResult result =
-	            requirement.validate(context);
-
-	        if (!result.isValid()) {
-	            return result;
-	        }
-	    }
-	    return RequirementResult.success("valid");
+	public RosterResult validate(SelectionContext context) {
+		return choice.validate(context);
 	}
 	
 	public String toString() {

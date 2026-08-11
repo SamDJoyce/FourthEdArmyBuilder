@@ -35,6 +35,11 @@
 	},
 	{
 		"type":"cannot_have_gear",
+		"name":"must be librarian",
+		"blockingGearName":"upgrade to epistolary"
+	},
+	{
+		"type":"cannot_have_gear",
 		"name":"cannot have terminator armour from armoury",
 		"blockingGearName":"terminator armour armoury"
 	},

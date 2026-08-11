@@ -1,5 +1,6 @@
 package units.options.requirements;
 
+import roster.RosterResult;
 import units.instances.ModelInstance;
 import units.instances.UnitInstance;
 import units.options.OptionGroup;
@@ -42,10 +43,35 @@ public class MaxSelectionReq implements Requirement {
 
 
 	@Override
-	public RequirementResult validate(SelectionContext context) {
-		UnitInstance unit = context.getUnit();
-		OptionGroup group = context.getChoice().getParentGroup();
+	public RequirementResult isMet(SelectionContext context) {
+		int count = getSelectionCount(context);
 		
+		if (count + 1 > maxSelection) {
+			return RequirementResult.failure(String.format(
+					"To many selections from %s. Maximum: %d",
+					context.getChoice().getParentGroup().getName(),
+					maxSelection));
+		}
+		return RequirementResult.success("Valid");
+	}
+	
+	@Override
+	public RosterResult validate(SelectionContext context) {
+		RosterResult result = new RosterResult();
+		int count = getSelectionCount(context);
+		
+		if (count > maxSelection) {
+			result.addIssue((String.format(
+					"To many selections from %s. Maximum: %d",
+					context.getChoice().getParentGroup().getName(),
+					maxSelection)));
+		}
+		return result;
+	}
+	
+	public int getSelectionCount(SelectionContext context){
+		UnitInstance unit  = context.getUnit();
+		OptionGroup  group = context.getChoice().getParentGroup();
 		int count = 0;
 		for (ModelInstance m : unit.getModels()) {
 			for (SelectedOption s : m.getSelectedOptions()) {
@@ -54,13 +80,7 @@ public class MaxSelectionReq implements Requirement {
 				}
 			}
 		}
-		
-		boolean valid = count <= maxSelection;
-		if (valid) {
-			return RequirementResult.success("Valid");
-		}
-		return RequirementResult.failure(String.format(
-				"To many selections. Maximum: %d",
-				maxSelection));
+		return count;
 	}
+	
 }
