@@ -3,7 +3,7 @@ package dto;
 public class MustHaveGearReqDTO extends RequirementDTO {
 
 	private String name;
-	private String requiredGear;
+	private String requiredGearName;
 	
 	public MustHaveGearReqDTO() {}
 	
@@ -12,14 +12,14 @@ public class MustHaveGearReqDTO extends RequirementDTO {
 			String requiredGear) {
 		super("must_have_gear");
 		this.name = name;
-		this.requiredGear = requiredGear;
+		this.requiredGearName = requiredGear;
 	}
 
 	public String getName() {
 		return name;
 	}
 	
-	public String getRequiredGear() {
-		return this.requiredGear;
+	public String getRequiredGearName() {
+		return this.requiredGearName;
 	}
 }

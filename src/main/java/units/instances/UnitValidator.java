@@ -1,16 +1,18 @@
 package units.instances;
 
 import roster.RosterResult;
-import units.options.SelectedOption;
-import units.options.SelectionContext;
-import units.options.requirements.RequirementResult;
+import units.options.OptionValidator;
 
 public class UnitValidator {
-	private UnitValidator() {}
+	private final OptionValidator optValidator;
+	
+	private UnitValidator() {
+		optValidator = OptionValidator.create();
+	}
 	
 	public RosterResult validate(UnitInstance unit) {
-		RosterResult result = new RosterResult();
 		
+		RosterResult result = new RosterResult();
 		validateSize(unit,result);
 		validateChoices(unit,result);
 		validateModels(unit,result);
@@ -33,14 +35,7 @@ public class UnitValidator {
 			UnitInstance unit,
 			RosterResult result) {
 		
-		for (SelectedOption o : unit.getSelectedOptions()) {
-			SelectionContext context = SelectionContext.forUnit(unit,o.getChoice());
-			
-			RosterResult r = o.getChoice().validate(context);
-			if (r.hasIssues()) {
-				result.addIssues(r.getIssues());
-			}
-		}
+		optValidator.validate(unit, result);
 	}
 	
 	private void validateSize(

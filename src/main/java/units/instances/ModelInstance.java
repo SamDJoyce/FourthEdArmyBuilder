@@ -180,6 +180,16 @@ public class ModelInstance implements OptionOwner{
 	}
 	
 	@Override
+	public boolean isUnit() {
+		return false;
+	}
+	
+	@Override
+	public boolean isModel() {
+		return true;
+	}
+	
+	@Override
 	public Set<SelectedOption> getSelectedOptions(){
 		return selectedOptions;
 	}

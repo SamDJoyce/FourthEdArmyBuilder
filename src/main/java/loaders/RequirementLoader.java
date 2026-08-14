@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dto.ArmouryPointsLimitReqDTO;
+import dto.ArmouryWeaponLimitReqDTO;
 import dto.CannotHaveGearReqDTO;
 import dto.CharactersOnlyReqDTO;
 import dto.MaxPerModelCountReqDTO;
@@ -11,15 +12,18 @@ import dto.MaxSelectionReqDTO;
 import dto.ModelCountReqDTO;
 import dto.MustHaveGearReqDTO;
 import dto.MustHaveTypeReqDTO;
+import dto.MustStartWithGearReqDTO;
 import dto.MutualExclusionReqDTO;
 import dto.RequirementDTO;
 import units.ModelFactory;
 import units.UnitType;
 import units.WargearFactory;
 import units.options.OptionChoiceFactory;
+import units.options.requirements.ArmouryWeaponLimitReq;
 import units.options.requirements.CannotHaveGearReq;
 import units.options.requirements.MaxPerModelCountReq;
 import units.options.requirements.MustHaveGearReq;
+import units.options.requirements.MustStartWithGearReq;
 import units.options.requirements.MutualExclusionReq;
 import units.options.requirements.ReqFactory;
 import units.options.requirements.Requirement;
@@ -62,6 +66,10 @@ public class RequirementLoader {
 				MustHaveGearReqDTO mhg = (MustHaveGearReqDTO) dto;
 				return ReqFactory.mustHaveGear(mhg.getName());
 				
+			case "must_start_with_gear":
+				MustStartWithGearReqDTO msw = (MustStartWithGearReqDTO) dto;
+				return ReqFactory.mustStartWithGear(msw.getName());
+				
 			case "cannot_have_gear":
 				CannotHaveGearReqDTO chg = (CannotHaveGearReqDTO) dto;
 				return ReqFactory.cannotHaveGear(chg.getName());
@@ -69,6 +77,10 @@ public class RequirementLoader {
 			case "armoury_points_limit":
 				ArmouryPointsLimitReqDTO apl = (ArmouryPointsLimitReqDTO) dto;
 				return ReqFactory.armouryPointsLimit(apl.getName(), apl.getLimit());
+				
+			case "armoury_weapon_limit":
+				ArmouryWeaponLimitReqDTO awl = (ArmouryWeaponLimitReqDTO) dto;
+				return ReqFactory.armouryWeaponLimit(awl.getName());
 		}
 		return null;
 	}
@@ -120,7 +132,7 @@ public class RequirementLoader {
 			case "must_have_gear":
 				MustHaveGearReqDTO mhg = (MustHaveGearReqDTO) dto;
 				MustHaveGearReq mustHaveGear = (MustHaveGearReq) ReqFactory.get(mhg.getName());
-				mustHaveGear.setRequiredGear(WargearFactory.get(mhg.getRequiredGear()));
+				mustHaveGear.setRequiredGear(WargearFactory.get(mhg.getRequiredGearName()));
 				return mustHaveGear;
 				
 			case "cannot_have_gear":
@@ -129,9 +141,20 @@ public class RequirementLoader {
 				cannotHaveGear.setBlockingGear(WargearFactory.get(chg.getBlockingGearName()));
 				return cannotHaveGear;
 				
+			case "must_start_with_gear":
+				MustStartWithGearReqDTO msw = (MustStartWithGearReqDTO) dto;
+				MustStartWithGearReq mustStartWith = (MustStartWithGearReq) ReqFactory.get(msw.getName());
+				mustStartWith.setRequiredGear(WargearFactory.get(msw.getRequiredGearName()));
+				return mustStartWith;
+				
 			case "armoury_points_limit":
 				ArmouryPointsLimitReqDTO apl = (ArmouryPointsLimitReqDTO) dto;
 				return ReqFactory.get(apl.getName());
+				
+			case "armoury_weapon_limit":
+				ArmouryWeaponLimitReqDTO awl = (ArmouryWeaponLimitReqDTO) dto;
+				ArmouryWeaponLimitReq weaponLimit = (ArmouryWeaponLimitReq) ReqFactory.get(awl.getName());
+				return weaponLimit;
 				
 		}
 		return null;

@@ -414,7 +414,7 @@
 	{
 		"type":"remove_wargear",
 		"name":"remove ccw",
-		"gearName":"close combat weapon"
+		"remove":"close combat weapon"
 	},
 	{
 		"type":"modify_stat",

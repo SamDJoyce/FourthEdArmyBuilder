@@ -237,6 +237,17 @@ public class UnitInstance implements OptionOwner{
 		}
 	}
 	
+	@Override
+	public boolean isUnit() {
+		return true;
+	}
+	
+	@Override
+	public boolean isModel() {
+		return false;
+	}
+	
+	@Override
 	public String toString() {
 		String unit = String.format("Unit Name: %s\n",getName());
 		

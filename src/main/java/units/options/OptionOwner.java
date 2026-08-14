@@ -7,6 +7,9 @@ import units.options.requirements.RequirementResult;
 public interface OptionOwner {
     Set<SelectedOption> getSelectedOptions();
 
+    boolean isModel();
+    boolean isUnit();
+    
     RequirementResult addSelection(OptionChoice option);
 
     void removeSelection(OptionChoice option);

@@ -1,15 +1,19 @@
 package units.instances;
 
 import roster.RosterResult;
-import units.options.SelectedOption;
-import units.options.SelectionContext;
+import units.options.OptionValidator;
 
 public class ModelValidator {
-	private ModelValidator() {};
+	
+	private final OptionValidator optValidator;
+	
+	private ModelValidator() {
+		optValidator = OptionValidator.create();
+	};
 	
 	public RosterResult validate(ModelInstance model) {
 		RosterResult result = new RosterResult();
-		
+		// Shouldn't there be something else here?
 		validateChoices(model, result);
 		
 		return result;
@@ -18,15 +22,7 @@ public class ModelValidator {
 	private void validateChoices(
 			ModelInstance model,
 			RosterResult result) {
-		
-		for (SelectedOption o : model.getSelectedOptions()) {
-			SelectionContext context = SelectionContext.forModel(model,o.getChoice());
-			
-			RosterResult r = o.getChoice().validate(context);
-			if (r.hasIssues()) {
-				result.addIssues(r.getIssues());
-			}
-		}
+		optValidator.validate(model, result);
 	}
 	
 	public static ModelValidator create() {

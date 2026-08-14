@@ -6,52 +6,52 @@
 	{
 		"type":"must_have_gear",
 		"name":"must have bolter",
-		"requiredGear":"bolter"
+		"requiredGearName":"bolter"
 	},
 	{
 		"type":"must_have_gear",
 		"name":"must have crux terminatus",
-		"requiredGear":"crux terminatus"
+		"requiredGearName":"crux terminatus"
 	},
 	{
 		"type":"must_have_gear",
 		"name":"must have power armour",
-		"requiredGear":"power armour"
+		"requiredGearName":"power armour"
 	},
 	{
 		"type":"must_have_gear",
 		"name":"must have terminator armor",
-		"requiredGear":"terminator armor"
+		"requiredGearName":"terminator armor"
 	},
 	{
 		"type":"must_have_gear",
 		"name":"must have storm bolter",
-		"requiredGear":"storm bolter"
+		"requiredGearName":"storm bolter"
 	},
 	{
 		"type":"must_start_with_gear",
 		"name":"must start with bolter",
-		"requiredGear":"bolter"
+		"requiredGearName":"bolter"
 	},
 	{
 		"type":"must_start_with_gear",
 		"name":"must start with bolt pistol",
-		"requiredGear":"bolt pistol"
+		"requiredGearName":"bolt pistol"
 	},
 	{
 		"type":"must_start_with_gear",
 		"name":"must start with storm bolter",
-		"requiredGear":"storm bolter"
+		"requiredGearName":"storm bolter"
 	},
 	{
 		"type":"must_start_with_gear",
 		"name":"must start with power fist",
-		"requiredGear":"power fist"
+		"requiredGearName":"power fist"
 	},
 	{
 		"type":"must_have_gear",
 		"name":"must be epistolary",
-		"requiredGear":"upgrade to epistolary"
+		"requiredGearName":"upgrade to epistolary"
 	},
 	{
 		"type":"cannot_have_gear",
@@ -93,7 +93,7 @@
 		 ]
 	},
 	{
-		"type":"armoury_weapons_limit",
+		"type":"armoury_weapon_limit",
 		"name":"space marine armoury weapons limit"
 	},
 	{
