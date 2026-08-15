@@ -2,6 +2,7 @@ package test;
 
 import builder.ArmyBuilder;
 import loaders.CodexLoader;
+import roster.Roster;
 import units.UnitFactory;
 import units.descriptions.UnitDescription;
 import units.instances.UnitInstance;
@@ -26,6 +27,9 @@ public class LoadingTest {
 		test.createAndAssignAddFragGrenades(army, instance);
 		// Create and select heavy bolter
 		test.createAndAssignHeavyBolter(army, instance);
+		
+		// Print out everything in the roster
+		test.displayRoster(army.getRoster());
 	}
 	
 	private ArmyBuilder loadData() {
@@ -82,8 +86,11 @@ public class LoadingTest {
 				army.getRoster().getCurrentPoints()) );
 	}
 	
-	private void displayRoster() {
-		
+	private void displayRoster(Roster roster) {
+		System.out.println("\n***ROSTER IN FULL***\n");
+		for (UnitInstance unit : roster.getUnits()) {
+			System.out.println(unit.toString());
+		}
 	}
 	
 }
