@@ -100,7 +100,7 @@
 		"choiceNames":[
 			"select bolter for scout",
 			"select shotgun for scout",
-			"select sniper rifle for scout"
+			"select sniper for scout"
 		],
 		"requirementNames":[
 			"must start with bolt pistol"
@@ -232,7 +232,7 @@
 		"name":"add psychic power group",
 		"choiceNames":[
 			"select add fury of the ancients epistolary",
-			"select add with fear of the darkness epistolary",
+			"select add fear of the darkness epistolary",
 			"select add might of heroes epistolary",
 			"select add veil of time epistolary",
 			"select add vortex of doom epistolary"
