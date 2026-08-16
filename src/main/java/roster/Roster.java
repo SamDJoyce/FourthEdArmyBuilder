@@ -5,7 +5,9 @@ import java.util.List;
 
 import forceOrg.ForceOrgChart;
 import forceOrg.OrgChartFactory;
+import units.UnitFactory;
 import units.UnitRole;
+import units.descriptions.UnitDescription;
 import units.instances.UnitInstance;
 
 public class Roster {
@@ -53,6 +55,15 @@ public class Roster {
 	public void setChart(ForceOrgChart chart) {
 		this.chart = chart;
 	}
+	
+	public UnitInstance getUnitById(String id) {
+		for (UnitInstance unit : units) {
+			if (id.equals(unit.getId())) {
+				return unit;
+			}
+		}
+		return null;
+	}
 
 	public List<UnitInstance> getUnits() {
 		return units;
@@ -64,16 +75,20 @@ public class Roster {
 		return validate();
 	}
 	
-	public RosterResult addUnit(UnitInstance unit) {
-		units.add(unit);
-		unit.setParentRoster(this);
+	public RosterResult addUnit(UnitDescription unit) {
+		UnitInstance instance = UnitFactory.createInstance(unit);
+		units.add(instance);
+		instance.setParentRoster(this);
 		return validate();
 	}
 	
-	public RosterResult removeUnit(UnitInstance unit) {
-		units.remove(unit);
-		unit.setParentRoster(null);
+	public RosterResult removeUnit(String id) {
+		
+		UnitInstance u = getUnitById(id);
+		units.remove(u);
+		u.setParentRoster(null);
 		return validate();
+		
 	}
 
 	public int getPointsLimit() {

@@ -65,10 +65,10 @@
 			"terminator chainfist group"
 			],
 		"wargearNames":[
-			"terminator armour",
-			"crux terminatus",
+			"power weapon",
 			"storm bolter",
-			"power fist"
+			"terminator armour",
+			"crux terminatus"
 		]
 	},
 	{
@@ -84,10 +84,10 @@
 			"terminator chainfist group"
 		],
 		"wargearNames":[
-			"terminator armour",
-			"crux terminatus",
-			"storm bolter",
-			"power weapon"
+		"power weapon",
+		"storm bolter",
+		"terminator armour",
+		"crux terminatus"
 		]
 	},
 	{
@@ -101,7 +101,7 @@
 			"special weapons group tactical squad",
 			"heavy weapons group tactical squad"],
 		"wargearNames":[
-			"power armor",
+			"power armour",
 			"bolter"
 		]
 	},
@@ -118,7 +118,7 @@
 			"tactical squad sergeant veterancy group",
 			"armoury sw group"],
 		"wargearNames":[
-			"power armor",
+			"power armour",
 			"bolter"
 		]
 	},
@@ -134,7 +134,7 @@
 			"scout heavy weapons group"
 			],
 		"wargearNames":[
-			"scout armor",
+			"scout armour",
 			"bolt pistol",
 			"close combat weapon"
 		]
@@ -153,7 +153,7 @@
 			"armoury sw group"
 			],
 		"wargearNames":[
-			"scout armor",
+			"scout armour",
 			"bolt pistol",
 			"close combat weapon"
 		]

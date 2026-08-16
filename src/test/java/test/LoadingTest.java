@@ -47,7 +47,7 @@ public class LoadingTest {
 	
 	private UnitInstance createInstance(ArmyBuilder army, UnitDescription description) {
 		UnitInstance instance = UnitFactory.createInstance(description);
-		army.getRoster().addUnit(instance);
+		army.getRoster().addUnit(description);
 		System.out.println("Tactical Squad has " + army.getRoster().getUnits().getFirst() + " models");
 		System.out.println(String.format(
 				"Squad Points Cost: %d", 
