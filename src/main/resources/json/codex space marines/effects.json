@@ -8,7 +8,7 @@
 	},
 	{
 		"type":"replace_wargear",
-		"name":"replace bolter with plasma",
+		"name":"replace bolter with melta",
 		"remove":"bolter",
 		"add":"melta gun"
 	},

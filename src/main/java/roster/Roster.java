@@ -8,6 +8,7 @@ import forceOrg.OrgChartFactory;
 import units.UnitFactory;
 import units.UnitRole;
 import units.descriptions.UnitDescription;
+import units.instances.ModelInstance;
 import units.instances.UnitInstance;
 
 public class Roster {
@@ -58,8 +59,19 @@ public class Roster {
 	
 	public UnitInstance getUnitById(String id) {
 		for (UnitInstance unit : units) {
-			if (id.equals(unit.getId())) {
+			if (unit.getId().equals(id)) {
 				return unit;
+			}
+		}
+		return null;
+	}
+	
+	public ModelInstance getModelById(String id) {
+		for (UnitInstance unit : units) {
+			for (ModelInstance model : unit.getModels()) {
+				if (model.getId().equals(id)) {
+					return model;
+				}
 			}
 		}
 		return null;
@@ -75,11 +87,11 @@ public class Roster {
 		return validate();
 	}
 	
-	public RosterResult addUnit(UnitDescription unit) {
+	public String addUnit(UnitDescription unit) {
 		UnitInstance instance = UnitFactory.createInstance(unit);
 		units.add(instance);
 		instance.setParentRoster(this);
-		return validate();
+		return instance.getId();
 	}
 	
 	public RosterResult removeUnit(String id) {
