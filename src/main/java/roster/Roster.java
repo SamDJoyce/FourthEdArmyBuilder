@@ -10,6 +10,9 @@ import units.UnitRole;
 import units.descriptions.UnitDescription;
 import units.instances.ModelInstance;
 import units.instances.UnitInstance;
+import units.options.OptionChoice;
+import units.options.OptionOwner;
+import units.options.requirements.RequirementResult;
 
 public class Roster {
 
@@ -57,6 +60,14 @@ public class Roster {
 		this.chart = chart;
 	}
 	
+	public OptionOwner getOwnerById(String id) {
+		UnitInstance unit = getUnitById(id);
+		if (unit != null) {
+			return unit;
+		}
+		return getModelById(id);
+	}
+	
 	public UnitInstance getUnitById(String id) {
 		for (UnitInstance unit : units) {
 			if (unit.getId().equals(id)) {
@@ -100,7 +111,12 @@ public class Roster {
 		units.remove(u);
 		u.setParentRoster(null);
 		return validate();
-		
+	}
+	
+	public RequirementResult selectOption(
+			OptionOwner owner, 
+			OptionChoice choice) {
+		return owner.addSelection(choice);
 	}
 
 	public int getPointsLimit() {

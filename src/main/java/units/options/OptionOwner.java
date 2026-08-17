@@ -6,8 +6,13 @@ import units.options.requirements.RequirementResult;
 
 public interface OptionOwner {
     Set<SelectedOption> getSelectedOptions();
-
+    
+    String getId();
+    
+    String getName();
+    
     boolean isModel();
+    
     boolean isUnit();
     
     RequirementResult addSelection(OptionChoice option);

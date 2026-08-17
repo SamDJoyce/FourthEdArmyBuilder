@@ -5,9 +5,10 @@ import loaders.CodexLoader;
 import roster.Codex;
 import roster.Roster;
 import units.descriptions.UnitDescription;
-import units.instances.ModelInstance;
 import units.instances.UnitInstance;
 import units.options.OptionChoice;
+import units.options.OptionOwner;
+import units.options.requirements.RequirementResult;
 
 public class RosterManipulationTest {
 	private final static String spaceMarineCodex = 
@@ -34,7 +35,7 @@ public class RosterManipulationTest {
 		// Get choice for unit from Codex
 		OptionChoice choice = builder.getCodex().getChoice(
 				"select add tactical marine");
-		test.selectOptionForUnit(
+		test.selectOption(
 				builder.getRoster(),
 				tacSquadId,
 				choice);
@@ -48,37 +49,31 @@ public class RosterManipulationTest {
 								.getModels()
 								.get(2)
 								.getId();
-		test.selectOptionForModel(
+		test.selectOption(
 				builder.getRoster(), 
 				modelId, 
 				choice);
 		test.displayRoster(builder.getRoster());
 	}
 	
-	public void selectOptionForUnit(
+	public void selectOption(			
 			Roster roster,
 			String unitId,
 			OptionChoice choice) {
-		UnitInstance unit = roster.getUnitById(unitId);
-		unit.addSelection(choice);
+		
+		OptionOwner owner = roster.getOwnerById(unitId);
+		RequirementResult result = roster.selectOption(owner, choice);
+		if (result.isValid()) {
+			System.out.println(String.format(
+					"Option '%s' selected for %s",
+					choice.getName(),
+					owner.getName()
+					));
+			return;
+		}
 		System.out.println(String.format(
-				"Option '%s' selected for %s",
-				choice.getName(),
-				unit.getName()
-				));
-	}
-	
-	public void selectOptionForModel(
-			Roster roster,
-			String modelId,
-			OptionChoice choice) {
-		ModelInstance model = roster.getModelById(modelId);
-		model.addSelection(choice);
-		System.out.println(String.format(
-				"Option '%s' selected for %s",
-				choice.getName(),
-				model.getName()
-				));
+				"Selection Error: %s", 
+				result.getMessage()));
 	}
 	
 	public String selectUnitForRoster(String unitName, ArmyBuilder builder) {
@@ -87,7 +82,7 @@ public class RosterManipulationTest {
 		String unitId = roster.addUnit(codex.getUnit(unitName));
 		UnitDescription unitDesc = codex.getUnit(unitName);
 		System.out.println(String.format(
-				"'%s' selected for roster",
+				"'%s' added to roster",
 				roster.getUnitById(unitId).getName()));
 		return unitId;
 	}
