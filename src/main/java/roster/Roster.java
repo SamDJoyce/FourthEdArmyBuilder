@@ -87,6 +87,16 @@ public class Roster {
 		}
 		return null;
 	}
+	
+	public List<UnitInstance> getUnitsByRole(UnitRole role){
+		List<UnitInstance> unitsOfRole = new ArrayList<>();
+		for (UnitInstance unit : units) {
+			if (unit.getRole().equals(role)) {
+				unitsOfRole.add(unit);
+			}
+		}
+		return unitsOfRole;
+	}
 
 	public List<UnitInstance> getUnits() {
 		return units;
@@ -98,19 +108,42 @@ public class Roster {
 		return validate();
 	}
 	
-	public String addUnit(UnitDescription unit) {
+	public RosterResult addUnit(UnitDescription unit) {
+		RosterResult result = new RosterResult();
 		UnitInstance instance = UnitFactory.createInstance(unit);
-		units.add(instance);
-		instance.setParentRoster(this);
-		return instance.getId();
+		if (!units.add(instance)){
+			result.addIssue("Unit could not be added to the roster.");
+		} else {
+			instance.setParentRoster(this);
+		}
+		return result;
 	}
 	
-	public RosterResult removeUnit(String id) {
-		
-		UnitInstance u = getUnitById(id);
-		units.remove(u);
-		u.setParentRoster(null);
+	public RosterResult addUnit(UnitInstance unit) {
+		RosterResult result = new RosterResult();
+		if (!units.add(unit)){
+			result.addIssue("Unit could not be added to the roster.");
+		} else {
+			unit.setParentRoster(this);
+		}
+		return result;
+	}
+	
+	public RosterResult removeUnit(UnitInstance unit) {
+		units.remove(unit);
+		unit.setParentRoster(null);
 		return validate();
+	}
+	
+	public RosterResult addModel(
+			UnitInstance unit, 
+			ModelInstance model) {
+		return unit.addModel(model);
+	}
+	
+	public RosterResult removeModel(ModelInstance model) {
+		UnitInstance unit = model.getParentUnit();
+		return unit.removeModel(model);
 	}
 	
 	public RequirementResult selectOption(

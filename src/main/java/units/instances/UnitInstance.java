@@ -80,16 +80,16 @@ public class UnitInstance implements OptionOwner{
 	    return count;
 	}
 	
-	public Boolean sizeIsValid() {
+	public boolean sizeIsValid() {
 		return getCurrentSize() <= getMaxSize()
 			&& getCurrentSize() >= getMinSize();
 	}
 	
-	public Boolean canAddModel() {
+	public boolean canAddModel() {
 		return getCurrentSize() + 1 <= getMaxSize();
 	}
 	
-	public Boolean canRemoveModel() {
+	public boolean canRemoveModel() {
 		return getCurrentSize() - 1 >= getMinSize();
 	}
 
@@ -97,27 +97,28 @@ public class UnitInstance implements OptionOwner{
 		return Collections.unmodifiableList(models);
 	}
 	
-	public Boolean containsModel(ModelInstance model) {
+	public boolean containsModel(ModelInstance model) {
 		return models.contains(model);
 	}
 	
-	public Boolean addModel(ModelInstance model) {
+	public RosterResult addModel(ModelInstance model) {
+		RosterResult result = new RosterResult();
 		if (!canAddModel()) {
-			return false;
+			result.addIssue("Cannot add another model to this unit.");
 		}
 		// Add model if not present
 		if (!containsModel(model)) {
 			models.add(model);
-			return true;
 		}
-		return true;
+		return result;
 	}
 	
-	public boolean removeModel(ModelInstance model){
+	public RosterResult removeModel(ModelInstance model){
+		RosterResult result = new RosterResult();
 		if (!canRemoveModel()) {
-			return false;
+			result.addIssue("Cannot remove model");
 		}
-		return models.remove(model);
+		return result;
 	}
 	
 	public void addGearToEachModel(WargearDescription gear) {

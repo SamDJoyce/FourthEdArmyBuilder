@@ -4,6 +4,7 @@ import builder.ArmyBuilder;
 import loaders.CodexLoader;
 import roster.Codex;
 import roster.Roster;
+import units.UnitFactory;
 import units.descriptions.UnitDescription;
 import units.instances.UnitInstance;
 import units.options.OptionChoice;
@@ -79,12 +80,13 @@ public class RosterManipulationTest {
 	public String selectUnitForRoster(String unitName, ArmyBuilder builder) {
 		Roster roster = builder.getRoster();
 		Codex codex = builder.getCodex();
-		String unitId = roster.addUnit(codex.getUnit(unitName));
+		UnitInstance instance  = UnitFactory.createInstance(codex.getUnit(unitName));
+		roster.addUnit(instance);
 		UnitDescription unitDesc = codex.getUnit(unitName);
 		System.out.println(String.format(
 				"'%s' added to roster",
-				roster.getUnitById(unitId).getName()));
-		return unitId;
+				instance.getName()));
+		return instance.getId();
 	}
 	
 	public void displayRoster(Roster roster) {

@@ -1,10 +1,14 @@
 package roster;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 import units.UnitRole;
+import units.WargearType;
 import units.descriptions.UnitDescription;
 import units.descriptions.models.ModelDescription;
 import units.descriptions.models.StatLine;
@@ -59,6 +63,19 @@ public class Codex {
 		return units;
 	}
 	
+	public Set<UnitDescription> getUnitsByRole(UnitRole role) {
+
+	    Set<UnitDescription> unitsOfRole = new HashSet<>();
+
+	    for (UnitDescription unit : units.values()) {
+	        if (unit.getRole().equals(role)) {
+	        	unitsOfRole.add(unit);
+	        }
+	    }
+
+	    return Collections.unmodifiableSet(unitsOfRole);
+	}
+	
 	public UnitDescription getUnit(String name) {
 		return units.get(name);
 	}
@@ -76,11 +93,21 @@ public class Codex {
 	}
 
 	public Map<String, WargearDescription> getAllWargear() {
-		return wargear;
+		return Collections.unmodifiableMap(wargear);
 	}
 	
-	public WargearDescription geWargear(String name) {
+	public WargearDescription getWargear(String name) {
 		return wargear.get(name);
+	}
+	
+	public List<WargearDescription> getWargearByType(WargearType type){
+		List<WargearDescription> gear = new ArrayList<>();
+		for (WargearDescription w : wargear.values()) {
+			if (w.getType().equals(type)) {
+				gear.add(w);
+			}
+		}
+		return gear;
 	}
 
 	public void setWargear(Map<String, WargearDescription> wargear) {
@@ -88,7 +115,7 @@ public class Codex {
 	}
 
 	public Map<String, StatLine> getAllStatLines() {
-		return statLines;
+		return Collections.unmodifiableMap(statLines);
 	}
 	
 	public StatLine getStatline(String name) {
@@ -100,7 +127,7 @@ public class Codex {
 	}
 
 	public Map<String, Effect> getAllEffects() {
-		return effects;
+		return Collections.unmodifiableMap(effects);
 	}
 	
 	public Effect getEffect(String name) {
@@ -112,7 +139,7 @@ public class Codex {
 	}
 
 	public Map<String, Requirement> getAllRequirements() {
-		return requirements;
+		return Collections.unmodifiableMap(requirements);
 	}
 	
 	public Requirement getRequirement(String name) {
@@ -124,7 +151,7 @@ public class Codex {
 	}
 
 	public Map<String, OptionChoice> getAllChoices() {
-		return choices;
+		return Collections.unmodifiableMap(choices);
 	}
 	
 	public OptionChoice getChoice(String name) {
@@ -136,7 +163,7 @@ public class Codex {
 	}
 
 	public Map<String, OptionGroup> getAllGroups() {
-		return groups;
+		return Collections.unmodifiableMap(groups);
 	}
 	
 	public OptionGroup getGroup(String name) {
@@ -148,7 +175,7 @@ public class Codex {
 	}
 
 	public Map<String, ModelDescription> getAllModels() {
-		return models;
+		return Collections.unmodifiableMap(models);
 	}
 
 	public ModelDescription getModel(String name) {
@@ -159,18 +186,7 @@ public class Codex {
 		this.models = models;
 	}
 	
-	public Set<UnitDescription> getUnitsByRole(UnitRole role) {
 
-	    Set<UnitDescription> result = new HashSet<>();
-
-	    for (UnitDescription unit : units.values()) {
-	        if (unit.getRole() == role) {
-	            result.add(unit);
-	        }
-	    }
-
-	    return result;
-	}
 	
 	public static Codex create(
 			String name, 
