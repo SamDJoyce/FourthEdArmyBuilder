@@ -191,29 +191,5 @@ public class Codex {
 	public void setModels(Map<String, ModelDescription> models) {
 		this.models = models;
 	}
-	
 
-	
-	public static Codex create(
-			String name, 
-			Map<String, WargearDescription> wargear,
-			Map<String, StatLine> statLines,
-			Map<String, Effect> effects,
-			Map<String, Requirement> requirements,
-			Map<String, OptionChoice> choices,
-			Map<String, OptionGroup> groups,
-			Map<String, ModelDescription> models,
-			Map<String, UnitDescription> units) {
-		return new Codex(
-				name,
-				wargear,
-				statLines,
-				effects,
-				requirements,
-				choices,
-				groups,
-				models,
-				units
-				);
-	}
 }

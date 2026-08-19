@@ -1,7 +1,7 @@
 package loaders;
 
 import java.io.IOException;
-import java.nio.file.Path;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -46,15 +46,15 @@ public class CodexLoader {
 	private final OptionChoiceLoader optionChoiceLoader;
 	private final ObjectMapper 		 mapper;
 	
-	private final String codexFolder;
-	private final Path wargearFile;
-	private final Path statLineFile;
-	private final Path modelFile;
-	private final Path effectFile;
-	private final Path requirementFile;
-	private final Path optionChoiceFile;
-	private final Path optionGroupFile;
-	private final Path unitFile;
+	private final String codexResourcePath;
+	private final String wargearFile;
+	private final String statLineFile;
+	private final String modelFile;
+	private final String effectFile;
+	private final String requirementFile;
+	private final String optionChoiceFile;
+	private final String optionGroupFile;
+	private final String unitFile;
 	
 	private List<ModelDTO> 	      modelDtos;
 	private List<EffectDTO> 	  effectDtos;
@@ -63,7 +63,7 @@ public class CodexLoader {
 	private List<OptionGroupDTO>  groupDtos;
 	private List<UnitDTO> 		  unitDtos;
 	
-	public CodexLoader(String codexFolder) {
+	public CodexLoader(String codexResourcePath) {
 		wargearLoader 	   = LoaderFactory.forWargear();
 		statLineLoader 	   = LoaderFactory.forStats();
 		modelLoader 	   = LoaderFactory.forModels();
@@ -74,29 +74,40 @@ public class CodexLoader {
 		optionChoiceLoader = LoaderFactory.forChoices();
 		mapper 			   = new ObjectMapper();
 		
-		this.codexFolder  = codexFolder;
-		wargearFile  	  = Path.of(this.codexFolder, "/wargear.json");
-		statLineFile 	  = Path.of(this.codexFolder, "/statlines.json");
-		modelFile 	  	  = Path.of(this.codexFolder, "/models.json");
-		effectFile   	  = Path.of(this.codexFolder, "/effects.json");
-		requirementFile   = Path.of(this.codexFolder, "/requirements.json");
-		optionChoiceFile  = Path.of(this.codexFolder, "/optionChoices.json");
-		optionGroupFile   = Path.of(this.codexFolder, "/optionGroups.json");
-		unitFile		  = Path.of(this.codexFolder, "/units.json");
+		this.codexResourcePath  = codexResourcePath;
+		wargearFile  	  = resource("wargear.json");
+		statLineFile 	  = resource("statlines.json");
+		modelFile 	  	  = resource("models.json");
+		effectFile   	  = resource("effects.json");
+		requirementFile   = resource("requirements.json");
+		optionChoiceFile  = resource("optionChoices.json");
+		optionGroupFile   = resource("optionGroups.json");
+		unitFile		  = resource("units.json");
+	}
+	
+	private String resource(String fileName) {
+		return codexResourcePath + "/" + fileName;
 	}
 	
 	public Codex loadCodex(){
-		// Load objects from file to create placeholders
-		createObjectsFromFiles();
-		// Populate objects by resolving references
-		resolveObjectReferences();
-		// return assembled codex and clear everything 
-		// in preparation for loading next codex
-		return assembleCodex();
+		try {
+			// Load objects from file to create placeholders
+			createObjectsFromFiles();
+			// Populate objects by resolving references
+			resolveObjectReferences();
+			// return assembled codex and clear everything 
+			// in preparation for loading next codex
+			return assembleCodex();
+		} catch (IOException e) {
+			throw new RuntimeException(
+					"Failed to load codex: " + codexResourcePath,
+					e
+					);
+		}
 	}
 	
 	private Codex assembleCodex() {
-		String name = getFolderName(codexFolder);
+		String name = getFolderName(codexResourcePath);
 		Map<String, StatLine> statLines = 
 				new HashMap<String, StatLine>(StatLineFactory.getRegistry()) ;
 		Map<String, Effect> effects = 
@@ -114,6 +125,7 @@ public class CodexLoader {
 		Map<String, WargearDescription> gear = 
 				new HashMap<String, WargearDescription>(WargearFactory.getRegistry());
 		clearRegistries();
+		clearDTOs();
 		return new Codex(
 				name,
 				gear,
@@ -127,36 +139,24 @@ public class CodexLoader {
 				);
 	}
 	
-	private void createObjectsFromFiles() {
-		try {
-			createWargear(wargearFile);
-			createStatLines(statLineFile);
-			createEffects(effectFile);
-			createRequirements(requirementFile);
-			createOptionChoices(optionChoiceFile);
-			createOptionGroups(optionGroupFile);
-			createModels(modelFile);
-			createUnits(unitFile);
-		} catch (Exception e) {
-			System.out.println("There was a problem loading codex data.");
-			System.out.println(e);
-			e.printStackTrace();
-		}
+	private void createObjectsFromFiles() throws IOException{
+			createWargear();
+			createStatLines();
+			createEffects();
+			createRequirements();
+			createOptionChoices();
+			createOptionGroups();
+			createModels();
+			createUnits();
 	}
 	
-	private void resolveObjectReferences() {
-		try {
+	private void resolveObjectReferences() throws IOException {
 			resolveEffects();
 			resolveRequirements();
 			resolveOptionChoices();
 			resolveOptionGroups();
 			resolveModels();
 			resolveUnits();
-		} catch (Exception e) {
-			System.out.println("There was a problem resolving object references.");
-			System.out.println(e);
-			e.printStackTrace();
-		}
 	}
 	
 	private void clearRegistries() {
@@ -170,90 +170,109 @@ public class CodexLoader {
 		UnitFactory.clearRegistry();
 	}
 	
-	public List<WargearDescription> createWargear(Path file) throws IOException {
-		List<WargearDTO> wargearDtos = mapper.readValue(
-	            file.toFile(),
-	            new TypeReference<List<WargearDTO>>() {}
-	    );
-		return wargearLoader.loadAll(wargearDtos);
+	// **************************
+	// ***** Create Methods *****
+	// **************************
+	
+	public List<WargearDescription> createWargear() throws IOException {
+
+		InputStream input =
+            ResourceLoader.getResource(wargearFile);
+
+        List<WargearDTO> dtos = mapper.readValue(
+            input,
+            new TypeReference<List<WargearDTO>>() {}
+        );
+
+        return wargearLoader.loadAll(dtos);
 	}
 	
-	public List<StatLine> createStatLines(Path file)  throws IOException{
+	public List<StatLine> createStatLines()  throws IOException{
+		InputStream input =
+            ResourceLoader.getResource(statLineFile);
 		List<StatLineDTO> dtos = mapper.readValue(
-				file.toFile(),
-				new TypeReference<List<StatLineDTO>>(){}
-				);
+				input, 
+				new TypeReference<List<StatLineDTO>>() {});
 		return statLineLoader.loadAll(dtos);
 	}
 	
-	public List<ModelDescription> createModels(Path file) throws IOException{
+	public List<ModelDescription> createModels() throws IOException{
+		InputStream input =
+            ResourceLoader.getResource(modelFile);
 		modelDtos = mapper.readValue(
-				file.toFile(),
-				new TypeReference<List<ModelDTO>>(){}
-				);
+				input, 
+				new TypeReference<List<ModelDTO>>() {});
 		return modelLoader.createAll(modelDtos);
 	}
 	
-	public List<ModelDescription> resolveModels(){
-		return modelLoader.resolveAllReferences(modelDtos);
+	public List<Effect> createEffects() throws IOException {
+		InputStream input =
+            ResourceLoader.getResource(effectFile);
+		effectDtos = mapper.readValue(
+				input,
+				new TypeReference<List<EffectDTO>>() {});
+		return effectLoader.createAll(effectDtos);
+	}
+
+	public List<Requirement> createRequirements () throws IOException {
+		InputStream input =
+	            ResourceLoader.getResource(requirementFile);
+			reqDtos = mapper.readValue(
+					input, 
+					new TypeReference<List<RequirementDTO>>() {});
+			return reqLoader.createAll(reqDtos);
 	}
 	
-	public List<Effect> createEffects(Path file) throws IOException {
-		effectDtos = mapper.readValue(
-				file.toFile(),
-				new TypeReference<List<EffectDTO>>(){}
-				);
-		return effectLoader.createAll(effectDtos);
+	public List<OptionChoice> createOptionChoices() throws IOException {
+		InputStream input =
+	            ResourceLoader.getResource(optionChoiceFile);
+			choiceDtos = mapper.readValue(
+					input, 
+					new TypeReference<List<OptionChoiceDTO>>() {});
+			return optionChoiceLoader.createAll(choiceDtos);
+	}
+	
+	public List<OptionGroup> createOptionGroups() throws IOException {
+		InputStream input =
+            ResourceLoader.getResource(optionGroupFile);
+		groupDtos = mapper.readValue(
+				input, 
+				new TypeReference<List<OptionGroupDTO>>() {});
+		return optionGroupLoader.createAll(groupDtos);
+	}
+	
+	public List<UnitDescription> createUnits() throws IOException {
+		InputStream input =
+            ResourceLoader.getResource(unitFile);
+		unitDtos = mapper.readValue(
+				input, 
+				new TypeReference<List<UnitDTO>>() {});
+		return unitLoader.createAll(unitDtos);
+	}
+	
+	// ***************************
+	// ***** Resolve Methods *****
+	// ***************************
+	
+	public List<ModelDescription> resolveModels(){
+		return modelLoader.resolveAllReferences(modelDtos);
 	}
 	
 	public List<Effect> resolveEffects(){
 		return effectLoader.resolveAllReferences(effectDtos);
 	}
 	
-	
-	public List<Requirement> createRequirements (Path file) throws IOException {
-		reqDtos = mapper.readValue(
-				file.toFile(),
-				new TypeReference<List<RequirementDTO>>(){}
-				);
-		return reqLoader.createAll(reqDtos);
-	}
-	
-	
 	public List<Requirement> resolveRequirements(){
 		return reqLoader.resolveAllReferences(reqDtos);
-	}
-	
-	public List<OptionChoice> createOptionChoices(Path file) throws IOException {
-		choiceDtos = mapper.readValue(
-				file.toFile(),
-				new TypeReference<List<OptionChoiceDTO>>(){}
-				);
-		return optionChoiceLoader.createAll(choiceDtos);
 	}
 	
 	public List<OptionChoice> resolveOptionChoices() {
 		return optionChoiceLoader.resolveAllReferences(choiceDtos);
 	}
 	
-	public List<OptionGroup> createOptionGroups(Path file) throws IOException {
-		groupDtos = mapper.readValue(
-				file.toFile(),
-				new TypeReference<List<OptionGroupDTO>>(){}
-				);
-		return optionGroupLoader.createAll(groupDtos);
-	}
-	
+
 	public List<OptionGroup> resolveOptionGroups(){
 		return optionGroupLoader.resolveAllReferences(groupDtos);
-	}
-	
-	public void createUnits(Path file) throws IOException {
-		unitDtos =  mapper.readValue(
-				file.toFile(),
-				new TypeReference<List<UnitDTO>>(){}
-				);
-		unitLoader.createAll(unitDtos);
 	}
 	
 	public List<UnitDescription> resolveUnits(){
@@ -266,5 +285,14 @@ public class CodexLoader {
 	        return path;
 	    }
 	    return path.substring(lastSlash + 1);
+	}
+	
+	private void clearDTOs() {
+	    modelDtos = null;
+	    effectDtos = null;
+	    reqDtos = null;
+	    choiceDtos = null;
+	    groupDtos = null;
+	    unitDtos = null;
 	}
 }

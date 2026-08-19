@@ -16,7 +16,7 @@ public class ABMain extends Application {
     @Override
     public void start(Stage stage) {
 
-    	CodexLoader loader = new CodexLoader("src/main/resources/json/codex space marines");
+    	CodexLoader loader = new CodexLoader("/json/codex space marines");
     	Codex codex  = loader.loadCodex();
     	ArmyBuilder armyBuilder = new ArmyBuilder(codex);
     	
