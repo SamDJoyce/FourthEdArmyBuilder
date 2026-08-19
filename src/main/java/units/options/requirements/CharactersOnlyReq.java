@@ -41,7 +41,7 @@ public class CharactersOnlyReq implements Requirement {
 	
 	@Override 
 	public RosterResult validate(SelectionContext context) {
-		RosterResult result  = new RosterResult();
+		RosterResult result  = RosterResult.create();
 		String name = context.getModel().getName();
 		
 		if (!isCharacter(context.getModel())) {

@@ -11,7 +11,7 @@ public class RosterValidator {
 	
 	public RosterResult validate(Roster roster) {
 		
-		RosterResult result = new RosterResult();
+		RosterResult result = RosterResult.create();
 		
 		validateRoles(roster, result);
 		validatePoints(roster, result);

@@ -109,7 +109,7 @@ public class Roster {
 	}
 	
 	public RosterResult addUnit(UnitDescription unit) {
-		RosterResult result = new RosterResult();
+		RosterResult result = RosterResult.create();
 		UnitInstance instance = UnitFactory.createInstance(unit);
 		if (!units.add(instance)){
 			result.addIssue("Unit could not be added to the roster.");
@@ -120,7 +120,7 @@ public class Roster {
 	}
 	
 	public RosterResult addUnit(UnitInstance unit) {
-		RosterResult result = new RosterResult();
+		RosterResult result = RosterResult.create();
 		if (!units.add(unit)){
 			result.addIssue("Unit could not be added to the roster.");
 		} else {

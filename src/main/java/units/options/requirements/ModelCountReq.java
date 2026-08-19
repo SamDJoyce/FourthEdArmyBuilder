@@ -54,7 +54,7 @@ public class ModelCountReq implements Requirement {
 	@Override
 	public RosterResult validate(SelectionContext context) {
 		RequirementResult req = isMet(context);
-		RosterResult result = new RosterResult();
+		RosterResult result = RosterResult.create();
 		
 		if (!req.isValid()) {
 			result.addIssue(req.getMessage());

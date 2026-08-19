@@ -58,7 +58,7 @@ public class MutualExclusionReq implements Requirement {
 	
 	@Override
 	public RosterResult validate(SelectionContext context) {
-		RosterResult result = new RosterResult();
+		RosterResult result = RosterResult.create();
 		// TODO should this still exist?
 		result.addIssue("NOT IMPLEMENTED");
 		

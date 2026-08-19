@@ -74,7 +74,7 @@ public class MaxPerModelCountReq implements Requirement {
 	
 	@Override
 	public RosterResult validate(SelectionContext context) {
-		RosterResult result = new RosterResult();
+		RosterResult result = RosterResult.create();
         UnitInstance unit = context.getUnit();
         OptionChoice choice = context.getChoice();
         // Get number of models in the unit

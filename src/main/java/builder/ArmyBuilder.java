@@ -1,7 +1,6 @@
 package builder;
 
 import java.util.List;
-import java.util.Set;
 
 import roster.Codex;
 import roster.Roster;
@@ -71,7 +70,7 @@ public class ArmyBuilder {
     public RosterResult selectOption(			
     		OptionOwner owner, 
 			OptionChoice choice) {
-    	RosterResult result = new RosterResult();
+    	RosterResult result = RosterResult.create();
     	RequirementResult req = roster.selectOption(owner, choice);
     	if (!req.isValid()) {
     		result.addIssue(req.getMessage());
@@ -94,7 +93,7 @@ public class ArmyBuilder {
     	return codex.getUnit(unitName);
     }
     
-    public Set<UnitDescription> getUnitDescriptionByRole(UnitRole role){
+    public List<UnitDescription> getUnitDescriptionByRole(UnitRole role){
     	return codex.getUnitsByRole(role);
     }
     

@@ -2,6 +2,7 @@ package roster;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -63,17 +64,19 @@ public class Codex {
 		return units;
 	}
 	
-	public Set<UnitDescription> getUnitsByRole(UnitRole role) {
+	public List<UnitDescription> getUnitsByRole(UnitRole role) {
 
-	    Set<UnitDescription> unitsOfRole = new HashSet<>();
+		List<UnitDescription> unitsByRole = new ArrayList<>();
 
 	    for (UnitDescription unit : units.values()) {
 	        if (unit.getRole().equals(role)) {
-	        	unitsOfRole.add(unit);
+	        	unitsByRole.add(unit);
 	        }
 	    }
-
-	    return Collections.unmodifiableSet(unitsOfRole);
+	    unitsByRole.sort(Comparator.comparing(
+    			UnitDescription::getName,
+    			String.CASE_INSENSITIVE_ORDER));
+	    return Collections.unmodifiableList(unitsByRole);
 	}
 	
 	public UnitDescription getUnit(String name) {
@@ -107,6 +110,9 @@ public class Codex {
 				gear.add(w);
 			}
 		}
+		gear.sort(Comparator.comparing(
+				WargearDescription::getBaseName,
+				String.CASE_INSENSITIVE_ORDER));
 		return gear;
 	}
 

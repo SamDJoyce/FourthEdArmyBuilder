@@ -8,7 +8,7 @@ public class RosterResult {
 
 	private final List<RosterIssue> issues;
 	
-	public RosterResult() {
+	private RosterResult() {
 		issues = new ArrayList<>();
 	}
 	
@@ -46,4 +46,8 @@ public class RosterResult {
 
         return sb.toString();
     }
+	
+	public static RosterResult create() {
+		return new RosterResult();
+	}
 }

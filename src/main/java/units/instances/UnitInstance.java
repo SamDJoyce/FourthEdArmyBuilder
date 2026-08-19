@@ -102,7 +102,7 @@ public class UnitInstance implements OptionOwner{
 	}
 	
 	public RosterResult addModel(ModelInstance model) {
-		RosterResult result = new RosterResult();
+		RosterResult result = RosterResult.create();
 		if (!canAddModel()) {
 			result.addIssue("Cannot add another model to this unit.");
 		}
@@ -114,7 +114,7 @@ public class UnitInstance implements OptionOwner{
 	}
 	
 	public RosterResult removeModel(ModelInstance model){
-		RosterResult result = new RosterResult();
+		RosterResult result = RosterResult.create();
 		if (!canRemoveModel()) {
 			result.addIssue("Cannot remove model");
 		}

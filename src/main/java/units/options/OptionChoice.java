@@ -92,7 +92,7 @@ public class OptionChoice {
 	}
 	
 	public RosterResult validate(SelectionContext context) {
-		RosterResult result = new RosterResult();
+		RosterResult result = RosterResult.create();
 		
 		for (Requirement req : requirements) {
 			RosterResult r = req.validate(context);

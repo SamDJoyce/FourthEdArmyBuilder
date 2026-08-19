@@ -12,7 +12,7 @@ public class ModelValidator {
 	};
 	
 	public RosterResult validate(ModelInstance model) {
-		RosterResult result = new RosterResult();
+		RosterResult result = RosterResult.create();
 		// Shouldn't there be something else here?
 		validateChoices(model, result);
 		

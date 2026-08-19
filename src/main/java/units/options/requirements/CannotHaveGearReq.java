@@ -50,7 +50,7 @@ public class CannotHaveGearReq implements Requirement {
 	
 	@Override
 	public RosterResult validate(SelectionContext context) {
-		RosterResult result = new RosterResult();
+		RosterResult result = RosterResult.create();
 		ModelInstance model = context.getModel();
 		OptionChoice choice = context.getChoice();
 		

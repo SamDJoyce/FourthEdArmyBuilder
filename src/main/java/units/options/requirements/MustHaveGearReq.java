@@ -44,7 +44,7 @@ public class MustHaveGearReq implements Requirement {
 
 	@Override
 	public RosterResult validate(SelectionContext context) {
-		RosterResult result = new RosterResult();
+		RosterResult result = RosterResult.create();
 		RequirementResult req = isMet(context);
 		
 		if(!req.isValid()) {

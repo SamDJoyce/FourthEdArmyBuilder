@@ -12,7 +12,7 @@ public class UnitValidator {
 	
 	public RosterResult validate(UnitInstance unit) {
 		
-		RosterResult result = new RosterResult();
+		RosterResult result = RosterResult.create();
 		validateSize(unit,result);
 		validateChoices(unit,result);
 		validateModels(unit,result);

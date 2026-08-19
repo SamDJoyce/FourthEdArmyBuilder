@@ -38,7 +38,7 @@ public class ArmouryPointsLimitReq implements Requirement {
 	
 	@Override
 	public RosterResult validate(SelectionContext context) {
-		RosterResult result = new RosterResult();
+		RosterResult result = RosterResult.create();
 		if (!pointsAreValid(currentArmouryPoints(context.getModel()))) {
 			result.addIssue("Gear points value exceeds the limit of " + limit);
 		}

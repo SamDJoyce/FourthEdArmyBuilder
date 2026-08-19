@@ -57,7 +57,7 @@ public class MaxSelectionReq implements Requirement {
 	
 	@Override
 	public RosterResult validate(SelectionContext context) {
-		RosterResult result = new RosterResult();
+		RosterResult result = RosterResult.create();
 		int count = getSelectionCount(context);
 		
 		if (count > maxSelection) {
