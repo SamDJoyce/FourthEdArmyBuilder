@@ -23,20 +23,18 @@ public class CharactersOnlyReq implements Requirement {
 	}
 
 	@Override
-	public RequirementResult isMet(SelectionContext context) {
+	public ValidationResult isMet(SelectionContext context) {
+		ValidationResult result = ValidationResult.create();
+		
 		if (!context.hasModel()) {
-			message = "CharacterOnlyRequirement needs a ModelInstance";
-			return RequirementResult.failure(message);
+			result.addIssue("CharacterOnlyRequirement needs a ModelInstance");
 		}
 		
 		String name = context.getModel().getName();
-		
 		if (isCharacter(context.getModel())) {
-			message = String.format("%s is a Character",name);
-			return RequirementResult.success(message);
+			result.addIssue(String.format("%s is not a Character",name));
 		}
-		message = String.format("%s is not a Character",name);
-		return RequirementResult.failure(message);
+		return result;
 	}
 	
 	@Override 

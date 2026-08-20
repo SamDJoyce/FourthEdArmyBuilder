@@ -28,27 +28,20 @@ public class MustHaveTypeReq implements Requirement {
 	}
 
 	@Override
-	public RequirementResult isMet(SelectionContext context) {
+	public ValidationResult isMet(SelectionContext context) {
+		ValidationResult result = ValidationResult.create();
 		ModelInstance model = context.getModel();
-		boolean valid = model.isType(requiredType);
-		if (valid) {
-			return RequirementResult.success("Model has the required Type.");
+		if (!model.isType(requiredType)) {
+			result.addIssue(String.format(
+					"Model lacks the required Type: %s.", 
+					requiredType.toString()));
 		}
-		return RequirementResult.failure(String.format(
-				"Model lacks the required Type: %s.", 
-				requiredType.toString()));
+		return result;
 	}
 
 	@Override
 	public ValidationResult validate(SelectionContext context) {
-		ValidationResult result = ValidationResult.create();
-		RequirementResult req = isMet(context);
-		
-		if (!req.isValid()) {
-			result.addIssue(req.getMessage());
-		}
-		
-		return result;
+		return isMet(context);
 	}
 	
 }

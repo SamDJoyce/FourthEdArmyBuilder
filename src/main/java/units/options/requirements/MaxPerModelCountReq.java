@@ -38,13 +38,16 @@ public class MaxPerModelCountReq implements Requirement {
 	}
 
 	@Override
-	public RequirementResult isMet(SelectionContext context) {
+	public ValidationResult isMet(SelectionContext context) {
+		ValidationResult result = ValidationResult.create();
+		
 		if (!context.hasUnit()) {
-			message = "ForEachMultipleRequirement needs an UnitInstance.";
-			return RequirementResult.failure(message);
+			result.addIssue("ForEachMultipleRequirement needs an UnitInstance.");
+			return result;
 		}
 		if (!context.hasChoice()) {
-			message = "ForEachMultipleRequirement needs a SelectedOption";
+			result.addIssue("ForEachMultipleRequirement needs a SelectedOption");
+			return result;
 		}
 		
         UnitInstance unit = context.getUnit();
@@ -56,20 +59,16 @@ public class MaxPerModelCountReq implements Requirement {
 		// Number of times this choice has been selected in this unit
 		int current = unit.getOptionCount(choice);
         
-        if (current +1 <= allowed) {
-        	return RequirementResult.success(String.format(
-                    "%d/%d selections used.",
-                    unit.getOptionCount(choice),
-                    allowed));
-        }
-        return RequirementResult.failure(
-                String.format(
+        if (current +1 > allowed) {
+        	result.addIssue(String.format(
 	                "Only %d '%s' may be selected for %d %s%s.",
 	                allowed,
 	                choice.getName(),
 	                modelCount,
 	                model.getName(),
 	                modelCount == 1 ? "" : "s"));
+        }
+        return result;
 	}
 	
 	@Override

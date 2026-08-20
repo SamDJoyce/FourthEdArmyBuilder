@@ -16,10 +16,8 @@ import units.instances.UnitInstance;
 import units.options.OptionChoice;
 import units.options.OptionGroup;
 import units.options.OptionOwner;
-import units.options.SelectionContext;
 import units.options.effects.Effect;
 import units.options.requirements.Requirement;
-import units.options.requirements.RequirementResult;
 
 public class ArmyBuilder {
 
@@ -71,12 +69,7 @@ public class ArmyBuilder {
     public ValidationResult selectOption(			
     		OptionOwner owner, 
 			OptionChoice choice) {
-    	ValidationResult result = ValidationResult.create();
-    	RequirementResult req = roster.selectOption(owner, choice);
-    	if (!req.isValid()) {
-    		result.addIssue(req.getMessage());
-    	}
-    	return result;
+    	return roster.selectOption(owner, choice);
     }
     
     public int getPointsLimit() {

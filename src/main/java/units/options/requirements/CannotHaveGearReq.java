@@ -33,19 +33,20 @@ public class CannotHaveGearReq implements Requirement {
 	}
 
 	@Override
-	public RequirementResult isMet(SelectionContext context) {
+	public ValidationResult isMet(SelectionContext context) {
 		
 		ModelInstance model = context.getModel();
 		OptionChoice choice = context.getChoice();
+		ValidationResult result = ValidationResult.create();
 		
 		if (model.hasGear(blockingGear)) {
-			return RequirementResult.failure(String.format(
+			result.addIssue(String.format(
 					"%s cannot be selected while model is equipped with %s",
 					choice.getName(),
 					blockingGear.getName()));
 		}
 		
-		return RequirementResult.success("Valid");
+		return result;
 	}
 	
 	@Override

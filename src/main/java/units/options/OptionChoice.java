@@ -8,7 +8,6 @@ import java.util.Set;
 import roster.ValidationResult;
 import units.options.effects.Effect;
 import units.options.requirements.Requirement;
-import units.options.requirements.RequirementResult;
 
 public class OptionChoice {
 	
@@ -78,17 +77,12 @@ public class OptionChoice {
 		return name;
 	}
 	
-	public RequirementResult checkRequirements(SelectionContext context) {
-	    for (Requirement r : requirements) {
-
-	        RequirementResult result =
-	            r.isMet(context);
-
-	        if (!result.isValid()) {
-	            return result;
-	        }
+	public ValidationResult checkRequirements(SelectionContext context) {
+	    ValidationResult result = ValidationResult.create();
+		for (Requirement req : requirements) {
+			result.addIssues(req.isMet(context).getIssues());
 	    }
-	    return RequirementResult.success("valid");
+	    return result;
 	}
 	
 	public ValidationResult validate(SelectionContext context) {

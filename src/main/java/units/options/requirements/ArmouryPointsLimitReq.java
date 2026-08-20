@@ -26,14 +26,15 @@ public class ArmouryPointsLimitReq implements Requirement {
 	}
 
 	@Override
-	public RequirementResult isMet(SelectionContext context) {
+	public ValidationResult isMet(SelectionContext context) {
 		WargearDescription gear = context.getWargear();
 		ModelInstance model = context.getModel();
+		ValidationResult result = ValidationResult.create();
 
-		if (pointsAreValid(currentArmouryPoints(model) + gear.getPoints())) {
-			return RequirementResult.success("Gear points value meets the limit of " + limit);
+		if (!pointsAreValid(currentArmouryPoints(model) + gear.getPoints())) {
+			result.addIssue("Gear points exceed the limit of " + limit);
 		}
-		return RequirementResult.failure("Gear points value exceeds the limit of " + limit);
+		return result;
 	}
 	
 	@Override

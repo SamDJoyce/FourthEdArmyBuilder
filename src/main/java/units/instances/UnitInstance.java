@@ -20,7 +20,6 @@ import units.options.OptionGroup;
 import units.options.OptionOwner;
 import units.options.SelectedOption;
 import units.options.SelectionContext;
-import units.options.requirements.RequirementResult;
 
 public class UnitInstance implements OptionOwner{
 	// Fields
@@ -181,13 +180,8 @@ public class UnitInstance implements OptionOwner{
 	
 	@Override
 	public ValidationResult checkRequirements(OptionChoice choice) {
-		ValidationResult result = ValidationResult.create();
 		SelectionContext context = SelectionContext.forUnit(this, choice);
-		RequirementResult reqResult = choice.checkRequirements(context);
-    	if (!reqResult.isValid()) {
-    		result.addIssue(reqResult.getMessage());
-    	}
-    	return result;
+		return choice.checkRequirements(context);
 	}
 	
 	@Override
@@ -196,10 +190,9 @@ public class UnitInstance implements OptionOwner{
 	}
 	
 	@Override
-	public RequirementResult addSelection(OptionChoice choice) {
+	public ValidationResult addSelection(OptionChoice choice) {
 		SelectionContext context = SelectionContext.forUnit(this, choice);
-		RequirementResult result = choice.checkRequirements(context);
-		
+		ValidationResult result = choice.checkRequirements(context);
 		if (result.isValid()) {
 			selectedOptions.add(choice.select(context));
 		}

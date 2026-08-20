@@ -12,7 +12,6 @@ import units.instances.ModelInstance;
 import units.instances.UnitInstance;
 import units.options.OptionChoice;
 import units.options.OptionOwner;
-import units.options.requirements.RequirementResult;
 
 public class Roster {
 
@@ -147,7 +146,7 @@ public class Roster {
 		return unit.removeModel(model);
 	}
 	
-	public RequirementResult selectOption(
+	public ValidationResult selectOption(
 			OptionOwner owner, 
 			OptionChoice choice) {
 		return owner.addSelection(choice);

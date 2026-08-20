@@ -20,25 +20,26 @@ public class ArmouryWeaponLimitReq implements Requirement {
 	}
 	
 	@Override
-	public RequirementResult isMet(SelectionContext context) {
+	public ValidationResult isMet(SelectionContext context) {
 		Set<WargearInstance> gear = context.getModel().getGear();
 		int oneHanded = getCount(gear, WargearType.ONE_HANDED);
 		int twoHanded = getCount(gear, WargearType.TWO_HANDED);
 		int weaponCount = oneHanded + twoHanded;
+		ValidationResult result = ValidationResult.create();
 		
 		// May only have two weapons
 		if (weaponCount + 1 > MAX_WEAPON_COUNT) {
-			return RequirementResult.failure(String.format(
+			result.addIssue(String.format(
 					"%s may not select another weapon", 
 					context.getModel().getName()));
 		}
 		// May only have one two-handed weapon
 		if (twoHanded  + 1 > MAX_TWO_HANDED) {
-			return RequirementResult.failure(String.format(
+			result.addIssue(String.format(
 					"%s may not select another two-handed weapon", 
 					context.getModel().getName()));
 		}
-		return RequirementResult.success("May select another weapon");
+		return result;
 	}
 	
 	@Override

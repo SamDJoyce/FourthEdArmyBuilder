@@ -16,7 +16,6 @@ import units.options.OptionChoice;
 import units.options.OptionOwner;
 import units.options.SelectedOption;
 import units.options.SelectionContext;
-import units.options.requirements.RequirementResult;
 
 public class ModelInstance implements OptionOwner{
 	private final String 	 		id;
@@ -198,20 +197,15 @@ public class ModelInstance implements OptionOwner{
 	
 	@Override
 	public ValidationResult checkRequirements(OptionChoice choice) {
-		ValidationResult result = ValidationResult.create();
 		SelectionContext context = SelectionContext.forModel(this, choice);
-		RequirementResult reqResult = choice.checkRequirements(context);
-    	if (!reqResult.isValid()) {
-    		result.addIssue(reqResult.getMessage());
-    	}
-    	return result;
+    	return choice.checkRequirements(context);
 	}
 	
 	@Override
-	public RequirementResult addSelection(OptionChoice choice) {
+	public ValidationResult addSelection(OptionChoice choice) {
 		
 		SelectionContext  context = SelectionContext.forModel(this,choice);
-		RequirementResult result  = choice.checkRequirements(context);
+		ValidationResult result  = choice.checkRequirements(context);
 		
 		if (result.isValid()) {
 			selectedOptions.add(choice.select(context));

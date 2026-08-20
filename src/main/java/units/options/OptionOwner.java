@@ -3,7 +3,6 @@ package units.options;
 import java.util.Set;
 
 import roster.ValidationResult;
-import units.options.requirements.RequirementResult;
 
 public interface OptionOwner {
     Set<SelectedOption> getSelectedOptions();
@@ -18,7 +17,7 @@ public interface OptionOwner {
     
     ValidationResult checkRequirements(OptionChoice choice);
     
-    RequirementResult addSelection(OptionChoice option);
+    ValidationResult addSelection(OptionChoice option);
 
     void removeSelection(OptionChoice option);
     

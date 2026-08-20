@@ -28,30 +28,20 @@ public class MustHaveGearReq implements Requirement {
 	}
 
 	@Override
-	public RequirementResult isMet(SelectionContext context) {
+	public ValidationResult isMet(SelectionContext context) {
+		ValidationResult result = ValidationResult.create();
 		ModelInstance model = context.getModel();
-		boolean valid = model.hasGear(requiredGear);
-		String message;
-		if (valid) {
-			message = "Model has the required gear.";
-			return RequirementResult.success(message);
+		if (!model.hasGear(requiredGear)) {
+			result.addIssue(String.format(
+					"Model lacks the required wargear: %s", 
+					requiredGear.getName()));
 		}
-		message = String.format(
-				"Model lacks the required wargear: %s", 
-				requiredGear.getName());
-		return RequirementResult.failure(message);
+		return result;
 	}
 
 	@Override
 	public ValidationResult validate(SelectionContext context) {
-		ValidationResult result = ValidationResult.create();
-		RequirementResult req = isMet(context);
-		
-		if(!req.isValid()) {
-			result.addIssue(req.getMessage());
-		}
-		
-		return result;
+		return isMet(context);
 	}
 	
 }

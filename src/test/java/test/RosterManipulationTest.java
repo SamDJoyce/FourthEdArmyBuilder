@@ -4,12 +4,12 @@ import builder.ArmyBuilder;
 import loaders.CodexLoader;
 import roster.Codex;
 import roster.Roster;
+import roster.ValidationResult;
 import units.UnitFactory;
 import units.descriptions.UnitDescription;
 import units.instances.UnitInstance;
 import units.options.OptionChoice;
 import units.options.OptionOwner;
-import units.options.requirements.RequirementResult;
 
 public class RosterManipulationTest {
 	private final static String spaceMarineCodex = 
@@ -63,7 +63,7 @@ public class RosterManipulationTest {
 			OptionChoice choice) {
 		
 		OptionOwner owner = roster.getOwnerById(unitId);
-		RequirementResult result = roster.selectOption(owner, choice);
+		ValidationResult result = roster.selectOption(owner, choice);
 		if (result.isValid()) {
 			System.out.println(String.format(
 					"Option '%s' selected for %s",

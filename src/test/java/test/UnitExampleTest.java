@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import roster.ValidationResult;
 import units.ModelFactory;
 import units.UnitFactory;
 import units.UnitRole;
@@ -25,7 +26,6 @@ import units.options.effects.Effect;
 import units.options.effects.EffectFactory;
 import units.options.requirements.ReqFactory;
 import units.options.requirements.Requirement;
-import units.options.requirements.RequirementResult;
 
 public class UnitExampleTest {
 
@@ -326,7 +326,7 @@ public class UnitExampleTest {
 	
 	public void selectPlasmaGun(UnitInstance unit) {
 		ModelInstance model = unit.getModels().get(0);
-		RequirementResult result = model.addSelection(PLASMA_CHOICE);
+		ValidationResult result = model.addSelection(PLASMA_CHOICE);
 		if (result.isValid()) {
 			System.out.println("\n--- Plasma Gun selected ---\n");
 		} else {
@@ -335,7 +335,7 @@ public class UnitExampleTest {
 	}
 	
 	public void selectCrux(ModelInstance model) {
-		RequirementResult result = model.addSelection(CRUX_CHOICE);
+		ValidationResult result = model.addSelection(CRUX_CHOICE);
 		if (result.isValid()) {
 			System.out.println("\n--- Crux Terminatus selected ---\n");
 		} else {

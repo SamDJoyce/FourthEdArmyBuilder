@@ -37,32 +37,33 @@ public class MutualExclusionReq implements Requirement {
 	}
 
 	@Override
-	public RequirementResult isMet(SelectionContext context) {
-		if (context.hasUnit()) {
-			return RequirementResult.failure("MutualExclusionReq requires a unit instance.");
+	public ValidationResult isMet(SelectionContext context) {
+		
+		ValidationResult result = ValidationResult.create();
+		
+		if (!context.hasUnit()) {
+			result.addIssue("MutualExclusionReq requires a unit instance.");
+			return result;
 		}
 		
 	    UnitInstance unit = context.getUnit();
+	    OptionChoice choice = context.getChoice();
 
 	    for (OptionChoice excludedChoice : excludedChoiceNames) {
 	        if (unit.hasSelection(excludedChoice)) {
-	            return RequirementResult.failure(
-	                excludedChoice.getName() + " is already selected."
-	            );
+	        	result.addIssue(String.format(
+	        			"%s cannot be selected while %s is selected.", 
+	        			choice.getName(),
+	        			excludedChoice.getName()));
 	        }
 	    }
-
-	    return RequirementResult.success("Option may be selected.");
+	    return result;
 	}
 	
 	
 	@Override
 	public ValidationResult validate(SelectionContext context) {
-		ValidationResult result = ValidationResult.create();
-		// TODO should this still exist?
-		result.addIssue("NOT IMPLEMENTED");
-		
-		return result;
+		return isMet(context);
 	}
 
 }

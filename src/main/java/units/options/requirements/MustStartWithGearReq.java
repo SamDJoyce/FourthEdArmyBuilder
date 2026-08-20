@@ -33,29 +33,21 @@ public class MustStartWithGearReq implements Requirement {
 	}
 
 	@Override
-	public RequirementResult isMet(SelectionContext context) {
+	public ValidationResult isMet(SelectionContext context) {
+		ValidationResult result = ValidationResult.create();
 		ModelDescription model = context.getModel().getDescription();
-		if(model.startsWithGear(requiredGear)) {
-			return RequirementResult.success(String.format(
-					"Required %s is present", 
-					requiredGear.getName()));
-		}
-		return RequirementResult.failure(String.format(
-				"Model must be equipped with %s by default to select %s", 
-				requiredGear.getName(),
-				context.getChoice().getName()));
+		if(!model.startsWithGear(requiredGear)) {
+			result.addIssue(String.format(
+							"Model must be equipped with %s by default to select %s", 
+							requiredGear.getName(),
+							context.getChoice().getName()));
+		};
+		return result;
 	}
 
 	@Override
 	public ValidationResult validate(SelectionContext context) {
-		ValidationResult result = ValidationResult.create();
-		RequirementResult req = isMet(context);
-		
-		if(!req.isValid()) {
-			result.addIssue(req.getMessage());
-		}
-		
-		return result;
+		return isMet(context);
 	}
 
 }

@@ -25,42 +25,29 @@ public class ModelCountReq implements Requirement {
 	}
 
 	@Override
-	public RequirementResult isMet(SelectionContext context) {
+	public ValidationResult isMet(SelectionContext context) {
+		ValidationResult result = ValidationResult.create();
+		
 		if (!context.hasUnit()) {
-			message = "ModelCountRequirement needs an UnitInstance";
-			return RequirementResult.failure(message);
+			result.addIssue("ModelCountRequirement needs an UnitInstance");
+			return result;
 		}
 		
 		int count = context.getUnit().getCurrentSize();
 		boolean valid = count >= minimum && count <= maximum;
-		if (valid) {
-			message = String.format(
-		            "Unit count is valid (%d).",
-		            count
-		        );
-			return RequirementResult.success(message);
-		}
-		else {
-	        message = String.format(
+		if (!valid) {
+			result.addIssue(String.format(
 	                "Unit size must be between %d and %d (currently %d).",
 	                minimum,
 	                maximum,
 	                count
-	            );
-	        return RequirementResult.failure(message);
+	            ));
 		}
-		
+		 return result;
 	}
 	@Override
 	public ValidationResult validate(SelectionContext context) {
-		RequirementResult req = isMet(context);
-		ValidationResult result = ValidationResult.create();
-		
-		if (!req.isValid()) {
-			result.addIssue(req.getMessage());
-		}
-		
-		return result;
+		return isMet(context);
 	}
 
 }

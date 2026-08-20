@@ -2,8 +2,6 @@ package units.options;
 
 import roster.ValidationResult;
 import units.options.effects.Effect;
-import units.options.requirements.Requirement;
-import units.options.requirements.RequirementResult;
 
 public class SelectedOption {
 	private final OptionChoice choice;
