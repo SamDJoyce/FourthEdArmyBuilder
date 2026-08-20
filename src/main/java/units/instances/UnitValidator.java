@@ -1,6 +1,6 @@
 package units.instances;
 
-import roster.RosterResult;
+import roster.ValidationResult;
 import units.options.OptionValidator;
 
 public class UnitValidator {
@@ -10,9 +10,9 @@ public class UnitValidator {
 		optValidator = OptionValidator.create();
 	}
 	
-	public RosterResult validate(UnitInstance unit) {
+	public ValidationResult validate(UnitInstance unit) {
 		
-		RosterResult result = RosterResult.create();
+		ValidationResult result = ValidationResult.create();
 		validateSize(unit,result);
 		validateChoices(unit,result);
 		validateModels(unit,result);
@@ -22,9 +22,9 @@ public class UnitValidator {
 	
 	private void validateModels(			
 			UnitInstance unit,
-			RosterResult result) {
+			ValidationResult result) {
 		for (ModelInstance m : unit.getModels()) {
-			RosterResult r = m.validate();
+			ValidationResult r = m.validate();
 			if (r.hasIssues()) {
 				result.addIssues(r.getIssues());
 			}
@@ -33,14 +33,14 @@ public class UnitValidator {
 	
 	private void validateChoices(
 			UnitInstance unit,
-			RosterResult result) {
+			ValidationResult result) {
 		
 		optValidator.validate(unit, result);
 	}
 	
 	private void validateSize(
 			UnitInstance unit,
-			RosterResult result) {
+			ValidationResult result) {
 		int min 	= unit.getMinSize();
 		int max     = unit.getMaxSize();
 		int current = unit.getCurrentSize();

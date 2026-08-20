@@ -8,7 +8,7 @@ import java.util.Set;
 import java.util.UUID;
 
 import roster.Roster;
-import roster.RosterResult;
+import roster.ValidationResult;
 import units.ModelFactory;
 import units.UnitRole;
 import units.UnitType;
@@ -101,8 +101,8 @@ public class UnitInstance implements OptionOwner{
 		return models.contains(model);
 	}
 	
-	public RosterResult addModel(ModelInstance model) {
-		RosterResult result = RosterResult.create();
+	public ValidationResult addModel(ModelInstance model) {
+		ValidationResult result = ValidationResult.create();
 		if (!canAddModel()) {
 			result.addIssue("Cannot add another model to this unit.");
 		}
@@ -113,8 +113,8 @@ public class UnitInstance implements OptionOwner{
 		return result;
 	}
 	
-	public RosterResult removeModel(ModelInstance model){
-		RosterResult result = RosterResult.create();
+	public ValidationResult removeModel(ModelInstance model){
+		ValidationResult result = ValidationResult.create();
 		if (!canRemoveModel()) {
 			result.addIssue("Cannot remove model");
 		}
@@ -177,6 +177,17 @@ public class UnitInstance implements OptionOwner{
 			total += m.getTotalPoints();
 		}
 		return total;
+	}
+	
+	@Override
+	public ValidationResult checkRequirements(OptionChoice choice) {
+		ValidationResult result = ValidationResult.create();
+		SelectionContext context = SelectionContext.forUnit(this, choice);
+		RequirementResult reqResult = choice.checkRequirements(context);
+    	if (!reqResult.isValid()) {
+    		result.addIssue(reqResult.getMessage());
+    	}
+    	return result;
 	}
 	
 	@Override
@@ -259,7 +270,7 @@ public class UnitInstance implements OptionOwner{
 		return unit;
 	}
 	
-	public RosterResult validate() {
+	public ValidationResult validate() {
 		return validator.validate(this);
 	}
 

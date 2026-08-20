@@ -1,6 +1,6 @@
 package units.options;
 
-import roster.RosterResult;
+import roster.ValidationResult;
 import units.instances.ModelInstance;
 import units.instances.UnitInstance;
 
@@ -10,7 +10,7 @@ public class OptionValidator {
 	
 	public void validate(
 			OptionOwner owner,
-			RosterResult result) {
+			ValidationResult result) {
 		
 		for (SelectedOption o : owner.getSelectedOptions()) {
 			SelectionContext context;
@@ -23,7 +23,7 @@ public class OptionValidator {
 				context = SelectionContext.forUnit(unit,o.getChoice());
 			}
 			
-			RosterResult r = o.getChoice().validate(context);
+			ValidationResult r = o.getChoice().validate(context);
 			if (r.hasIssues()) {
 				result.addIssues(r.getIssues());
 			}

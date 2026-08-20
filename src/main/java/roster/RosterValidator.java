@@ -9,9 +9,9 @@ public class RosterValidator {
 	private RosterValidator() {
 	}
 	
-	public RosterResult validate(Roster roster) {
+	public ValidationResult validate(Roster roster) {
 		
-		RosterResult result = RosterResult.create();
+		ValidationResult result = ValidationResult.create();
 		
 		validateRoles(roster, result);
 		validatePoints(roster, result);
@@ -20,7 +20,7 @@ public class RosterValidator {
 		return result;
 	}
 	
-	private void validateRoles(Roster roster, RosterResult result) {
+	private void validateRoles(Roster roster, ValidationResult result) {
 		for (ForceOrgLimit limit : roster.getChart().getLimits().values()) {
 
 		    UnitRole role = limit.getRole();
@@ -47,19 +47,19 @@ public class RosterValidator {
 		}
 	}
 	
-	private void validatePoints(Roster roster, RosterResult results) {
+	private void validatePoints(Roster roster, ValidationResult results) {
 		if (roster.getCurrentPoints() > roster.getPointsLimit()) {
 			results.addIssue(String.format(
-					"Roster exceeds limit of %d (currently %d)", 
+					"Roster exceeds points limit of %d (currently %d)", 
 					roster.getPointsLimit(),
 					roster.getCurrentPoints()
 					));
 		}
 	}
 	
-	private void validateUnits(Roster roster, RosterResult result) {
+	private void validateUnits(Roster roster, ValidationResult result) {
 		for (UnitInstance u : roster.getUnits()) {
-			RosterResult r = u.validate();
+			ValidationResult r = u.validate();
 			if (r.hasIssues()) {
 				result.addIssues(r.getIssues());
 			}

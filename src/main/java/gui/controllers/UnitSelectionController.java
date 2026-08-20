@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import roster.Codex;
+import roster.ValidationResult;
 import units.UnitRole;
 import units.descriptions.UnitDescription;
 
@@ -52,27 +53,23 @@ public class UnitSelectionController {
     }
 
     private void populateUnits() {
-
-        Codex codex = armyBuilder.getCodex();
+        
         for (UnitRole role : UnitRole.values()) {
         	VBox panel = panels.get(role);
         	if (panel != null) {
-            	populateRole(
-            			codex, 
+            	populateRole( 
             			role, 
             			panel);
         	}
-
         }
     }
 
     private void populateRole(
-            Codex codex,
             UnitRole role,
             VBox panel) {
 
         panel.getChildren().clear();
-        for (UnitDescription unit : codex.getUnitsByRole(role)) {
+        for (UnitDescription unit : armyBuilder.getUnitDescriptionsByRole(role)) {
                 addUnitButton(unit, panel);
         }
     }
@@ -86,9 +83,12 @@ public class UnitSelectionController {
         button.setMaxWidth(Double.MAX_VALUE);
 
         button.setOnAction(event -> {
+        	ValidationResult result = armyBuilder.addUnit(unit);
             System.out.println(
-                "Selected unit: " + unit.getName()
+                "Selected unit:" + unit.getName()
             );
+            System.out.println(
+            	"Validation Result:\n" + result.getMessage());
         });
 
         panel.getChildren().add(button);

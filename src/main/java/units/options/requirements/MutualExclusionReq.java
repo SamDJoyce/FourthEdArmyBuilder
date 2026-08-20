@@ -3,7 +3,7 @@ package units.options.requirements;
 import java.util.HashSet;
 import java.util.Set;
 
-import roster.RosterResult;
+import roster.ValidationResult;
 import units.instances.UnitInstance;
 import units.options.OptionChoice;
 import units.options.SelectionContext;
@@ -57,8 +57,8 @@ public class MutualExclusionReq implements Requirement {
 	
 	
 	@Override
-	public RosterResult validate(SelectionContext context) {
-		RosterResult result = RosterResult.create();
+	public ValidationResult validate(SelectionContext context) {
+		ValidationResult result = ValidationResult.create();
 		// TODO should this still exist?
 		result.addIssue("NOT IMPLEMENTED");
 		

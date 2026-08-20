@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-import roster.RosterResult;
+import roster.ValidationResult;
 import units.options.effects.Effect;
 import units.options.requirements.Requirement;
 import units.options.requirements.RequirementResult;
@@ -91,11 +91,11 @@ public class OptionChoice {
 	    return RequirementResult.success("valid");
 	}
 	
-	public RosterResult validate(SelectionContext context) {
-		RosterResult result = RosterResult.create();
+	public ValidationResult validate(SelectionContext context) {
+		ValidationResult result = ValidationResult.create();
 		
 		for (Requirement req : requirements) {
-			RosterResult r = req.validate(context);
+			ValidationResult r = req.validate(context);
 			if (r.hasIssues()) {
 				result.addIssues(r.getIssues());
 			}

@@ -1,6 +1,6 @@
 package units.options.requirements;
 
-import roster.RosterResult;
+import roster.ValidationResult;
 import units.options.SelectionContext;
 
 public class ModelCountReq implements Requirement {
@@ -52,9 +52,9 @@ public class ModelCountReq implements Requirement {
 		
 	}
 	@Override
-	public RosterResult validate(SelectionContext context) {
+	public ValidationResult validate(SelectionContext context) {
 		RequirementResult req = isMet(context);
-		RosterResult result = RosterResult.create();
+		ValidationResult result = ValidationResult.create();
 		
 		if (!req.isValid()) {
 			result.addIssue(req.getMessage());

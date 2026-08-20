@@ -1,6 +1,6 @@
 package units.options.requirements;
 
-import roster.RosterResult;
+import roster.ValidationResult;
 import units.descriptions.wargear.WargearDescription;
 import units.instances.ModelInstance;
 import units.options.OptionChoice;
@@ -49,8 +49,8 @@ public class CannotHaveGearReq implements Requirement {
 	}
 	
 	@Override
-	public RosterResult validate(SelectionContext context) {
-		RosterResult result = RosterResult.create();
+	public ValidationResult validate(SelectionContext context) {
+		ValidationResult result = ValidationResult.create();
 		ModelInstance model = context.getModel();
 		OptionChoice choice = context.getChoice();
 		

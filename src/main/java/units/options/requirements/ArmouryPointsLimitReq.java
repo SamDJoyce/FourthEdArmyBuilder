@@ -1,6 +1,6 @@
 package units.options.requirements;
 
-import roster.RosterResult;
+import roster.ValidationResult;
 import units.descriptions.wargear.WargearDescription;
 import units.instances.ModelInstance;
 import units.instances.WargearInstance;
@@ -37,8 +37,8 @@ public class ArmouryPointsLimitReq implements Requirement {
 	}
 	
 	@Override
-	public RosterResult validate(SelectionContext context) {
-		RosterResult result = RosterResult.create();
+	public ValidationResult validate(SelectionContext context) {
+		ValidationResult result = ValidationResult.create();
 		if (!pointsAreValid(currentArmouryPoints(context.getModel()))) {
 			result.addIssue("Gear points value exceeds the limit of " + limit);
 		}

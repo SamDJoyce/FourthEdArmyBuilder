@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class RosterResult {
+public class ValidationResult {
 
 	private final List<RosterIssue> issues;
 	
-	private RosterResult() {
+	private ValidationResult() {
 		issues = new ArrayList<>();
 	}
 	
@@ -21,7 +21,7 @@ public class RosterResult {
 	}
 	
 	public void addIssues(List<RosterIssue> issues) {
-		issues.addAll(issues);
+		this.issues.addAll(issues);
 	}
 	
 	public boolean isValid() {
@@ -47,7 +47,7 @@ public class RosterResult {
         return sb.toString();
     }
 	
-	public static RosterResult create() {
-		return new RosterResult();
+	public static ValidationResult create() {
+		return new ValidationResult();
 	}
 }

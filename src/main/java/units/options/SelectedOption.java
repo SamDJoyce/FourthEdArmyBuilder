@@ -1,6 +1,6 @@
 package units.options;
 
-import roster.RosterResult;
+import roster.ValidationResult;
 import units.options.effects.Effect;
 import units.options.requirements.Requirement;
 import units.options.requirements.RequirementResult;
@@ -35,7 +35,7 @@ public class SelectedOption {
 		return choice;
 	}
 	
-	public RosterResult validate(SelectionContext context) {
+	public ValidationResult validate(SelectionContext context) {
 		return choice.validate(context);
 	}
 	

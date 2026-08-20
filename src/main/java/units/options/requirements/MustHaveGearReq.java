@@ -1,6 +1,6 @@
 package units.options.requirements;
 
-import roster.RosterResult;
+import roster.ValidationResult;
 import units.descriptions.wargear.WargearDescription;
 import units.instances.ModelInstance;
 import units.options.SelectionContext;
@@ -43,8 +43,8 @@ public class MustHaveGearReq implements Requirement {
 	}
 
 	@Override
-	public RosterResult validate(SelectionContext context) {
-		RosterResult result = RosterResult.create();
+	public ValidationResult validate(SelectionContext context) {
+		ValidationResult result = ValidationResult.create();
 		RequirementResult req = isMet(context);
 		
 		if(!req.isValid()) {

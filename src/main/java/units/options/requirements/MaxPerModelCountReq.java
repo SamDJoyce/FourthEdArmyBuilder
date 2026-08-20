@@ -1,6 +1,6 @@
 package units.options.requirements;
 
-import roster.RosterResult;
+import roster.ValidationResult;
 import units.descriptions.models.ModelDescription;
 import units.instances.UnitInstance;
 import units.options.OptionChoice;
@@ -73,8 +73,8 @@ public class MaxPerModelCountReq implements Requirement {
 	}
 	
 	@Override
-	public RosterResult validate(SelectionContext context) {
-		RosterResult result = RosterResult.create();
+	public ValidationResult validate(SelectionContext context) {
+		ValidationResult result = ValidationResult.create();
         UnitInstance unit = context.getUnit();
         OptionChoice choice = context.getChoice();
         // Get number of models in the unit

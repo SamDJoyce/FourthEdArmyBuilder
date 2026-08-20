@@ -102,25 +102,26 @@ public class Roster {
 		return units;
 	}
 
-	public RosterResult setUnits(List<UnitInstance> units) {
+	public ValidationResult setUnits(List<UnitInstance> units) {
 		this.units = units;
 		setParentRoster(this.units);
 		return validate();
 	}
 	
-	public RosterResult addUnit(UnitDescription unit) {
-		RosterResult result = RosterResult.create();
+	public ValidationResult addUnit(UnitDescription unit) {
+		ValidationResult result = ValidationResult.create();
 		UnitInstance instance = UnitFactory.createInstance(unit);
 		if (!units.add(instance)){
 			result.addIssue("Unit could not be added to the roster.");
 		} else {
 			instance.setParentRoster(this);
 		}
+		result.addIssues(validate().getIssues());
 		return result;
 	}
 	
-	public RosterResult addUnit(UnitInstance unit) {
-		RosterResult result = RosterResult.create();
+	public ValidationResult addUnit(UnitInstance unit) {
+		ValidationResult result = ValidationResult.create();
 		if (!units.add(unit)){
 			result.addIssue("Unit could not be added to the roster.");
 		} else {
@@ -129,19 +130,19 @@ public class Roster {
 		return result;
 	}
 	
-	public RosterResult removeUnit(UnitInstance unit) {
+	public ValidationResult removeUnit(UnitInstance unit) {
 		units.remove(unit);
 		unit.setParentRoster(null);
 		return validate();
 	}
 	
-	public RosterResult addModel(
+	public ValidationResult addModel(
 			UnitInstance unit, 
 			ModelInstance model) {
 		return unit.addModel(model);
 	}
 	
-	public RosterResult removeModel(ModelInstance model) {
+	public ValidationResult removeModel(ModelInstance model) {
 		UnitInstance unit = model.getParentUnit();
 		return unit.removeModel(model);
 	}
@@ -192,7 +193,7 @@ public class Roster {
 		return chart.getMinRole(role);
 	}
 	
-	public RosterResult validate() {
+	public ValidationResult validate() {
 		return validator.validate(this);
 		
 	}

@@ -4,7 +4,7 @@ import java.util.List;
 
 import roster.Codex;
 import roster.Roster;
-import roster.RosterResult;
+import roster.ValidationResult;
 import units.UnitRole;
 import units.WargearType;
 import units.descriptions.UnitDescription;
@@ -16,6 +16,7 @@ import units.instances.UnitInstance;
 import units.options.OptionChoice;
 import units.options.OptionGroup;
 import units.options.OptionOwner;
+import units.options.SelectionContext;
 import units.options.effects.Effect;
 import units.options.requirements.Requirement;
 import units.options.requirements.RequirementResult;
@@ -41,11 +42,11 @@ public class ArmyBuilder {
     // *******************************
     // ***** Roster Interactions *****
     // *******************************
-    public RosterResult addUnit(UnitDescription unit) {
+    public ValidationResult addUnit(UnitDescription unit) {
     	return roster.addUnit(unit);
     }
     
-    public RosterResult removeUnit(UnitInstance unit) {
+    public ValidationResult removeUnit(UnitInstance unit) {
     	return roster.removeUnit(unit);
     }
     
@@ -57,20 +58,20 @@ public class ArmyBuilder {
     	return roster.getUnitsByRole(role);
     }
     
-    public RosterResult addModel(
+    public ValidationResult addModel(
     		UnitInstance unit, 
 			ModelInstance model) {
     	return roster.addModel(unit, model);
     }
     
-    public RosterResult removeModel(ModelInstance model) {
+    public ValidationResult removeModel(ModelInstance model) {
     	return roster.removeModel(model);
     }
     
-    public RosterResult selectOption(			
+    public ValidationResult selectOption(			
     		OptionOwner owner, 
 			OptionChoice choice) {
-    	RosterResult result = RosterResult.create();
+    	ValidationResult result = ValidationResult.create();
     	RequirementResult req = roster.selectOption(owner, choice);
     	if (!req.isValid()) {
     		result.addIssue(req.getMessage());
@@ -85,6 +86,12 @@ public class ArmyBuilder {
     public int getCurrentPoints() {
     	return roster.getCurrentPoints();
     }
+    
+    public ValidationResult checkRequirements(
+    		OptionChoice choice,
+    		OptionOwner owner) {
+    	return owner.checkRequirements(choice);
+    }
    
     // ******************************
     // ***** Codex Interactions *****
@@ -93,7 +100,7 @@ public class ArmyBuilder {
     	return codex.getUnit(unitName);
     }
     
-    public List<UnitDescription> getUnitDescriptionByRole(UnitRole role){
+    public List<UnitDescription> getUnitDescriptionsByRole(UnitRole role){
     	return codex.getUnitsByRole(role);
     }
     
@@ -105,7 +112,7 @@ public class ArmyBuilder {
     	return codex.getWargear(gearName);
     }
     
-    public List<WargearDescription> getWargearDescriptionByType(WargearType type){
+    public List<WargearDescription> getWargearDescriptionsByType(WargearType type){
     	return codex.getWargearByType(type);
     }
     

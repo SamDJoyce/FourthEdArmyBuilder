@@ -217,19 +217,19 @@ public class CodexLoader {
 	public List<Requirement> createRequirements () throws IOException {
 		InputStream input =
 	            ResourceLoader.getResource(requirementFile);
-			reqDtos = mapper.readValue(
-					input, 
-					new TypeReference<List<RequirementDTO>>() {});
-			return reqLoader.createAll(reqDtos);
+		reqDtos = mapper.readValue(
+				input, 
+				new TypeReference<List<RequirementDTO>>() {});
+		return reqLoader.createAll(reqDtos);
 	}
 	
 	public List<OptionChoice> createOptionChoices() throws IOException {
 		InputStream input =
 	            ResourceLoader.getResource(optionChoiceFile);
-			choiceDtos = mapper.readValue(
-					input, 
-					new TypeReference<List<OptionChoiceDTO>>() {});
-			return optionChoiceLoader.createAll(choiceDtos);
+		choiceDtos = mapper.readValue(
+				input, 
+				new TypeReference<List<OptionChoiceDTO>>() {});
+		return optionChoiceLoader.createAll(choiceDtos);
 	}
 	
 	public List<OptionGroup> createOptionGroups() throws IOException {

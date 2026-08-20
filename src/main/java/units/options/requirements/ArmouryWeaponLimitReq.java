@@ -2,7 +2,7 @@ package units.options.requirements;
 
 import java.util.Set;
 
-import roster.RosterResult;
+import roster.ValidationResult;
 import units.WargearType;
 import units.instances.WargearInstance;
 import units.options.SelectionContext;
@@ -42,8 +42,8 @@ public class ArmouryWeaponLimitReq implements Requirement {
 	}
 	
 	@Override
-	public RosterResult validate(SelectionContext context) {
-		RosterResult result = RosterResult.create();
+	public ValidationResult validate(SelectionContext context) {
+		ValidationResult result = ValidationResult.create();
 		
 		Set<WargearInstance> gear = context.getModel().getGear();
 		int oneHanded = getCount(gear, WargearType.ONE_HANDED);

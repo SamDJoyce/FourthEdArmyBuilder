@@ -1,6 +1,6 @@
 package units.instances;
 
-import roster.RosterResult;
+import roster.ValidationResult;
 import units.options.OptionValidator;
 
 public class ModelValidator {
@@ -11,8 +11,8 @@ public class ModelValidator {
 		optValidator = OptionValidator.create();
 	};
 	
-	public RosterResult validate(ModelInstance model) {
-		RosterResult result = RosterResult.create();
+	public ValidationResult validate(ModelInstance model) {
+		ValidationResult result = ValidationResult.create();
 		// Shouldn't there be something else here?
 		validateChoices(model, result);
 		
@@ -21,7 +21,7 @@ public class ModelValidator {
 	
 	private void validateChoices(
 			ModelInstance model,
-			RosterResult result) {
+			ValidationResult result) {
 		optValidator.validate(model, result);
 	}
 	

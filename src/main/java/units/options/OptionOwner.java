@@ -2,6 +2,7 @@ package units.options;
 
 import java.util.Set;
 
+import roster.ValidationResult;
 import units.options.requirements.RequirementResult;
 
 public interface OptionOwner {
@@ -14,6 +15,8 @@ public interface OptionOwner {
     boolean isModel();
     
     boolean isUnit();
+    
+    ValidationResult checkRequirements(OptionChoice choice);
     
     RequirementResult addSelection(OptionChoice option);
 

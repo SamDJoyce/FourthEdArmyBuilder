@@ -8,15 +8,9 @@
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="gui.controllers.UnitSelectionController">
 
+
+
     <left>
-        <VBox spacing="10" prefWidth="250">
-
-            <Label text="Army List"/>
-
-        </VBox>
-    </left>
-
-    <center>
         <ScrollPane fitToWidth="true">
 
             <content>
@@ -54,6 +48,14 @@
             </content>
 
         </ScrollPane>
-    </center>
+    </left>
+    
+    <center>
+    <VBox spacing="10" prefWidth="250">
+
+        <Label text="Army List"/>
+
+    </VBox>
+</center>
 
 </BorderPane>

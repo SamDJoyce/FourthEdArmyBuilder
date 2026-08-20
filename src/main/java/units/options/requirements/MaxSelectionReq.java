@@ -1,6 +1,6 @@
 package units.options.requirements;
 
-import roster.RosterResult;
+import roster.ValidationResult;
 import units.instances.ModelInstance;
 import units.instances.UnitInstance;
 import units.options.OptionGroup;
@@ -56,8 +56,8 @@ public class MaxSelectionReq implements Requirement {
 	}
 	
 	@Override
-	public RosterResult validate(SelectionContext context) {
-		RosterResult result = RosterResult.create();
+	public ValidationResult validate(SelectionContext context) {
+		ValidationResult result = ValidationResult.create();
 		int count = getSelectionCount(context);
 		
 		if (count > maxSelection) {

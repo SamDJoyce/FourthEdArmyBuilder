@@ -6,7 +6,7 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-import roster.RosterResult;
+import roster.ValidationResult;
 import units.UnitType;
 import units.WargearFactory;
 import units.descriptions.models.ModelDescription;
@@ -161,9 +161,11 @@ public class ModelInstance implements OptionOwner{
 		return false;
 	}
 	
-	public RosterResult validate() {
+	public ValidationResult validate() {
 		return validator.validate(this);
 	}
+	
+
 	
 	@Override
 	public String toString() {
@@ -192,6 +194,17 @@ public class ModelInstance implements OptionOwner{
 	@Override
 	public Set<SelectedOption> getSelectedOptions(){
 		return selectedOptions;
+	}
+	
+	@Override
+	public ValidationResult checkRequirements(OptionChoice choice) {
+		ValidationResult result = ValidationResult.create();
+		SelectionContext context = SelectionContext.forModel(this, choice);
+		RequirementResult reqResult = choice.checkRequirements(context);
+    	if (!reqResult.isValid()) {
+    		result.addIssue(reqResult.getMessage());
+    	}
+    	return result;
 	}
 	
 	@Override
