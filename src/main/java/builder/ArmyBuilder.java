@@ -85,6 +85,10 @@ public class ArmyBuilder {
     		OptionOwner owner) {
     	return owner.checkRequirements(choice);
     }
+    
+    public ValidationResult validateRoster() {
+    	return roster.validate();
+    }
    
     // ******************************
     // ***** Codex Interactions *****

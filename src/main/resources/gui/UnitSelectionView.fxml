@@ -1,0 +1,44 @@
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="gui.controllers.UnitSelectionController">
+        <ScrollPane fitToWidth="true">
+            <content>
+                <VBox>
+					<padding>
+				        <Insets top="10" right="10" bottom="10" left="10"/>
+				    </padding>
+                    <Label text="Select Unit"/>
+
+                    <Label text="HQ"/>
+                    <VBox fx:id="hqPanel"
+                          spacing="5"/>
+
+                    <Label text="Elites"/>
+                    <VBox fx:id="elitesPanel"
+                          spacing="5"/>
+
+                    <Label text="Troops"/>
+                    <VBox fx:id="troopsPanel"
+                          spacing="5"/>
+
+                    <Label text="Fast Attack"/>
+                    <VBox fx:id="fastAttackPanel"
+                          spacing="5"/>
+
+                    <Label text="Heavy Support"/>
+                    <VBox fx:id="heavySupportPanel"
+                          spacing="5"/>
+
+                    <Label text="None"/>
+                    <VBox fx:id="nonePanel"
+                          spacing="5"/>
+
+                </VBox>
+            </content>
+        </ScrollPane>
+</BorderPane>

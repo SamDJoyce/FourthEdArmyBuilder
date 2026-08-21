@@ -4,13 +4,13 @@ import java.util.Map;
 
 import builder.ArmyBuilder;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
-import roster.ValidationResult;
 import units.UnitRole;
-import units.descriptions.UnitDescription;
+import units.instances.UnitInstance;
 
-public class UnitSelectionController {
+public class RosterController {
 
     @FXML
     private VBox hqPanel;
@@ -26,9 +26,12 @@ public class UnitSelectionController {
 
     @FXML
     private VBox heavySupportPanel;
-    
+
     @FXML
     private VBox nonePanel;
+
+    @FXML
+    private Label pointsLabel;
 
     private ArmyBuilder armyBuilder;
     
@@ -45,14 +48,15 @@ public class UnitSelectionController {
                 UnitRole.NONE, 			nonePanel
             );
     }
-    
+
     public void setArmyBuilder(ArmyBuilder armyBuilder) {
         this.armyBuilder = armyBuilder;
-        populateUnits();
+        refresh();
     }
 
-    private void populateUnits() {
-        
+    public void refresh() {
+    	
+    	
         for (UnitRole role : UnitRole.values()) {
         	VBox panel = panels.get(role);
         	if (panel != null) {
@@ -61,6 +65,7 @@ public class UnitSelectionController {
             			panel);
         	}
         }
+        updatePoints();
     }
 
     private void populateRole(
@@ -68,28 +73,39 @@ public class UnitSelectionController {
             VBox panel) {
 
         panel.getChildren().clear();
-        for (UnitDescription unit : armyBuilder.getUnitDescriptionsByRole(role)) {
-                addUnitButton(unit, panel);
+
+        for (UnitInstance unit :
+                armyBuilder.getUnitInstancesByRole(role)) {
+            addUnit(unit, panel);
         }
     }
 
-    private void addUnitButton(
-            UnitDescription unit,
+    private void addUnit(
+            UnitInstance unit,
             VBox panel) {
-
-        Button button = new Button(unit.getName());
+    	// In future this should be a unit view which 
+    	// displays all the unit's options and info
+        Button button = new Button(
+                unit.getDescription().getName()
+        );
 
         button.setMaxWidth(Double.MAX_VALUE);
 
         button.setOnAction(event -> {
-        	ValidationResult result = armyBuilder.addUnit(unit);
             System.out.println(
-                "Selected unit:" + unit.getName()
+                    "Selected instance: "
+                    + unit.getName()
             );
-            System.out.println(
-            	"Validation Result:\n" + result.getMessage());
         });
 
         panel.getChildren().add(button);
+    }
+
+    private void updatePoints() {
+        pointsLabel.setText(
+                armyBuilder.getCurrentPoints()
+                + " / "
+                + armyBuilder.getPointsLimit()
+        );
     }
 }

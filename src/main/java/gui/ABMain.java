@@ -3,9 +3,11 @@ package gui;
 import java.io.IOException;
 
 import builder.ArmyBuilder;
+import gui.controllers.RosterController;
 import gui.controllers.UnitSelectionController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -21,17 +23,54 @@ public class ABMain extends Application {
     	ArmyBuilder armyBuilder = new ArmyBuilder(codex);
     	
         try {
-            FXMLLoader xmlLoader = new FXMLLoader(
+        	// *** Load Main View ***
+            FXMLLoader mainLoader = new FXMLLoader(
                     getClass().getResource("/gui/MainView.fxml")
             );
 
-            BorderPane root = xmlLoader.load();
+            BorderPane root = mainLoader.load();
 
-            UnitSelectionController controller =
-            		xmlLoader.getController();
+            // *** Load UnitSelectionView ***
+            FXMLLoader unitSelectionLoader =
+                    new FXMLLoader(
+                            getClass().getResource(
+                                    "/gui/UnitSelection.fxml"
+                            )
+                    );
+            Node unitSelectionView =
+                    unitSelectionLoader.load();
+            UnitSelectionController unitSelectionController =
+            		unitSelectionLoader.getController();
+            
+            // *** Load the Roster View ***
+            FXMLLoader rosterLoader =
+                    new FXMLLoader(
+                            getClass().getResource(
+                                    "/gui/Roster.fxml"
+                            )
+                    );
 
-            controller.setArmyBuilder(armyBuilder);
+            Node rosterView =
+                    rosterLoader.load();
 
+            RosterController rosterController =
+                    rosterLoader.getController();
+
+            // Give both controllers the same Army Builder
+            unitSelectionController.setArmyBuilder(
+                    armyBuilder
+            );
+
+            rosterController.setArmyBuilder(
+                    armyBuilder
+            );
+            
+            
+            // *** Put the views into the main layout ***
+            root.setLeft(unitSelectionView);
+            root.setCenter(rosterView);
+            
+            // *** Create and display the window ***
             Scene scene = new Scene(root, 1000, 700);
 
             stage.setTitle("Fourth Ed Army Builder");
