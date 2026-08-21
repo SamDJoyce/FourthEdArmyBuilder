@@ -91,6 +91,28 @@
 		]
 	},
 	{
+		"name":"dreadnought",
+		"basePoints":105,
+		"statlineName":"dreadnought",
+		"typeNames":[
+			"WALKER",
+			"VEHICLE"
+		],
+		"optionGroupNames":[
+			"Replace dreadnought storm bolter group",
+			"Replace dreadnought assault cannon group",
+			"venerable group",
+			"dreadnought upgrade group",
+			"veteran skills group",
+			"dreadnought missile launcher group"
+		],
+		"wargearNames":[
+			"dreadnought ccw",
+			"storm bolter",
+			"dreadnought assault cannon"
+		]
+	},
+	{
 		"name":"tactical marine",
 		"basePoints":15,
 		"statlineName":"tactical marine",

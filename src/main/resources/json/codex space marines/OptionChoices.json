@@ -907,5 +907,82 @@
 		"effectNames":[
 			"add vortex of doom epistolary"
 		]
+	},
+	{
+		"name":"select replace dreadnought storm bolter",
+		"points":10,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"replace dreadnought storm bolter with heavy flamer"
+		]
+	},
+	{
+		"name":"select replace dreadnought assault cannon with tl lascannon",
+		"points":20,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"replace dreadnought assault cannon with tl lascannon"
+		]
+	},
+	{
+		"name":"select replace dreadnought assault cannon with multi melta",
+		"points":10,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"replace dreadnought assault cannon with multi melta"
+		]
+	},
+	{
+		"name":"select upgrade to venerable dreadnought",
+		"points":20,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"upgrade to venerable dreadnought",
+			"change name to venerable"
+		]
+	},
+	{
+		"name":"select replace ccw with dreadnought missile launcher",
+		"points":10,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"replace ccw with dreadnought missile launcher",
+			"remove storm bolter"
+		]
+	},
+	{
+		"name":"select extra armour",
+		"points":5,
+		"requirementNames":[
+			"must be vehicle"
+		],
+		"effectNames":[
+			"add extra armour"
+		]
+	},
+	{
+		"name":"select search light",
+		"points":1,
+		"requirementNames":[
+			"must be vehicle"
+		],
+		"effectNames":[
+			"add search light"
+		]
+	},
+	{
+		"name":"select smoke launchers",
+		"points":3,
+		"requirementNames":[
+			"must be vehicle"
+		],
+		"effectNames":[
+			"add smoke launchers"
+		]
 	}
 ]

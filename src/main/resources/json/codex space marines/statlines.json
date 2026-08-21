@@ -50,5 +50,26 @@
 		"a":3,
 		"ld":9,
 		"sv":3
+	},
+	{
+		"type":"walker",
+		"name":"dreadnought",
+		"ws":4,
+		"bs":4,
+		"s":10,
+		"i":4,
+		"a":2,
+		"front":12,
+		"side":12,
+		"rear":10
+	},
+	{
+		"type":"vehicle",
+		"name":"land raider",
+		"bs":4,
+		"front":14,
+		"side":14,
+		"rear":14
 	}
+	
 ]

@@ -150,6 +150,30 @@
 		"remove":"storm of the emperor's wrath",
 		"add":"vortex of doom epistolary"
 	},
+	{
+		"type":"replace_wargear",
+		"name":"replace dreadnought storm bolter with heavy flamer",
+		"remove":"storm bolter",
+		"add":"dreadnought heavy flamer"
+	},
+	{
+		"type":"replace_wargear",
+		"name":"replace dreadnought assault cannon with tl lascannon",
+		"remove":"dreadnought assault cannon",
+		"add":"dreadnought tl lascannon"
+	},
+	{
+		"type":"replace_wargear",
+		"name":"replace dreadnought assault cannon with multi melta",
+		"remove":"dreadnought assault cannon",
+		"add":"dreadnought multi melta"
+	},
+	{
+		"type":"replace_wargear",
+		"name":"replace ccw with dreadnought missile launcher",
+		"remove":"dreadnought ccw",
+		"add":"dreadnought missile launcher"
+	},
 	
 	
 	
@@ -178,8 +202,6 @@
 		"name":"add vortex of doom epistolary",
 		"gearName":"vortex of doom epistolary"
 	},
-	
-	
 	{
 		"type":"add_wargear",
 		"name":"add close combat weapon",
@@ -412,10 +434,35 @@
 		"gearName":"terminator honours armoury"
 	},
 	{
+		"type":"add_wargear",
+		"name":"add extra armour",
+		"gearName":"extra armour"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add searchlight",
+		"gearName":"searchlight"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add smoke launchers",
+		"gearName":"smoke launchers"
+	},
+
+	
+	
+	{
 		"type":"remove_wargear",
 		"name":"remove ccw",
 		"remove":"close combat weapon"
 	},
+	{
+		"type":"remove_wargear",
+		"name":"remove storm bolter",
+		"remove":"storm bolter"
+	},
+	
+	
 	{
 		"type":"modify_stat",
 		"name":"increase ld by one",
@@ -500,6 +547,13 @@
 		"effectName":"change to marine with plasma cannon",
 		"newName":"Tactical Marine w. Plasma Cannon"
 	},
+	{
+		"type":"change_model_name",
+		"effectName":"change name to venerable",
+		"newName":"Venerable Dreadnought"
+	},
+	
+	
 	{
 		"type":"add_gear_to_squad",
 		"name":"add frag grenades to squad",

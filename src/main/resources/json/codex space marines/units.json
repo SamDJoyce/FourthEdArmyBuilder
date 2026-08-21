@@ -82,5 +82,16 @@
 			"grenades group",
 			"add scout group"
 		]
+	},
+	{
+		"name":"dreadnought",
+		"minSize":"1",
+		"maxSize":"1",
+		"role":"ELITES",
+		"modelNames":[
+			"dreadnought"
+		],
+		"optionGroupNames":[
+		]
 	}
 ]

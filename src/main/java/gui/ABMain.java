@@ -46,9 +46,7 @@ public class ABMain extends Application {
             FXMLLoader rosterLoader =
                     new FXMLLoader(
                             getClass().getResource(
-                                    "/gui/RosterView.fxml"
-                            )
-                    );
+                                    "/gui/RosterView.fxml"));
 
             Node rosterView =
                     rosterLoader.load();
@@ -58,12 +56,13 @@ public class ABMain extends Application {
 
             // Give both controllers the same Army Builder
             unitSelectionController.setArmyBuilder(
-                    armyBuilder
-            );
+                    armyBuilder);
+            
+            unitSelectionController.setRosterRefresh(
+            	    rosterController::refresh);
 
             rosterController.setArmyBuilder(
-                    armyBuilder
-            );
+                    armyBuilder);
             
             
             // *** Put the views into the main layout ***

@@ -244,6 +244,59 @@
 		"maxSelections":1
 	},
 	{
+		"name":"Replace dreadnought storm bolter group",
+		"choiceNames":[
+			"select replace dreadnought storm bolter"
+		],
+		"requirementNames":[
+		],
+		"minSelections":0,
+		"maxSelections":1
+	},
+	{
+		"name":"Replace dreadnought assault cannon group",
+		"choiceNames":[
+			"select replace dreadnought assault cannon with tl lascannon",
+			"select replace dreadnought assault cannon with multi melta"
+		],
+		"requirementNames":[
+		],
+		"minSelections":0,
+		"maxSelections":1
+	},
+	{
+		"name":"dreadnought missile launcher group",
+		"choiceNames":[
+			"select replace ccw with dreadnought missile launcher"
+		],
+		"requirementNames":[
+		],
+		"minSelections":0,
+		"maxSelections":1
+	},
+	{
+		"name":"venerable group",
+		"choiceNames":[
+			"select upgrade to venerable dreadnought"
+		],
+		"requirementNames":[
+		],
+		"minSelections":0,
+		"maxSelections":1
+	},
+	{
+		"name":"dreadnought upgrade group",
+		"choiceNames":[
+			"select extra armour",
+			"select searchlight",
+			"select smoke launchers"
+		],
+		"requirementNames":[
+		],
+		"minSelections":0,
+		"maxSelections":1
+	},
+	{
 		"name":"armoury sw group",
 		"choiceNames":[
 			"select bolt pistol from armoury",

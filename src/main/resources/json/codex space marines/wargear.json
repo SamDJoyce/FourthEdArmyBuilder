@@ -25,6 +25,11 @@
 	  	"points":20
 	},
 	{
+		"name":"dreadnought assault cannon",
+		"type":"TWO HANDED",
+		"points":0
+	},
+	{
 	  	"name":"heavy flamer",
 	  	"type":"TWO HANDED",
 	  	"points":10
@@ -33,6 +38,31 @@
 	  	"name":"close combat weapon",
 	  	"type":"ONE HANDED",
 	  	"points":0
+	},
+	{
+	  	"name":"dreadnought close combat weapon",
+	  	"type":"ONE HANDED",
+	  	"points":0
+	},
+	{
+	  	"name":"dreadnought tl lascannon",
+	  	"type":"ONE HANDED",
+	  	"points":20
+	},
+	{
+	  	"name":"dreadnought multi melta",
+	  	"type":"ONE HANDED",
+	  	"points":10
+	},
+	{
+	  	"name":"dreadnought heavy flamer",
+	  	"type":"ONE HANDED",
+	  	"points":10
+	},
+	{
+	  	"name":"dreadnought missile lanucher",
+	  	"type":"ONE HANDED",
+	  	"points":10
 	},
 	{
 	  	"name":"bolt pistol",
@@ -125,6 +155,7 @@
 	  	"points":6
 	},
 
+	
 	{
 	  	"name":"crux terminatus",
 	  	"type":"GEAR",
@@ -139,6 +170,11 @@
 	  	"name":"scout sergeant veterancy",
 	  	"type":"GEAR",
 	  	"points":13
+	},
+	{
+	  	"name":"venerable",
+	  	"type":"GEAR",
+	  	"points":20
 	},
 	{
 	  	"name":"heavy bolter",
@@ -391,37 +427,37 @@
 	  	"points":35
 	},
 	{
-	  	"name":"dozer blade armoury",
+	  	"name":"dozer blade",
 	  	"type":"VEHICLE_UPGRADE",
 	  	"points":5
 	},
 	{
-	  	"name":"extra armor armoury",
+	  	"name":"extra armor",
 	  	"type":"VEHICLE_UPGRADE",
 	  	"points":5
 	},
 	{
-	  	"name":"hunter killer missile armoury",
+	  	"name":"hunter killer missile",
 	  	"type":"VEHICLE_UPGRADE",
 	  	"points":15
 	},
 	{
-	  	"name":"pintle mounted storm bolter armoury",
+	  	"name":"pintle mounted storm bolter",
 	  	"type":"VEHICLE_UPGRADE",
 	  	"points":10
 	},
 	{
-	  	"name":"machine spirit armoury",
+	  	"name":"machine spirit",
 	  	"type":"VEHICLE_UPGRADE",
 	  	"points":30
 	},
 	{
-	  	"name":"searchlight armoury",
+	  	"name":"searchlight",
 	  	"type":"VEHICLE_UPGRADE",
 	  	"points":1
 	},
 	{
-	  	"name":"smoke launchers armoury",
+	  	"name":"smoke launchers",
 	  	"type":"VEHICLE_UPGRADE",
 	  	"points":3
 	},

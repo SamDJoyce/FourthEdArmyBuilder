@@ -39,7 +39,7 @@ public class Roster {
 		this.name = "New Roster";
 		this.chart = OrgChartFactory.createStandard();
 		this.units = new ArrayList<>();
-		this.pointsLimit = 0;
+		this.pointsLimit = 1000;
 		this.validator   = RosterValidator.create();
 	}
 	
