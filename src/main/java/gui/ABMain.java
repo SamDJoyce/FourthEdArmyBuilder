@@ -34,7 +34,7 @@ public class ABMain extends Application {
             FXMLLoader unitSelectionLoader =
                     new FXMLLoader(
                             getClass().getResource(
-                                    "/gui/UnitSelection.fxml"
+                                    "/gui/UnitSelectionView.fxml"
                             )
                     );
             Node unitSelectionView =
@@ -46,7 +46,7 @@ public class ABMain extends Application {
             FXMLLoader rosterLoader =
                     new FXMLLoader(
                             getClass().getResource(
-                                    "/gui/Roster.fxml"
+                                    "/gui/RosterView.fxml"
                             )
                     );
 

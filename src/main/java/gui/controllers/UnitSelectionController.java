@@ -47,14 +47,26 @@ public class UnitSelectionController {
     }
     
     public void setArmyBuilder(ArmyBuilder armyBuilder) {
+        System.out.println("UnitSelectionController: setArmyBuilder called");
+
         this.armyBuilder = armyBuilder;
+
+        System.out.println(
+            "Codex: " + armyBuilder.getCodex()
+        );
         populateUnits();
     }
 
     private void populateUnits() {
-        
+    	System.out.println("populateUnits() called");
         for (UnitRole role : UnitRole.values()) {
         	VBox panel = panels.get(role);
+        	
+            System.out.println(
+                    "Role: " + role +
+                    ", panel: " + panel
+                );
+        	
         	if (panel != null) {
             	populateRole( 
             			role, 
@@ -66,10 +78,18 @@ public class UnitSelectionController {
     private void populateRole(
             UnitRole role,
             VBox panel) {
-
+    	
+        var units = armyBuilder.getUnitDescriptionsByRole(role);
+        System.out.println(
+            role + " units: " + units.size()
+        );
+        
         panel.getChildren().clear();
         for (UnitDescription unit : armyBuilder.getUnitDescriptionsByRole(role)) {
-                addUnitButton(unit, panel);
+        	System.out.println(
+                    "Adding button: " + unit.getName()
+                );
+        	addUnitButton(unit, panel);
         }
     }
 
