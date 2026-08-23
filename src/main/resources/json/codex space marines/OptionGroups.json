@@ -85,6 +85,16 @@
 		"maxSelections":1
 	},
 	{
+		"name":"attack bike weapon group",
+		"choiceNames":[
+			"select replace heavy bolter with multi melta"
+		],
+		"requirementNames":[
+		],
+		"minSelections":0,
+		"maxSelections":1
+	},
+	{
 		"name":"sergeant weapons group tactical squad",
 		"choiceNames":[
 			"select bolt pistol and ccw for sergeant"

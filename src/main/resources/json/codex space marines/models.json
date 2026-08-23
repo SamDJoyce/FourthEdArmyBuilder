@@ -210,7 +210,8 @@
 		"wargearNames":[
 			"space marine bike",
 			"power armour",
-			"twin linked bolter"
+			"twin linked bolter",
+			"biker frag grenades"
 		]
 	},
 	{
@@ -227,9 +228,26 @@
 			"attack bike",
 			"power armour",
 			"twin linked bolter",
-			"heavy bolter"
+			"heavy bolter",
+			"biker frag grenades"
 		]
 	},
+	{
+		"name":"land speeder",
+		"basePoints":250,
+		"statlineName":"land raider",
+		"typeNames":[
+			"VEHICLE"
+		],
+		"optionGroupNames":[
+			"land raider upgrade group"
+			],
+		"wargearNames":[
+			"twin linked lascannon",
+			"twin linked lascannon",
+			"twin linked heavy bolter"
+		]
+	}
 	{
 		"name":"land raider",
 		"basePoints":250,

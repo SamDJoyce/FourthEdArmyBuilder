@@ -100,6 +100,20 @@
 		]
 	},
 	{
+		"name":"attack bike squadron",
+		"minSize":"2",
+		"maxSize":"3",
+		"role":"FAST ATTACK",
+		"modelNames":[
+			"attack bike",
+			"attack bike"
+		],
+		"optionGroupNames":[
+			"biker grenades group",
+			"add attack bike group"
+		]
+	},
+	{
 		"name":"dreadnought",
 		"minSize":"1",
 		"maxSize":"1",

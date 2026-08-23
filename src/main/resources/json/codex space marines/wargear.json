@@ -222,6 +222,11 @@
 	  	"points":10
 	},
 	{
+	  	"name":"attack bike multi melta",
+	  	"type":"TWO HANDED",
+	  	"points":15
+	},
+	{
 	  	"name":"lascannon",
 	  	"type":"TWO HANDED",
 	  	"points":15
@@ -240,6 +245,11 @@
 	  	"name":"krak grenades",
 	  	"type":"GEAR",
 	  	"points":2
+	},
+	{
+	  	"name":"bike frag grenades",
+	  	"type":"GEAR",
+	  	"points":0
 	},
 	{
 	  	"name":"biker krak grenades",

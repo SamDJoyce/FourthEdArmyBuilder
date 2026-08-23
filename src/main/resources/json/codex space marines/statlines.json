@@ -91,6 +91,14 @@
 	},
 	{
 		"type":"vehicle",
+		"name":"land speeder",
+		"bs":4,
+		"front":10,
+		"side":10,
+		"rear":10
+	},
+	{
+		"type":"vehicle",
 		"name":"land raider",
 		"bs":4,
 		"front":14,

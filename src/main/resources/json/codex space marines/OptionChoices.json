@@ -168,6 +168,7 @@
 		"name":"select add biker to squadron",
 		"points":32,
 		"requirementNames":[
+			"two selections per squad"
 		],
 		"effectNames":[
 			"add biker to squadron"
@@ -177,9 +178,19 @@
 		"name":"select add attack bike to squadron",
 		"points":50,
 		"requirementNames":[
+			"one selection per squad"
 		],
 		"effectNames":[
 			"add attack bike to squadron"
+		]
+	},
+	{
+		"name":"select replace heavy bolter with multi melta",
+		"points":15,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"replace heavy bolter with multi melta"
 		]
 	},
 	{
