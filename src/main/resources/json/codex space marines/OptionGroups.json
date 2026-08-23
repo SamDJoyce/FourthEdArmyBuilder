@@ -30,6 +30,19 @@
 		"maxSelections":1
 	},
 	{
+		"name":"biker special weapons group",
+		"choiceNames":[
+			"select plasma",
+			"select melta",
+		 	"select flamer"
+		 ],
+		"requirementNames":[
+			"two selections per squad"
+		],
+		"minSelections":0,
+		"maxSelections":1
+	},
+	{
 		"name":"grenades group",
 		"choiceNames":[
 			"select frag grenades for squad",
@@ -39,6 +52,37 @@
 		],
 		"minSelections":0,
 		"maxSelections":2
+	},
+	{
+		"name":"biker grenades group",
+		"choiceNames":[
+			"select krak grenades for bike squadron",
+			"select melta bombs for bike squadron"
+		],
+		"requirementNames":[
+		],
+		"minSelections":0,
+		"maxSelections":2
+	},
+	{
+		"name":"add biker group",
+		"choiceNames":[
+			"select add biker to squadron"
+		],
+		"requirementNames":[
+		],
+		"minSelections":0,
+		"maxSelections":2
+	},
+	{
+		"name":"add attack bike group",
+		"choiceNames":[
+			"select add attack bike to squadron"
+		],
+		"requirementNames":[
+		],
+		"minSelections":0,
+		"maxSelections":1
 	},
 	{
 		"name":"sergeant weapons group tactical squad",
@@ -66,6 +110,17 @@
 		"name":"scout sergeant veterancy group",
 		"choiceNames":[
 			"select scout sergeant veterancy"
+		],
+		"requirementNames":[
+			"characters_only"
+		],
+		"minSelections":0,
+		"maxSelections":1
+	},
+	{
+		"name":"biker sergeant veterancy group",
+		"choiceNames":[
+			"select biker sergeant veterancy"
 		],
 		"requirementNames":[
 			"characters_only"
@@ -294,7 +349,23 @@
 		"requirementNames":[
 		],
 		"minSelections":0,
-		"maxSelections":1
+		"maxSelections":3
+	},
+	{
+		"name":"land raider upgrade group",
+		"choiceNames":[
+			"select dozer blade",
+			"select extra armour",
+			"select hunter killer missile",
+			"select pintle mounted storm bolter",
+			"select searchlight",
+			"select smoke launchers"
+		],
+		"requirementNames":[
+			"must be vehicle"
+		],
+		"minSelections":0,
+		"maxSelections":6
 	},
 	{
 		"name":"armoury sw group",

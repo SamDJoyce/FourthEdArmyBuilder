@@ -4,6 +4,11 @@
 		"name":"characters only"
 	},
 	{
+		"type":"must_have_type",
+		"name":"must be vehicle",
+		"requiredType":"VEHICLE"
+	},
+	{
 		"type":"must_have_gear",
 		"name":"must have bolter",
 		"requiredGearName":"bolter"

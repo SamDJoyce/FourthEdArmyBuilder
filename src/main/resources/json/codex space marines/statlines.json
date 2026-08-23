@@ -52,6 +52,32 @@
 		"sv":3
 	},
 	{
+		"type":"infantry",
+		"name":"biker",
+		"ws":4,
+		"bs":4,
+		"s":4,
+		"t":5,
+		"w":1,
+		"i":4,
+		"a":1,
+		"ld":8,
+		"sv":3
+	},
+	{
+		"type":"infantry",
+		"name":"attack bike",
+		"ws":4,
+		"bs":4,
+		"s":4,
+		"t":5,
+		"w":2,
+		"i":4,
+		"a":2,
+		"ld":8,
+		"sv":3
+	},
+	{
 		"type":"walker",
 		"name":"dreadnought",
 		"ws":4,

@@ -35,8 +35,23 @@
 	  	"points":10
 	},
 	{
+	  	"name":"twin linked lascannon",
+	  	"type":"TWO HANDED",
+	  	"points":0
+	},
+	{
+	  	"name":"twin linked heavy bolter",
+	  	"type":"TWO HANDED",
+	  	"points":0
+	},
+	{
 	  	"name":"close combat weapon",
 	  	"type":"ONE HANDED",
+	  	"points":0
+	},
+	{
+	  	"name":"twin linked bolter",
+	  	"type":"TWO HANDED",
 	  	"points":0
 	},
 	{
@@ -162,6 +177,16 @@
 	  	"points":0
 	},
 	{
+	  	"name":"space marine bike",
+	  	"type":"GEAR",
+	  	"points":0
+	},
+	{
+	  	"name":"attack bike",
+	  	"type":"GEAR",
+	  	"points":0
+	},
+	{
 	  	"name":"tactical squad sergeant veterancy",
 	  	"type":"GEAR",
 	  	"points":15
@@ -170,6 +195,11 @@
 	  	"name":"scout sergeant veterancy",
 	  	"type":"GEAR",
 	  	"points":13
+	},
+	{
+	  	"name":"biker sergeant veterancy",
+	  	"type":"GEAR",
+	  	"points":15
 	},
 	{
 	  	"name":"venerable",
@@ -208,6 +238,16 @@
 	},
 	{
 	  	"name":"krak grenades",
+	  	"type":"GEAR",
+	  	"points":2
+	},
+	{
+	  	"name":"biker krak grenades",
+	  	"type":"GEAR",
+	  	"points":1
+	},
+	{
+	  	"name":"biker melta bombs",
 	  	"type":"GEAR",
 	  	"points":2
 	},

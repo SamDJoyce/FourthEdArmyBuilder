@@ -84,6 +84,22 @@
 		]
 	},
 	{
+		"name":"bike squadron",
+		"minSize":"3",
+		"maxSize":"5",
+		"role":"FAST ATTACK",
+		"modelNames":[
+			"biker sgt",
+			"biker",
+			"biker"
+		],
+		"optionGroupNames":[
+			"biker grenades group",
+			"add biker group",
+			"add attack bike group"
+		]
+	},
+	{
 		"name":"dreadnought",
 		"minSize":"1",
 		"maxSize":"1",
@@ -92,6 +108,18 @@
 			"dreadnought"
 		],
 		"optionGroupNames":[
+		]
+	},
+	{
+		"name":"land raider",
+		"minSize":"1",
+		"maxSize":"1",
+		"role":"HEAVY SUPPORT",
+		"modelNames":[
+			"land raider"
+		],
+		"optionGroupNames":[
+			"land raider upgrade group"
 		]
 	}
 ]

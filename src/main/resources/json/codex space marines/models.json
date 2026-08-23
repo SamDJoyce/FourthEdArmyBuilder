@@ -179,5 +179,71 @@
 			"bolt pistol",
 			"close combat weapon"
 		]
+	},
+	{
+		"name":"biker",
+		"basePoints":32,
+		"statlineName":"biker",
+		"typeNames":[
+			"BIKE"
+		],
+		"optionGroupNames":[
+				"biker special weapon group"
+			],
+		"wargearNames":[
+			"space marine bike",
+			"power armour",
+			"twin linked bolter"
+		]
+	},
+	{
+		"name":"biker sgt",
+		"basePoints":32,
+		"statlineName":"biker",
+		"typeNames":[
+			"BIKE"
+		],
+		"optionGroupNames":[
+				"biker sgt veterancy group",
+				"armoury sw group"
+			],
+		"wargearNames":[
+			"space marine bike",
+			"power armour",
+			"twin linked bolter"
+		]
+	},
+	{
+		"name":"attack bike",
+		"basePoints":50,
+		"statlineName":"attack bike",
+		"typeNames":[
+			"BIKE"
+		],
+		"optionGroupNames":[
+				"attack bike weapon group"
+			],
+		"wargearNames":[
+			"attack bike",
+			"power armour",
+			"twin linked bolter",
+			"heavy bolter"
+		]
+	},
+	{
+		"name":"land raider",
+		"basePoints":250,
+		"statlineName":"land raider",
+		"typeNames":[
+			"VEHICLE"
+		],
+		"optionGroupNames":[
+			"land raider upgrade group"
+			],
+		"wargearNames":[
+			"twin linked lascannon",
+			"twin linked lascannon",
+			"twin linked heavy bolter"
+		]
 	}
 ]

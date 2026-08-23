@@ -151,6 +151,38 @@
 		]
 	},
 	{
+		"name":"select biker sergeant veterancy",
+		"points":13,
+		"requirementNames":[
+			"characters only"
+		],
+		"effectNames":[
+			"add biker sergeant veterancy",
+			"add crux terminatus",
+		 	"increase ld by one",
+	 	 	"increase attacks by one",
+	 	 	"change to veteran sergeant"
+		]
+	},
+	{
+		"name":"select add biker to squadron",
+		"points":32,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"add biker to squadron"
+		]
+	},
+	{
+		"name":"select add attack bike to squadron",
+		"points":50,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"add attack bike to squadron"
+		]
+	},
+	{
 		"name":"select frag grenades for squad",
 		"points":1,
 		"requirementNames":[
@@ -166,6 +198,24 @@
 		],
 		"effectNames":[
 			"add krak grenades to squad"
+		]
+	},
+	{
+		"name":"select krak grenades for bike squadron",
+		"points":1,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"add biker krak grenades to squadron"
+		]
+	},
+	{
+		"name":"select melta bombs for bike squadron",
+		"points":2,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"add melta bombs to squadron"
 		]
 	},
 	{
@@ -966,13 +1016,13 @@
 		]
 	},
 	{
-		"name":"select search light",
+		"name":"select searchlight",
 		"points":1,
 		"requirementNames":[
 			"must be vehicle"
 		],
 		"effectNames":[
-			"add search light"
+			"add searchlight"
 		]
 	},
 	{
@@ -983,6 +1033,36 @@
 		],
 		"effectNames":[
 			"add smoke launchers"
+		]
+	},
+	{
+		"name":"select dozer blade",
+		"points":5,
+		"requirementNames":[
+			"must be vehicle"
+		],
+		"effectNames":[
+			"add dozer blade"
+		]
+	},
+	{
+		"name":"select hunter killer missile",
+		"points":15,
+		"requirementNames":[
+			"must be vehicle"
+		],
+		"effectNames":[
+			"add hunter killer missile"
+		]
+	},
+	{
+		"name":"select pintle mounted storm bolter",
+		"points":10,
+		"requirementNames":[
+			"must be vehicle"
+		],
+		"effectNames":[
+			"add pintle mounted storm bolter"
 		]
 	}
 ]

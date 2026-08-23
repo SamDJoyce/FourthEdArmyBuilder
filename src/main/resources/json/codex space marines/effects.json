@@ -214,6 +214,11 @@
 	},
 	{
 		"type":"add_wargear",
+		"name":"add biker sergeant veterancy",
+		"gearName":"biker sergeant veterancy"
+	},
+	{
+		"type":"add_wargear",
 		"name":"add upgrade to epistolary",
 		"gearName":"upgrade to epistolary"
 	},
@@ -397,11 +402,7 @@
 		"name":"add krak grenades from armoury",
 		"gearName":"krak grenades armoury"
 	},
-	{
-		"type":"add_wargear",
-		"name":"add melta bombs from armoury",
-		"gearName":"melta bombs armoury"
-	},
+
 	{
 		"type":"add_wargear",
 		"name":"add purity seals from armoury",
@@ -447,6 +448,21 @@
 		"type":"add_wargear",
 		"name":"add smoke launchers",
 		"gearName":"smoke launchers"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add dozer blade",
+		"gearName":"smoke launchers"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add hunter killer missile",
+		"gearName":"hunter killer missile"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add pintle mounted storm bolter",
+		"gearName":"pintle mounted storm bolter"
 	},
 
 	
@@ -565,6 +581,16 @@
 		"gearName":"krak grenades"
 	},
 	{
+		"type":"add_gear_to_squad",
+		"name":"add biker krak grenades to squadron",
+		"gearName":"biker krak grenades"
+	},
+	{
+		"type":"add_gear_to_squad",
+		"name":"add biker melta bombs to squadron",
+		"gearName":"biker melta bombs"
+	},
+	{
 		"type":"add_model",
 		"name":"add tactical marine to squad",
 		"modelName":"tactical marine"
@@ -578,6 +604,16 @@
 		"type":"add_model",
 		"name":"add terminator to squad",
 		"modelName":"terminator"
+	},
+	{
+		"type":"add_model",
+		"name":"add biker to squadron",
+		"modelName":"biker"
+	},
+	{
+		"type":"add_model",
+		"name":"add attack bike to squadron",
+		"modelName":"attack bike"
 	}
 
 ]
