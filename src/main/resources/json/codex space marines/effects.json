@@ -579,22 +579,26 @@
 	{
 		"type":"add_gear_to_squad",
 		"name":"add frag grenades to squad",
-		"gearName":"frag grenades"
+		"gearName":"frag grenades",
+		"pointsPerModel":"0"
 	},
 	{
 		"type":"add_gear_to_squad",
 		"name":"add krak grenades to squad",
-		"gearName":"krak grenades"
+		"gearName":"krak grenades"		,
+				"pointsPerModel":"0"
 	},
 	{
 		"type":"add_gear_to_squad",
 		"name":"add biker krak grenades to squadron",
-		"gearName":"biker krak grenades"
+		"gearName":"biker krak grenades",
+		"pointsPerModel":"0"
 	},
 	{
 		"type":"add_gear_to_squad",
 		"name":"add biker melta bombs to squadron",
-		"gearName":"biker melta bombs"
+		"gearName":"biker melta bombs",
+		"pointsPerModel":"0"
 	},
 	{
 		"type":"add_model",

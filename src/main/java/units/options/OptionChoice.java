@@ -69,10 +69,6 @@ public class OptionChoice {
 		this.effects = effects;
 	}
 	
-	public static OptionChoice get(String name, int points) {
-		return new OptionChoice(name, points);
-	}
-	
 	public String toString() {
 		return name;
 	}
@@ -126,6 +122,10 @@ public class OptionChoice {
 	@Override
 	public int hashCode() {
 	    return Objects.hash(name, points, requirements, effects);
+	}
+	
+	public static OptionChoice create(String name, int points) {
+		return new OptionChoice(name, points);
 	}
 
 }

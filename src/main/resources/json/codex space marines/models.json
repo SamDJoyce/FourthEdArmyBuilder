@@ -234,20 +234,18 @@
 	},
 	{
 		"name":"land speeder",
-		"basePoints":250,
-		"statlineName":"land raider",
+		"basePoints":1,
+		"statlineName":"land speeder",
 		"typeNames":[
 			"VEHICLE"
 		],
 		"optionGroupNames":[
-			"land raider upgrade group"
+			"land speeder upgrade group"
 			],
 		"wargearNames":[
-			"twin linked lascannon",
-			"twin linked lascannon",
-			"twin linked heavy bolter"
+			"land speeder heavy bolter"
 		]
-	}
+	},
 	{
 		"name":"land raider",
 		"basePoints":250,

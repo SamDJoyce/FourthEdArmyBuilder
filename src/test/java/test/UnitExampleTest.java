@@ -121,16 +121,16 @@ public class UnitExampleTest {
 		TACMARINE_GEAR  = Set.of(BOLTER,POWER_ARMOR);
 	
 		// Option Choices
-		PLASMA_CHOICE = OptionChoice.get(
+		PLASMA_CHOICE = OptionChoice.create(
 							PLASMA_GUN_NAME,
 							PLASMA_GUN_POINTS);
-		MELTA_CHOICE  = OptionChoice.get(
+		MELTA_CHOICE  = OptionChoice.create(
 							MELTA_NAME,
 							MELTA_POINTS);
-		FLAMER_CHOICE = OptionChoice.get(
+		FLAMER_CHOICE = OptionChoice.create(
 							FLAMER_NAME,
 							FLAMER_POINTS);
-		CRUX_CHOICE   = OptionChoice.get(
+		CRUX_CHOICE   = OptionChoice.create(
 							CRUX_NAME,
 							CRUX_POINTS);
 		

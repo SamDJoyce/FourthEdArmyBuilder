@@ -33,6 +33,10 @@ public class SelectedOption {
 		return choice;
 	}
 	
+	public int getPoints() {
+		return choice.getPoints();
+	}
+	
 	public ValidationResult validate(SelectionContext context) {
 		return choice.validate(context);
 	}

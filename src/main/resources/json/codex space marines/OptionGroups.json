@@ -378,6 +378,17 @@
 		"maxSelections":6
 	},
 	{
+		"name":"land speeder upgrade group",
+		"choiceNames":[
+			"select smoke launchers"
+		],
+		"requirementNames":[
+			"must be vehicle"
+		],
+		"minSelections":0,
+		"maxSelections":1
+	},
+	{
 		"name":"armoury sw group",
 		"choiceNames":[
 			"select bolt pistol from armoury",

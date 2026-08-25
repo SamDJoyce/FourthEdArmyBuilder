@@ -71,8 +71,18 @@ public class ModelInstance implements OptionOwner{
 		return total;
 	}
 	
+	public int getOptionPoints() {
+		int total = 0;
+		
+		for (SelectedOption o : selectedOptions) {
+			total += o.getPoints();
+		}
+		
+		return total;
+	}
+	
 	public int getTotalPoints() {
-		return getBasePoints() + getGearPoints();
+		return getBasePoints() + getOptionPoints();
 	}
 
 	public StatLine getStats() {

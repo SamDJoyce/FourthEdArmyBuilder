@@ -207,6 +207,11 @@
 	  	"points":20
 	},
 	{
+	  	"name":"land speeder heavy bolter",
+	  	"type":"TWO HANDED",
+	  	"points":0
+	},
+	{
 	  	"name":"heavy bolter",
 	  	"type":"TWO HANDED",
 	  	"points":5

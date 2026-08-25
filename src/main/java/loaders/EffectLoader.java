@@ -105,11 +105,13 @@ public class EffectLoader {
 			case "change_model_name":
 				ChangeModelNameEffectDTO cmn = (ChangeModelNameEffectDTO) dto;
 				return EffectFactory.get(cmn.getEffectName());
+				
 			case "add_gear_to_squad":
 				AddGearToSquadEffectDTO agts = (AddGearToSquadEffectDTO) dto;
 				AddGearToSquadEffect addGearToSquad =
 					(AddGearToSquadEffect) EffectFactory.get(agts.getName());
 				addGearToSquad.setGear(WargearFactory.get(agts.getGearName()));
+				addGearToSquad.setpointsPerModel(agts.getPointsPerModel());
 				return addGearToSquad;
 		}
 		return null;
