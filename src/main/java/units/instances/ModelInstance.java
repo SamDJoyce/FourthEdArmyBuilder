@@ -63,14 +63,6 @@ public class ModelInstance implements OptionOwner{
 		return description.getBasePoints();
 	}
 	
-//	public int getGearPoints() {
-//		int total = 0;
-//		for (WargearInstance g : currentGear) {
-//			total += g.getPoints();
-//		}
-//		return total;
-//	}
-	
 	public int getOptionPoints() {
 		int total = 0;
 		

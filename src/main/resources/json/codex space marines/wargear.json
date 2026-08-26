@@ -1,60 +1,4 @@
 [
-	{	
-	  	"name":"bolter",
-	  	"type":"TWO HANDED"
-	},
-	{
-	  	"name":"twin linked bolter",
-	  	"type":"TWO HANDED"
-	},
-	{
-	  	"name":"heavy bolter",
-	  	"type":"TWO HANDED"
-	},
-	{
-	  	"name":"twin linked heavy bolter",
-	  	"type":"TWO HANDED"
-	},
-	{
-	  	"name":"storm bolter",
-	  	"type":"TWO HANDED"
-	},
-	{
-	  	"name":"plasma gun",
-	  	"type":"TWO HANDED"
-	},
-	{
-	  	"name":"melta gun",
-	  	"type":"TWO HANDED"
-	},
-	{
-	  	"name":"flamer",
-	  	"type":"TWO HANDED"
-	},
-	{
-	  	"name":"heavy flamer",
-	  	"type":"TWO HANDED"
-	},
-	{
-	  	"name":"shotgun",
-	  	"type":"TWO HANDED"
-	},
-	{
-	  	"name":"sniper",
-	  	"type":"TWO HANDED"
-	},
-	{
-	  	"name":"assault cannon",
-	  	"type":"TWO HANDED"
-	},
-	{
-	  	"name":"lascannon",
-	  	"type":"TWO HANDED"
-	},
-	{
-	  	"name":"twin linked lascannon",
-	  	"type":"TWO HANDED"
-	},
 	{
 	  	"name":"close combat weapon",
 	  	"type":"ONE HANDED"
@@ -88,6 +32,77 @@
 	  	"name":"force weapon",
 	  	"type":"ONE HANDED"
 	},
+	
+	
+	
+	{	
+	  	"name":"bolter",
+	  	"type":"TWO HANDED"
+	},
+	{
+	  	"name":"twin linked bolter",
+	  	"type":"TWO HANDED"
+	},
+	{
+	  	"name":"storm bolter",
+	  	"type":"TWO HANDED"
+	},
+	{
+	  	"name":"heavy bolter",
+	  	"type":"TWO HANDED"
+	},
+	{
+	  	"name":"twin linked heavy bolter",
+	  	"type":"TWO HANDED"
+	},
+	{
+	  	"name":"plasma gun",
+	  	"type":"TWO HANDED"
+	},
+	{
+	  	"name":"plasma cannon",
+	  	"type":"TWO HANDED"
+	},
+	{
+	  	"name":"melta gun",
+	  	"type":"TWO HANDED"
+	},
+	{
+	  	"name":"multi melta",
+	  	"type":"TWO HANDED"
+	},
+	{
+	  	"name":"flamer",
+	  	"type":"TWO HANDED"
+	},
+	{
+	  	"name":"heavy flamer",
+	  	"type":"TWO HANDED"
+	},
+	{
+	  	"name":"shotgun",
+	  	"type":"TWO HANDED"
+	},
+	{
+	  	"name":"sniper",
+	  	"type":"TWO HANDED"
+	},
+	{
+	  	"name":"assault cannon",
+	  	"type":"TWO HANDED"
+	},
+	{
+	  	"name":"lascannon",
+	  	"type":"TWO HANDED"
+	},
+	{
+	  	"name":"twin linked lascannon",
+	  	"type":"TWO HANDED"
+	},
+
+
+	
+	
 	{
 	  	"name":"psychic hood",
 	  	"type":"GEAR"
@@ -157,14 +172,7 @@
 	  	"name":"missile launcher",
 	  	"type":"TWO HANDED"
 	},
-	{
-	  	"name":"multi melta",
-	  	"type":"TWO HANDED"
-	},
-	{
-	  	"name":"plasma cannon",
-	  	"type":"TWO HANDED"
-	},
+	
 	{
 	  	"name":"frag grenades",
 	  	"type":"GEAR"

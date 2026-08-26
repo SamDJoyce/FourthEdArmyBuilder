@@ -55,8 +55,6 @@ public class RosterController {
     }
 
     public void refresh() {
-    	
-    	
         for (UnitRole role : UnitRole.values()) {
         	VBox panel = panels.get(role);
         	if (panel != null) {
@@ -83,18 +81,19 @@ public class RosterController {
     private void addUnit(
             UnitInstance unit,
             VBox panel) {
-    	// In future this should be a unit view which 
+    	// TODO In future this should be a unit view which 
     	// displays all the unit's options and info
         Button button = new Button(
-                unit.getDescription().getName()
+        		toTitleCase(unit.getName())
         );
 
         button.setMaxWidth(Double.MAX_VALUE);
 
         button.setOnAction(event -> {
-            System.out.println(
-                    "Selected instance: "
-                    + unit.getName()
+            System.out.println(String.format(
+            		"Selected instance: %s (id: %s)", 
+            		toTitleCase(unit.getName()),
+            		unit.getId())
             );
         });
 
@@ -102,10 +101,25 @@ public class RosterController {
     }
 
     private void updatePoints() {
-        pointsLabel.setText(
-                armyBuilder.getCurrentPoints()
-                + " / "
-                + armyBuilder.getPointsLimit()
+        pointsLabel.setText(String.format(
+        		"%s/%s", 
+        		armyBuilder.getCurrentPoints(),
+        		armyBuilder.getPointsLimit())
         );
     }
+    
+    private String toTitleCase(String text) {
+	    String[] words = text.toLowerCase().split("\\s+");
+	    StringBuilder result = new StringBuilder();
+
+	    for (String word : words) {
+	        if (!word.isEmpty()) {
+	            result.append(Character.toUpperCase(word.charAt(0)))
+	                  .append(word.substring(1))
+	                  .append(" ");
+	        }
+	    }
+
+	    return result.toString().trim();
+	}
 }

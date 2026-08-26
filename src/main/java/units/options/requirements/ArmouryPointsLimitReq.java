@@ -43,7 +43,9 @@ public class ArmouryPointsLimitReq implements Requirement {
 	public ValidationResult validate(SelectionContext context) {
 		ValidationResult result = ValidationResult.create();
 		if (!pointsAreValid(currentArmouryPoints(context.getModel()))) {
-			result.addIssue("Gear points value of equipment from the armoury exceeds the limit of " + limit);
+			result.addIssue(
+				"Gear points value of equipment from the armoury exceeds the limit of " 
+				+ limit);
 		}
 		return result;
 	}
