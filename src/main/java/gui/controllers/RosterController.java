@@ -1,13 +1,16 @@
 package gui.controllers;
 
 import java.util.Map;
+import java.util.function.Consumer;
 
 import builder.ArmyBuilder;
+import gui.EditText;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import units.UnitRole;
+import units.instances.ModelInstance;
 import units.instances.UnitInstance;
 
 public class RosterController {
@@ -36,6 +39,10 @@ public class RosterController {
     private ArmyBuilder armyBuilder;
     
     private Map<UnitRole, VBox> panels;
+    
+    private Consumer<UnitInstance> unitSelectionListener;
+    
+    private EditText change = new EditText();
 
     @FXML
     private void initialize() {
@@ -54,6 +61,12 @@ public class RosterController {
         refresh();
     }
 
+    public void setUnitSelectionListener(
+            Consumer<UnitInstance> listener) {
+
+        this.unitSelectionListener = listener;
+    }
+    
     public void refresh() {
         for (UnitRole role : UnitRole.values()) {
         	VBox panel = panels.get(role);
@@ -77,23 +90,75 @@ public class RosterController {
             addUnit(unit, panel);
         }
     }
+    
+    private void populateModels(
+            UnitInstance unit,
+            VBox modelPanel) {
+
+        modelPanel.getChildren().clear();
+
+        for (ModelInstance model : unit.getModels()) {
+        	addModel(model, modelPanel);
+        }
+    }
 
     private void addUnit(
             UnitInstance unit,
             VBox panel) {
-    	// TODO In future this should be a unit view which 
-    	// displays all the unit's options and info
+        Button unitButton = new Button(
+        		change.toTitleCase(unit.getName())
+        );
+
+        unitButton.setMaxWidth(Double.MAX_VALUE);
+
+        VBox modelPanel = new VBox(3);
+        modelPanel.setVisible(false);
+        modelPanel.setManaged(false);
+
+        populateModels(unit, modelPanel);
+
+        unitButton.setOnAction(event -> {
+            boolean expanded = modelPanel.isVisible();
+
+            modelPanel.setVisible(!expanded);
+            modelPanel.setManaged(!expanded);
+            System.out.println(String.format(
+            		"Selected instance: %s (id: %s)", 
+            		change.toTitleCase(unit.getName()),
+            		unit.getId())
+            );
+            
+            VBox unitContainer = new VBox(3);
+
+            unitContainer.getChildren().addAll(
+                    unitButton,
+                    modelPanel
+            );
+            
+            panel.getChildren().add(unitContainer);
+            
+            if (unitSelectionListener != null) {
+                unitSelectionListener.accept(unit);
+            }
+        });
+
+        panel.getChildren().add(unitButton);
+    }
+    
+    private void addModel(
+            ModelInstance model,
+            VBox panel) {
+
         Button button = new Button(
-        		toTitleCase(unit.getName())
+                model.getDescription().getName()
         );
 
         button.setMaxWidth(Double.MAX_VALUE);
 
         button.setOnAction(event -> {
-            System.out.println(String.format(
-            		"Selected instance: %s (id: %s)", 
-            		toTitleCase(unit.getName()),
-            		unit.getId())
+            System.out.println(
+                    "Selected model: "
+                    + model.getDescription().getName()
             );
         });
 
@@ -107,19 +172,5 @@ public class RosterController {
         		armyBuilder.getPointsLimit())
         );
     }
-    
-    private String toTitleCase(String text) {
-	    String[] words = text.toLowerCase().split("\\s+");
-	    StringBuilder result = new StringBuilder();
 
-	    for (String word : words) {
-	        if (!word.isEmpty()) {
-	            result.append(Character.toUpperCase(word.charAt(0)))
-	                  .append(word.substring(1))
-	                  .append(" ");
-	        }
-	    }
-
-	    return result.toString().trim();
-	}
 }

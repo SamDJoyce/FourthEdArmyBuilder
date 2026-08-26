@@ -3,6 +3,7 @@ package gui.controllers;
 import java.util.Map;
 
 import builder.ArmyBuilder;
+import gui.EditText;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
@@ -35,6 +36,8 @@ public class UnitSelectionController {
     private Map<UnitRole, VBox> panels;
     
     private Runnable rosterRefresh;
+    
+    private EditText change = new EditText();
 
     @FXML
     private void initialize() {
@@ -81,7 +84,7 @@ public class UnitSelectionController {
             UnitDescription unit,
             VBox panel) {
 
-        Button button = new Button(toTitleCase(unit.getName()));
+        Button button = new Button(change.toTitleCase(unit.getName()));
 
         button.setMaxWidth(Double.MAX_VALUE);
 
@@ -92,7 +95,7 @@ public class UnitSelectionController {
                 rosterRefresh.run();
             }
         	System.out.println(
-                "Selected unit:" + toTitleCase(unit.getName())
+                "Selected unit:" + change.toTitleCase(unit.getName())
             );
             System.out.println(
             	"\nValidation Result:\n" + result.getMessage());
@@ -104,19 +107,4 @@ public class UnitSelectionController {
     public void setRosterRefresh(Runnable rosterRefresh) {
         this.rosterRefresh = rosterRefresh;
     } 
-    
-	private String toTitleCase(String text) {
-	    String[] words = text.toLowerCase().split("\\s+");
-	    StringBuilder result = new StringBuilder();
-
-	    for (String word : words) {
-	        if (!word.isEmpty()) {
-	            result.append(Character.toUpperCase(word.charAt(0)))
-	                  .append(word.substring(1))
-	                  .append(" ");
-	        }
-	    }
-
-	    return result.toString().trim();
-	}
 }

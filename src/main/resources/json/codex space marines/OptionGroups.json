@@ -405,6 +405,16 @@
 		"maxSelections":6
 	},
 	{
+		"name":"weapons upgrade group landspeeder",
+		"choiceNames":[
+		],
+		"requirementNames":[
+			"must be vehicle"
+		],
+		"minSelections":0,
+		"maxSelections":1
+	},
+	{
 		"name":"land speeder upgrade group",
 		"choiceNames":[
 			"select smoke launchers"

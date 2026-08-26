@@ -46,7 +46,7 @@
 		],
 		"optionGroupNames":[
 			"add terminator group",
-			"veteran skills group"
+			"veteran skills group terminator squad"
 		]
 	},
 	{
@@ -94,7 +94,7 @@
 			"biker"
 		],
 		"optionGroupNames":[
-			"biker grenades group",
+			"grenades group biker squadron",
 			"add biker group",
 			"add attack bike group"
 		]
@@ -109,7 +109,7 @@
 			"attack bike"
 		],
 		"optionGroupNames":[
-			"biker grenades group",
+			"grenades group biker squadron",
 			"add attack bike group"
 		]
 	},

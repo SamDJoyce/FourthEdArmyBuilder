@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import builder.ArmyBuilder;
 import gui.controllers.RosterController;
+import gui.controllers.UnitConfigurationController;
 import gui.controllers.UnitSelectionController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -53,21 +54,41 @@ public class ABMain extends Application {
 
             RosterController rosterController =
                     rosterLoader.getController();
+            
+            // *** Load the Unit Configuration View ***
+            FXMLLoader configurationLoader =
+                    new FXMLLoader(
+                            getClass().getResource(
+                                    "/gui/UnitConfigurationView.fxml"
+                            )
+                    );
 
-            // Give both controllers the same Army Builder
+            Node unitConfigurationView =
+                    configurationLoader.load();
+
+            UnitConfigurationController
+                    unitConfigurationController =
+                        configurationLoader.getController();
+            
+
+            // *** Give all controllers the same Army Builder ***
             unitSelectionController.setArmyBuilder(
                     armyBuilder);
-            
-            unitSelectionController.setRosterRefresh(
-            	    rosterController::refresh);
-
             rosterController.setArmyBuilder(
                     armyBuilder);
+            unitConfigurationController.setArmyBuilder(
+                    armyBuilder);
             
+            // *** Connect listeners ***
+            rosterController.setUnitSelectionListener(
+            		unitConfigurationController::setUnit);
+            unitSelectionController.setRosterRefresh(
+            	    rosterController::refresh);
             
             // *** Put the views into the main layout ***
             root.setLeft(unitSelectionView);
             root.setCenter(rosterView);
+            root.setRight(unitConfigurationView);
             
             // *** Create and display the window ***
             Scene scene = new Scene(root, 1000, 700);
