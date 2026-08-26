@@ -1,6 +1,6 @@
 package gui;
 
-public class EditText {
+public class FormatText {
 
 	public String toTitleCase(String text) {
 	    String[] words = text.toLowerCase().split("\\s+");

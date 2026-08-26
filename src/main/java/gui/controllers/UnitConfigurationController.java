@@ -1,7 +1,7 @@
 package gui.controllers;
 
 import builder.ArmyBuilder;
-import gui.EditText;
+import gui.FormatText;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
@@ -20,7 +20,7 @@ public class UnitConfigurationController {
 
     private UnitInstance unit;
     
-    private EditText change = new EditText();
+    private FormatText change = new FormatText();
 
     public void setArmyBuilder(ArmyBuilder armyBuilder) {
         this.armyBuilder = armyBuilder;

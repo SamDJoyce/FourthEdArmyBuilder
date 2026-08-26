@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.function.Consumer;
 
 import builder.ArmyBuilder;
-import gui.EditText;
+import gui.FormatText;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -42,7 +42,7 @@ public class RosterController {
     
     private Consumer<UnitInstance> unitSelectionListener;
     
-    private EditText change = new EditText();
+    private FormatText change = new FormatText();
 
     @FXML
     private void initialize() {
@@ -98,7 +98,7 @@ public class RosterController {
         modelPanel.getChildren().clear();
 
         for (ModelInstance model : unit.getModels()) {
-        	addModel(model, modelPanel);
+        	addModelButton(model, modelPanel);
         }
     }
 
@@ -145,21 +145,23 @@ public class RosterController {
         panel.getChildren().add(unitButton);
     }
     
-    private void addModel(
+    private void addModelButton(
             ModelInstance model,
             VBox panel) {
 
         Button button = new Button(
-                model.getDescription().getName()
+                change.toTitleCase(model.getName()) 
         );
 
         button.setMaxWidth(Double.MAX_VALUE);
+        button.getStyleClass().add("model-button");
 
         button.setOnAction(event -> {
-            System.out.println(
-                    "Selected model: "
-                    + model.getDescription().getName()
-            );
+            System.out.println(String.format(
+            		"Selected model: %s (id: %s)",
+            		change.toTitleCase(model.getName()),
+            		model.getId()
+            ));
         });
 
         panel.getChildren().add(button);

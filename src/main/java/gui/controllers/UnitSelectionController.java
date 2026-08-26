@@ -3,7 +3,7 @@ package gui.controllers;
 import java.util.Map;
 
 import builder.ArmyBuilder;
-import gui.EditText;
+import gui.FormatText;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
@@ -37,7 +37,7 @@ public class UnitSelectionController {
     
     private Runnable rosterRefresh;
     
-    private EditText change = new EditText();
+    private FormatText change = new FormatText();
 
     @FXML
     private void initialize() {
@@ -87,6 +87,7 @@ public class UnitSelectionController {
         Button button = new Button(change.toTitleCase(unit.getName()));
 
         button.setMaxWidth(Double.MAX_VALUE);
+        button.getStyleClass().add("unit-button");
 
         button.setOnAction(event -> {
         	ValidationResult result = armyBuilder.addUnit(unit);
