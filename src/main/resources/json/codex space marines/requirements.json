@@ -59,6 +59,11 @@
 		"requiredGearName":"upgrade to epistolary"
 	},
 	{
+		"type":"must_have_gear",
+		"name":"must be venerable",
+		"requiredGearName":"venerable"
+	},
+	{
 		"type":"cannot_have_gear",
 		"name":"must be librarian",
 		"blockingGearName":"upgrade to epistolary"

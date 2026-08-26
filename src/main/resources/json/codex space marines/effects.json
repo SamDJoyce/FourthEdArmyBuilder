@@ -26,8 +26,20 @@
 	},
 	{
 		"type":"replace_wargear",
+		"name":"replace bolt pistol with heavy bolter",
+		"remove":"bolt pistol",
+		"add":"heavy bolter"
+	},
+	{
+		"type":"replace_wargear",
 		"name":"replace bolter with missile launcher",
 		"remove":"bolter",
+		"add":"missile launcher"
+	},
+	{
+		"type":"replace_wargear",
+		"name":"replace bolt pistol with missile launcher",
+		"remove":"bolt pistol",
 		"add":"missile launcher"
 	},
 	{
@@ -74,7 +86,7 @@
 	},
 	{
 		"type":"replace_wargear",
-		"name":"replace power fist with chainfist",
+		"name":"replace power fist with chain fist",
 		"remove":"power fist",
 		"add":"chain fist"
 	},
@@ -93,120 +105,115 @@
 	{
 		"type":"replace_wargear",
 		"name":"replace power with fury of the ancients",
-		"remove":"storm of the emperor's wrath",
+		"remove":"storm of the emperors wrath",
 		"add":"fury of the ancients"
 	},
 	{
 		"type":"replace_wargear",
 		"name":"replace power with fear of the darkness",
-		"remove":"storm of the emperor's wrath",
+		"remove":"storm of the emperors wrath",
 		"add":"fear of the darkness"
 	},
 	{
 		"type":"replace_wargear",
 		"name":"replace power with might of heroes",
-		"remove":"storm of the emperor's wrath",
+		"remove":"storm of the emperors wrath",
 		"add":"might of heroes"
 	},
 	{
 		"type":"replace_wargear",
 		"name":"replace power with veil of time",
-		"remove":"storm of the emperor's wrath",
+		"remove":"storm of the emperors wrath",
 		"add":"veil of time"
 	},
 	{
 		"type":"replace_wargear",
 		"name":"replace power with vortex of doom",
-		"remove":"storm of the emperor's wrath",
+		"remove":"storm of the emperors wrath",
 		"add":"vortex of doom"
-	},
-	{
-		"type":"replace_wargear",
-		"name":"replace power with fury of the ancients epistolary",
-		"remove":"storm of the emperor's wrath",
-		"add":"fury of the ancients epistolary"
-	},
-	{
-		"type":"replace_wargear",
-		"name":"replace power with fear of the darkness epistolary",
-		"remove":"storm of the emperor's wrath",
-		"add":"fear of the darkness"
-	},
-	{
-		"type":"replace_wargear",
-		"name":"replace power with might of heroes epistolary",
-		"remove":"storm of the emperor's wrath",
-		"add":"might of heroes epistolary"
-	},
-	{
-		"type":"replace_wargear",
-		"name":"replace power with veil of time epistolary",
-		"remove":"storm of the emperor's wrath",
-		"add":"veil of time epistolary"
-	},
-	{
-		"type":"replace_wargear",
-		"name":"replace power with vortex of doom epistolary",
-		"remove":"storm of the emperor's wrath",
-		"add":"vortex of doom epistolary"
 	},
 	{
 		"type":"replace_wargear",
 		"name":"replace dreadnought storm bolter with heavy flamer",
 		"remove":"storm bolter",
-		"add":"dreadnought heavy flamer"
+		"add":"heavy flamer"
 	},
 	{
 		"type":"replace_wargear",
 		"name":"replace dreadnought assault cannon with tl lascannon",
-		"remove":"dreadnought assault cannon",
-		"add":"dreadnought tl lascannon"
+		"remove":"assault cannon",
+		"add":"twin linked lascannon"
 	},
 	{
 		"type":"replace_wargear",
 		"name":"replace dreadnought assault cannon with multi melta",
-		"remove":"dreadnought assault cannon",
-		"add":"dreadnought multi melta"
+		"remove":"assault cannon",
+		"add":"multi melta"
 	},
 	{
 		"type":"replace_wargear",
 		"name":"replace ccw with dreadnought missile launcher",
 		"remove":"dreadnought ccw",
-		"add":"dreadnought missile launcher"
+		"add":"missile launcher"
 	},
 	{
 		"type":"replace_wargear",
 		"name":"replace heavy bolter with multi melta",
 		"remove":"heavy bolter",
-		"add":"attack bike multi melta"
+		"add":"multi melta"
+	},
+	
+	{
+		"type":"add_wargear",
+		"name":"add plasma gun",
+		"gearName":"plasma gun"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add melta gun",
+		"gearName":"melta gun"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add flamer",
+		"gearName":"flamer"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add furious charge",
+		"gearName":"furious charge"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add tank hunters",
+		"gearName":"tank hunters"
 	},
 	
 	
-	
 	{
 		"type":"add_wargear",
-		"name":"add fury of the ancients epistolary",
-		"gearName":"fury of the ancients epistolary"
+		"name":"add fury of the ancients",
+		"gearName":"fury of the ancients"
 	},
 	{
 		"type":"add_wargear",
-		"name":"add fear of the darkness epistolary",
-		"gearName":"fear of the darkness epistolary"
+		"name":"add fear of the darkness",
+		"gearName":"fear of the darkness"
 	},
 	{
 		"type":"add_wargear",
-		"name":"add might of heroes epistolary",
-		"gearName":"might of heroes epistolary"
+		"name":"add might of heroes",
+		"gearName":"might of heroes"
 	},
 	{
 		"type":"add_wargear",
-		"name":"add veil of time epistolary",
-		"gearName":"veil of time epistolary"
+		"name":"add veil of time",
+		"gearName":"veil of time"
 	},
 	{
 		"type":"add_wargear",
-		"name":"add vortex of doom epistolary",
-		"gearName":"vortex of doom epistolary"
+		"name":"add vortex of doom",
+		"gearName":"vortex of doom"
 	},
 	{
 		"type":"add_wargear",
@@ -240,205 +247,161 @@
 	},
 	{
 		"type":"add_wargear",
+		"name":"add venerable",
+		"gearName":"venerable"
+	},
+	
+	{
+		"type":"add_wargear",
 		"name":"add cyclone missile launcher",
 		"gearName":"cyclone missile launcher"
 	},
 	{
 		"type":"add_wargear",
-		"name":"add furious charge",
-		"gearName":"furious charge"
+		"name":"add bolt pistol",
+		"gearName":"bolt pistol"
 	},
 	{
 		"type":"add_wargear",
-		"name":"add tank hunters",
-		"gearName":"tank hunters"
+		"name":"add chain fist",
+		"gearName":"chain fist"
 	},
 	{
 		"type":"add_wargear",
-		"name":"add bolt pistol from armoury",
-		"gearName":"bolt pistol armoury"
+		"name":"add ccw",
+		"gearName":"close combat weapon"
 	},
 	{
 		"type":"add_wargear",
-		"name":"add chain fist from armoury",
-		"gearName":"chain fist armoury"
+		"name":"add single lightning claw",
+		"gearName":"lightning claw single"
 	},
 	{
 		"type":"add_wargear",
-		"name":"add ccw from armoury",
-		"gearName":"close combat weapon armoury"
+		"name":"add pair lightning claws",
+		"gearName":"lightning claw pair"
 	},
 	{
 		"type":"add_wargear",
-		"name":"add single lightning claw mw from armoury",
-		"gearName":"lightning claw single mw armoury"
+		"name":"add plasma pistol",
+		"gearName":"plasma pistol"
 	},
 	{
 		"type":"add_wargear",
-		"name":"add single lightning claw sw from armoury",
-		"gearName":"lightning claw single sw armoury"
+		"name":"add power weapon",
+		"gearName":"power weapon"
 	},
 	{
 		"type":"add_wargear",
-		"name":"add pair lightning claws from armoury",
-		"gearName":"lightning claw pair armoury"
+		"name":"add power fist",
+		"gearName":"power fist"
 	},
 	{
 		"type":"add_wargear",
-		"name":"add plasma pistol mw from armoury",
-		"gearName":"plasma pistol mw armoury"
+		"name":"add storm shield",
+		"gearName":"storm shield"
 	},
 	{
 		"type":"add_wargear",
-		"name":"add plasma pistol sw from armoury",
-		"gearName":"plasma pistol sw armoury"
+		"name":"add thunder hammer",
+		"gearName":"thunder hammer"
 	},
 	{
 		"type":"add_wargear",
-		"name":"add power weapon mw from armoury",
-		"gearName":"power weapon mw armoury"
+		"name":"add bolter",
+		"gearName":"bolter"
 	},
 	{
 		"type":"add_wargear",
-		"name":"add power weapon sw from armoury",
-		"gearName":"power weapon sw armoury"
+		"name":"add combi melta",
+		"gearName":"combi melta"
 	},
 	{
 		"type":"add_wargear",
-		"name":"add power fist mw from armoury",
-		"gearName":"power fist mw armoury"
+		"name":"add combi plasma",
+		"gearName":"combi plasma"
 	},
 	{
 		"type":"add_wargear",
-		"name":"add power fist sw from armoury",
-		"gearName":"power fist sw armoury"
+		"name":"add combi flamer",
+		"gearName":"combi flamer"
 	},
 	{
 		"type":"add_wargear",
-		"name":"add storm shield from armoury",
-		"gearName":"storm shield armoury"
+		"name":"add storm bolter",
+		"gearName":"storm bolter"
 	},
 	{
 		"type":"add_wargear",
-		"name":"add thunder hammer from armoury",
-		"gearName":"thunder hammer armoury"
+		"name":"add artificer armour",
+		"gearName":"artificer armour"
 	},
 	{
 		"type":"add_wargear",
-		"name":"add bolter from armoury",
-		"gearName":"bolter armoury"
+		"name":"add auspex",
+		"gearName":"auspex"
 	},
 	{
 		"type":"add_wargear",
-		"name":"add combi melta mw from armoury",
-		"gearName":"combi melta mw armoury"
+		"name":"add bionics",
+		"gearName":"bionics"
 	},
 	{
 		"type":"add_wargear",
-		"name":"add combi melta sw from armoury",
-		"gearName":"combi melta sw armoury"
+		"name":"add combat shield",
+		"gearName":"combat shield"
 	},
 	{
 		"type":"add_wargear",
-		"name":"add combi plasma mw from armoury",
-		"gearName":"combi plasma mw armoury"
+		"name":"add familiar",
+		"gearName":"familiar"
 	},
 	{
 		"type":"add_wargear",
-		"name":"add combi plasma sw from armoury",
-		"gearName":"combi plasma sw armoury"
+		"name":"add frag grenades",
+		"gearName":"frag grenades"
 	},
 	{
 		"type":"add_wargear",
-		"name":"add combi flamer mw from armoury",
-		"gearName":"combi flamer mw armoury"
+		"name":"add jump pack",
+		"gearName":"jump pack"
 	},
 	{
 		"type":"add_wargear",
-		"name":"add combi flamer sw from armoury",
-		"gearName":"combi flamer sw armoury"
-	},
-	{
-		"type":"add_wargear",
-		"name":"add storm bolter from armoury",
-		"gearName":"storm bolter armoury"
-	},
-	{
-		"type":"add_wargear",
-		"name":"add artificer armour from armoury",
-		"gearName":"artificer armour armoury"
-	},
-	{
-		"type":"add_wargear",
-		"name":"add auspex from armoury",
-		"gearName":"auspex armoury"
-	},
-	{
-		"type":"add_wargear",
-		"name":"add bionics from armoury",
-		"gearName":"bionics armoury"
-	},
-	{
-		"type":"add_wargear",
-		"name":"add combat shield mw from armoury",
-		"gearName":"combat shield mw armoury"
-	},
-	{
-		"type":"add_wargear",
-		"name":"add combat shield sw from armoury",
-		"gearName":"combat shield sw armoury"
-	},
-	{
-		"type":"add_wargear",
-		"name":"add familiar from armoury",
-		"gearName":"familiar armoury"
-	},
-	{
-		"type":"add_wargear",
-		"name":"add frag grenades from armoury",
-		"gearName":"frag grenades armoury"
-	},
-	{
-		"type":"add_wargear",
-		"name":"add jump pack from armoury",
-		"gearName":"jump pack armoury"
-	},
-	{
-		"type":"add_wargear",
-		"name":"add krak grenades from armoury",
-		"gearName":"krak grenades armoury"
+		"name":"add krak grenades",
+		"gearName":"krak grenades"
 	},
 
 	{
 		"type":"add_wargear",
-		"name":"add purity seals from armoury",
-		"gearName":"purity seals armoury"
+		"name":"add purity seals",
+		"gearName":"purity seals"
 	},
 	{
 		"type":"add_wargear",
-		"name":"add master crafted weapon from armoury",
-		"gearName":"master crafted weapon armoury"
+		"name":"add master crafted weapon",
+		"gearName":"master crafted weapon"
 	},
 	{
 		"type":"add_wargear",
-		"name":"add space marine bike from armoury",
-		"gearName":"space marine bike armoury"
+		"name":"add space marine bike",
+		"gearName":"space marine bike"
 	},
 	{
 		"type":"add_wargear",
-		"name":"add teleport homer from armoury",
-		"gearName":"teleport homer armoury"
+		"name":"add teleport homer",
+		"gearName":"teleport homer"
 	},
 	{
 		"type":"replace_wargear",
-		"name":"add terminator armour from armoury",
+		"name":"add terminator armour",
 		"remove":"power armour",
 		"add":"terminator armour"
 	},
 	{
 		"type":"add_wargear",
-		"name":"add terminator honours from armoury",
-		"gearName":"terminator honours armoury"
+		"name":"add terminator honours",
+		"gearName":"terminator honours"
 	},
 	{
 		"type":"add_wargear",
@@ -578,28 +541,54 @@
 	
 	{
 		"type":"add_gear_to_squad",
-		"name":"add frag grenades to squad",
+		"name":"add frag grenades to tactical squad",
 		"gearName":"frag grenades",
-		"pointsPerModel":"0"
+		"pointsPerModel":1
 	},
 	{
 		"type":"add_gear_to_squad",
-		"name":"add krak grenades to squad",
+		"name":"add krak grenades to tactical squad",
 		"gearName":"krak grenades"		,
-				"pointsPerModel":"0"
+		"pointsPerModel":2
 	},
 	{
 		"type":"add_gear_to_squad",
-		"name":"add biker krak grenades to squadron",
+		"name":"add frag grenades to scout squad",
+		"gearName":"frag grenades",
+		"pointsPerModel":1
+	},
+	{
+		"type":"add_gear_to_squad",
+		"name":"add krak grenades to scout squad",
+		"gearName":"krak grenades"		,
+		"pointsPerModel":2
+	},
+	
+	{
+		"type":"add_gear_to_squad",
+		"name":"add krak grenades to bike squadron",
 		"gearName":"biker krak grenades",
-		"pointsPerModel":"0"
+		"pointsPerModel":1
 	},
 	{
 		"type":"add_gear_to_squad",
-		"name":"add biker melta bombs to squadron",
+		"name":"add melta bombs to bike squadron",
 		"gearName":"biker melta bombs",
-		"pointsPerModel":"0"
+		"pointsPerModel":2
 	},
+	{
+		"type":"add_gear_to_squad",
+		"name":"add furious charge to terminator squad",
+		"gearName":"furious charge",
+		"pointsPerModel":3
+	},
+	{
+		"type":"add_gear_to_squad",
+		"name":"add tank hunters to terminator squad",
+		"gearName":"tank hunters",
+		"pointsPerModel":3
+	},
+	
 	{
 		"type":"add_model",
 		"name":"add tactical marine to squad",

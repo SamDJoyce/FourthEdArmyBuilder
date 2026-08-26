@@ -5,7 +5,42 @@
 	  	"points":0
 	},
 	{
+	  	"name":"twin linked bolter",
+	  	"type":"TWO HANDED",
+	  	"points":0
+	},
+	{
+	  	"name":"heavy bolter",
+	  	"type":"TWO HANDED",
+	  	"points":0
+	},
+	{
+	  	"name":"twin linked heavy bolter",
+	  	"type":"TWO HANDED",
+	  	"points":0
+	},
+	{
 	  	"name":"storm bolter",
+	  	"type":"TWO HANDED",
+	  	"points":0
+	},
+	{
+	  	"name":"plasma gun",
+	  	"type":"TWO HANDED",
+	  	"points":0
+	},
+	{
+	  	"name":"melta gun",
+	  	"type":"TWO HANDED",
+	  	"points":0
+	},
+	{
+	  	"name":"flamer",
+	  	"type":"TWO HANDED",
+	  	"points":0
+	},
+	{
+	  	"name":"heavy flamer",
 	  	"type":"TWO HANDED",
 	  	"points":0
 	},
@@ -22,25 +57,15 @@
 	{
 	  	"name":"assault cannon",
 	  	"type":"TWO HANDED",
-	  	"points":20
+	  	"points":0
 	},
 	{
-		"name":"dreadnought assault cannon",
-		"type":"TWO HANDED",
-		"points":0
-	},
-	{
-	  	"name":"heavy flamer",
-	  	"type":"TWO HANDED",
-	  	"points":10
-	},
-	{
-	  	"name":"twin linked lascannon",
+	  	"name":"lascannon",
 	  	"type":"TWO HANDED",
 	  	"points":0
 	},
 	{
-	  	"name":"twin linked heavy bolter",
+	  	"name":"twin linked lascannon",
 	  	"type":"TWO HANDED",
 	  	"points":0
 	},
@@ -50,35 +75,11 @@
 	  	"points":0
 	},
 	{
-	  	"name":"twin linked bolter",
-	  	"type":"TWO HANDED",
-	  	"points":0
-	},
-	{
-	  	"name":"dreadnought close combat weapon",
+	  	"name":"dreadnought ccw",
 	  	"type":"ONE HANDED",
 	  	"points":0
 	},
-	{
-	  	"name":"dreadnought tl lascannon",
-	  	"type":"ONE HANDED",
-	  	"points":20
-	},
-	{
-	  	"name":"dreadnought multi melta",
-	  	"type":"ONE HANDED",
-	  	"points":10
-	},
-	{
-	  	"name":"dreadnought heavy flamer",
-	  	"type":"ONE HANDED",
-	  	"points":10
-	},
-	{
-	  	"name":"dreadnought missile lanucher",
-	  	"type":"ONE HANDED",
-	  	"points":10
-	},
+	
 	{
 	  	"name":"bolt pistol",
 	  	"type":"ONE HANDED",
@@ -92,7 +93,7 @@
 	{
 	  	"name":"chain fist",
 	  	"type":"ONE HANDED",
-	  	"points":5
+	  	"points":0
 	},
 	{
 	  	"name":"power weapon",
@@ -142,35 +143,18 @@
 	{
 	  	"name":"cyclone missile launcher",
 	  	"type":"GEAR",
-	  	"points":25
+	  	"points":0
 	},
 	{
 	  	"name":"furious charge",
 	  	"type":"GEAR",
-	  	"points":3
+	  	"points":0
 	},
 	{
 	  	"name":"tank hunters",
 	  	"type":"GEAR",
-	  	"points":3
+	  	"points":0
 	},
-	{
-	  	"name":"plasma gun",
-	  	"type":"TWO HANDED",
-	  	"points":10
-	},
-	{
-	  	"name":"melta gun",
-	  	"type":"TWO HANDED",
-	  	"points":10
-	},
-	{
-	  	"name":"flamer",
-	  	"type":"TWO HANDED",
-	  	"points":6
-	},
-
-	
 	{
 	  	"name":"crux terminatus",
 	  	"type":"GEAR",
@@ -189,337 +173,213 @@
 	{
 	  	"name":"tactical squad sergeant veterancy",
 	  	"type":"GEAR",
-	  	"points":15
+	  	"points":0
 	},
 	{
 	  	"name":"scout sergeant veterancy",
 	  	"type":"GEAR",
-	  	"points":13
+	  	"points":0
 	},
 	{
 	  	"name":"biker sergeant veterancy",
 	  	"type":"GEAR",
-	  	"points":15
+	  	"points":0
 	},
 	{
 	  	"name":"venerable",
 	  	"type":"GEAR",
-	  	"points":20
-	},
-	{
-	  	"name":"land speeder heavy bolter",
-	  	"type":"TWO HANDED",
 	  	"points":0
 	},
-	{
-	  	"name":"heavy bolter",
-	  	"type":"TWO HANDED",
-	  	"points":5
-	},
+
 	{
 	  	"name":"missile launcher",
 	  	"type":"TWO HANDED",
-	  	"points":10
+	  	"points":0
 	},
 	{
 	  	"name":"multi melta",
 	  	"type":"TWO HANDED",
-	  	"points":10
-	},
-	{
-	  	"name":"attack bike multi melta",
-	  	"type":"TWO HANDED",
-	  	"points":15
-	},
-	{
-	  	"name":"lascannon",
-	  	"type":"TWO HANDED",
-	  	"points":15
+	  	"points":0
 	},
 	{
 	  	"name":"plasma cannon",
 	  	"type":"TWO HANDED",
-	  	"points":20
+	  	"points":0
 	},
 	{
 	  	"name":"frag grenades",
 	  	"type":"GEAR",
-	  	"points":1
+	  	"points":0
 	},
 	{
 	  	"name":"krak grenades",
 	  	"type":"GEAR",
-	  	"points":2
+	  	"points":0
 	},
 	{
-	  	"name":"bike frag grenades",
+	  	"name":"melta bombs",
 	  	"type":"GEAR",
 	  	"points":0
 	},
 	{
-	  	"name":"biker krak grenades",
+	  	"name":"chainfist",
+	  	"type":"ONE HANDED",
+	  	"points":0
+	},
+	{
+	  	"name":"lightning claw single",
+	  	"type":"ONE HANDED",
+	  	"points":0
+	},
+	{
+	  	"name":"lightning claw pair",
+	  	"type":"TWO HANDED",
+	  	"points":0
+	},
+	{
+	  	"name":"plasma pistol",
+	  	"type":"ONE HANDED",
+	  	"points":0
+	},
+	{
+	  	"name":"power weapon",
+	  	"type":"ONE HANDED",
+	  	"points":0
+	},
+	{
+	  	"name":"storm shield",
+	  	"type":"ONE HANDED",
+	  	"points":0
+	},
+	{
+	  	"name":"thunder hammer",
+	  	"type":"ONE HANDED",
+	  	"points":0
+	},
+	{
+	  	"name":"combi melta",
+	  	"type":"TWO HANDED",
+	  	"points":0
+	},
+	{
+	  	"name":"combi plasma",
+	  	"type":"TWO HANDED",
+	  	"points":0
+	},
+	{
+	  	"name":"combi flamer",
+	  	"type":"TWO HANDED",
+	  	"points":0
+	},
+	{
+	  	"name":"auspex",
 	  	"type":"GEAR",
-	  	"points":1
-	},
-	{
-	  	"name":"biker melta bombs",
-	  	"type":"GEAR",
-	  	"points":2
-	},
-	{
-	  	"name":"bolt pistol armoury",
-	  	"type":"ONE HANDED",
-	  	"points":1
-	},
-	{
-	  	"name":"chainfist armoury",
-	  	"type":"ONE HANDED",
-	  	"points":30
-	},
-	{
-	  	"name":"close combat weapon armoury",
-	  	"type":"ONE HANDED",
-	  	"points":1
-	},
-	{
-	  	"name":"lightning claw single mw armoury",
-	  	"type":"ONE HANDED",
-	  	"points":25
-	},
-	{
-	  	"name":"lightning claw single sw armoury",
-	  	"type":"ONE HANDED",
-	  	"points":15
-	},
-	{
-	  	"name":"lightning claw pair armoury",
-	  	"type":"TWO HANDED",
-	  	"points":30
-	},
-	{
-	  	"name":"plasma pistol mw armoury",
-	  	"type":"ONE HANDED",
-	  	"points":15
-	},
-	{
-	  	"name":"plasma pistol sw armoury",
-	  	"type":"ONE HANDED",
-	  	"points":10
-	},
-	{
-	  	"name":"power fist mw armoury",
-	  	"type":"ONE HANDED",
-	  	"points":25
-	},
-	{
-	  	"name":"power fist sw armoury",
-	  	"type":"ONE HANDED",
-	  	"points":15
-	},
-	{
-	  	"name":"power weapon mw armoury",
-	  	"type":"ONE HANDED",
-	  	"points":15
-	},
-	{
-	  	"name":"power weapon sw armoury",
-	  	"type":"ONE HANDED",
-	  	"points":10
-	},
-	{
-	  	"name":"storm shield armoury",
-	  	"type":"ONE HANDED",
-	  	"points":10
-	},
-	{
-	  	"name":"thunder hammer armoury",
-	  	"type":"ONE HANDED",
-	  	"points":30
-	},
-	{
-	  	"name":"combi melta mw armoury",
-	  	"type":"TWO HANDED",
-	  	"points":15
-	},
-	{
-	  	"name":"bolter armoury",
-	  	"type":"TWO HANDED",
-	  	"points":1
-	},
-	{
-	  	"name":"combi melta sw armoury",
-	  	"type":"TWO HANDED",
-	  	"points":10
-	},
-	{
-	  	"name":"combi plasma mw armoury",
-	  	"type":"TWO HANDED",
-	  	"points":15
-	},
-	{
-	  	"name":"combi plasma sw armoury",
-	  	"type":"TWO HANDED",
-	  	"points":10
-	},
-	{
-	  	"name":"combi flamer mw armoury",
-	  	"type":"TWO HANDED",
-	  	"points":10
-	},
-	{
-	  	"name":"combi flamer sw armoury",
-	  	"type":"TWO HANDED",
-	  	"points":5
-	},
-	{
-	  	"name":"storm bolter armoury",
-	  	"type":"TWO HANDED",
-	  	"points":5
-	},
-	{
-	  	"name":"artificer armour armoury",
-	  	"type":"GEAR",
-	  	"points":20
-	},
-	{
-	  	"name":"auspex armoury",
-	  	"type":"GEAR",
-	  	"points":2
+	  	"points":0
 	},
 	{
 	  	"name":"bionics",
 	  	"type":"GEAR",
-	  	"points":5
+	  	"points":0
 	},
 	{
-	  	"name":"combat shield mw armoury",
+	  	"name":"combat shield",
 	  	"type":"GEAR",
-	  	"points":10
+	  	"points":0
 	},
 	{
-	  	"name":"combat shield sw armoury",
+	  	"name":"familiar",
 	  	"type":"GEAR",
-	  	"points":5
-	},
-	{
-	  	"name":"familiar armoury",
-	  	"type":"GEAR",
-	  	"points":10
-	},
-	{
-	  	"name":"frag grenades armoury",
-	  	"type":"GEAR",
-	  	"points":1
+	  	"points":0
 	},
 	{
 	  	"name":"jump pack",
 	  	"type":"GEAR",
-	  	"points":20
+	  	"points":0
 	},
 	{
-	  	"name":"krak grenades armoury",
+	  	"name":"master crafter weapon",
 	  	"type":"GEAR",
-	  	"points":2
+	  	"points":0
 	},
 	{
-	  	"name":"master crafter weapon armoury",
+	  	"name":"purity seals",
 	  	"type":"GEAR",
-	  	"points":15
+	  	"points":0
 	},
 	{
-	  	"name":"melta bombs armoury",
+	  	"name":"teleport homer",
 	  	"type":"GEAR",
-	  	"points":5
+	  	"points":0
 	},
 	{
-	  	"name":"purity seals armoury",
+	  	"name":"terminator honours",
 	  	"type":"GEAR",
-	  	"points":5
+	  	"points":0
 	},
 	{
-	  	"name":"space marine bike armoury",
-	  	"type":"GEAR",
-	  	"points":30
-	},
-	{
-	  	"name":"teleport homer armoury",
-	  	"type":"GEAR",
-	  	"points":5
-	},
-	{
-	  	"name":"terminator armour armoury",
-	  	"type":"GEAR",
-	  	"points":25
-	},
-	{
-	  	"name":"terminator honours armoury",
-	  	"type":"GEAR",
-	  	"points":15
-	},
-	{
-	  	"name":"chapter banner armoury",
+	  	"name":"chapter banner",
 	  	"type":"RELIC",
-	  	"points":25
+	  	"points":0
 	},
 	{
-	  	"name":"holy relic armoury",
+	  	"name":"holy relic",
 	  	"type":"RELIC",
-	  	"points":30
+	  	"points":0
 	},
 	{
-	  	"name":"Iron Halo armoury",
+	  	"name":"Iron Halo",
 	  	"type":"RELIC",
-	  	"points":25
+	  	"points":0
 	},
 	{
-	  	"name":"sacred standard armoury",
+	  	"name":"sacred standard",
 	  	"type":"RELIC",
-	  	"points":20
+	  	"points":0
 	},
 	{
-	  	"name":"adamantine mantle armoury",
+	  	"name":"adamantine mantle",
 	  	"type":"RELIC",
-	  	"points":35
+	  	"points":0
 	},
 	{
 	  	"name":"dozer blade",
 	  	"type":"VEHICLE_UPGRADE",
-	  	"points":5
+	  	"points":0
 	},
 	{
 	  	"name":"extra armor",
 	  	"type":"VEHICLE_UPGRADE",
-	  	"points":5
+	  	"points":0
 	},
 	{
 	  	"name":"hunter killer missile",
 	  	"type":"VEHICLE_UPGRADE",
-	  	"points":15
+	  	"points":0
 	},
 	{
 	  	"name":"pintle mounted storm bolter",
 	  	"type":"VEHICLE_UPGRADE",
-	  	"points":10
+	  	"points":0
 	},
 	{
 	  	"name":"machine spirit",
 	  	"type":"VEHICLE_UPGRADE",
-	  	"points":30
+	  	"points":0
 	},
 	{
 	  	"name":"searchlight",
 	  	"type":"VEHICLE_UPGRADE",
-	  	"points":1
+	  	"points":0
 	},
 	{
 	  	"name":"smoke launchers",
 	  	"type":"VEHICLE_UPGRADE",
-	  	"points":3
+	  	"points":0
 	},
 	{
 	  	"name":"upgrade to epistolary",
 	  	"type":"PSYCHIC",
-	  	"points":15
+	  	"points":0
 	},
 	{
 	  	"name":"storm of the emperors wrath",
@@ -550,30 +410,5 @@
 	  	"name":"vortex of doom",
 	  	"type":"PSYCHIC",
 	  	"points":10
-	},
-	{
-	  	"name":"fury of the ancients epistolary",
-	  	"type":"PSYCHIC",
-	  	"points":9
-	},
-	{
-	  	"name":"fear of the darkness epistolary",
-	  	"type":"PSYCHIC",
-	  	"points":15
-	},
-	{
-	  	"name":"might of heroes epistolary",
-	  	"type":"PSYCHIC",
-	  	"points":15
-	},
-	{
-	  	"name":"veil of time epistolary",
-	  	"type":"PSYCHIC",
-	  	"points":30
-	},
-	{
-	  	"name":"vortex of doom epistolary",
-	  	"type":"PSYCHIC",
-	  	"points":30
 	}
 ]

@@ -62,7 +62,7 @@
 			"tactical marine"
 		],
 		"optionGroupNames":[
-			"grenades group",
+			"grenades group tactical squad",
 			"add tactical marine group"
 		]
 	},
@@ -79,7 +79,7 @@
 			"scout"
 		],
 		"optionGroupNames":[
-			"grenades group",
+			"grenades group scout squad",
 			"add scout group"
 		]
 	},

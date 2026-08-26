@@ -23,7 +23,7 @@ public class AddGearToSquadEffect implements Effect {
 		this.name = name;
 		this.gear = gear;
 		this.pointsPerModel = pointsPerModel;
-		OptionChoice.create(name, pointsPerModel);
+		this.forEachModel = OptionChoice.create(name, pointsPerModel);
 	};
 	
 	public WargearDescription getGear() {

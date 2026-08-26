@@ -1,32 +1,25 @@
 [
-	{
-		"name":"select add tactical marine",
-		"points":15,
-		"requirementNames":[],
-		"effectNames":[
-			"add tactical marine to squad"
-		]
-	},
+
 	{
 		"name":"select add terminator",
-		"points":40,
+		"points":0,
 		"requirementNames":[
 		],
 		"effectNames":[
 			"add terminator to squad"
 		]
 	},
+	
 	{
-		"name":"select add scout",
-		"points":40,
-		"requirementNames":[
-		],
+		"name":"select add tactical marine",
+		"points":0,
+		"requirementNames":[],
 		"effectNames":[
-			"add scout to squad"
+			"add tactical marine to squad"
 		]
 	},
 	{
-		"name":"select plasma",
+		"name":"select plasma gun for tactical marine",
 		"points":10,
 		"requirementNames":
 		["must start with bolter"],
@@ -36,7 +29,7 @@
 		]
 	},
 	{
-		"name":"select melta",
+		"name":"select melta gun for tactical marine",
 		"points":10,
 		"requirementNames":
 		["must start with bolter"],
@@ -46,7 +39,7 @@
 		]
 	},
 	{
-		"name":"select flamer",
+		"name":"select flamer for tactical marine",
 		"points":6,
 		"requirementNames":
 		["must start with bolter"],
@@ -56,7 +49,7 @@
 		]
 	},
 	{
-		"name":"select heavy bolter",
+		"name":"select heavy bolter for tactical marine",
 		"points":5,
 		"requirementNames":[
 			"must start with bolter"
@@ -67,7 +60,7 @@
 		]
 	},
 	{
-		"name":"select missile launcher",
+		"name":"select missile launcher for tactical marine",
 		"points":10,
 		"requirementNames":[
 			"must start with bolter"
@@ -78,7 +71,7 @@
 		]
 	},
 	{
-		"name":"select multi melta",
+		"name":"select multi melta for tactical marine",
 		"points":10,
 		"requirementNames":[
 			"must start with bolter"
@@ -89,7 +82,7 @@
 		]
 	},
 	{
-		"name":"select lascannon",
+		"name":"select lascannon for tactical marine",
 		"points":15,
 		"requirementNames":[
 			"must start with bolter"
@@ -100,7 +93,7 @@
 		]
 	},
 	{
-		"name":"select plasma cannon",
+		"name":"select plasma cannon for tactical marine",
 		"points":20,
 		"requirementNames":[
 			"must start with bolter"
@@ -137,6 +130,38 @@
 		]
 	},
 	{
+		"name":"select frag grenades for tactical squad",
+		"points":0,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"add frag grenades to tactical squad"
+		]
+	},
+	{
+		"name":"select krak grenades for tactical squad",
+		"points":0,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"add krak grenades to tactical squad"
+		]
+	},	
+	
+	
+	
+	
+	
+	{
+		"name":"select add scout",
+		"points":0,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"add scout to squad"
+		]
+	},
+	{
 		"name":"select scout sergeant veterancy",
 		"points":13,
 		"requirementNames":[
@@ -151,82 +176,21 @@
 		]
 	},
 	{
-		"name":"select biker sergeant veterancy",
-		"points":13,
+		"name":"select frag grenades for scout squad",
+		"points":0,
 		"requirementNames":[
-			"characters only"
 		],
 		"effectNames":[
-			"add biker sergeant veterancy",
-			"add crux terminatus",
-		 	"increase ld by one",
-	 	 	"increase attacks by one",
-	 	 	"change to veteran sergeant"
+			"add frag grenades to scout squad"
 		]
 	},
 	{
-		"name":"select add biker to squadron",
-		"points":32,
-		"requirementNames":[
-			"two selections per squad"
-		],
-		"effectNames":[
-			"add biker to squadron"
-		]
-	},
-	{
-		"name":"select add attack bike to squadron",
-		"points":50,
-		"requirementNames":[
-			"one selection per squad"
-		],
-		"effectNames":[
-			"add attack bike to squadron"
-		]
-	},
-	{
-		"name":"select replace heavy bolter with multi melta",
-		"points":15,
+		"name":"select krak grenades for scout squad",
+		"points":0,
 		"requirementNames":[
 		],
 		"effectNames":[
-			"replace heavy bolter with multi melta"
-		]
-	},
-	{
-		"name":"select frag grenades for squad",
-		"points":1,
-		"requirementNames":[
-		],
-		"effectNames":[
-			"add frag grenades to squad"
-		]
-	},
-	{
-		"name":"select krak grenades for squad",
-		"points":2,
-		"requirementNames":[
-		],
-		"effectNames":[
-			"add krak grenades to squad"
-		]
-	},
-	{
-		"name":"select krak grenades for bike squadron",
-		"points":1,
-		"requirementNames":[
-		],
-		"effectNames":[
-			"add biker krak grenades to squadron"
-		]
-	},
-	{
-		"name":"select melta bombs for bike squadron",
-		"points":2,
-		"requirementNames":[
-		],
-		"effectNames":[
-			"add melta bombs to squadron"
+			"add krak grenades to scout squad"
 		]
 	},
 	{
@@ -253,7 +217,7 @@
 	},
 	{
 		"name":"select sniper for scout",
-		"points":0,
+		"points":5,
 		"requirementNames":[
 			"must start with bolt pistol"
 		],
@@ -263,25 +227,150 @@
 		]
 	},	
 	{
-		"name":"select furious charge",
-		"points":3,
+		"name":"select heavy bolter for scout",
+		"points":5,
 		"requirementNames":[
+			"must start with bolt pistol"
 		],
 		"effectNames":[
-			"add furious charge"
+			"replace bolt pistol with heavy bolter",
+			"remove ccw"
 		]
 	},
 	{
-		"name":"select tank hunters",
-		"points":3,
+		"name":"select missile launcher for scout",
+		"points":10,
 		"requirementNames":[
+			"must start with bolt pistol"
 		],
 		"effectNames":[
-			"add tank hunters"
+			"replace bolt pistol with missile launcher",
+			"remove ccw"
+		]
+	},
+	
+	
+	
+	{
+		"name":"select add biker to squadron",
+		"points":0,
+		"requirementNames":[
+			"two selections per squad"
+		],
+		"effectNames":[
+			"add biker to squadron"
 		]
 	},
 	{
-		"name":"select assault cannon",
+		"name":"select biker sergeant veterancy",
+		"points":13,
+		"requirementNames":[
+			"characters only"
+		],
+		"effectNames":[
+			"add biker sergeant veterancy",
+			"add crux terminatus",
+		 	"increase ld by one",
+	 	 	"increase attacks by one",
+	 	 	"change to veteran sergeant"
+		]
+	},
+	{
+		"name":"select krak grenades for bike squadron",
+		"points":0,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"add krak grenades to bike squadron"
+		]
+	},
+	{
+		"name":"select melta bombs for bike squadron",
+		"points":0,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"add melta bombs to bike squadron"
+		]
+	},
+	{
+		"name":"select plasma gun for biker",
+		"points":10,
+		"requirementNames":
+		[
+		],
+		"effectNames":[
+			"add plasma gun"
+		]
+	},
+	{
+		"name":"select melta gun for biker",
+		"points":10,
+		"requirementNames":
+		[
+		],
+		"effectNames":[
+			"add melta gun"
+		]
+	},
+	{
+		"name":"select flamer for biker",
+		"points":6,
+		"requirementNames":
+		[
+		],
+		"effectNames":[
+			"add flamer"
+		]
+	},
+
+	
+	
+	
+	{
+		"name":"select add attack bike to squadron",
+		"points":0,
+		"requirementNames":[
+			"one selection per squad"
+		],
+		"effectNames":[
+			"add attack bike to squadron"
+		]
+	},
+	{
+		"name":"select replace heavy bolter with multi melta",
+		"points":15,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"replace heavy bolter with multi melta"
+		]
+	},
+	
+	
+
+	
+	
+	{
+		"name":"select furious charge for terminator",
+		"points":0,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"add furious charge to terminator squad"
+		]
+	},
+	{
+		"name":"select tank hunters for terminator",
+		"points":0,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"add tank hunters to terminator squad"
+		]
+	},
+	{
+		"name":"select assault cannon for terminator",
 		"points":20,
 		"requirementNames":[
 			"must start with storm bolter"
@@ -291,7 +380,7 @@
 		]
 	},
 	{
-		"name":"select heavy flamer",
+		"name":"select heavy flamer for terminator",
 		"points":10,
 		"requirementNames":[
 			"must start with storm bolter"
@@ -301,7 +390,7 @@
 		]
 	},
 	{
-		"name":"select cyclone missile launcher",
+		"name":"select cyclone missile launcher for terminator",
 		"points":25,
 		"requirementNames":[
 			"must have storm bolter",
@@ -312,15 +401,19 @@
 		]
 	},
 	{
-		"name":"select chain fist",
+		"name":"select chain fist for terminator",
 		"points":5,
 		"requirementNames":[
 			"must have power fist"
 		],
 		"effectNames":[
-			"add chain fist"
+			"replace power fist with chain fist"
 		]
 	},
+	
+	
+	
+	
 	{
 		"name":"select bolt pistol from armoury",
 		"points":1,
@@ -331,7 +424,7 @@
 			"space marine armoury weapons limit"
 		],
 		"effectNames":[
-			"add bolt pistol from armoury"
+			"add bolt pistol"
 		]
 	},
 	{
@@ -344,7 +437,7 @@
 			"space marine armoury weapons limit"
 		],
 		"effectNames":[
-			"add chain fist from armoury"
+			"add chain fist"
 		]
 	},
 	{
@@ -357,7 +450,7 @@
 			"space marine armoury weapons limit"
 		],
 		"effectNames":[
-			"add ccw from armoury"
+			"add ccw"
 		]
 	},
 	{
@@ -369,7 +462,7 @@
 			"space marine armoury weapons limit"
 		],
 		"effectNames":[
-			"add single lightning claw mw from armoury"
+			"add single lightning claw"
 		]
 	},
 	{
@@ -381,7 +474,7 @@
 			"space marine armoury weapons limit"
 		],
 		"effectNames":[
-			"add single lightning claw sw from armoury"
+			"add single lightning claw"
 		]
 	},
 	{
@@ -393,7 +486,7 @@
 			"space marine armoury weapons limit"
 		],
 		"effectNames":[
-			"add pair lightning claws from armoury"
+			"add pair lightning claws"
 		]
 	},
 	{
@@ -406,7 +499,7 @@
 			"space marine armoury weapons limit"
 		],
 		"effectNames":[
-			"add plasma pistol mw from armoury"
+			"add plasma pistol"
 		]
 	},
 	{
@@ -419,7 +512,7 @@
 			"space marine armoury weapons limit"
 		],
 		"effectNames":[
-			"add plasma pistol sw from armoury"
+			"add plasma pistol"
 		]
 	},
 	{
@@ -431,7 +524,7 @@
 			"space marine armoury weapons limit"
 		],
 		"effectNames":[
-			"add power weapon mw from armoury"
+			"add power weapon"
 		]
 	},
 	{
@@ -442,7 +535,7 @@
 			"space marine armoury points limit"
 		],
 		"effectNames":[
-			"add power weapon sw from armoury"
+			"add power weapon"
 		]
 	},
 	{
@@ -454,7 +547,7 @@
 			"space marine armoury weapons limit"
 		],
 		"effectNames":[
-			"add power fist mw from armoury"
+			"add power fist"
 		]
 	},
 	{
@@ -466,7 +559,7 @@
 			"space marine armoury weapons limit"
 		],
 		"effectNames":[
-			"add power fist sw from armoury"
+			"add power fist"
 		]
 	},
 	{
@@ -478,7 +571,7 @@
 			"space marine armoury weapons limit"
 		],
 		"effectNames":[
-			"add storm shield from armoury"
+			"add storm shield"
 		]
 	},
 	{
@@ -490,7 +583,7 @@
 			"space marine armoury weapons limit"
 		],
 		"effectNames":[
-			"add thunder hammer from armoury"
+			"add thunder hammer"
 		]
 	},
 	{
@@ -503,7 +596,7 @@
 			"space marine armoury weapons limit"
 		],
 		"effectNames":[
-			"add bolter from armoury"
+			"add bolter"
 		]
 	},
 	{
@@ -515,7 +608,7 @@
 			"space marine armoury weapons limit"
 		],
 		"effectNames":[
-			"add combi melta mw from armoury"
+			"add combi melta"
 		]
 	},
 	{
@@ -527,7 +620,7 @@
 			"space marine armoury weapons limit"
 		],
 		"effectNames":[
-			"add combi melta sw from armoury"
+			"add combi melta"
 		]
 	},
 	{
@@ -539,7 +632,7 @@
 			"space marine armoury weapons limit"
 		],
 		"effectNames":[
-			"add combi plasma mw from armoury"
+			"add combi plasma"
 		]
 	},
 	{
@@ -551,7 +644,7 @@
 			"space marine armoury weapons limit"
 		],
 		"effectNames":[
-			"add combi plasma sw from armoury"
+			"add combi plasma"
 		]
 	},
 	{
@@ -563,7 +656,7 @@
 			"space marine armoury weapons limit"
 		],
 		"effectNames":[
-			"add combi flamer mw from armoury"
+			"add combi flamer"
 		]
 	},
 	{
@@ -575,7 +668,7 @@
 			"space marine armoury weapons limit"
 		],
 		"effectNames":[
-			"add combi flamer sw from armoury"
+			"add combi flamer"
 		]
 	},
 	{
@@ -587,7 +680,7 @@
 			"space marine armoury weapons limit"
 		],
 		"effectNames":[
-			"add storm bolter from armoury"
+			"add storm bolter"
 		]
 	},
 	{
@@ -601,7 +694,7 @@
 			"cannot have terminator armour"
 		],
 		"effectNames":[
-			"add artificer armour from armoury",
+			"add artificer armour",
 			"improve save by one"
 		]
 	},
@@ -614,7 +707,7 @@
 			"space marine armoury weapons limit"
 		],
 		"effectNames":[
-			"add auspex from armoury"
+			"add auspex"
 		]
 	},
 	{
@@ -626,7 +719,7 @@
 			"space marine armoury weapons limit"
 		],
 		"effectNames":[
-			"add bionics from armoury"
+			"add bionics"
 		]
 	},
 	{
@@ -639,7 +732,7 @@
 			"space marine armoury weapons limit"
 		],
 		"effectNames":[
-			"add combat shield mw from armoury"
+			"add combat shield"
 		]
 	},
 	{
@@ -652,7 +745,7 @@
 			"space marine armoury weapons limit"
 		],
 		"effectNames":[
-			"add combat shield sw from armoury"
+			"add combat shield"
 		]
 	},
 	{
@@ -665,7 +758,7 @@
 			"space marine armoury weapons limit"
 		],
 		"effectNames":[
-			"add familiar from armoury"
+			"add familiar"
 		]
 	},
 	{
@@ -678,7 +771,7 @@
 			"space marine armoury weapons limit"
 		],
 		"effectNames":[
-			"add frag grenades from armoury"
+			"add frag grenades"
 		]
 	},
 	{
@@ -691,7 +784,7 @@
 			"space marine armoury weapons limit"
 		],
 		"effectNames":[
-			"add jump pack from armoury"
+			"add jump pack"
 		]
 	},
 	{
@@ -704,7 +797,7 @@
 			"space marine armoury weapons limit"
 		],
 		"effectNames":[
-			"add krak grenades from armoury"
+			"add krak grenades"
 		]
 	},
 	{
@@ -717,7 +810,7 @@
 			"space marine armoury weapons limit"
 		],
 		"effectNames":[
-			"add melta bombs from armoury"
+			"add melta bombs"
 		]
 	},
 	{
@@ -727,7 +820,7 @@
 			"characters only"
 		],
 		"effectNames":[
-			"add master crafted weapon from armoury",
+			"add master crafted weapon",
 			"space marine armoury points limit",
 			"space marine armoury weapons limit"
 		]
@@ -741,7 +834,7 @@
 			"space marine armoury weapons limit"
 		],
 		"effectNames":[
-			"add purity seals from armoury"
+			"add purity seals"
 		]
 	},
 	{
@@ -754,7 +847,7 @@
 			"space marine armoury weapons limit"
 		],
 		"effectNames":[
-			"add space marine bike from armoury"
+			"add space marine bike"
 		]
 	},
 	{
@@ -766,7 +859,7 @@
 			"space marine armoury weapons limit"
 		],
 		"effectNames":[
-			"add teleport homer from armoury"
+			"add teleport homer"
 		]
 	},
 	{
@@ -779,7 +872,7 @@
 			"space marine armoury weapons limit"
 		],
 		"effectNames":[
-			"add terminator armour from armoury",
+			"add terminator armour",
 			"add crux terminatus",
 			"improve save by one"
 		]
@@ -794,7 +887,7 @@
 			"space marine armoury weapons limit"
 		],
 		"effectNames":[
-			"add terminator honours from armoury",
+			"add terminator honours",
 			"add crux terminatus",
 			"increase attacks by one"
 		]
@@ -878,95 +971,50 @@
 			"replace power with vortex of doom"
 		]
 	},
-	{
-		"name":"select replace power with fury of the ancients epistolary",
-		"points":3,
-		"requirementNames":[
-		],
-		"effectNames":[
-			"replace power with fury of the ancients epistolary"
-		]
-	},
-	{
-		"name":"select replace power with fear of the darkness epistolary",
-		"points":5,
-		"requirementNames":[
-		],
-		"effectNames":[
-			"replace power with fear of the darkness epistolary"
-		]
-	},
-	{
-		"name":"select replace power with might of heroes epistolary",
-		"points":5,
-		"requirementNames":[
-		],
-		"effectNames":[
-			"replace power with might of heroes epistolary"
-		]
-	},
-	{
-		"name":"select replace power with veil of time epistolary",
-		"points":10,
-		"requirementNames":[
-		],
-		"effectNames":[
-			"replace power with veil of time epistolary"
-		]
-	},
-	{
-		"name":"select replace power with vortex of doom epistolary",
-		"points":10,
-		"requirementNames":[
-		],
-		"effectNames":[
-			"replace power with vortex of doom epistolary"
-		]
-	},
 	
 	{
-		"name":"select add fury of the ancients epistolary",
+		"name":"select add fury of the ancients",
 		"points":9,
 		"requirementNames":[
 		],
 		"effectNames":[
-			"add fury of the ancients epistolary"
+			"add fury of the ancients"
 		]
 	},
 	{
-		"name":"select add fear of the darkness epistolary",
+		"name":"select add fear of the darkness",
 		"points":15,
 		"requirementNames":[
 		],
 		"effectNames":[
-			"add fear of the darkness epistolary"
+			"add fear of the darkness"
 		]
 	},
 	{
-		"name":"select add might of heroes epistolary",
+		"name":"select add might of heroes",
 		"points":15,
 		"requirementNames":[
 		],
 		"effectNames":[
-			"add might of heroes epistolary"
+			"add might of heroes"
 		]
 	},
 	{
-		"name":"select add veil of time epistolary",
+		"name":"select add veil of time",
 		"points":30,
 		"requirementNames":[
 		],
 		"effectNames":[
-			"add veil of time epistolary"
+			"add veil of time"
 		]
 	},
 	{
-		"name":"select add vortex of doom epistolary",
+		"name":"select add vortex of doom",
 		"points":30,
 		"requirementNames":[
 		],
 		"effectNames":[
-			"add vortex of doom epistolary"
+			"add vortex of doom"
 		]
 	},
 	{
@@ -1007,6 +1055,24 @@
 		]
 	},
 	{
+		"name":"select furious charge for dreadnought",
+		"points":10,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"add furious charge"
+		]
+	},
+	{
+		"name":"select tank hunters for dreadnought",
+		"points":10,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"add tank hunters"
+		]
+	},
+	{
 		"name":"select replace ccw with dreadnought missile launcher",
 		"points":10,
 		"requirementNames":[
@@ -1016,6 +1082,8 @@
 			"remove storm bolter"
 		]
 	},
+	
+	
 	{
 		"name":"select extra armour",
 		"points":5,
