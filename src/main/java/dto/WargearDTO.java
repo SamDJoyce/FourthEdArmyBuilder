@@ -3,17 +3,14 @@ package dto;
 public class WargearDTO {
     private String name;
     private String type;
-    private int points;
     
     public WargearDTO() {}
     
     public WargearDTO(
     		String name,
-    		String type,
-    		int points) {
+    		String type) {
     	this.name = name;
     	this.type = type;
-    	this.points = points;
     }
 
 	public String getName() {
@@ -30,13 +27,5 @@ public class WargearDTO {
 
 	public void setType(String type) {
 		this.type = type;
-	}
-
-	public int getPoints() {
-		return points;
-	}
-
-	public void setPoints(int points) {
-		this.points = points;
 	}
 }

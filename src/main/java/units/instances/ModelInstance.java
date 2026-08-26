@@ -144,7 +144,7 @@ public class ModelInstance implements OptionOwner{
 	public Boolean hasGear(WargearDescription gear) {
 
 		for (WargearInstance i : currentGear) {
-			if (gear.getBaseName().equalsIgnoreCase(i.getBaseName()) ) {
+			if (gear.getName().equalsIgnoreCase(i.getName()) ) {
 				return true;
 			}
 		}

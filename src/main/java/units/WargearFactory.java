@@ -25,22 +25,6 @@ public class WargearFactory {
 	            key -> new WargearDescription (name,WargearType.fromString(type)));
 	}
 	
-	public static WargearDescription createDescription(
-			String name,
-			WargearType type,
-			int points) {
-	return  registry.computeIfAbsent(name,
-            key -> new WargearDescription (name,type,points));
-	}
-	
-	public static WargearDescription createDescription(
-			String name,
-			String type,
-			int points) {
-	return  registry.computeIfAbsent(name,
-            key -> new WargearDescription (name,WargearType.fromString(type),points));
-	}
-	
 	// Instances
 	public static WargearInstance getInstance(WargearDescription gear) {
 		return new WargearInstance(gear);

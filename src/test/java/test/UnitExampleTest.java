@@ -113,9 +113,9 @@ public class UnitExampleTest {
 		MARINE_SGT_STATS = StatLineFactory.forInfantry(MARINE_SGT_NAME,4, 4, 4,4, 1, 4, 1, 8, 3);
 		
 		BOLTER 	    = WargearFactory.createDescription(BOLTER_NAME,BOLTER_TYPE);
-		PLASMA_GUN  = WargearFactory.createDescription(PLASMA_GUN_NAME,PLASMA_GUN_TYPE, PLASMA_GUN_POINTS);
-		FLAMER      = WargearFactory.createDescription(FLAMER_NAME,FLAMER_TYPE, FLAMER_POINTS);
-		MELTA_GUN   = WargearFactory.createDescription(MELTA_NAME, MELTA_TYPE, MELTA_POINTS);
+		PLASMA_GUN  = WargearFactory.createDescription(PLASMA_GUN_NAME,PLASMA_GUN_TYPE);
+		FLAMER      = WargearFactory.createDescription(FLAMER_NAME,FLAMER_TYPE);
+		MELTA_GUN   = WargearFactory.createDescription(MELTA_NAME, MELTA_TYPE);
 		POWER_ARMOR = WargearFactory.createDescription(ARMOR_NAME, GEAR);
 		CRUX_TERMINATUS = WargearFactory.createDescription(CRUX_NAME, GEAR);
 		TACMARINE_GEAR  = Set.of(BOLTER,POWER_ARMOR);

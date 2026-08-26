@@ -1,414 +1,332 @@
 [
 	{	
 	  	"name":"bolter",
-	  	"type":"TWO HANDED",
-	  	"points":0
+	  	"type":"TWO HANDED"
 	},
 	{
 	  	"name":"twin linked bolter",
-	  	"type":"TWO HANDED",
-	  	"points":0
+	  	"type":"TWO HANDED"
 	},
 	{
 	  	"name":"heavy bolter",
-	  	"type":"TWO HANDED",
-	  	"points":0
+	  	"type":"TWO HANDED"
 	},
 	{
 	  	"name":"twin linked heavy bolter",
-	  	"type":"TWO HANDED",
-	  	"points":0
+	  	"type":"TWO HANDED"
 	},
 	{
 	  	"name":"storm bolter",
-	  	"type":"TWO HANDED",
-	  	"points":0
+	  	"type":"TWO HANDED"
 	},
 	{
 	  	"name":"plasma gun",
-	  	"type":"TWO HANDED",
-	  	"points":0
+	  	"type":"TWO HANDED"
 	},
 	{
 	  	"name":"melta gun",
-	  	"type":"TWO HANDED",
-	  	"points":0
+	  	"type":"TWO HANDED"
 	},
 	{
 	  	"name":"flamer",
-	  	"type":"TWO HANDED",
-	  	"points":0
+	  	"type":"TWO HANDED"
 	},
 	{
 	  	"name":"heavy flamer",
-	  	"type":"TWO HANDED",
-	  	"points":0
+	  	"type":"TWO HANDED"
 	},
 	{
 	  	"name":"shotgun",
-	  	"type":"TWO HANDED",
-	  	"points":0
+	  	"type":"TWO HANDED"
 	},
 	{
 	  	"name":"sniper",
-	  	"type":"TWO HANDED",
-	  	"points":0
+	  	"type":"TWO HANDED"
 	},
 	{
 	  	"name":"assault cannon",
-	  	"type":"TWO HANDED",
-	  	"points":0
+	  	"type":"TWO HANDED"
 	},
 	{
 	  	"name":"lascannon",
-	  	"type":"TWO HANDED",
-	  	"points":0
+	  	"type":"TWO HANDED"
 	},
 	{
 	  	"name":"twin linked lascannon",
-	  	"type":"TWO HANDED",
-	  	"points":0
+	  	"type":"TWO HANDED"
 	},
 	{
 	  	"name":"close combat weapon",
-	  	"type":"ONE HANDED",
-	  	"points":0
+	  	"type":"ONE HANDED"
 	},
 	{
 	  	"name":"dreadnought ccw",
-	  	"type":"ONE HANDED",
-	  	"points":0
+	  	"type":"ONE HANDED"
 	},
 	
 	{
 	  	"name":"bolt pistol",
-	  	"type":"ONE HANDED",
-	  	"points":0
+	  	"type":"ONE HANDED"
 	},
 	{
 	  	"name":"power fist",
-	  	"type":"ONE HANDED",
-	  	"points":0
+	  	"type":"ONE HANDED"
 	},
 	{
 	  	"name":"chain fist",
-	  	"type":"ONE HANDED",
-	  	"points":0
+	  	"type":"ONE HANDED"
 	},
 	{
 	  	"name":"power weapon",
-	  	"type":"ONE HANDED",
-	  	"points":0
+	  	"type":"ONE HANDED"
 	},
 	{
 	  	"name":"crozius arcanum",
-	  	"type":"ONE HANDED",
-	  	"points":0
+	  	"type":"ONE HANDED"
 	},
 	{
 	  	"name":"force weapon",
-	  	"type":"ONE HANDED",
-	  	"points":0
+	  	"type":"ONE HANDED"
 	},
 	{
 	  	"name":"psychic hood",
-	  	"type":"GEAR",
-	  	"points":0
+	  	"type":"GEAR"
 	},
 	{
 	  	"name":"rosarius",
-	  	"type":"GEAR",
-	  	"points":0
+	  	"type":"GEAR"
 	},
 	{
 	  	"name":"scout armour",
-	  	"type":"GEAR",
-	  	"points":0
+	  	"type":"GEAR"
 	},
 	{
 	  	"name":"power armour",
-	  	"type":"GEAR",
-	  	"points":0
+	  	"type":"GEAR"
 	},
 	{
 	  	"name":"terminator armour",
-	  	"type":"GEAR",
-	  	"points":0
+	  	"type":"GEAR"
 	},
 	{
 	  	"name":"artificer armor",
-	  	"type":"GEAR",
-	  	"points":0
+	  	"type":"GEAR"
 	},
 	{
 	  	"name":"cyclone missile launcher",
-	  	"type":"GEAR",
-	  	"points":0
+	  	"type":"GEAR"
 	},
 	{
 	  	"name":"furious charge",
-	  	"type":"GEAR",
-	  	"points":0
+	  	"type":"GEAR"
 	},
 	{
 	  	"name":"tank hunters",
-	  	"type":"GEAR",
-	  	"points":0
+	  	"type":"GEAR"
 	},
 	{
 	  	"name":"crux terminatus",
-	  	"type":"GEAR",
-	  	"points":0
+	  	"type":"GEAR"
 	},
 	{
 	  	"name":"space marine bike",
-	  	"type":"GEAR",
-	  	"points":0
+	  	"type":"GEAR"
 	},
 	{
 	  	"name":"attack bike",
-	  	"type":"GEAR",
-	  	"points":0
+	  	"type":"GEAR"
 	},
 	{
 	  	"name":"tactical squad sergeant veterancy",
-	  	"type":"GEAR",
-	  	"points":0
+	  	"type":"GEAR"
 	},
 	{
 	  	"name":"scout sergeant veterancy",
-	  	"type":"GEAR",
-	  	"points":0
+	  	"type":"GEAR"
 	},
 	{
 	  	"name":"biker sergeant veterancy",
-	  	"type":"GEAR",
-	  	"points":0
+	  	"type":"GEAR"
 	},
 	{
 	  	"name":"venerable",
-	  	"type":"GEAR",
-	  	"points":0
+	  	"type":"GEAR"
 	},
 
 	{
 	  	"name":"missile launcher",
-	  	"type":"TWO HANDED",
-	  	"points":0
+	  	"type":"TWO HANDED"
 	},
 	{
 	  	"name":"multi melta",
-	  	"type":"TWO HANDED",
-	  	"points":0
+	  	"type":"TWO HANDED"
 	},
 	{
 	  	"name":"plasma cannon",
-	  	"type":"TWO HANDED",
-	  	"points":0
+	  	"type":"TWO HANDED"
 	},
 	{
 	  	"name":"frag grenades",
-	  	"type":"GEAR",
-	  	"points":0
+	  	"type":"GEAR"
 	},
 	{
 	  	"name":"krak grenades",
-	  	"type":"GEAR",
-	  	"points":0
+	  	"type":"GEAR"
 	},
 	{
 	  	"name":"melta bombs",
-	  	"type":"GEAR",
-	  	"points":0
+	  	"type":"GEAR"
 	},
 	{
 	  	"name":"chainfist",
-	  	"type":"ONE HANDED",
-	  	"points":0
+	  	"type":"ONE HANDED"
 	},
 	{
 	  	"name":"lightning claw single",
-	  	"type":"ONE HANDED",
-	  	"points":0
+	  	"type":"ONE HANDED"
 	},
 	{
 	  	"name":"lightning claw pair",
-	  	"type":"TWO HANDED",
-	  	"points":0
+	  	"type":"TWO HANDED"
 	},
 	{
 	  	"name":"plasma pistol",
-	  	"type":"ONE HANDED",
-	  	"points":0
+	  	"type":"ONE HANDED"
 	},
 	{
 	  	"name":"power weapon",
-	  	"type":"ONE HANDED",
-	  	"points":0
+	  	"type":"ONE HANDED"
 	},
 	{
 	  	"name":"storm shield",
-	  	"type":"ONE HANDED",
-	  	"points":0
+	  	"type":"ONE HANDED"
 	},
 	{
 	  	"name":"thunder hammer",
-	  	"type":"ONE HANDED",
-	  	"points":0
+	  	"type":"ONE HANDED"
 	},
 	{
 	  	"name":"combi melta",
-	  	"type":"TWO HANDED",
-	  	"points":0
+	  	"type":"TWO HANDED"
 	},
 	{
 	  	"name":"combi plasma",
-	  	"type":"TWO HANDED",
-	  	"points":0
+	  	"type":"TWO HANDED"
 	},
 	{
 	  	"name":"combi flamer",
-	  	"type":"TWO HANDED",
-	  	"points":0
+	  	"type":"TWO HANDED"
 	},
 	{
 	  	"name":"auspex",
-	  	"type":"GEAR",
-	  	"points":0
+	  	"type":"GEAR"
 	},
 	{
 	  	"name":"bionics",
-	  	"type":"GEAR",
-	  	"points":0
+	  	"type":"GEAR"
 	},
 	{
 	  	"name":"combat shield",
-	  	"type":"GEAR",
-	  	"points":0
+	  	"type":"GEAR"
 	},
 	{
 	  	"name":"familiar",
-	  	"type":"GEAR",
-	  	"points":0
+	  	"type":"GEAR"
 	},
 	{
 	  	"name":"jump pack",
-	  	"type":"GEAR",
-	  	"points":0
+	  	"type":"GEAR"
 	},
 	{
 	  	"name":"master crafter weapon",
-	  	"type":"GEAR",
-	  	"points":0
+	  	"type":"GEAR"
 	},
 	{
 	  	"name":"purity seals",
-	  	"type":"GEAR",
-	  	"points":0
+	  	"type":"GEAR"
 	},
 	{
 	  	"name":"teleport homer",
-	  	"type":"GEAR",
-	  	"points":0
+	  	"type":"GEAR"
 	},
 	{
 	  	"name":"terminator honours",
-	  	"type":"GEAR",
-	  	"points":0
+	  	"type":"GEAR"
 	},
 	{
 	  	"name":"chapter banner",
-	  	"type":"RELIC",
-	  	"points":0
+	  	"type":"RELIC"
 	},
 	{
 	  	"name":"holy relic",
-	  	"type":"RELIC",
-	  	"points":0
+	  	"type":"RELIC"
 	},
 	{
 	  	"name":"Iron Halo",
-	  	"type":"RELIC",
-	  	"points":0
+	  	"type":"RELIC"
 	},
 	{
 	  	"name":"sacred standard",
-	  	"type":"RELIC",
-	  	"points":0
+	  	"type":"RELIC"
 	},
 	{
 	  	"name":"adamantine mantle",
-	  	"type":"RELIC",
-	  	"points":0
+	  	"type":"RELIC"
 	},
 	{
 	  	"name":"dozer blade",
-	  	"type":"VEHICLE_UPGRADE",
-	  	"points":0
+	  	"type":"VEHICLE_UPGRADE"
 	},
 	{
 	  	"name":"extra armor",
-	  	"type":"VEHICLE_UPGRADE",
-	  	"points":0
+	  	"type":"VEHICLE_UPGRADE"
 	},
 	{
 	  	"name":"hunter killer missile",
-	  	"type":"VEHICLE_UPGRADE",
-	  	"points":0
+	  	"type":"VEHICLE_UPGRADE"
 	},
 	{
 	  	"name":"pintle mounted storm bolter",
-	  	"type":"VEHICLE_UPGRADE",
-	  	"points":0
+	  	"type":"VEHICLE_UPGRADE"
 	},
 	{
 	  	"name":"machine spirit",
-	  	"type":"VEHICLE_UPGRADE",
-	  	"points":0
+	  	"type":"VEHICLE_UPGRADE"
 	},
 	{
 	  	"name":"searchlight",
-	  	"type":"VEHICLE_UPGRADE",
-	  	"points":0
+	  	"type":"VEHICLE_UPGRADE"
 	},
 	{
 	  	"name":"smoke launchers",
-	  	"type":"VEHICLE_UPGRADE",
-	  	"points":0
+	  	"type":"VEHICLE_UPGRADE"
 	},
 	{
 	  	"name":"upgrade to epistolary",
-	  	"type":"PSYCHIC",
-	  	"points":0
+	  	"type":"PSYCHIC"
 	},
 	{
 	  	"name":"storm of the emperors wrath",
-	  	"type":"PSYCHIC",
-	  	"points":0
+	  	"type":"PSYCHIC"
 	},
 	{
 	  	"name":"fury of the ancients",
-	  	"type":"PSYCHIC",
-	  	"points":3
+	  	"type":"PSYCHIC"
 	},
 	{
 	  	"name":"fear of the darkness",
-	  	"type":"PSYCHIC",
-	  	"points":5
+	  	"type":"PSYCHIC"
 	},
 	{
 	  	"name":"might of heroes",
-	  	"type":"PSYCHIC",
-	  	"points":5
+	  	"type":"PSYCHIC"
 	},
 	{
 	  	"name":"veil of time",
-	  	"type":"PSYCHIC",
-	  	"points":10
+	  	"type":"PSYCHIC"
 	},
 	{
 	  	"name":"vortex of doom",
-	  	"type":"PSYCHIC",
-	  	"points":10
+	  	"type":"PSYCHIC"
 	}
 ]
