@@ -175,6 +175,9 @@ public class UnitInstance implements OptionOwner{
 		for (ModelInstance m : models) {
 			total += m.getTotalPoints();
 		}
+		for (SelectedOption o : selectedOptions) {
+			total += o.getPoints();
+		}
 		return total;
 	}
 	
@@ -212,6 +215,18 @@ public class UnitInstance implements OptionOwner{
 		        iterator.remove();
 		        return;
 		    }
+		}
+	}
+	
+	public void addSelectionToEachModel(OptionChoice choice) {
+		for (ModelInstance m : models) {
+			m.addSelection(choice);
+		}
+	}
+	
+	public void removeSelectionFromEachModel(OptionChoice choice) {
+		for (ModelInstance m : models) {
+			m.removeSelection(choice);
 		}
 	}
 	

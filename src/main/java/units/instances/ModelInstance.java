@@ -63,16 +63,18 @@ public class ModelInstance implements OptionOwner{
 		return description.getBasePoints();
 	}
 	
-	public int getGearPoints() {
+	public int getOptionPoints() {
 		int total = 0;
-		for (WargearInstance g : currentGear) {
-			total += g.getPoints();
+		
+		for (SelectedOption o : selectedOptions) {
+			total += o.getPoints();
 		}
+		
 		return total;
 	}
 	
 	public int getTotalPoints() {
-		return getBasePoints() + getGearPoints();
+		return getBasePoints() + getOptionPoints();
 	}
 
 	public StatLine getStats() {
@@ -134,7 +136,7 @@ public class ModelInstance implements OptionOwner{
 	public Boolean hasGear(WargearDescription gear) {
 
 		for (WargearInstance i : currentGear) {
-			if (gear.getBaseName().equalsIgnoreCase(i.getBaseName()) ) {
+			if (gear.getName().equalsIgnoreCase(i.getName()) ) {
 				return true;
 			}
 		}

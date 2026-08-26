@@ -113,9 +113,10 @@ public class EffectFactory {
 	 */
 	public static Effect addGearToSquad(
 			String name,
-			WargearDescription gear) {
+			WargearDescription gear,
+			int pointsPerModel) {
 		return registry.computeIfAbsent(name,
-	            key -> new AddGearToSquadEffect(name, gear));
+	            key -> new AddGearToSquadEffect(name, gear, pointsPerModel));
 	}
 	
 	/**

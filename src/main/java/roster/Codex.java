@@ -3,10 +3,8 @@ package roster;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import units.UnitRole;
 import units.WargearType;
@@ -111,7 +109,7 @@ public class Codex {
 			}
 		}
 		gear.sort(Comparator.comparing(
-				WargearDescription::getBaseName,
+				WargearDescription::getName,
 				String.CASE_INSENSITIVE_ORDER));
 		return gear;
 	}

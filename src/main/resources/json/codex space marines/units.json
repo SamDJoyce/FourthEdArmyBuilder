@@ -62,7 +62,7 @@
 			"tactical marine"
 		],
 		"optionGroupNames":[
-			"grenades group",
+			"grenades group tactical squad",
 			"add tactical marine group"
 		]
 	},
@@ -79,7 +79,7 @@
 			"scout"
 		],
 		"optionGroupNames":[
-			"grenades group",
+			"grenades group scout squad",
 			"add scout group"
 		]
 	},
@@ -111,6 +111,18 @@
 		"optionGroupNames":[
 			"biker grenades group",
 			"add attack bike group"
+		]
+	},
+	{
+		"name":"land speeder",
+		"minSize":"1",
+		"maxSize":"1",
+		"role":"FAST ATTACK",
+		"modelNames":[
+			"land speeder"
+		],
+		"optionGroupNames":[
+			"land speeder upgrade group"
 		]
 	},
 	{

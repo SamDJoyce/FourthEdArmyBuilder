@@ -1,10 +1,43 @@
 [
 	{
+		"name":"add tactical marine group",
+		"choiceNames":[
+			"select add tactical marine"
+		],
+		"requirementNames":[
+			""
+		],
+		"minSelections":0,
+		"maxSelections":5
+	},
+	{
+		"name":"tactical squad sergeant veterancy group",
+		"choiceNames":[
+			"select tactical squad sergeant veterancy"
+		],
+		"requirementNames":[
+			"characters_only"
+		],
+		"minSelections":0,
+		"maxSelections":1
+	},
+	{
+		"name":"sergeant weapons group tactical squad",
+		"choiceNames":[
+			"select bolt pistol and ccw for sergeant"
+		],
+		"requirementNames":[
+			"characters only"
+		],
+		"minSelections":0,
+		"maxSelections":1
+	},
+	{
 		"name":"special weapons group tactical squad",
 		"choiceNames":[
-			"select plasma",
-			"select melta",
-		 	"select flamer"
+			"select plasma gun for tactical marine",
+			"select melta gun for tactical marine",
+		 	"select flamer for tactical marine"
 		 ],
 		"requirementNames":[
 			"must start with bolter",
@@ -16,11 +49,11 @@
 	{
 		"name":"heavy weapons group tactical squad",
 		"choiceNames":[
-			"select heavy bolter",
-			"select missile launcher",
-		 	"select multi melta",
-		 	"select lascannon",
-		 	"select plasma cannon"
+			"select heavy bolter for tactical marine",
+			"select missile launcher for tactical marine",
+		 	"select multi melta for tactical marine",
+		 	"select lascannon for tactical marine",
+		 	"select plasma cannon for tactical marine"
 		],
 		"requirementNames":[
 			"must start with bolter",
@@ -30,23 +63,36 @@
 		"maxSelections":1
 	},
 	{
-		"name":"biker special weapons group",
+		"name":"grenades group tactical squad",
 		"choiceNames":[
-			"select plasma",
-			"select melta",
-		 	"select flamer"
-		 ],
+			"select frag grenades for tactical squad",
+			"select krak grenades for tactical squad"
+		],
 		"requirementNames":[
-			"two selections per squad"
+		],
+		"minSelections":0,
+		"maxSelections":2
+	},
+	
+	
+	
+	
+	{
+		"name":"scout sergeant veterancy group",
+		"choiceNames":[
+			"select scout sergeant veterancy"
+		],
+		"requirementNames":[
+			"characters_only"
 		],
 		"minSelections":0,
 		"maxSelections":1
 	},
 	{
-		"name":"grenades group",
+		"name":"grenades group scout squad",
 		"choiceNames":[
-			"select frag grenades for squad",
-			"select krak grenades for squad"
+			"select frag grenades for scout squad",
+			"select krak grenades for scout squad"
 		],
 		"requirementNames":[
 		],
@@ -54,16 +100,46 @@
 		"maxSelections":2
 	},
 	{
-		"name":"biker grenades group",
+		"name":"add scout group",
 		"choiceNames":[
-			"select krak grenades for bike squadron",
-			"select melta bombs for bike squadron"
+			"select add scout"
 		],
 		"requirementNames":[
+			""
 		],
 		"minSelections":0,
-		"maxSelections":2
+		"maxSelections":5
 	},
+	{
+		"name":"special weapons group scout squad",
+		"choiceNames":[
+			"select bolter for scout",
+			"select shotgun for scout",
+			"select sniper for scout"
+		],
+		"requirementNames":[
+			"must start with bolt pistol"
+		],
+		"minSelections":0,
+		"maxSelections":1
+	},
+	{
+		"name":"heavy weapons group scout squad",
+		"choiceNames":[
+			"select heavy bolter for scout",
+			"select missile launcher for scout"
+		],
+		"requirementNames":[
+			"must start with bolt pistol",
+			"one selection per squad"
+		],
+		"minSelections":0,
+		"maxSelections":1
+	},
+	
+	
+	
+	
 	{
 		"name":"add biker group",
 		"choiceNames":[
@@ -74,6 +150,45 @@
 		"minSelections":0,
 		"maxSelections":2
 	},
+	{
+		"name":"biker sergeant veterancy group",
+		"choiceNames":[
+			"select biker sergeant veterancy"
+		],
+		"requirementNames":[
+			"characters_only"
+		],
+		"minSelections":0,
+		"maxSelections":1
+	},
+	{
+		"name":"special weapons group biker squadron",
+		"choiceNames":[
+			"select plasma gun for biker",
+			"select melta gun for biker",
+		 	"select flamer for biker"
+		 ],
+		"requirementNames":[
+			"two selections per squad"
+		],
+		"minSelections":0,
+		"maxSelections":1
+	},
+	{
+		"name":"grenades group biker squadron",
+		"choiceNames":[
+			"select krak grenades for bike squadron",
+			"select melta bombs for bike squadron"
+		],
+		"requirementNames":[
+		],
+		"minSelections":0,
+		"maxSelections":2
+	},
+
+	
+	
+	
 	{
 		"name":"add attack bike group",
 		"choiceNames":[
@@ -94,103 +209,15 @@
 		"minSelections":0,
 		"maxSelections":1
 	},
+
+	
+
+	
 	{
-		"name":"sergeant weapons group tactical squad",
+		"name":"veteran skills group terminator squad",
 		"choiceNames":[
-			"select bolt pistol and ccw for sergeant"
-		],
-		"requirementNames":[
-			"characters only"
-		],
-		"minSelections":0,
-		"maxSelections":1
-	},
-	{
-		"name":"tactical squad sergeant veterancy group",
-		"choiceNames":[
-			"select tactical squad sergeant veterancy"
-		],
-		"requirementNames":[
-			"characters_only"
-		],
-		"minSelections":0,
-		"maxSelections":1
-	},
-	{
-		"name":"scout sergeant veterancy group",
-		"choiceNames":[
-			"select scout sergeant veterancy"
-		],
-		"requirementNames":[
-			"characters_only"
-		],
-		"minSelections":0,
-		"maxSelections":1
-	},
-	{
-		"name":"biker sergeant veterancy group",
-		"choiceNames":[
-			"select biker sergeant veterancy"
-		],
-		"requirementNames":[
-			"characters_only"
-		],
-		"minSelections":0,
-		"maxSelections":1
-	},
-	{
-		"name":"add tactical marine group",
-		"choiceNames":[
-			"select add tactical marine"
-		],
-		"requirementNames":[
-			""
-		],
-		"minSelections":0,
-		"maxSelections":5
-	},
-	{
-		"name":"add scout group",
-		"choiceNames":[
-			"select add scout"
-		],
-		"requirementNames":[
-			""
-		],
-		"minSelections":0,
-		"maxSelections":5
-	},
-	{
-		"name":"scout weapons group",
-		"choiceNames":[
-			"select bolter for scout",
-			"select shotgun for scout",
-			"select sniper for scout"
-		],
-		"requirementNames":[
-			"must start with bolt pistol"
-		],
-		"minSelections":0,
-		"maxSelections":1
-	},
-	{
-		"name":"scout heavy weapons group",
-		"choiceNames":[
-			"select heavy bolter",
-			"select missile launcher"
-		],
-		"requirementNames":[
-			"must start with bolt pistol",
-			"one selection per squad"
-		],
-		"minSelections":0,
-		"maxSelections":1
-	},
-	{
-		"name":"veteran skills group",
-		"choiceNames":[
-			"select furious charge",
-			"select tank hunters"
+			"select furious charge for terminator",
+			"select tank hunters for terminator"
 		],
 		"requirementNames":[
 		],
@@ -209,11 +236,11 @@
 		"maxSelections":5
 	},
 	{
-		"name":"terminator heavy weapons group",
+		"name":"heavy weapons group terminator squad",
 		"choiceNames":[
-			"select assault cannon",
-			"select heavy flamer",
-			"select cyclone missile launcher"
+			"select assault cannon for terminator",
+			"select heavy flamer for terminator",
+			"select cyclone missile launcher for terminator"
 		],
 		"requirementNames":[
 			"must start with storm bolter",
@@ -225,7 +252,7 @@
 	{
 		"name":"terminator chainfist group",
 		"choiceNames":[
-			"select chain fist"
+			"select chain fist for terminator"
 		],
 		"requirementNames":[
 			"must start with power fist"
@@ -233,6 +260,9 @@
 		"minSelections":0,
 		"maxSelections":1
 	},
+	
+	
+	
 	{
 		"name":"upgrade to master group",
 		"choiceNames":[
@@ -279,28 +309,13 @@
 		"maxSelections":1
 	},
 	{
-		"name":"replace psychic power group epistolary",
-		"choiceNames":[
-			"select replace power with fury of the ancients epistolary",
-			"select replace power with fear of the darkness epistolary",
-			"select replace power with might of heroes epistolary",
-			"select replace power with veil of time epistolary",
-			"select replace power with vortex of doom epistolary"
-		],
-		"requirementNames":[
-			"must be epistolary"
-		],
-		"minSelections":0,
-		"maxSelections":1
-	},
-	{
 		"name":"add psychic power group",
 		"choiceNames":[
-			"select add fury of the ancients epistolary",
-			"select add fear of the darkness epistolary",
-			"select add might of heroes epistolary",
-			"select add veil of time epistolary",
-			"select add vortex of doom epistolary"
+			"select add fury of the ancients",
+			"select add fear of the darkness",
+			"select add might of heroes",
+			"select add veil of time",
+			"select add vortex of doom"
 		],
 		"requirementNames":[
 			"must be epistolary"
@@ -309,7 +324,7 @@
 		"maxSelections":1
 	},
 	{
-		"name":"Replace dreadnought storm bolter group",
+		"name":"Replace storm bolter group dreadnought",
 		"choiceNames":[
 			"select replace dreadnought storm bolter"
 		],
@@ -319,7 +334,7 @@
 		"maxSelections":1
 	},
 	{
-		"name":"Replace dreadnought assault cannon group",
+		"name":"Replace assault cannon group dreadnought",
 		"choiceNames":[
 			"select replace dreadnought assault cannon with tl lascannon",
 			"select replace dreadnought assault cannon with multi melta"
@@ -330,7 +345,7 @@
 		"maxSelections":1
 	},
 	{
-		"name":"dreadnought missile launcher group",
+		"name":"missile launcher group dreadnought",
 		"choiceNames":[
 			"select replace ccw with dreadnought missile launcher"
 		],
@@ -345,6 +360,18 @@
 			"select upgrade to venerable dreadnought"
 		],
 		"requirementNames":[
+		],
+		"minSelections":0,
+		"maxSelections":1
+	},
+	{
+		"name":"venerable skills group",
+		"choiceNames":[
+			"select furious charge for dreadnought",
+			"select tank hunters for dreadnought"
+		],
+		"requirementNames":[
+			"must be venerable"
 		],
 		"minSelections":0,
 		"maxSelections":1
@@ -378,6 +405,17 @@
 		"maxSelections":6
 	},
 	{
+		"name":"land speeder upgrade group",
+		"choiceNames":[
+			"select smoke launchers"
+		],
+		"requirementNames":[
+			"must be vehicle"
+		],
+		"minSelections":0,
+		"maxSelections":1
+	},
+	{
 		"name":"armoury sw group",
 		"choiceNames":[
 			"select bolt pistol from armoury",
@@ -406,8 +444,7 @@
 		],
 		"requirementNames":[
 			"characters only",
-			"must have crux terminatus",
-			""
+			"must have crux terminatus"
 		],
 		"minSelections":0,
 		"maxSelections":99

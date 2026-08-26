@@ -81,7 +81,7 @@ public class UnitSelectionController {
             UnitDescription unit,
             VBox panel) {
 
-        Button button = new Button(unit.getName());
+        Button button = new Button(toTitleCase(unit.getName()));
 
         button.setMaxWidth(Double.MAX_VALUE);
 
@@ -92,10 +92,10 @@ public class UnitSelectionController {
                 rosterRefresh.run();
             }
         	System.out.println(
-                "Selected unit:" + unit.getName()
+                "Selected unit:" + toTitleCase(unit.getName())
             );
             System.out.println(
-            	"Validation Result:\n" + result.getMessage());
+            	"\nValidation Result:\n" + result.getMessage());
         });
 
         panel.getChildren().add(button);
@@ -103,5 +103,20 @@ public class UnitSelectionController {
     
     public void setRosterRefresh(Runnable rosterRefresh) {
         this.rosterRefresh = rosterRefresh;
-    }
+    } 
+    
+	private String toTitleCase(String text) {
+	    String[] words = text.toLowerCase().split("\\s+");
+	    StringBuilder result = new StringBuilder();
+
+	    for (String word : words) {
+	        if (!word.isEmpty()) {
+	            result.append(Character.toUpperCase(word.charAt(0)))
+	                  .append(word.substring(1))
+	                  .append(" ");
+	        }
+	    }
+
+	    return result.toString().trim();
+	}
 }

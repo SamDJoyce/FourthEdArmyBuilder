@@ -14,8 +14,7 @@ public class WargearLoader {
 	public WargearDescription load(WargearDTO dto) {
 		return WargearFactory.createDescription(
 				dto.getName(), 
-				dto.getType(),
-				dto.getPoints());
+				dto.getType());
 	}
 	
 	public List<WargearDescription> loadAll(List<WargearDTO> dtos) {

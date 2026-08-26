@@ -50,7 +50,8 @@
 		"wargearNames":[
 			"power armour",
 			"psychic hood",
-			"force weapon"
+			"force weapon",
+			"storm of the emperors wrath"
 		]
 	},
 	{
@@ -61,7 +62,7 @@
 			"INFANTRY"
 		],
 		"optionGroupNames":[
-			"terminator heavy weapons group",
+			"heavy weapons group terminator squad",
 			"terminator chainfist group"
 			],
 		"wargearNames":[
@@ -99,17 +100,17 @@
 			"VEHICLE"
 		],
 		"optionGroupNames":[
-			"Replace dreadnought storm bolter group",
-			"Replace dreadnought assault cannon group",
+			"Replace storm bolter group dreadnought",
+			"Replace assault cannon group dreadnought ",
 			"venerable group",
 			"dreadnought upgrade group",
-			"veteran skills group",
-			"dreadnought missile launcher group"
+			"venerable skills group",
+			"missile launcher group dreadnought"
 		],
 		"wargearNames":[
 			"dreadnought ccw",
 			"storm bolter",
-			"dreadnought assault cannon"
+			"assault cannon"
 		]
 	},
 	{
@@ -121,7 +122,8 @@
 		],
 		"optionGroupNames":[
 			"special weapons group tactical squad",
-			"heavy weapons group tactical squad"],
+			"heavy weapons group tactical squad"
+		],
 		"wargearNames":[
 			"power armour",
 			"bolter"
@@ -152,8 +154,8 @@
 			"INFANTRY"
 		],
 		"optionGroupNames":[
-			"scout weapons group",
-			"scout heavy weapons group"
+			"special weapons group scout squad",
+			"heavy weapons group scout squad"
 			],
 		"wargearNames":[
 			"scout armour",
@@ -188,12 +190,13 @@
 			"BIKE"
 		],
 		"optionGroupNames":[
-				"biker special weapon group"
-			],
+			"special weapons group biker squadron"
+		],
 		"wargearNames":[
 			"space marine bike",
 			"power armour",
-			"twin linked bolter"
+			"twin linked bolter",
+			"frag grenades"
 		]
 	},
 	{
@@ -211,7 +214,7 @@
 			"space marine bike",
 			"power armour",
 			"twin linked bolter",
-			"biker frag grenades"
+			"frag grenades"
 		]
 	},
 	{
@@ -229,25 +232,23 @@
 			"power armour",
 			"twin linked bolter",
 			"heavy bolter",
-			"biker frag grenades"
+			"frag grenades"
 		]
 	},
 	{
 		"name":"land speeder",
-		"basePoints":250,
-		"statlineName":"land raider",
+		"basePoints":1,
+		"statlineName":"land speeder",
 		"typeNames":[
 			"VEHICLE"
 		],
 		"optionGroupNames":[
-			"land raider upgrade group"
+			"land speeder upgrade group"
 			],
 		"wargearNames":[
-			"twin linked lascannon",
-			"twin linked lascannon",
-			"twin linked heavy bolter"
+			"heavy bolter"
 		]
-	}
+	},
 	{
 		"name":"land raider",
 		"basePoints":250,
