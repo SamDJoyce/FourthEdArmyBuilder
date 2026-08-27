@@ -22,6 +22,10 @@
             <Label text="Current Roster"
                    style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
 
+			<Label 	fx:id="validationLabel"
+					text="Pending Validation"
+					style="-fx-font-size: 14px;"/>
+			
             <Label fx:id="pointsLabel"
                    text="0 / 0"
                    style="-fx-font-size: 14px;"/>

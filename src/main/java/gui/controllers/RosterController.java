@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import roster.ValidationResult;
 import units.UnitRole;
 import units.instances.ModelInstance;
 import units.instances.UnitInstance;
@@ -35,6 +36,9 @@ public class RosterController {
 
     @FXML
     private Label pointsLabel;
+    
+    @FXML
+    private Label validationLabel;
 
     private ArmyBuilder armyBuilder;
     
@@ -77,6 +81,15 @@ public class RosterController {
         	}
         }
         updatePoints();
+        updateValidation();
+        
+    }
+    
+    private void updateValidation() {
+
+        ValidationResult result = armyBuilder.validateRoster();
+
+        validationLabel.setText(result.getMessage());
     }
 
     private void populateRole(
