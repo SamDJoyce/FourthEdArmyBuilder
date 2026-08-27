@@ -8,7 +8,7 @@
 			"CHARACTER"
 		],
 		"optionGroupNames":[
-			"armoury mw group",
+			"armoury group mw",
 			"upgrade to master group"
 			],
 		"wargearNames":[
@@ -24,7 +24,7 @@
 			"CHARACTER"
 		],
 		"optionGroupNames":[
-			"armoury mw group",
+			"armoury group mw",
 			"upgrade to master of sanctity group"
 			],
 		"wargearNames":[
@@ -42,7 +42,7 @@
 			"CHARACTER"
 		],
 		"optionGroupNames":[
-			"armoury mw group",
+			"armoury group mw",
 			"upgrade to epistolary group",
 			"replace psychic power group",
 			"add psychic power group"
@@ -81,7 +81,7 @@
 			"CHARACTER"
 		],
 		"optionGroupNames":[
-			"armoury sw group",
+			"armoury group sw",
 			"terminator chainfist group"
 		],
 		"wargearNames":[
@@ -102,10 +102,10 @@
 		"optionGroupNames":[
 			"Replace storm bolter group dreadnought",
 			"Replace assault cannon group dreadnought ",
+			"missile launcher group dreadnought",
 			"venerable group",
-			"dreadnought upgrade group",
 			"venerable skills group",
-			"missile launcher group dreadnought"
+			"vehicle upgrades group dreadnought"
 		],
 		"wargearNames":[
 			"dreadnought ccw",
@@ -140,7 +140,7 @@
 		"optionGroupNames":[
 			"sergeant weapons group tactical squad",
 			"tactical squad sergeant veterancy group",
-			"armoury sw group"],
+			"armoury group sw"],
 		"wargearNames":[
 			"power armour",
 			"bolter"
@@ -174,7 +174,7 @@
 		"optionGroupNames":[
 			"scout weapons group",
 			"scout sergeant veterancy group",
-			"armoury sw group"
+			"armoury group sw"
 			],
 		"wargearNames":[
 			"scout armour",
@@ -208,7 +208,7 @@
 		],
 		"optionGroupNames":[
 				"biker sgt veterancy group",
-				"armoury sw group"
+				"armoury group sw"
 			],
 		"wargearNames":[
 			"space marine bike",
@@ -237,14 +237,14 @@
 	},
 	{
 		"name":"land speeder",
-		"basePoints":1,
+		"basePoints":50,
 		"statlineName":"land speeder",
 		"typeNames":[
 			"VEHICLE"
 		],
 		"optionGroupNames":[
-			"weapons upgrade group landspeeder",
-			"land speeder upgrade group"
+			"weapons upgrade group land speeder",
+			"vehicle upgrades group land speeder"
 			],
 		"wargearNames":[
 			"heavy bolter"
@@ -258,7 +258,7 @@
 			"VEHICLE"
 		],
 		"optionGroupNames":[
-			"land raider upgrade group"
+			"vehicle upgrades group land raider"
 			],
 		"wargearNames":[
 			"twin linked lascannon",

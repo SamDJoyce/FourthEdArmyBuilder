@@ -1,7 +1,9 @@
 package gui;
 
 public class FormatText {
-
+	private static String CHOICE_TAG = "select ";
+	private static String GROUP_TAG = "group";
+	
 	public String toTitleCase(String text) {
 	    String[] words = text.toLowerCase().split("\\s+");
 	    StringBuilder result = new StringBuilder();
@@ -17,14 +19,21 @@ public class FormatText {
 	    return result.toString().trim();
 	}
 	
-	public String removeGroupTag(String text) {
-	    int index = text.indexOf("group");
-
-	    if (index != -1) {
-	        return text.substring(0, index).trim();
+	public String removeGroupTag(String groupName) {
+	    int index = groupName.indexOf(GROUP_TAG);
+	    if (index == -1) {
+	       return groupName; 
 	    }
-
-	    return text;
+	    return groupName.substring(0, index).trim();
+	    
+	}
+	
+	public String removeChoiceTag(String choiceName) {
+		int index = choiceName.indexOf(CHOICE_TAG) + CHOICE_TAG.length();
+		if (index == -1) {
+			return choiceName;
+		}
+		return choiceName.substring(index, choiceName.length()).trim();
 	}
 	
 }

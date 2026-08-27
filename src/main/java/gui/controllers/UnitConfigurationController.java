@@ -5,8 +5,7 @@ import gui.FormatText;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
-import units.instances.ModelInstance;
-import units.instances.UnitInstance;
+import units.options.OptionChoice;
 import units.options.OptionGroup;
 import units.options.OptionOwner;
 
@@ -66,10 +65,17 @@ public class UnitConfigurationController {
 
     private void addOptionGroupToPanel(OptionGroup group) {
 
-        Label label = new Label(change.toTitleCase(
-        						change.removeGroupTag(
-        								group.getName()
-        						)));
+    	String labelText = change.toTitleCase(
+							change.removeGroupTag(
+							 group.getName()));
+    	
+    	for (OptionChoice o : group.getChoices()) {
+    		labelText += String.format(
+    				"\n     - %s", 
+    				change.removeChoiceTag(o.getName()));
+    	}
+    	
+        Label label = new Label(labelText);
 
         optionGroupsPanel.getChildren().add(label);
     }

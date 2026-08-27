@@ -122,7 +122,6 @@
 			"land speeder"
 		],
 		"optionGroupNames":[
-			"land speeder upgrade group"
 		]
 	},
 	{
@@ -145,7 +144,6 @@
 			"land raider"
 		],
 		"optionGroupNames":[
-			"land raider upgrade group"
 		]
 	}
 ]

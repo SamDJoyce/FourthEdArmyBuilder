@@ -151,7 +151,7 @@
 		"maxSelections":2
 	},
 	{
-		"name":"biker sergeant veterancy group",
+		"name":"biker sgt veterancy group",
 		"choiceNames":[
 			"select biker sergeant veterancy"
 		],
@@ -377,7 +377,7 @@
 		"maxSelections":1
 	},
 	{
-		"name":"dreadnought upgrade group",
+		"name":"vehicle upgrades group dreadnought",
 		"choiceNames":[
 			"select extra armour",
 			"select searchlight",
@@ -389,7 +389,7 @@
 		"maxSelections":3
 	},
 	{
-		"name":"land raider upgrade group",
+		"name":"vehicle upgrades group land raider",
 		"choiceNames":[
 			"select dozer blade",
 			"select extra armour",
@@ -405,7 +405,7 @@
 		"maxSelections":6
 	},
 	{
-		"name":"weapons upgrade group landspeeder",
+		"name":"weapons upgrade group land speeder",
 		"choiceNames":[
 		],
 		"requirementNames":[
@@ -415,7 +415,7 @@
 		"maxSelections":1
 	},
 	{
-		"name":"land speeder upgrade group",
+		"name":"vehicle upgrades group land speeder",
 		"choiceNames":[
 			"select smoke launchers"
 		],
@@ -426,7 +426,7 @@
 		"maxSelections":1
 	},
 	{
-		"name":"armoury sw group",
+		"name":"armoury group sw",
 		"choiceNames":[
 			"select bolt pistol from armoury",
 			"select chain fist from armoury",
@@ -460,7 +460,7 @@
 		"maxSelections":99
 	},
 	{
-		"name":"armoury mw group",
+		"name":"armoury group mw",
 		"choiceNames":[
 			"select bolt pistol from armoury",
 			"select chain fist from armoury",
