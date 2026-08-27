@@ -82,7 +82,7 @@ public class ModelDescription {
 	}
 	
 	public Set<OptionGroup> getOptions() {
-		return this.options;
+		return Collections.unmodifiableSet(this.options) ;
 	}
 	
 	@Override

@@ -11,6 +11,8 @@ public interface OptionOwner {
     
     String getName();
     
+    Set<OptionGroup> getOptions();
+    
     boolean isModel();
     
     boolean isUnit();

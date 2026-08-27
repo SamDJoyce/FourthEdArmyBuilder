@@ -13,6 +13,7 @@ import units.descriptions.models.ModelDescription;
 import units.descriptions.models.StatLine;
 import units.descriptions.wargear.WargearDescription;
 import units.options.OptionChoice;
+import units.options.OptionGroup;
 import units.options.OptionOwner;
 import units.options.SelectedOption;
 import units.options.SelectionContext;
@@ -224,6 +225,11 @@ public class ModelInstance implements OptionOwner{
 		SelectionContext  context = SelectionContext.forModel(this, option.getChoice());
 	    option.unselect(context);
 	    selectedOptions.remove(option);
+	}
+	
+	@Override
+	public Set<OptionGroup> getOptions(){
+		return description.getOptions();
 	}
 	
 	public boolean hasSelection(OptionChoice choice) {

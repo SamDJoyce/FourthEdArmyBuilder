@@ -13,6 +13,7 @@ import roster.ValidationResult;
 import units.UnitRole;
 import units.instances.ModelInstance;
 import units.instances.UnitInstance;
+import units.options.OptionOwner;
 
 public class RosterController {
 
@@ -44,7 +45,7 @@ public class RosterController {
     
     private Map<UnitRole, VBox> panels;
     
-    private Consumer<UnitInstance> unitSelectionListener;
+    private Consumer<OptionOwner> selectionListener;
     
     private FormatText change = new FormatText();
 
@@ -66,9 +67,9 @@ public class RosterController {
     }
 
     public void setUnitSelectionListener(
-            Consumer<UnitInstance> listener) {
+            Consumer<OptionOwner> listener) {
 
-        this.unitSelectionListener = listener;
+        this.selectionListener = listener;
     }
     
     public void refresh() {
@@ -111,7 +112,7 @@ public class RosterController {
         modelPanel.getChildren().clear();
 
         for (ModelInstance model : unit.getModels()) {
-        	addModelButton(model, modelPanel);
+        	addModel(model, modelPanel);
         }
     }
 
@@ -150,15 +151,13 @@ public class RosterController {
             
             panel.getChildren().add(unitContainer);
             
-            if (unitSelectionListener != null) {
-                unitSelectionListener.accept(unit);
-            }
+            selectForConfig(unit);
         });
 
         panel.getChildren().add(unitButton);
     }
     
-    private void addModelButton(
+    private void addModel(
             ModelInstance model,
             VBox panel) {
 
@@ -175,6 +174,7 @@ public class RosterController {
             		change.toTitleCase(model.getName()),
             		model.getId()
             ));
+            selectForConfig(model);
         });
 
         panel.getChildren().add(button);
@@ -186,6 +186,12 @@ public class RosterController {
         		armyBuilder.getCurrentPoints(),
         		armyBuilder.getPointsLimit())
         );
+    }
+    
+    private void selectForConfig(OptionOwner owner) {
+        if (selectionListener != null) {
+            selectionListener.accept(owner);
+        }
     }
 
 }

@@ -81,7 +81,9 @@ public class ABMain extends Application {
             
             // *** Connect listeners ***
             rosterController.setUnitSelectionListener(
-            		unitConfigurationController::setUnit);
+            		unitConfigurationController::setOwner);
+            unitConfigurationController.setRosterRefresh(
+            		rosterController::refresh);
             unitSelectionController.setRosterRefresh(
             	    rosterController::refresh);
             

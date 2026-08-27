@@ -115,7 +115,7 @@ public class Roster {
 		} else {
 			instance.setParentRoster(this);
 		}
-		result.addIssues(validate().getIssues());
+		//result.addIssues(validate().getIssues());
 		return result;
 	}
 	

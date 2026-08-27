@@ -239,6 +239,7 @@ public class UnitInstance implements OptionOwner{
 		return false;
 	}
 	
+	@Override
 	public Set<OptionGroup> getOptions() {
 		return this.description.getOptions();
 	}

@@ -92,14 +92,15 @@ public class UnitSelectionController {
         button.setOnAction(event -> {
         	ValidationResult result = armyBuilder.addUnit(unit);
 
-            if (rosterRefresh != null) {
-                rosterRefresh.run();
-            }
-        	System.out.println(
-                "Selected unit:" + change.toTitleCase(unit.getName())
-            );
-            System.out.println(
-            	"\nValidation Result:\n" + result.getMessage());
+        	if (result.isValid()) {
+	            rosterRefresh.run();
+	        	System.out.println(
+	                "Selected unit:" + change.toTitleCase(unit.getName())
+	            );
+        	}
+
+//            System.out.println(
+//            	"\nValidation Result:\n" + result.getMessage());
         });
 
         panel.getChildren().add(button);
