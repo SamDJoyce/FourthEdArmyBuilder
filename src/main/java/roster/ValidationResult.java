@@ -40,10 +40,9 @@ public class ValidationResult {
 
         StringBuilder sb = new StringBuilder();
 
-        for (RosterIssue issue : issues) {
+        for (RosterIssue issue : issues.reversed()) {
             sb.append(issue.getMessage()).append("\n");
         }
-
         return sb.toString();
     }
 	

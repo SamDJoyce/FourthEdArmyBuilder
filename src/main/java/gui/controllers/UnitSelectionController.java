@@ -55,8 +55,6 @@ public class UnitSelectionController {
 
         this.armyBuilder = armyBuilder;
 
-        System.out.println(
-        );
         populateUnits();
     }
 

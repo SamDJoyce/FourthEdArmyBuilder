@@ -3,8 +3,10 @@ package gui.controllers;
 import builder.ArmyBuilder;
 import gui.FormatText;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import roster.ValidationResult;
 import units.options.OptionChoice;
 import units.options.OptionGroup;
 import units.options.OptionOwner;
@@ -20,10 +22,6 @@ public class UnitConfigurationController {
     private ArmyBuilder armyBuilder;
     
     private OptionOwner owner;
-
-    //private UnitInstance unit;
-    
-    //private ModelInstance model;
     
     private FormatText change = new FormatText();
     
@@ -32,12 +30,6 @@ public class UnitConfigurationController {
     public void setArmyBuilder(ArmyBuilder armyBuilder) {
         this.armyBuilder = armyBuilder;
     }
-
-//    public void setUnit(UnitInstance unit) {
-//        this.unit = unit;
-//        refresh();
-//        
-//    }
     
     public void setOwner(OptionOwner owner) {
     	this.owner = owner;
@@ -55,29 +47,56 @@ public class UnitConfigurationController {
                 owner.getName())
         );
 
+       populateGroups();
+        
+    }
+    
+    private void populateGroups() {
         optionGroupsPanel.getChildren().clear();
 
         for (OptionGroup group : owner.getOptions()) {
-            addOptionGroupToPanel(group);
+            populateOptionGroup(
+            		group,
+            		new VBox());
         }
-        
     }
 
-    private void addOptionGroupToPanel(OptionGroup group) {
-
-    	String labelText = change.toTitleCase(
+    private void populateOptionGroup(
+    		OptionGroup group,
+    		VBox panel) {
+    	// Create Title
+    	String groupName = change.toTitleCase(
 							change.removeGroupTag(
 							 group.getName()));
-    	
-    	for (OptionChoice o : group.getChoices()) {
-    		labelText += String.format(
-    				"\n     - %s", 
-    				change.removeChoiceTag(o.getName()));
-    	}
-    	
-        Label label = new Label(labelText);
+    	panel = new VBox();
+        Label label = new Label(groupName);
+        panel.getChildren().add(label);
 
-        optionGroupsPanel.getChildren().add(label);
+        for (OptionChoice o : group.getChoices()) {
+        	addChoiceButton(o, panel);
+        }
+        
+        optionGroupsPanel.getChildren().add(panel);
+    }
+    
+    private void addChoiceButton(
+    		OptionChoice choice,
+    		VBox panel) {
+    	Button button  = new Button(
+    			change.toTitleCase(choice.getName()));
+        button.setMaxWidth(Double.MAX_VALUE);
+        button.getStyleClass().add("choice-button");
+        
+        button .setOnAction( event -> {
+        	ValidationResult result = 
+        			armyBuilder.selectOption(owner, choice);
+        	if (result.isValid()) {
+        		rosterRefresh.run();
+        		System.out.println("Selected Choice: " + choice.getName());
+        	}
+        });
+        
+        panel.getChildren().add(button);
     }
     
     public void setRosterRefresh(Runnable rosterRefresh) {
