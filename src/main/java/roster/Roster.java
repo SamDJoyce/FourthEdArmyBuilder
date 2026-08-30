@@ -149,6 +149,7 @@ public class Roster {
 	public ValidationResult selectOption(
 			OptionOwner owner, 
 			OptionChoice choice) {
+		System.out.println("Choice selected in Roster");
 		return owner.addSelection(choice);
 	}
 

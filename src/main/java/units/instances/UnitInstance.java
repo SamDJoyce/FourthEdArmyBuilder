@@ -183,6 +183,9 @@ public class UnitInstance implements OptionOwner{
 	
 	@Override
 	public ValidationResult checkRequirements(OptionChoice choice) {
+		if (choice == null) {
+			System.out.println("Choice is null in UnitInstance checkRequirements()");
+		}
 		SelectionContext context = SelectionContext.forUnit(this, choice);
 		return choice.checkRequirements(context);
 	}
@@ -194,6 +197,11 @@ public class UnitInstance implements OptionOwner{
 	
 	@Override
 	public ValidationResult addSelection(OptionChoice choice) {
+		if (choice == null) {
+			System.out.println("Choice is null");
+			return null;
+		}
+		System.out.println("Choice is selected in UnitInstance");
 		SelectionContext context = SelectionContext.forUnit(this, choice);
 		ValidationResult result = choice.checkRequirements(context);
 		if (result.isValid()) {

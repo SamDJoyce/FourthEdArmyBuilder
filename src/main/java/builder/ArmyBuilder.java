@@ -69,6 +69,7 @@ public class ArmyBuilder {
     public ValidationResult selectOption(			
     		OptionOwner owner, 
 			OptionChoice choice) {
+    	System.out.println("option Selected in Army Builder");
     	return roster.selectOption(owner, choice);
     }
     

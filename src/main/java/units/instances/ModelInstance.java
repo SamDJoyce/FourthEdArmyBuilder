@@ -206,7 +206,11 @@ public class ModelInstance implements OptionOwner{
 	
 	@Override
 	public ValidationResult addSelection(OptionChoice choice) {
-		
+		if (choice == null) {
+			System.out.println("Choice is null at addSelection for Model");
+			return null;
+		}
+		System.out.println("Choice loaded at ModelInstance.addSelection()");
 		SelectionContext  context = SelectionContext.forModel(this,choice);
 		ValidationResult result  = choice.checkRequirements(context);
 		

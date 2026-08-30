@@ -23,7 +23,8 @@ public class AddGearToSquadEffect implements Effect {
 		this.name = name;
 		this.gear = gear;
 		this.pointsPerModel = pointsPerModel;
-		this.forEachModel = OptionChoice.create(name, pointsPerModel);
+		
+		
 	};
 	
 	public WargearDescription getGear() {
@@ -44,7 +45,9 @@ public class AddGearToSquadEffect implements Effect {
 	
 	@Override
 	public void apply(SelectionContext context) {
+		System.out.println("applying Add Gear to Squad effect");
 		UnitInstance unit = context.getUnit();
+		this.forEachModel = OptionChoice.create(name, pointsPerModel);
 		unit.addGearToEachModel(gear);
 		unit.addSelectionToEachModel(forEachModel);
 	}
@@ -52,6 +55,7 @@ public class AddGearToSquadEffect implements Effect {
 	@Override
 	public void remove(SelectionContext context) {
 		UnitInstance unit = context.getUnit();
+		this.forEachModel = OptionChoice.create(name, pointsPerModel);
 		unit.removeGearFromEachModel(gear);
 		unit.removeSelectionFromEachModel(forEachModel);
 	}

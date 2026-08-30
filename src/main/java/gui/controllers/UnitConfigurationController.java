@@ -71,11 +71,10 @@ public class UnitConfigurationController {
     	panel = new VBox();
         Label label = new Label(groupName);
         panel.getChildren().add(label);
-
+        
         for (OptionChoice o : group.getChoices()) {
         	addChoiceButton(o, panel);
         }
-        
         optionGroupsPanel.getChildren().add(panel);
     }
     
@@ -90,6 +89,7 @@ public class UnitConfigurationController {
         button .setOnAction( event -> {
         	ValidationResult result = 
         			armyBuilder.selectOption(owner, choice);
+        	System.out.println("Running choice validation");
         	if (result.isValid()) {
         		rosterRefresh.run();
         		System.out.println("Selected Choice: " + choice.getName());

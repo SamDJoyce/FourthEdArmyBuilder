@@ -35,6 +35,8 @@ public class OptionChoice {
 			int points) {
 		this.name = name;
 		this.points = points;
+		this.effects = new HashSet<>();
+		this.requirements = new HashSet<>();
 	}
 
 	public String getName() {
@@ -100,7 +102,7 @@ public class OptionChoice {
 	    for (Effect effect : getEffects()) {
 	        effect.apply(context);
 	    }
-
+	    System.out.println("Choice converted to SelectedOption");
 	    return SelectedOption.fromChoice(this);
 	}
 	
