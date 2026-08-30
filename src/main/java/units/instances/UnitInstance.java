@@ -107,6 +107,7 @@ public class UnitInstance implements OptionOwner{
 		}
 		// Add model if not present
 		if (!containsModel(model)) {
+			model.setParentUnit(this);
 			models.add(model);
 		}
 		return result;
@@ -114,9 +115,12 @@ public class UnitInstance implements OptionOwner{
 	
 	public ValidationResult removeModel(ModelInstance model){
 		ValidationResult result = ValidationResult.create();
-		if (!canRemoveModel()) {
-			result.addIssue("Cannot remove model");
+		if (canRemoveModel()) {
+			models.remove(model);
+		} else {
+			result.addIssue("Cannot remove model " + model.getName());
 		}
+		
 		return result;
 	}
 	

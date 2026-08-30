@@ -154,7 +154,7 @@ public class Roster {
 	}
 
 	public int getPointsLimit() {
-		return pointsLimit;
+		return pointsLimit; 
 	}
 
 	public void setPointsLimit(int pointsLimit) {

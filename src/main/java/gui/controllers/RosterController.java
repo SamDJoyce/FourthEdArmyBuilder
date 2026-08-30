@@ -113,6 +113,7 @@ public class RosterController {
 
         for (ModelInstance model : unit.getModels()) {
         	addModel(model, modelPanel);
+        	removeModelButton(model, modelPanel);
         }
     }
 
@@ -123,7 +124,7 @@ public class RosterController {
         		change.toTitleCase(unit.getName())
         );
 
-        unitButton.setMaxWidth(Double.MAX_VALUE);
+        unitButton.setMaxWidth(Double.MAX_VALUE - 10);
 
         VBox modelPanel = new VBox(3);
         modelPanel.setVisible(false);
@@ -155,6 +156,42 @@ public class RosterController {
         });
 
         panel.getChildren().add(unitButton);
+        removeUnitButton(unit, panel);
+    }
+    
+    private void removeUnitButton(
+    		UnitInstance unit,
+    		VBox panel) {
+    	Button removeButton = new Button("X");
+    	removeButton.setMaxWidth(10);
+    	
+    	removeButton.setOnAction(event -> {
+    		ValidationResult result = armyBuilder.removeUnit(unit);
+    		if (result.isValid()) {
+    			refresh();
+    		}
+    	});
+    	panel.getChildren().add(removeButton);
+    }
+    
+    private void removeModelButton(
+    		ModelInstance model,
+    		VBox panel) {
+    	Button removeButton = new Button("X");
+    	removeButton.setMaxWidth(10);
+    	
+    	removeButton.setOnAction(event -> {
+    		ValidationResult result = armyBuilder.removeModel(model);
+    		if (result.isValid()) {
+    			System.out.println(model.getName() + " removed");
+    			//System.out.println("There are now " + model.getParentUnit().getCurrentSize() + " models in this unit");
+    			refresh();
+    		} else {
+    			System.out.println("Cannot remove model " + model.getName());
+    			System.out.println("\n" + result.getMessage());
+    		}
+    	});
+    	panel.getChildren().add(removeButton);
     }
     
     private void addModel(
