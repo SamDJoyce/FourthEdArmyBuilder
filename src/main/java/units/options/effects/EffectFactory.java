@@ -71,6 +71,14 @@ public class EffectFactory {
 	/**
 	 * Construct a RemoveWargearEffect object
 	 */
+	public static Effect removeWargear(String name) {
+		return registry.computeIfAbsent(name,
+	            key -> new RemoveWargearEffect(name));
+	}
+	
+	/**
+	 * Construct a RemoveWargearEffect object
+	 */
 	public static Effect removeWargear(String name,WargearDescription remove) {
 		return registry.computeIfAbsent(name,
 	            key -> new RemoveWargearEffect(name, remove));

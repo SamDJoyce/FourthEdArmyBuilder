@@ -77,8 +77,12 @@ public class OptionChoice {
 	
 	public ValidationResult checkRequirements(SelectionContext context) {
 	    ValidationResult result = ValidationResult.create();
+	    
 		for (Requirement req : requirements) {
-			result.addIssues(req.isMet(context).getIssues());
+			if (req == null) {
+				System.out.println("REQ IS NULL");
+			}
+			result.addIssues(req.isMet(context).getIssues()); 
 	    }
 	    return result;
 	}
@@ -99,10 +103,11 @@ public class OptionChoice {
 	// Apply all effects from this option
 	public SelectedOption select(SelectionContext context) {
 
-	    for (Effect effect : getEffects()) {
-	        effect.apply(context);
-	    }
-	    System.out.println("Choice converted to SelectedOption");
+		for (Effect effect : this.effects) {
+			effect.apply(context);
+		}
+
+	    System.out.println("Choice converted to SelectedOption: " + this.name);
 	    return SelectedOption.fromChoice(this);
 	}
 	

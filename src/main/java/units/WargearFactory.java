@@ -22,7 +22,9 @@ public class WargearFactory {
 			String name,
 			String type) {
 		return   registry.computeIfAbsent(name,
-	            key -> new WargearDescription (name,WargearType.fromString(type)));
+	            key -> new WargearDescription (
+	            					name,
+	            					WargearType.fromString(type)));
 	}
 	
 	// Instances
@@ -30,7 +32,15 @@ public class WargearFactory {
 		return new WargearInstance(gear);
 	}
 	
-	public static Set<WargearDescription> get(Set<String> names) {
+	public static Set<WargearInstance> getAllInstances(Set<WargearDescription> gear){
+		Set<WargearInstance> instances = new HashSet<>();
+		for (WargearDescription d : gear) {
+			instances.add(WargearFactory.getInstance(d));
+		}
+		return instances;
+	}
+	
+	public static Set<WargearDescription> getAll(Set<String> names) {
 		Set<WargearDescription> gear = new HashSet<>();
 		for (String name : names) {
 			gear.add(get(name));

@@ -9,6 +9,7 @@ import dto.AddWargearEffectDTO;
 import dto.ChangeModelNameEffectDTO;
 import dto.EffectDTO;
 import dto.ModifyStatEffectDTO;
+import dto.RemoveWargearEffectDTO;
 import dto.ReplaceModelEffectDTO;
 import dto.ReplaceWargearEffectDTO;
 import units.ModelFactory;
@@ -18,6 +19,7 @@ import units.options.effects.AddModelEffect;
 import units.options.effects.AddWargearEffect;
 import units.options.effects.Effect;
 import units.options.effects.EffectFactory;
+import units.options.effects.RemoveWargearEffect;
 import units.options.effects.ReplaceModelEffect;
 import units.options.effects.ReplaceWargearEffect;
 
@@ -42,6 +44,11 @@ public class EffectLoader {
 				ReplaceWargearEffectDTO rw = (ReplaceWargearEffectDTO) dto;
 				return EffectFactory.replaceWargear(
 									rw.getName());
+			case "remove_wargear":
+				RemoveWargearEffectDTO rwg = (RemoveWargearEffectDTO) dto;
+				return EffectFactory.removeWargear(
+									rwg.getName());
+				
 			// Create full Effect Objects (no references to resolve)
 			case "modify_stat":
 				ModifyStatEffectDTO ms = (ModifyStatEffectDTO) dto;
@@ -57,8 +64,12 @@ public class EffectLoader {
 			case "add_gear_to_squad":
 				AddGearToSquadEffectDTO agts = (AddGearToSquadEffectDTO) dto;
 				return EffectFactory.addGearToSquad(agts.getName());
+				
+			default:
+			    throw new IllegalArgumentException(
+			        "Unknown effect type: " + dto.getType()
+			    );
 		}
-		return null;
 	}
 	
 	public List<Effect> createAll(List<EffectDTO> dtos){
@@ -97,6 +108,12 @@ public class EffectLoader {
 				replaceWargear.setRemove(WargearFactory.get(rw.getRemoveName()));
 				replaceWargear.setAdd(WargearFactory.get(rw.getAddName()));
 				return replaceWargear;
+				
+			case "remove_wargear":
+				RemoveWargearEffectDTO rwg = (RemoveWargearEffectDTO) dto;
+				RemoveWargearEffect removeWargear = (RemoveWargearEffect) EffectFactory.get(rwg.getName());
+				removeWargear.setRemove(WargearFactory.get(rwg.getRemove()));
+				return removeWargear;
 				
 			case "modify_stat":
 				ModifyStatEffectDTO ms = (ModifyStatEffectDTO) dto;

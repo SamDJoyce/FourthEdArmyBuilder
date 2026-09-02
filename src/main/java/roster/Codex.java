@@ -50,7 +50,7 @@ public class Codex {
 		this.units = units;
 	}
 
-	public String getName() {
+	public String getName() { 
 		return name;
 	}
 

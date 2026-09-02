@@ -23,6 +23,7 @@ import units.options.requirements.ArmouryWeaponLimitReq;
 import units.options.requirements.CannotHaveGearReq;
 import units.options.requirements.MaxPerModelCountReq;
 import units.options.requirements.MustHaveGearReq;
+import units.options.requirements.MustHaveTypeReq;
 import units.options.requirements.MustStartWithGearReq;
 import units.options.requirements.MutualExclusionReq;
 import units.options.requirements.ReqFactory;
@@ -59,7 +60,7 @@ public class RequirementLoader {
 			case "must_have_type":
 				MustHaveTypeReqDTO mht = (MustHaveTypeReqDTO) dto;
 				return ReqFactory.mustHaveType(
-						mht.getType(),
+						mht.getName(),
 						UnitType.fromString(mht.getRequiredType()));
 				
 			case "must_have_gear":
@@ -81,8 +82,12 @@ public class RequirementLoader {
 			case "armoury_weapon_limit":
 				ArmouryWeaponLimitReqDTO awl = (ArmouryWeaponLimitReqDTO) dto;
 				return ReqFactory.armouryWeaponLimit(awl.getName());
+				
+			default:
+			    throw new IllegalArgumentException(
+			        "Unknown requirement type: " + dto.getType()
+			    );
 		}
-		return null;
 	}
 	
 	public List<Requirement> createAll(List<RequirementDTO> dtos){
@@ -126,7 +131,10 @@ public class RequirementLoader {
 				
 			case "must_have_type":
 				MustHaveTypeReqDTO mht = (MustHaveTypeReqDTO) dto;
-				//MustHaveTypeReq mustHaveType = (MustHaveTypeReq) ReqFactory.get(mht.getName());
+				MustHaveTypeReq mustHaveType = (MustHaveTypeReq) ReqFactory.get(mht.getName());
+				mustHaveType.setRequiredType(UnitType.fromString(
+							mht.getRequiredType()
+						));
 				return ReqFactory.get(mht.getName());
 				
 			case "must_have_gear":

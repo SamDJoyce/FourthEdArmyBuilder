@@ -24,46 +24,6 @@ public enum UnitType {
 		return this == type;
 	}
 	
-	public Boolean isInfantry() {
-		return this == UnitType.INFANTRY;
-	}
-	
-	public Boolean isJump() {
-		return this == UnitType.JUMP;
-	}
-	
-	public Boolean isCavalry() {
-		return this == UnitType.CAVALRY;
-	}
-	
-	public Boolean isBike() {
-		return this == UnitType.BIKE;
-	}
-	
-	public Boolean isArtillery() {
-		return this == UnitType.ARTILLERY;
-	}
-	
-	public Boolean isMonstrousCreature() {
-		return this == UnitType.MONSTROUS_CREATURE;
-	}
-	
-	public Boolean isCharacter() {
-		return this == UnitType.CHARACTER;
-	}
-	
-	public Boolean isVehicle() {
-		return this == UnitType.VEHICLE;
-	}
-	
-	public Boolean isWalker() {
-		return this == UnitType.WALKER;
-	}
-	
-	public Boolean isTransport() {
-		return this == UnitType.TRANSPORT;
-	}
-	
 	public static UnitType fromString(String s) {
 		for (UnitType t : UnitType.values()) {
 			if (t.toString().equalsIgnoreCase(s)) {

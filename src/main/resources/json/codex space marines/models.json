@@ -63,7 +63,7 @@
 		],
 		"optionGroupNames":[
 			"heavy weapons group terminator squad",
-			"terminator chainfist group"
+			"terminator chain fist group"
 			],
 		"wargearNames":[
 			"power fist",
@@ -82,13 +82,13 @@
 		],
 		"optionGroupNames":[
 			"armoury group sw",
-			"terminator chainfist group"
+			"terminator chain fist group"
 		],
 		"wargearNames":[
-		"power weapon",
-		"storm bolter",
-		"terminator armour",
-		"crux terminatus"
+			"power weapon",
+			"storm bolter",
+			"terminator armour",
+			"crux terminatus"
 		]
 	},
 	{
@@ -101,7 +101,7 @@
 		],
 		"optionGroupNames":[
 			"Replace storm bolter group dreadnought",
-			"Replace assault cannon group dreadnought ",
+			"Replace assault cannon group dreadnought",
 			"missile launcher group dreadnought",
 			"venerable group",
 			"venerable skills group",
@@ -172,7 +172,7 @@
 			"CHARACTER"
 		],
 		"optionGroupNames":[
-			"scout weapons group",
+			"special weapons group scout squad",
 			"scout sergeant veterancy group",
 			"armoury group sw"
 			],

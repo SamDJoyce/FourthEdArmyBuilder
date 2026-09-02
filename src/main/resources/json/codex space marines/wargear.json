@@ -164,7 +164,7 @@
 	  	"type":"GEAR"
 	},
 	{
-	  	"name":"artificer armor",
+	  	"name":"artificer armour",
 	  	"type":"GEAR"
 	},
 	{
@@ -286,7 +286,7 @@
 	  	"type":"VEHICLE_UPGRADE"
 	},
 	{
-	  	"name":"extra armor",
+	  	"name":"extra armour",
 	  	"type":"VEHICLE_UPGRADE"
 	},
 	{

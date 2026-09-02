@@ -167,9 +167,7 @@ public class RosterController {
     	
     	removeButton.setOnAction(event -> {
     		ValidationResult result = armyBuilder.removeUnit(unit);
-    		if (result.isValid()) {
-    			refresh();
-    		}
+    		refresh();
     	});
     	panel.getChildren().add(removeButton);
     }
@@ -198,11 +196,17 @@ public class RosterController {
             ModelInstance model,
             VBox panel) {
 
+    	String buttonText = String.format(
+    							"%s\n%s", 
+    							model.getName(),
+    							model.getGear());
+    	
         Button button = new Button(
-                change.toTitleCase(model.getName()) 
+                change.toTitleCase(buttonText) 
         );
 
         button.setMaxWidth(Double.MAX_VALUE);
+        button.setMaxHeight(Double.MAX_VALUE);
         button.getStyleClass().add("model-button");
 
         button.setOnAction(event -> {

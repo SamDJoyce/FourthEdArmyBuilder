@@ -34,7 +34,7 @@ public class ModelLoader {
 		ModelDescription model = ModelFactory.get(dto.getName());
 		model.setStats(StatLineFactory.get(dto.getStatlineName()));
 		model.setOptions(OptionGroupFactory.getAll(dto.getOptionGroupNames()));
-		model.setGear(WargearFactory.get(dto.getWargearNames()));
+		model.setGear(WargearFactory.getAll(dto.getWargearNames()));
 		return model;
 	}
 	
@@ -54,7 +54,7 @@ public class ModelLoader {
 				StatLineFactory.get(dto.getStatlineName()),
 				UnitType.fromStrings(dto.getTypeNames()),
 				OptionGroupFactory.getAll(dto.getOptionGroupNames()),
-				WargearFactory.get(dto.getWargearNames()));
+				WargearFactory.getAll(dto.getWargearNames()));
 	}
 	
 	public List<ModelDescription> loadAll(List<ModelDTO> dtos){

@@ -250,7 +250,7 @@
 		"maxSelections":1
 	},
 	{
-		"name":"terminator chainfist group",
+		"name":"terminator chain fist group",
 		"choiceNames":[
 			"select chain fist for terminator"
 		],
@@ -347,7 +347,7 @@
 	{
 		"name":"missile launcher group dreadnought",
 		"choiceNames":[
-			"select replace ccw with dreadnought missile launcher"
+			"select replace ccw with missile launcher"
 		],
 		"requirementNames":[
 		],

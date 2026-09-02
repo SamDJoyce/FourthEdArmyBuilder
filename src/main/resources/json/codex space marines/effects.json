@@ -152,7 +152,7 @@
 	},
 	{
 		"type":"replace_wargear",
-		"name":"replace ccw with dreadnought missile launcher",
+		"name":"replace ccw with missile launcher",
 		"remove":"dreadnought ccw",
 		"add":"missile launcher"
 	},

@@ -15,6 +15,11 @@ public class RemoveWargearEffect implements Effect {
 		this.remove = remove;
 	}
 	
+	public RemoveWargearEffect(
+			String name) {
+		this.name = name;
+	}
+	
 	public String getName() {
 		return name;
 	}

@@ -33,12 +33,23 @@ public class ModelInstance implements OptionOwner{
 		this.description = description;
 		this.validator = ModelValidator.create();
 		this.currentTypes = new HashSet<>(description.getTypes());
-		this.currentGear = description.getGear()
-			                .stream()
-			                .map(WargearInstance::new)
-			                .collect(Collectors.toSet());
+		//this.currentGear = WargearFactory.getAllInstances(description.getGear());
+		currentGear = description.getGear().stream()
+		        .map(gear -> {
+		            if (gear == null) {
+		                System.out.println(
+		                    "ERROR: Null wargear found for model: "
+		                    + description.getName()
+		                );
+		            }
+
+		            return new WargearInstance(gear);
+		        })
+		        .collect(Collectors.toSet());
 		this.selectedOptions = new HashSet<>();
 	}
+	
+	
 	
 	public ModelDescription getDescription() {
 		return description;
@@ -122,9 +133,9 @@ public class ModelInstance implements OptionOwner{
 	}
 	
 	public Boolean removeGear(WargearDescription gear) {
-		for (WargearInstance i : currentGear) {
+		for (WargearInstance i : this.currentGear) {
 			if (i.getDescription().equals(gear)) {
-				return currentGear.remove(i);
+				return this.currentGear.remove(i);
 			}
 		}
 		return false;
@@ -135,13 +146,16 @@ public class ModelInstance implements OptionOwner{
 	}
 	
 	public Boolean hasGear(WargearDescription gear) {
+		
+		for (WargearInstance i : this.currentGear) {
+			if (i.getDescription() == null) {
+				throw new NullPointerException("Description is null in " + i.getName());
+			}
 
-		for (WargearInstance i : currentGear) {
-			if (gear.getName().equalsIgnoreCase(i.getName()) ) {
+			if (i.getDescription().equals(gear)) {
 				return true;
 			}
 		}
-		
 		return false;
 	}
 
@@ -210,7 +224,7 @@ public class ModelInstance implements OptionOwner{
 			System.out.println("Choice is null at addSelection for Model");
 			return null;
 		}
-		System.out.println("Choice loaded at ModelInstance.addSelection()");
+		System.out.println("Choice '" + choice.getName() + "' loaded at ModelInstance.addSelection()");
 		SelectionContext  context = SelectionContext.forModel(this,choice);
 		ValidationResult result  = choice.checkRequirements(context);
 		

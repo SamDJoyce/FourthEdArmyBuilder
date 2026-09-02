@@ -404,7 +404,7 @@
 		"name":"select chain fist for terminator",
 		"points":5,
 		"requirementNames":[
-			"must have power fist"
+			"must start with power fist"
 		],
 		"effectNames":[
 			"replace power fist with chain fist"
@@ -532,7 +532,8 @@
 		"points":10,
 		"requirementNames":[
 			"characters only",
-			"space marine armoury points limit"
+			"space marine armoury points limit",
+			"space marine armoury weapons limit"
 		],
 		"effectNames":[
 			"add power weapon"
@@ -1050,7 +1051,7 @@
 		"requirementNames":[
 		],
 		"effectNames":[
-			"upgrade to venerable dreadnought",
+			"add venerable",
 			"change name to venerable"
 		]
 	},
@@ -1073,12 +1074,12 @@
 		]
 	},
 	{
-		"name":"select replace ccw with dreadnought missile launcher",
+		"name":"select replace ccw with missile launcher",
 		"points":10,
 		"requirementNames":[
 		],
 		"effectNames":[
-			"replace ccw with dreadnought missile launcher",
+			"replace ccw with missile launcher",
 			"remove storm bolter"
 		]
 	},

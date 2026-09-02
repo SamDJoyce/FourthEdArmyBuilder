@@ -8,7 +8,6 @@ import units.options.SelectionContext;
 public class CharactersOnlyReq implements Requirement {
 
 	private String name;
-	private String message;
 
 	public CharactersOnlyReq(String name) {
 		this.name = name;
@@ -28,6 +27,7 @@ public class CharactersOnlyReq implements Requirement {
 		
 		if (!context.hasModel()) {
 			result.addIssue("CharacterOnlyRequirement needs a ModelInstance");
+			return result;
 		}
 		
 		String name = context.getModel().getName();

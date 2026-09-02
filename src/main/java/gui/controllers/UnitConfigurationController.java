@@ -1,5 +1,8 @@
 package gui.controllers;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+
 import builder.ArmyBuilder;
 import gui.FormatText;
 import javafx.fxml.FXML;
@@ -10,8 +13,9 @@ import roster.ValidationResult;
 import units.options.OptionChoice;
 import units.options.OptionGroup;
 import units.options.OptionOwner;
+import units.options.SelectionContext;
 
-public class UnitConfigurationController {
+public class UnitConfigurationController<T> {
 
     @FXML
     private Label unitNameLabel;
@@ -53,13 +57,25 @@ public class UnitConfigurationController {
     
     private void populateGroups() {
         optionGroupsPanel.getChildren().clear();
+        
+        ArrayList<OptionGroup> orderedGroups = new ArrayList<>(owner.getOptions());
+	        orderedGroups.sort(Comparator.comparing(
+					OptionGroup::getName,
+					String.CASE_INSENSITIVE_ORDER
+			));
+        										
+        
+        for (OptionGroup group : orderedGroups) {
+//        	SelectionContext context = SelectionContext.create(owner, null);
+//        	ValidationResult result = group.checkRequirements(context);
 
-        for (OptionGroup group : owner.getOptions()) {
-            populateOptionGroup(
-            		group,
-            		new VBox());
+    		populateOptionGroup(
+        		group,
+        		new VBox());
+
         }
     }
+
 
     private void populateOptionGroup(
     		OptionGroup group,
@@ -72,8 +88,20 @@ public class UnitConfigurationController {
         Label label = new Label(groupName);
         panel.getChildren().add(label);
         
-        for (OptionChoice o : group.getChoices()) {
-        	addChoiceButton(o, panel);
+        ArrayList<OptionChoice> orderedChoices = new ArrayList<>(group.getChoices());
+        orderedChoices.sort(Comparator.comparing(
+				OptionChoice::getName,
+				String.CASE_INSENSITIVE_ORDER
+		));
+        
+        for (OptionChoice o : orderedChoices) {
+        	SelectionContext context = SelectionContext.create(owner, o);
+        	ValidationResult result = o.checkRequirements(context);
+        	if (result.isValid()) {
+        		addChoiceButton(o, panel);
+        	} else {
+        		System.out.println(o.getName() + " INVALID");
+        	}
         }
         optionGroupsPanel.getChildren().add(panel);
     }
@@ -82,7 +110,10 @@ public class UnitConfigurationController {
     		OptionChoice choice,
     		VBox panel) {
     	Button button  = new Button(
-    			change.toTitleCase(choice.getName()));
+    			change.toTitleCase(
+    			change.removeChoiceTag(
+    					choice.getName()
+    			)));
         button.setMaxWidth(Double.MAX_VALUE);
         button.getStyleClass().add("choice-button");
         
@@ -91,9 +122,9 @@ public class UnitConfigurationController {
         			armyBuilder.selectOption(owner, choice);
         	System.out.println("Running choice validation");
         	if (result.isValid()) {
-        		rosterRefresh.run();
         		System.out.println("Selected Choice: " + choice.getName());
         	}
+        	rosterRefresh.run();
         });
         
         panel.getChildren().add(button);

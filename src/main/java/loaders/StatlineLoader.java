@@ -54,8 +54,12 @@ public class StatlineLoader {
 						w.getFront(), 
 						w.getSide(), 
 						w.getRear());
+				
+			default:
+			    throw new IllegalArgumentException(
+			        "Unknown statline type: " + dto.getType()
+			    );
 		}
-		return null;	
 	}
 	
 	public List<StatLine> loadAll(List<StatLineDTO> dtos){

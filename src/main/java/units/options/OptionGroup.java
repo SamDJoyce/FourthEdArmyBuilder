@@ -3,6 +3,7 @@ package units.options;
 import java.util.HashSet;
 import java.util.Set;
 
+import roster.ValidationResult;
 import units.options.requirements.Requirement;
 
 public class OptionGroup {
@@ -64,6 +65,14 @@ public class OptionGroup {
 
 	public void setRequirements(Set<Requirement> requirements) {
 		this.requirements = requirements;
+	}
+	
+	public ValidationResult checkRequirements(SelectionContext context) {
+		ValidationResult result = ValidationResult.create();
+		for (Requirement r : requirements) {
+			result.addIssues(r.isMet(context).getIssues());
+		}
+		return result;
 	}
 
 	public static OptionGroup get(

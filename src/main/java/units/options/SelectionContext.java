@@ -105,6 +105,19 @@ public final class SelectionContext {
 				.build();
 	}
 	
+	public static SelectionContext create(
+			OptionOwner owner,
+			OptionChoice choice) {
+		
+		if (owner.isModel()) {
+			ModelInstance model = (ModelInstance) owner;
+			return forModel(model, choice);
+		}
+		
+		UnitInstance unit = (UnitInstance) owner;
+		return forUnit(unit, choice);
+	}
+	
 	public static class Builder{
 		private Roster roster;
 		private UnitInstance unit;
