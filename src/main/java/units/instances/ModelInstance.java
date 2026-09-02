@@ -172,14 +172,7 @@ public class ModelInstance implements OptionOwner{
 		this.parentUnit = parentUnit;
 	}
 	
-	public boolean hasSelectedOption(OptionChoice choice) {
-		for (SelectedOption s : selectedOptions) {
-			if (s.getChoice().equals(choice)) {
-				return true;
-			}
-		}
-		return false;
-	}
+	
 	
 	public ValidationResult validate() {
 		return validator.validate(this);
@@ -254,6 +247,7 @@ public class ModelInstance implements OptionOwner{
 		return description.getOptions();
 	}
 	
+	@Override
 	public boolean hasSelection(OptionChoice choice) {
 		for(SelectedOption o : selectedOptions) {
 			if (o.getChoice().equals(choice)) {
@@ -262,6 +256,7 @@ public class ModelInstance implements OptionOwner{
 		}
 		return false;
 	}
+
 	
 	private SelectedOption findSelection(OptionChoice choice) {
 		for (SelectedOption selected : selectedOptions) {

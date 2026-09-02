@@ -73,6 +73,12 @@ public class ArmyBuilder {
     	return roster.selectOption(owner, choice);
     }
     
+    public ValidationResult removeOption(
+    		OptionOwner owner, 
+			OptionChoice choice) {
+    	return roster.removeOption(owner, choice);
+    }
+    
     public int getPointsLimit() {
     	return roster.getPointsLimit();
     }

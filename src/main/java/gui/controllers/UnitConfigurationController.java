@@ -96,31 +96,51 @@ public class UnitConfigurationController<T> {
         
         for (OptionChoice o : orderedChoices) {
         	SelectionContext context = SelectionContext.create(owner, o);
-        	ValidationResult result = o.checkRequirements(context);
-        	if (result.isValid()) {
+        	if (canSelect(context, o)){
         		addChoiceButton(o, panel);
-        	} else {
-        		System.out.println(o.getName() + " INVALID:\n" + result.getMessage());
+        	} else if (owner.hasSelection(o)) {
+        		removeChoiceButton(o, panel);
         	}
         }
         optionGroupsPanel.getChildren().add(panel);
+    }
+    
+    private void removeChoiceButton(    		
+    		OptionChoice choice,
+    		VBox panel) {
+		Button button  = new Button("REMOVE " +
+		    			change.toTitleCase(
+		    			change.removeChoiceTag(
+		    					choice.getName()
+		    			)));
+	    button.setMaxWidth(Double.MAX_VALUE);
+	    button.getStyleClass().add("choice-button");
+	    
+	    button.setOnAction( event -> {
+	    	ValidationResult result = armyBuilder.removeOption(owner, choice);
+	    	if (result.isValid()) {
+	    		System.out.println("Removed Choice: " + choice.getName());
+	    	}
+	    	rosterRefresh.run();
+	    });
+	    panel.getChildren().add(button);
     }
     
     private void addChoiceButton(
     		OptionChoice choice,
     		VBox panel) {
     	Button button  = new Button(
-    			change.toTitleCase(
-    			change.removeChoiceTag(
-    					choice.getName()
-    			)));
+		    			change.toTitleCase(
+		    			change.removeChoiceTag(
+		    					choice.getName()
+		    			)));
         button.setMaxWidth(Double.MAX_VALUE);
         button.getStyleClass().add("choice-button");
         
         button .setOnAction( event -> {
         	ValidationResult result = 
         			armyBuilder.selectOption(owner, choice);
-        	System.out.println("Running choice validation");
+        	//System.out.println("Running choice validation");
         	if (result.isValid()) {
         		System.out.println("Selected Choice: " + choice.getName());
         	}
@@ -133,4 +153,15 @@ public class UnitConfigurationController<T> {
     public void setRosterRefresh(Runnable rosterRefresh) {
         this.rosterRefresh = rosterRefresh;
     } 
+    
+    public boolean canSelect(
+    		SelectionContext context,
+    		OptionChoice choice) {
+    	ValidationResult result = choice.checkRequirements(context);
+    	if (result.isValid()
+        && !owner.hasSelection(choice) ) {
+    		return true;
+    	}
+    	return false;
+    }
 }

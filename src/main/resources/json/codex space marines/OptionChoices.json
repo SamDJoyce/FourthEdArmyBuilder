@@ -21,8 +21,10 @@
 	{
 		"name":"select plasma gun for tactical marine",
 		"points":10,
-		"requirementNames":
-		["must start with bolter"],
+		"requirementNames":[
+			"must start with bolter",
+			"one selection per squad"
+		],
 		"effectNames":[
 			"replace bolter with plasma",
 			"change to marine with plasma gun"
@@ -31,8 +33,10 @@
 	{
 		"name":"select melta gun for tactical marine",
 		"points":10,
-		"requirementNames":
-		["must start with bolter"],
+		"requirementNames":[
+			"must start with bolter",
+			"one selection per squad"
+		],
 		"effectNames":[
 			"replace bolter with melta",
 			"change to marine with melta gun"
@@ -41,8 +45,10 @@
 	{
 		"name":"select flamer for tactical marine",
 		"points":6,
-		"requirementNames":
-		["must start with bolter"],
+		"requirementNames":[
+			"must start with bolter",
+			"one selection per squad"
+		],
 		"effectNames":[
 			"replace bolter with flamer",
 			"change to marine with flamer"
@@ -52,7 +58,8 @@
 		"name":"select heavy bolter for tactical marine",
 		"points":5,
 		"requirementNames":[
-			"must start with bolter"
+			"must start with bolter",
+			"one selection per squad"
 		],
 		"effectNames":[
 			"replace bolter with heavy bolter",
@@ -63,7 +70,8 @@
 		"name":"select missile launcher for tactical marine",
 		"points":10,
 		"requirementNames":[
-			"must start with bolter"
+			"must start with bolter",
+			"one selection per squad"
 		],
 		"effectNames":[
 			"replace bolter with missile launcher",
@@ -74,7 +82,8 @@
 		"name":"select multi melta for tactical marine",
 		"points":10,
 		"requirementNames":[
-			"must start with bolter"
+			"must start with bolter",
+			"one selection per squad"
 		],
 		"effectNames":[
 			"replace bolter with multi melta",
@@ -85,7 +94,8 @@
 		"name":"select lascannon for tactical marine",
 		"points":15,
 		"requirementNames":[
-			"must start with bolter"
+			"must start with bolter",
+			"one selection per squad"
 		],
 		"effectNames":[
 			"replace bolter with lascannon",
@@ -96,7 +106,8 @@
 		"name":"select plasma cannon for tactical marine",
 		"points":20,
 		"requirementNames":[
-			"must start with bolter"
+			"must start with bolter",
+			"one selection per squad"
 		],
 		"effectNames":[
 			"replace bolter with plasma cannon",
@@ -230,7 +241,8 @@
 		"name":"select heavy bolter for scout",
 		"points":5,
 		"requirementNames":[
-			"must start with bolt pistol"
+			"must start with bolt pistol",
+			"one selection per squad"
 		],
 		"effectNames":[
 			"replace bolt pistol with heavy bolter",
@@ -241,7 +253,8 @@
 		"name":"select missile launcher for scout",
 		"points":10,
 		"requirementNames":[
-			"must start with bolt pistol"
+			"must start with bolt pistol",
+			"one selection per squad"
 		],
 		"effectNames":[
 			"replace bolt pistol with missile launcher",
@@ -296,8 +309,8 @@
 	{
 		"name":"select plasma gun for biker",
 		"points":10,
-		"requirementNames":
-		[
+		"requirementNames":[
+			"two selections per squad"
 		],
 		"effectNames":[
 			"add plasma gun"
@@ -306,8 +319,8 @@
 	{
 		"name":"select melta gun for biker",
 		"points":10,
-		"requirementNames":
-		[
+		"requirementNames":[
+			"two selections per squad"
 		],
 		"effectNames":[
 			"add melta gun"
@@ -316,8 +329,8 @@
 	{
 		"name":"select flamer for biker",
 		"points":6,
-		"requirementNames":
-		[
+		"requirementNames":[
+			"two selections per squad"
 		],
 		"effectNames":[
 			"add flamer"

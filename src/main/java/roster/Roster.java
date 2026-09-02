@@ -152,6 +152,13 @@ public class Roster {
 		System.out.println("Choice selected in Roster");
 		return owner.addSelection(choice);
 	}
+	
+	public ValidationResult removeOption(
+			OptionOwner owner, 
+			OptionChoice choice) {
+		owner.removeSelection(choice);
+		return validate();
+	}
 
 	public int getPointsLimit() {
 		return pointsLimit; 

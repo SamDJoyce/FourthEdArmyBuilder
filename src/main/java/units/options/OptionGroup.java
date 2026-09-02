@@ -45,6 +45,10 @@ public class OptionGroup {
 	public Set<OptionChoice> getChoices() {
 		return choices;
 	}
+	
+	public boolean containsChoice(OptionChoice choice) {
+		return choices.contains(choice);
+	}
 
 	public Set<Requirement> getRequirements() {
 		return requirements;

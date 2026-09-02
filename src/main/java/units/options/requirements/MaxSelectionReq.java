@@ -46,10 +46,10 @@ public class MaxSelectionReq implements Requirement {
 	public ValidationResult isMet(SelectionContext context) {
 		ValidationResult result = ValidationResult.create();
 		int count = getSelectionCount(context);
-		
+		System.out.printf("!!! Selection Count = %d !!!\n", count);
 		if (count + 1 > maxSelection) {
 			result.addIssue(String.format(
-					"To many selections from %s. Maximum: %d",
+					"Too many selections from %s. Maximum: %d",
 					context.getChoice().getParentGroup().getName(),
 					maxSelection));
 		}
@@ -62,12 +62,13 @@ public class MaxSelectionReq implements Requirement {
 	}
 	
 	public int getSelectionCount(SelectionContext context){
-		UnitInstance unit  = context.getUnit();
+		UnitInstance unit = context.getUnit();
 		OptionGroup  group = context.getChoice().getParentGroup();
 		int count = 0;
 		for (ModelInstance m : unit.getModels()) {
 			for (SelectedOption s : m.getSelectedOptions()) {
-				if (group.getChoices().contains(s.getChoice())) {
+				if (group.containsChoice(s.getChoice())) {
+					System.out.println("!!! Found a matching choice !!!");
 					count++;
 				}
 			}

@@ -242,6 +242,7 @@ public class UnitInstance implements OptionOwner{
 		}
 	}
 	
+	@Override
 	public boolean hasSelection(OptionChoice choice) {
 		for(SelectedOption o : selectedOptions) {
 			if (o.getChoice().equals(choice)) {

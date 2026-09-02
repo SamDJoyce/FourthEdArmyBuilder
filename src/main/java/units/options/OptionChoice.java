@@ -82,6 +82,7 @@ public class OptionChoice {
 			if (req == null) {
 				System.out.println("REQ IS NULL");
 			}
+			//System.out.println("Checking requirement " + req.getName());
 			result.addIssues(req.isMet(context).getIssues()); 
 	    }
 	    return result;
@@ -107,7 +108,7 @@ public class OptionChoice {
 			effect.apply(context);
 		}
 
-	    System.out.println("Choice converted to SelectedOption: " + this.name);
+	    //System.out.println("Choice converted to SelectedOption: " + this.name);
 	    return SelectedOption.fromChoice(this);
 	}
 	

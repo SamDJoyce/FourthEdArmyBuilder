@@ -7,6 +7,8 @@ import roster.ValidationResult;
 public interface OptionOwner {
     Set<SelectedOption> getSelectedOptions();
     
+    boolean hasSelection(OptionChoice choice);
+    
     String getId();
     
     String getName();
