@@ -1,5 +1,7 @@
 package units.descriptions.wargear;
 
+import java.util.Objects;
+
 import units.WargearType;
 
 public class WargearDescription {
@@ -45,5 +47,21 @@ public class WargearDescription {
 	    }
 
 	    return result.toString().trim();
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) return true;
+		if (!(obj instanceof WargearDescription other)) return false;
+		
+		return Objects.equals(name, other.name)
+			&& Objects.equals(type, other.type);
+	}
+	
+	@Override
+	public int hashCode() {
+	    return Objects.hash(
+	        name,
+	        type);
 	}
 }

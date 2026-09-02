@@ -690,7 +690,6 @@
 		"requirementNames":[
 			"characters only",
 			"space marine armoury points limit",
-			"space marine armoury weapons limit",
 			"must have power armour",
 			"cannot have terminator armour"
 		],
@@ -704,8 +703,7 @@
 		"points":2,
 		"requirementNames":[
 			"characters only",
-			"space marine armoury points limit",
-			"space marine armoury weapons limit"
+			"space marine armoury points limit"
 		],
 		"effectNames":[
 			"add auspex"
@@ -716,8 +714,7 @@
 		"points":5,
 		"requirementNames":[
 			"characters only",
-			"space marine armoury points limit",
-			"space marine armoury weapons limit"
+			"space marine armoury points limit"
 		],
 		"effectNames":[
 			"add bionics"
@@ -729,8 +726,7 @@
 		"requirementNames":[
 			"characters only",
 			"cannot have terminator armour",
-			"space marine armoury points limit",
-			"space marine armoury weapons limit"
+			"space marine armoury points limit"
 		],
 		"effectNames":[
 			"add combat shield"
@@ -742,8 +738,7 @@
 		"requirementNames":[
 			"characters only",
 			"cannot have terminator armour",
-			"space marine armoury points limit",
-			"space marine armoury weapons limit"
+			"space marine armoury points limit"
 		],
 		"effectNames":[
 			"add combat shield"
@@ -755,8 +750,7 @@
 		"requirementNames":[
 			"characters only",
 			"cannot have terminator armour",
-			"space marine armoury points limit",
-			"space marine armoury weapons limit"
+			"space marine armoury points limit"
 		],
 		"effectNames":[
 			"add familiar"
@@ -768,8 +762,7 @@
 		"requirementNames":[
 			"characters only",
 			"cannot have terminator armour",
-			"space marine armoury points limit",
-			"space marine armoury weapons limit"
+			"space marine armoury points limit"
 		],
 		"effectNames":[
 			"add frag grenades"
@@ -781,8 +774,7 @@
 		"requirementNames":[
 			"characters only",
 			"cannot have terminator armour",
-			"space marine armoury points limit",
-			"space marine armoury weapons limit"
+			"space marine armoury points limit"
 		],
 		"effectNames":[
 			"add jump pack"
@@ -794,8 +786,7 @@
 		"requirementNames":[
 			"characters only",
 			"cannot have terminator armour",
-			"space marine armoury points limit",
-			"space marine armoury weapons limit"
+			"space marine armoury points limit"
 		],
 		"effectNames":[
 			"add krak grenades"
@@ -807,8 +798,7 @@
 		"requirementNames":[
 			"characters only",
 			"cannot have terminator armour",
-			"space marine armoury points limit",
-			"space marine armoury weapons limit"
+			"space marine armoury points limit"
 		],
 		"effectNames":[
 			"add melta bombs"
@@ -822,8 +812,7 @@
 		],
 		"effectNames":[
 			"add master crafted weapon",
-			"space marine armoury points limit",
-			"space marine armoury weapons limit"
+			"space marine armoury points limit"
 		]
 	},
 	{
@@ -831,8 +820,7 @@
 		"points":5,
 		"requirementNames":[
 			"characters only",
-			"space marine armoury points limit",
-			"space marine armoury weapons limit"
+			"space marine armoury points limit"
 		],
 		"effectNames":[
 			"add purity seals"
@@ -844,8 +832,7 @@
 		"requirementNames":[
 			"characters only",
 			"cannot have terminator armour",
-			"space marine armoury points limit",
-			"space marine armoury weapons limit"
+			"space marine armoury points limit"
 		],
 		"effectNames":[
 			"add space marine bike"
@@ -856,8 +843,7 @@
 		"points":5,
 		"requirementNames":[
 			"characters only",
-			"space marine armoury points limit",
-			"space marine armoury weapons limit"
+			"space marine armoury points limit"
 		],
 		"effectNames":[
 			"add teleport homer"
@@ -869,8 +855,7 @@
 		"requirementNames":[
 			"characters only",
 			"cannot have terminator armour",
-			"space marine armoury points limit",
-			"space marine armoury weapons limit"
+			"space marine armoury points limit"
 		],
 		"effectNames":[
 			"add terminator armour",
@@ -884,8 +869,7 @@
 		"requirementNames":[
 			"characters only",
 			"cannot have terminator armour",
-			"space marine armoury points limit",
-			"space marine armoury weapons limit"
+			"space marine armoury points limit"
 		],
 		"effectNames":[
 			"add terminator honours",

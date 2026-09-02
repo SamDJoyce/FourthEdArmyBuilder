@@ -100,7 +100,7 @@ public class UnitConfigurationController<T> {
         	if (result.isValid()) {
         		addChoiceButton(o, panel);
         	} else {
-        		System.out.println(o.getName() + " INVALID");
+        		System.out.println(o.getName() + " INVALID:\n" + result.getMessage());
         	}
         }
         optionGroupsPanel.getChildren().add(panel);

@@ -211,9 +211,10 @@ public class RosterController {
 
         button.setOnAction(event -> {
             System.out.println(String.format(
-            		"Selected model: %s (id: %s)",
+            		"Selected model: %s\n  -id: %s\n  -types:%s)",
             		change.toTitleCase(model.getName()),
-            		model.getId()
+            		model.getId(),
+            		model.getTypes()
             ));
             selectForConfig(model);
         });

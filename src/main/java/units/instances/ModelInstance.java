@@ -158,6 +158,10 @@ public class ModelInstance implements OptionOwner{
 		}
 		return false;
 	}
+	
+	public boolean startsWithGear(WargearInstance gear) {
+		return description.startsWithGear(gear.getDescription());
+	}
 
 	
 	public UnitInstance getParentUnit() {

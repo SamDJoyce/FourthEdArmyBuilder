@@ -31,7 +31,7 @@ public class CharactersOnlyReq implements Requirement {
 		}
 		
 		String name = context.getModel().getName();
-		if (isCharacter(context.getModel())) {
+		if (!isCharacter(context.getModel())) {
 			result.addIssue(String.format("%s is not a Character",name));
 		}
 		return result;

@@ -1,9 +1,11 @@
 package units.options.requirements;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import roster.ValidationResult;
 import units.WargearType;
+import units.instances.ModelInstance;
 import units.instances.WargearInstance;
 import units.options.SelectionContext;
 
@@ -21,9 +23,9 @@ public class ArmouryWeaponLimitReq implements Requirement {
 	
 	@Override
 	public ValidationResult isMet(SelectionContext context) {
-		Set<WargearInstance> gear = context.getModel().getGear();
-		int oneHanded = getCount(gear, WargearType.ONE_HANDED);
-		int twoHanded = getCount(gear, WargearType.TWO_HANDED);
+		Set<WargearInstance> armouryGear = defaultGearRemoved(context.getModel());
+		int oneHanded = getCount(armouryGear, WargearType.ONE_HANDED);
+		int twoHanded = getCount(armouryGear, WargearType.TWO_HANDED);
 		int weaponCount = oneHanded + twoHanded;
 		ValidationResult result = ValidationResult.create();
 		
@@ -46,9 +48,9 @@ public class ArmouryWeaponLimitReq implements Requirement {
 	public ValidationResult validate(SelectionContext context) {
 		ValidationResult result = ValidationResult.create();
 		
-		Set<WargearInstance> gear = context.getModel().getGear();
-		int oneHanded = getCount(gear, WargearType.ONE_HANDED);
-		int twoHanded = getCount(gear, WargearType.TWO_HANDED);
+		Set<WargearInstance> armouryGear = defaultGearRemoved(context.getModel());
+		int oneHanded = getCount(armouryGear, WargearType.ONE_HANDED);
+		int twoHanded = getCount(armouryGear, WargearType.TWO_HANDED);
 		int weaponCount = oneHanded + twoHanded;
 		
 		// May only have two weapons
@@ -67,6 +69,20 @@ public class ArmouryWeaponLimitReq implements Requirement {
 		}
 		
 		return result;
+	}
+
+	private Set<WargearInstance> defaultGearRemoved(ModelInstance model) {
+		
+		Set<WargearInstance> extraGear = new HashSet<>();
+		
+		for (WargearInstance g : model.getGear()) {
+			
+			if (!model.startsWithGear(g)) {
+				extraGear.add(g);
+				//System.out.print(g.getName() + " is not default gear");
+			}
+		}
+		return extraGear;
 	}
 
 	public String getName() {
