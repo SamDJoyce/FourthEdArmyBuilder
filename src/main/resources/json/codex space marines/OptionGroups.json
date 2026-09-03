@@ -41,7 +41,8 @@
 		 ],
 		"requirementNames":[
 			"must start with bolter",
-			"one selection per squad"
+			"one selection per squad",
+			"exclusive of heavy weapons tactical squad"
 		],
 		"minSelections":0,
 		"maxSelections":1
@@ -57,7 +58,8 @@
 		],
 		"requirementNames":[
 			"must start with bolter",
-			"one selection per squad"
+			"one selection per squad",
+			"exclusive of special weapons tactical squad"
 		],
 		"minSelections":0,
 		"maxSelections":1

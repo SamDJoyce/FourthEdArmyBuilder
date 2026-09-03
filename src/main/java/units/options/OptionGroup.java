@@ -1,6 +1,7 @@
 package units.options;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 import roster.ValidationResult;
@@ -125,6 +126,24 @@ public class OptionGroup {
 	
 	private void assignParent(OptionChoice choice) {
 		choice.setParentGroup(this);
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+	    if (this == obj) {
+	        return true;
+	    }
+	    if (!(obj instanceof OptionGroup other)) {
+	        return false;
+	    }
+	    return name.equalsIgnoreCase(other.name)
+	    	&& minSelections == other.minSelections
+	    	&& maxSelections == other.maxSelections;
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(name, minSelections, maxSelections);
 	}
 	
 }

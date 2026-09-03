@@ -1,17 +1,17 @@
 package units.options.requirements;
 
-import java.util.HashSet;
 import java.util.Set;
 
 import roster.ValidationResult;
-import units.instances.UnitInstance;
-import units.options.OptionChoice;
+import units.instances.ModelInstance;
+import units.options.OptionGroup;
+import units.options.SelectedOption;
 import units.options.SelectionContext;
 
 public class MutualExclusionReq implements Requirement {
 
 	private final String name;
-	private Set<OptionChoice> excludedChoiceNames;
+	private OptionGroup excludedGroup;
 	
 	public MutualExclusionReq(String name){
 		this.name = name;
@@ -19,43 +19,39 @@ public class MutualExclusionReq implements Requirement {
 	
 	public MutualExclusionReq(
 			String name,
-			Set<OptionChoice> excludedChoiceNames){
+			OptionGroup excludedGroup){
 		this.name = name;
-		this.excludedChoiceNames = new HashSet<>(excludedChoiceNames);
+		this.excludedGroup = excludedGroup;
 	}
 	
 	public String getName() {
 		return name;
 	}
 
-	public Set<OptionChoice> getExcluded() {
-		return excludedChoiceNames;
+	public OptionGroup getExcluded() {
+		return excludedGroup;
 	}
 
-	public void setExcluded(Set<OptionChoice> excludedChoiceNames) {
-		this.excludedChoiceNames = excludedChoiceNames;
+	public void setExcludedGroup(OptionGroup excludedGroup) {
+		this.excludedGroup = excludedGroup;
 	}
 
 	@Override
 	public ValidationResult isMet(SelectionContext context) {
 		
 		ValidationResult result = ValidationResult.create();
-		
-		if (!context.hasUnit()) {
-			result.addIssue("MutualExclusionReq requires a unit instance.");
+		System.out.println("!*!*!*!*! Checking Mutual Exclusion !*!*!*!*!*!*!");
+		if (!context.hasModel()) {
+			result.addIssue("MutualExclusionReq requires a model instance.");
 			return result;
 		}
 		
-	    UnitInstance unit = context.getUnit();
-	    OptionChoice choice = context.getChoice();
-
-	    for (OptionChoice excludedChoice : excludedChoiceNames) {
-	        if (unit.hasSelection(excludedChoice)) {
-	        	result.addIssue(String.format(
-	        			"%s cannot be selected while %s is selected.", 
-	        			choice.getName(),
-	        			excludedChoice.getName()));
-	        }
+	    ModelInstance model = context.getModel();
+	    Set<SelectedOption> selections = model.getSelectedOptions();
+	    for (SelectedOption o : selections) {
+	    	if (excludedGroup.containsChoice(o.getChoice())) {
+	    		result.addIssue("Current selections exclude " + excludedGroup.getName());
+	    	}
 	    }
 	    return result;
 	}

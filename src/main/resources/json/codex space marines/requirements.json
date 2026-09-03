@@ -74,29 +74,61 @@
 		"blockingGearName":"terminator armour"
 	},
 	{
+		"type":"cannot_have_gear",
+		"name":"cannot have flamer",
+		"blockingGearName":"flamer"
+	},
+	{
+		"type":"cannot_have_gear",
+		"name":"cannot have melta gun",
+		"blockingGearName":"melta gun"
+	},
+	{
+		"type":"cannot_have_gear",
+		"name":"cannot have plasma gun",
+		"blockingGearName":"plasma gun"
+	},
+	{
+		"type":"cannot_have_gear",
+		"name":"cannot have heavy bolter",
+		"blockingGearName":"heavy bolter"
+	},
+	{
+		"type":"cannot_have_gear",
+		"name":"cannot have missile launcher",
+		"blockingGearName":"missile launcher"
+	},
+	{
+		"type":"cannot_have_gear",
+		"name":"cannot have lascannon",
+		"blockingGearName":"lascannon"
+	},
+	{
+		"type":"cannot_have_gear",
+		"name":"cannot have multi melta",
+		"blockingGearName":"multi melta"
+	},
+	{
+		"type":"cannot_have_gear",
+		"name":"cannot have plasma cannon",
+		"blockingGearName":"plasma cannon"
+	},
+	
+	
+	
+	
+	{
 		"type":"mutual_exclusion",
-		"name":"exclusive of flamer melta",
-		"excludedChoiceNames":[
-			"select flamer",
-			"select melta"
-		]
+		"name":"exclusive of special weapons tactical squad",
+		"excludedGroupName":"special weapons group tactical squad"
 	},
 	{
 		"type":"mutual_exclusion",
-		"name":"exclusive of plasma melta",
-		"excludedChoiceNames":[
-			"select plasma",
-			"select melta"
-		]
+		"name":"exclusive of heavy weapons tactical squad",
+		"excludedGroupName":"heavy weapons group tactical squad"
 	},
-	{
-		"type":"mutual_exclusion",
-		"name":"exclusive of flamer plasma",
-		"excludedChoiceNames":[
-			"select flamer",
-			"select plasma"
-		 ]
-	},
+	
+	
 	{
 		"type":"armoury_weapon_limit",
 		"name":"space marine armoury weapons limit"

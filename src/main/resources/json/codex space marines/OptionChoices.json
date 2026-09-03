@@ -23,7 +23,8 @@
 		"points":10,
 		"requirementNames":[
 			"must start with bolter",
-			"one selection per squad"
+			"one selection per squad",
+			"exclusive of heavy weapons tactical squad"
 		],
 		"effectNames":[
 			"replace bolter with plasma",
@@ -35,7 +36,8 @@
 		"points":10,
 		"requirementNames":[
 			"must start with bolter",
-			"one selection per squad"
+			"one selection per squad",
+			"exclusive of heavy weapons tactical squad"
 		],
 		"effectNames":[
 			"replace bolter with melta",
@@ -47,7 +49,8 @@
 		"points":6,
 		"requirementNames":[
 			"must start with bolter",
-			"one selection per squad"
+			"one selection per squad",
+			"exclusive of heavy weapons tactical squad"
 		],
 		"effectNames":[
 			"replace bolter with flamer",
@@ -59,7 +62,8 @@
 		"points":5,
 		"requirementNames":[
 			"must start with bolter",
-			"one selection per squad"
+			"one selection per squad",
+			"exclusive of special weapons tactical squad"
 		],
 		"effectNames":[
 			"replace bolter with heavy bolter",
@@ -71,7 +75,8 @@
 		"points":10,
 		"requirementNames":[
 			"must start with bolter",
-			"one selection per squad"
+			"one selection per squad",
+			"exclusive of special weapons tactical squad"
 		],
 		"effectNames":[
 			"replace bolter with missile launcher",
@@ -83,7 +88,8 @@
 		"points":10,
 		"requirementNames":[
 			"must start with bolter",
-			"one selection per squad"
+			"one selection per squad",
+			"exclusive of special weapons tactical squad"
 		],
 		"effectNames":[
 			"replace bolter with multi melta",
@@ -95,7 +101,8 @@
 		"points":15,
 		"requirementNames":[
 			"must start with bolter",
-			"one selection per squad"
+			"one selection per squad",
+			"exclusive of special weapons tactical squad"
 		],
 		"effectNames":[
 			"replace bolter with lascannon",
@@ -107,7 +114,8 @@
 		"points":20,
 		"requirementNames":[
 			"must start with bolter",
-			"one selection per squad"
+			"one selection per squad",
+			"exclusive of special weapons tactical squad"
 		],
 		"effectNames":[
 			"replace bolter with plasma cannon",

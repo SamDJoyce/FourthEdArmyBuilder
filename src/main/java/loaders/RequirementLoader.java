@@ -18,7 +18,7 @@ import dto.RequirementDTO;
 import units.ModelFactory;
 import units.UnitType;
 import units.WargearFactory;
-import units.options.OptionChoiceFactory;
+import units.options.OptionGroupFactory;
 import units.options.requirements.ArmouryWeaponLimitReq;
 import units.options.requirements.CannotHaveGearReq;
 import units.options.requirements.MaxPerModelCountReq;
@@ -39,7 +39,6 @@ public class RequirementLoader {
 			case "mutual_exclusion":
 				MutualExclusionReqDTO me = (MutualExclusionReqDTO) dto;
 				return ReqFactory.mutualExclusion(me.getName());
-				 // differentiate between list and single exclusions
 				
 			case "max_selection":
 				MaxSelectionReqDTO ms = (MaxSelectionReqDTO) dto;
@@ -110,7 +109,8 @@ public class RequirementLoader {
 				MutualExclusionReqDTO me = (MutualExclusionReqDTO) dto;
 				MutualExclusionReq mutualExclusion = 
 						(MutualExclusionReq) ReqFactory.get(me.getName());
-				mutualExclusion.setExcluded(OptionChoiceFactory.getAll(me.getExcludedChoiceNames()));
+				mutualExclusion.setExcludedGroup(OptionGroupFactory.get(
+						me.getExcludedGroupName()));
 				
 				return mutualExclusion;
 				 // differentiate between list and single exclusions eventually

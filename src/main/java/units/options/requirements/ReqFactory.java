@@ -9,6 +9,7 @@ import units.UnitType;
 import units.descriptions.models.ModelDescription;
 import units.descriptions.wargear.WargearDescription;
 import units.options.OptionChoice;
+import units.options.OptionGroup;
 
 public class ReqFactory {
 	
@@ -24,14 +25,9 @@ public class ReqFactory {
 	            key -> new MutualExclusionReq(name));
 	}
 	
-	public static Requirement mutualExclusion(String name, Set<OptionChoice> excluded) {
+	public static Requirement mutualExclusion(String name, OptionGroup excludedGroup) {
 		return registry.computeIfAbsent(name,
-	            key -> new MutualExclusionReq(name,excluded));
-	}
-	
-	public static Requirement mutualExclusion(String name, OptionChoice excluded) {
-		return registry.computeIfAbsent(name,
-	            key -> new MutualExclusionReq(name, Set.of(excluded)));
+	            key -> new MutualExclusionReq(name,excludedGroup));
 	}
 	
 	public static Requirement maxSelection(String name, int maxSelection) {

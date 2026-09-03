@@ -1,18 +1,16 @@
 package dto;
 
-import java.util.Set;
-
 public class MutualExclusionReqDTO extends RequirementDTO {
 
 	private String name;
-	private Set<String> excludedChoiceNames;
+	private String excludedGroupName;
 	
 	public MutualExclusionReqDTO() {}
 	
-	public MutualExclusionReqDTO(String name, Set<String> excludedChoiceNames) {
+	public MutualExclusionReqDTO(String name, String excludedGroupName) {
 		super("mutual_exclusion");
 		this.name = name;
-		this.excludedChoiceNames = excludedChoiceNames;
+		this.excludedGroupName = excludedGroupName;
 	}
 
 	public String getName() {
@@ -23,12 +21,12 @@ public class MutualExclusionReqDTO extends RequirementDTO {
 		this.name = name;
 	}
 
-	public Set<String> getExcludedChoiceNames() {
-		return excludedChoiceNames;
+	public String getExcludedGroupName() {
+		return excludedGroupName;
 	}
 
-	public void setExcludedChoiceNames(Set<String> excluded) {
-		this.excludedChoiceNames = excluded;
+	public void setExcludedGroupName(String excludedGroupName) {
+		this.excludedGroupName = excludedGroupName;
 	}
 
 }
