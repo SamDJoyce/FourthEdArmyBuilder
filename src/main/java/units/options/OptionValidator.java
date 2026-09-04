@@ -45,10 +45,36 @@ public class OptionValidator {
 		Set<OptionGroup> groups = getGroups(owner);
 		
 		for (OptionGroup g : groups) {
-			// TODO count how many times choices from this group have been selected by the owner
+			int count = 0 ;
+			for (SelectedOption s : owner.getSelectedOptions()) {
+				if (g.containsChoice(s.getChoice())) {
+					count ++;
+				}
+			}
+			if (notEnoughSelections(g, count)) {
+				result.addIssue(String.format(
+						"Too few selections in %s: Minimum %d (currently %d)", 
+						g.getName(),
+						g.getMinSelections(),
+						count));
+			}
+			if (tooManySelections(g, count)) {
+				result.addIssue(String.format(
+						"Too many selection in %s: Maximum %d (currently %d)", 
+						g.getName(),
+						g.getMaxSelections(),
+						count));
+			}
 		}
-		
 		return result;
+	}
+	
+	private boolean notEnoughSelections(OptionGroup group, int count) {
+		return count < group.getMinSelections();
+	}
+	
+	private boolean tooManySelections(OptionGroup group, int count) {
+		return count > group.getMaxSelections();
 	}
 	
 	private Set<OptionGroup> getGroups(OptionOwner owner) {
