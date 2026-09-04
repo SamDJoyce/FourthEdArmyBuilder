@@ -40,7 +40,6 @@ public class MutualExclusionReq implements Requirement {
 	public ValidationResult isMet(SelectionContext context) {
 		
 		ValidationResult result = ValidationResult.create();
-		System.out.println("!*!*!*!*! Checking Mutual Exclusion !*!*!*!*!*!*!");
 		if (!context.hasModel()) {
 			result.addIssue("MutualExclusionReq requires a model instance.");
 			return result;
