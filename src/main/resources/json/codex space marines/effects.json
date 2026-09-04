@@ -560,20 +560,20 @@
 	{
 		"type":"add_gear_to_squad",
 		"name":"add krak grenades to scout squad",
-		"gearName":"krak grenades"		,
+		"gearName":"krak grenades",
 		"pointsPerModel":2
 	},
 	
 	{
 		"type":"add_gear_to_squad",
 		"name":"add krak grenades to bike squadron",
-		"gearName":"biker krak grenades",
+		"gearName":"krak grenades",
 		"pointsPerModel":1
 	},
 	{
 		"type":"add_gear_to_squad",
 		"name":"add melta bombs to bike squadron",
-		"gearName":"biker melta bombs",
+		"gearName":"melta bombs",
 		"pointsPerModel":2
 	},
 	{

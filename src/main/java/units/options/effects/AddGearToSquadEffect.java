@@ -3,6 +3,9 @@ package units.options.effects;
 import units.descriptions.wargear.WargearDescription;
 import units.instances.UnitInstance;
 import units.options.OptionChoice;
+import units.options.OptionChoiceFactory;
+import units.options.OptionGroup;
+import units.options.OptionGroupFactory;
 import units.options.SelectionContext;
 
 public class AddGearToSquadEffect implements Effect {
@@ -10,6 +13,7 @@ public class AddGearToSquadEffect implements Effect {
 	private final String name;
 	private WargearDescription gear;
 	private int pointsPerModel;
+	private OptionGroup forEachGroup;
 	private OptionChoice forEachModel;
 	
 	public AddGearToSquadEffect(String name) {
@@ -47,7 +51,10 @@ public class AddGearToSquadEffect implements Effect {
 	public void apply(SelectionContext context) {
 		System.out.println("applying Add Gear to Squad effect");
 		UnitInstance unit = context.getUnit();
-		this.forEachModel = OptionChoice.create(name, pointsPerModel);
+		this.forEachModel = OptionChoiceFactory.create(name, pointsPerModel);
+		this.forEachGroup = OptionGroupFactory.create(name + " group", 0,1);
+		forEachGroup.addChoice(forEachModel);
+		
 		unit.addGearToEachModel(gear);
 		unit.addSelectionToEachModel(forEachModel);
 	}

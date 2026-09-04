@@ -8,6 +8,7 @@ import gui.FormatText;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.layout.VBox;
 import roster.ValidationResult;
 import units.options.OptionChoice;
@@ -46,13 +47,12 @@ public class UnitConfigurationController<T> {
             return;
         }
         
-
         unitNameLabel.setText(change.toTitleCase(
                 owner.getName())
         );
 
        populateGroups();
-        
+       rosterRefresh.run();
     }
     
     private void populateGroups() {
@@ -81,74 +81,109 @@ public class UnitConfigurationController<T> {
     		OptionGroup group,
     		VBox panel) {
     	// Create Title
-    	String groupName = change.toTitleCase(
-							change.removeGroupTag(
-							 group.getName()));
-    	panel = new VBox();
+        String groupName = change.toTitleCase(
+                change.removeGroupTag(group.getName()));
+
+        panel = new VBox();
+
         Label label = new Label(groupName);
         panel.getChildren().add(label);
-        
-        ArrayList<OptionChoice> orderedChoices = new ArrayList<>(group.getChoices());
+
+        ArrayList<OptionChoice> orderedChoices =
+                new ArrayList<>(group.getChoices());
+
         orderedChoices.sort(Comparator.comparing(
-				OptionChoice::getName,
-				String.CASE_INSENSITIVE_ORDER
-		));
+                OptionChoice::getName,
+                String.CASE_INSENSITIVE_ORDER
+        ));
         
-        for (OptionChoice o : orderedChoices) {
-        	SelectionContext context = SelectionContext.create(owner, o);
-        	if (canSelect(context, o)){
-        		addChoiceButton(o, panel);
-        	} else if (owner.hasSelection(o)) {
-        		removeChoiceButton(o, panel);
-        	}
+        for (OptionChoice choice : orderedChoices) {
+
+            SelectionContext context =
+                    SelectionContext.create(owner, choice);
+            // TODO Differentiate between adding models
+            // and selecting other choices
+            
+            if (canSelect(context, choice)
+            ||  owner.hasSelection(choice)) {
+                addChoiceRadioButton(choice, panel);
+            }
         }
+
         optionGroupsPanel.getChildren().add(panel);
     }
     
-    private void removeChoiceButton(    		
-    		OptionChoice choice,
-    		VBox panel) {
-		Button button  = new Button("REMOVE " +
-		    			change.toTitleCase(
-		    			change.removeChoiceTag(
-		    					choice.getName()
-		    			)));
-	    button.setMaxWidth(Double.MAX_VALUE);
-	    button.getStyleClass().add("choice-button");
-	    
-	    button.setOnAction( event -> {
-	    	ValidationResult result = armyBuilder.removeOption(owner, choice);
-	    	if (result.isValid()) {
-	    		System.out.println("Removed Choice: " + choice.getName());
-	    	}
-	    	rosterRefresh.run();
-	    });
-	    panel.getChildren().add(button);
+    private void addChoiceRadioButton(
+            OptionChoice choice,
+            VBox panel) {
+
+        RadioButton radioButton = new RadioButton(
+                change.toTitleCase(
+                        change.removeChoiceTag(
+                                choice.getName()))
+        );
+
+        radioButton.setMaxWidth(Double.MAX_VALUE);
+        radioButton.getStyleClass().add("choice-button");
+
+        radioButton.setSelected(owner.hasSelection(choice));
+
+        radioButton.setOnAction(event -> {
+
+            ValidationResult result;
+
+            if (radioButton.isSelected()) {
+
+                result = armyBuilder.selectOption(owner, choice);
+
+                if (result.isValid()) {
+                    System.out.println(
+                            "Selected Choice: " + choice.getName());
+                } else {
+                    radioButton.setSelected(false);
+                }
+
+            } else {
+
+                result = armyBuilder.removeOption(owner, choice);
+
+                if (result.isValid()) {
+                    System.out.println(
+                            "Removed Choice: " + choice.getName());
+                } else {
+                    radioButton.setSelected(true);
+                }
+            }
+            refresh();
+        });
+
+        panel.getChildren().add(radioButton);
     }
     
-    private void addChoiceButton(
-    		OptionChoice choice,
-    		VBox panel) {
-    	Button button  = new Button(
-		    			change.toTitleCase(
-		    			change.removeChoiceTag(
-		    					choice.getName()
-		    			)));
-        button.setMaxWidth(Double.MAX_VALUE);
-        button.getStyleClass().add("choice-button");
-        
-        button .setOnAction( event -> {
-        	ValidationResult result = 
-        			armyBuilder.selectOption(owner, choice);
-        	//System.out.println("Running choice validation");
-        	if (result.isValid()) {
-        		System.out.println("Selected Choice: " + choice.getName());
-        	}
-        	rosterRefresh.run();
-        });
-        
-        panel.getChildren().add(button);
-    }
+    
+//    private void addChoiceButton(
+//    		OptionChoice choice,
+//    		VBox panel) {
+//    	Button button  = new Button(
+//		    			change.toTitleCase(
+//		    			change.removeChoiceTag(
+//		    					choice.getName()
+//		    			)));
+//        button.setMaxWidth(Double.MAX_VALUE);
+//        button.getStyleClass().add("choice-button");
+//        
+//        button .setOnAction( event -> {
+//        	ValidationResult result = 
+//        			armyBuilder.selectOption(owner, choice);
+//        	//System.out.println("Running choice validation");
+//        	if (result.isValid()) {
+//        		System.out.println("Selected Choice: " + choice.getName());
+//        	}
+//        	rosterRefresh.run();
+//        });
+//        
+//        panel.getChildren().add(button);
+//    }
     
     public void setRosterRefresh(Runnable rosterRefresh) {
         this.rosterRefresh = rosterRefresh;

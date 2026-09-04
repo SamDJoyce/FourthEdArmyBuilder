@@ -44,6 +44,10 @@ public class OptionValidator {
 		ValidationResult result = ValidationResult.create();
 		Set<OptionGroup> groups = getGroups(owner);
 		
+		if (groups == null|| groups.isEmpty()) {
+			return result;
+		}
+		
 		for (OptionGroup g : groups) {
 			int count = 0 ;
 			for (SelectedOption s : owner.getSelectedOptions()) {
@@ -81,6 +85,7 @@ public class OptionValidator {
 		Set<OptionGroup> groups = new HashSet<>();
 		for (SelectedOption s : owner.getSelectedOptions()) {
 			groups.add(s.getChoice().getParentGroup());
+			
 		}
 		return groups;
 	}

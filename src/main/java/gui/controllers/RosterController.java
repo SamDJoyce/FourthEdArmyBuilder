@@ -1,6 +1,8 @@
 package gui.controllers;
 
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.function.Consumer;
 
 import builder.ArmyBuilder;
@@ -8,6 +10,7 @@ import gui.FormatText;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import roster.ValidationResult;
 import units.UnitRole;
@@ -48,6 +51,8 @@ public class RosterController {
     private Consumer<OptionOwner> selectionListener;
     
     private FormatText change = new FormatText();
+    
+    private Set<String> expandedUnits = new HashSet<>();
 
     @FXML
     private void initialize() {
@@ -113,113 +118,152 @@ public class RosterController {
 
         for (ModelInstance model : unit.getModels()) {
         	addModel(model, modelPanel);
-        	removeModelButton(model, modelPanel);
         }
     }
 
     private void addUnit(
             UnitInstance unit,
             VBox panel) {
+    	VBox unitContainer = new VBox(3);
+
+        HBox unitHeader = new HBox(5);
+
         Button unitButton = new Button(
-        		change.toTitleCase(unit.getName())
+                change.toTitleCase(unit.getName())
         );
 
-        unitButton.setMaxWidth(Double.MAX_VALUE - 10);
+        unitButton.setMaxWidth(Double.MAX_VALUE);
+        unitButton.getStyleClass().add("unit-button");
+
+        Button removeButton = new Button("X");
+        removeButton.setMaxWidth(30);
 
         VBox modelPanel = new VBox(3);
-        modelPanel.setVisible(false);
-        modelPanel.setManaged(false);
+
+        boolean expanded = expandedUnits.contains(unit.getId());
+
+        modelPanel.setVisible(expanded);
+        modelPanel.setManaged(expanded);
 
         populateModels(unit, modelPanel);
 
         unitButton.setOnAction(event -> {
-            boolean expanded = modelPanel.isVisible();
 
-            modelPanel.setVisible(!expanded);
-            modelPanel.setManaged(!expanded);
-            System.out.println(String.format(
-            		"Selected instance: %s (id: %s)", 
-            		change.toTitleCase(unit.getName()),
-            		unit.getId())
-            );
-            
-            VBox unitContainer = new VBox(3);
+            boolean currentlyExpanded =
+                    expandedUnits.contains(unit.getId());
 
-            unitContainer.getChildren().addAll(
-                    unitButton,
-                    modelPanel
-            );
-            
-            panel.getChildren().add(unitContainer);
-            
+            if (currentlyExpanded) {
+                expandedUnits.remove(unit.getId());
+            } else {
+                expandedUnits.add(unit.getId());
+            }
+
+            boolean newExpandedState = !currentlyExpanded;
+
+            modelPanel.setVisible(newExpandedState);
+            modelPanel.setManaged(newExpandedState);
+
             selectForConfig(unit);
         });
 
-        panel.getChildren().add(unitButton);
-        removeUnitButton(unit, panel);
+        removeButton.setOnAction(event -> {
+            expandedUnits.remove(unit.getId());
+            armyBuilder.removeUnit(unit);
+            refresh();
+        });
+
+        unitHeader.getChildren().addAll(
+                unitButton,
+                removeButton
+        );
+
+        unitContainer.getChildren().addAll(
+                unitHeader,
+                modelPanel
+        );
+
+        panel.getChildren().add(unitContainer);
     }
     
-    private void removeUnitButton(
-    		UnitInstance unit,
-    		VBox panel) {
-    	Button removeButton = new Button("X");
-    	removeButton.setMaxWidth(10);
-    	
-    	removeButton.setOnAction(event -> {
-    		ValidationResult result = armyBuilder.removeUnit(unit);
-    		refresh();
-    	});
-    	panel.getChildren().add(removeButton);
-    }
     
-    private void removeModelButton(
-    		ModelInstance model,
-    		VBox panel) {
-    	Button removeButton = new Button("X");
-    	removeButton.setMaxWidth(10);
-    	
-    	removeButton.setOnAction(event -> {
-    		ValidationResult result = armyBuilder.removeModel(model);
-    		if (result.isValid()) {
-    			System.out.println(model.getName() + " removed");
-    			//System.out.println("There are now " + model.getParentUnit().getCurrentSize() + " models in this unit");
-    			refresh();
-    		} else {
-    			System.out.println("Cannot remove model " + model.getName());
-    			System.out.println("\n" + result.getMessage());
-    		}
-    	});
-    	panel.getChildren().add(removeButton);
-    }
+//    private void removeModelButton(
+//    		ModelInstance model,
+//    		VBox panel) {
+//    	Button removeButton = new Button("X");
+//    	removeButton.setMaxWidth(10);
+//    	
+//    	removeButton.setOnAction(event -> {
+//    		ValidationResult result = armyBuilder.removeModel(model);
+//    		if (result.isValid()) {
+//    			System.out.println(model.getName() + " removed");
+//    			refresh();
+//    		} else {
+//    			System.out.println("Cannot remove model " + model.getName());
+//    			System.out.println("\n" + result.getMessage());
+//    		}
+//    	});
+//    	panel.getChildren().add(removeButton);
+//    }
     
     private void addModel(
             ModelInstance model,
             VBox panel) {
 
     	String buttonText = String.format(
-    							"%s\n%s", 
-    							model.getName(),
-    							model.getGear());
-    	
-        Button button = new Button(
-                change.toTitleCase(buttonText) 
+                "%s\n%s",
+                model.getName(),
+                model.getGear()
         );
 
-        button.setMaxWidth(Double.MAX_VALUE);
-        button.setMaxHeight(Double.MAX_VALUE);
-        button.getStyleClass().add("model-button");
+        Button modelButton = new Button(
+                change.toTitleCase(buttonText)
+        );
 
-        button.setOnAction(event -> {
+        modelButton.setMaxWidth(Double.MAX_VALUE);
+        modelButton.setMaxHeight(Double.MAX_VALUE);
+        modelButton.getStyleClass().add("model-button");
+
+        Button removeButton = new Button("X");
+        removeButton.setMaxWidth(30);
+
+        modelButton.setOnAction(event -> {
             System.out.println(String.format(
-            		"Selected model: %s\n  -id: %s\n  -types:%s)",
-            		change.toTitleCase(model.getName()),
-            		model.getId(),
-            		model.getTypes()
+                    "Selected model: %s\n  -id: %s\n  -types:%s",
+                    change.toTitleCase(model.getName()),
+                    model.getId(),
+                    model.getTypes()
             ));
+
             selectForConfig(model);
         });
 
-        panel.getChildren().add(button);
+        removeButton.setOnAction(event -> {
+            ValidationResult result =
+                    armyBuilder.removeModel(model);
+
+            if (result.isValid()) {
+                System.out.println(
+                        model.getName() + " removed"
+                );
+                refresh();
+            } else {
+                System.out.println(
+                        "Cannot remove model " + model.getName()
+                );
+                System.out.println(
+                        "\n" + result.getMessage()
+                );
+            }
+        });
+
+        HBox modelRow = new HBox(5);
+
+        modelRow.getChildren().addAll(
+                modelButton,
+                removeButton
+        );
+
+        panel.getChildren().add(modelRow);
     }
 
     private void updatePoints() {

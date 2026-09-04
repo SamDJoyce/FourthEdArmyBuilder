@@ -21,6 +21,8 @@ public class OptionGroup {
 		this.name = name;
 		this.minSelections = minSelections;
 		this.maxSelections = maxSelections;
+		this.choices = new HashSet<>();
+		this.requirements = new HashSet<>();
 	}
 	
 	public OptionGroup(
@@ -45,6 +47,11 @@ public class OptionGroup {
 
 	public Set<OptionChoice> getChoices() {
 		return choices;
+	}
+	
+	public void addChoice(OptionChoice choice) {
+		assignParent(choice);
+		this.choices.add(choice);
 	}
 	
 	public boolean containsChoice(OptionChoice choice) {
