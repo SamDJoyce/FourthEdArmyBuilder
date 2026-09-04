@@ -186,38 +186,20 @@ public class RosterController {
     }
     
     
-//    private void removeModelButton(
-//    		ModelInstance model,
-//    		VBox panel) {
-//    	Button removeButton = new Button("X");
-//    	removeButton.setMaxWidth(10);
-//    	
-//    	removeButton.setOnAction(event -> {
-//    		ValidationResult result = armyBuilder.removeModel(model);
-//    		if (result.isValid()) {
-//    			System.out.println(model.getName() + " removed");
-//    			refresh();
-//    		} else {
-//    			System.out.println("Cannot remove model " + model.getName());
-//    			System.out.println("\n" + result.getMessage());
-//    		}
-//    	});
-//    	panel.getChildren().add(removeButton);
-//    }
-    
     private void addModel(
             ModelInstance model,
             VBox panel) {
 
-    	String buttonText = String.format(
-                "%s\n%s",
-                model.getName(),
+    	String labelText = String.format(
+                "%s\n\n",
                 model.getGear()
         );
 
         Button modelButton = new Button(
-                change.toTitleCase(buttonText)
+                change.toTitleCase(model.getName()).trim()
         );
+        
+        Label modelLabel = new Label(labelText);
 
         modelButton.setMaxWidth(Double.MAX_VALUE);
         modelButton.setMaxHeight(Double.MAX_VALUE);
@@ -263,7 +245,7 @@ public class RosterController {
                 removeButton
         );
 
-        panel.getChildren().add(modelRow);
+        panel.getChildren().addAll(modelRow, modelLabel);
     }
 
     private void updatePoints() {

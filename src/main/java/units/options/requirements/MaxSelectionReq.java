@@ -58,7 +58,16 @@ public class MaxSelectionReq implements Requirement {
 	
 	@Override
 	public ValidationResult validate(SelectionContext context) {
-		return isMet(context);
+		ValidationResult result = ValidationResult.create();
+		int count = getSelectionCount(context);
+		System.out.printf("!!! Selection Count = %d !!!\n", count);
+		if (count > maxSelection) {
+			result.addIssue(String.format(
+					"Too many selections from %s. Maximum: %d",
+					context.getChoice().getParentGroup().getName(),
+					maxSelection));
+		}
+		return result;
 	}
 	
 	public int getSelectionCount(SelectionContext context){

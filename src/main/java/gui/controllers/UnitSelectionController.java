@@ -97,8 +97,6 @@ public class UnitSelectionController {
 	            );
         	}
 
-//            System.out.println(
-//            	"\nValidation Result:\n" + result.getMessage());
         });
 
         panel.getChildren().add(button);
