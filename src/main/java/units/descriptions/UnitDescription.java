@@ -22,6 +22,7 @@ public class UnitDescription {
 	private Set<UnitType> types;
 	private Set<OptionGroup> options;
 	private List<ModelDescription> models;
+	private ModelDescription modelToAdd;
 	
 	// Constructor
 	
@@ -34,6 +35,9 @@ public class UnitDescription {
 		this.minSize = minSize;
 		this.maxSize = maxSize;
 		this.role = role;
+		this.types = new HashSet<>();
+		this.options = new HashSet<>();
+		this.models = new ArrayList<>();
 	}
 	
 	public UnitDescription(
@@ -43,7 +47,8 @@ public class UnitDescription {
 			UnitRole role, 
 			Set<UnitType> types,
 			Set<OptionGroup> options,
-			List<ModelDescription> models) {
+			List<ModelDescription> models,
+			ModelDescription modelToAdd) {
 		this.name = name;
 		this.minSize = minSize;
 		this.maxSize = maxSize;
@@ -51,6 +56,7 @@ public class UnitDescription {
 		this.types = new HashSet<>(types);
 		this.options = new HashSet<>(options);
 		this.models = new ArrayList<>(models);
+		this.modelToAdd = modelToAdd;
 	}
 	
 	public UnitDescription(
@@ -59,7 +65,8 @@ public class UnitDescription {
 			int maxSize, 
 			UnitRole role,
 			Set<OptionGroup> options,
-			List<ModelDescription> models) {
+			List<ModelDescription> models,
+			ModelDescription modelToAdd) {
 		this.name = name;
 		this.minSize = minSize;
 		this.maxSize = maxSize;
@@ -67,6 +74,7 @@ public class UnitDescription {
 		this.options = new HashSet<>(options);
 		this.models = new ArrayList<>(models);
 		this.types = new HashSet<>();
+		this.modelToAdd = modelToAdd;
 	}
 
 	// Getters and Setters
@@ -109,6 +117,14 @@ public class UnitDescription {
 	
 	public Boolean containsModel(ModelDescription model) {
 		return models.contains(model);
+	}
+	
+	public void setModelToAdd(ModelDescription model) {
+		this.modelToAdd = model;
+	}
+	
+	public ModelDescription getModelToAdd () {
+		return this.modelToAdd;
 	}
 
 	public void setTypes(Set<UnitType> types) {

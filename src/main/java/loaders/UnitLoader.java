@@ -45,6 +45,9 @@ public class UnitLoader {
 		} else {
 			unit.setModels(List.of());
 		}
+		if (dto.getModelToAddName() != null) {
+			unit.setModelToAdd(ModelFactory.get(dto.getModelToAddName()));
+		}
 		if (dto.getTypes() != null) {
 			unit.setTypes(UnitType.fromStrings(dto.getTypes()));
 		} else {

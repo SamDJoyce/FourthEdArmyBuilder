@@ -130,6 +130,10 @@ public class UnitInstance implements OptionOwner{
 		}
 	}
 	
+	public ModelDescription createModel() {
+		return description.getModelToAdd();
+	}
+	
 	public void removeGearFromEachModel(WargearDescription gear) {
 		for (ModelInstance m : models) {
 			m.removeGear(gear);

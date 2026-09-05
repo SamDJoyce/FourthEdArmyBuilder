@@ -9,6 +9,7 @@ import java.util.Set;
 
 import units.descriptions.UnitDescription;
 import units.descriptions.models.ModelDescription;
+import units.instances.ModelInstance;
 import units.instances.UnitInstance;
 import units.options.OptionGroup;
 
@@ -22,7 +23,8 @@ public class UnitFactory {
 			int maxSize, 
 			UnitRole role,
 			Set<OptionGroup> options,
-			List<ModelDescription> models) {
+			List<ModelDescription> models,
+			ModelDescription modelToAdd) {
 		return registry.computeIfAbsent(name,
 	            key -> new UnitDescription(
 				name,
@@ -30,7 +32,8 @@ public class UnitFactory {
 				maxSize,
 				role,
 				options,
-				models));
+				models,
+				modelToAdd));
 	}
 	
 	public static UnitDescription createDescription(			
@@ -51,7 +54,8 @@ public class UnitFactory {
 			int minSize, 
 			int maxSize, 
 			UnitRole role,
-			Set<OptionGroup> options) {
+			Set<OptionGroup> options,
+			ModelDescription modelToAdd) {
 		return registry.computeIfAbsent(name,
 	            key -> new UnitDescription(
 				name,
@@ -59,7 +63,8 @@ public class UnitFactory {
 				maxSize,
 				role,
 				options,
-				new ArrayList<ModelDescription>()));
+				new ArrayList<ModelDescription>(),
+				modelToAdd));
 	}
 	
 	public static UnitInstance createInstance(UnitDescription unit) {

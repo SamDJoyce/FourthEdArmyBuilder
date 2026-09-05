@@ -8,7 +8,8 @@
 			"captain"
 		],
 		"optionGroupNames":[
-		]
+		],
+		"modelToAddName":""
 	},
 	{
 		"name":"chaplain",
@@ -19,7 +20,8 @@
 			"chaplain"
 		],
 		"optionGroupNames":[
-		]
+		],
+		"modelToAddName":""
 	},
 	{
 		"name":"librarian",
@@ -30,7 +32,8 @@
 			"librarian"
 		],
 		"optionGroupNames":[
-		]
+		],
+		"modelToAddName":""
 	},
 	{
 		"name":"terminator squad",
@@ -45,9 +48,9 @@
 			"terminator"
 		],
 		"optionGroupNames":[
-			"add terminator group",
 			"veteran skills group terminator squad"
-		]
+		],
+		"modelToAddName":"terminator"
 	},
 	{
 		"name":"tactical squad",
@@ -62,9 +65,9 @@
 			"tactical marine"
 		],
 		"optionGroupNames":[
-			"grenades group tactical squad",
-			"add tactical marine group"
-		]
+			"grenades group tactical squad"
+		],
+		"modelToAddName":"tactical marine"
 	},
 	{
 		"name":"scout squad",
@@ -79,9 +82,9 @@
 			"scout"
 		],
 		"optionGroupNames":[
-			"grenades group scout squad",
-			"add scout group"
-		]
+			"grenades group scout squad"
+		],
+		"modelToAddName":"scout"
 	},
 	{
 		"name":"bike squadron",
@@ -95,9 +98,9 @@
 		],
 		"optionGroupNames":[
 			"grenades group biker squadron",
-			"add biker group",
 			"add attack bike group"
-		]
+		],
+		"modelToAddName":"biker"
 	},
 	{
 		"name":"attack bike squadron",
@@ -109,9 +112,9 @@
 			"attack bike"
 		],
 		"optionGroupNames":[
-			"grenades group biker squadron",
-			"add attack bike group"
-		]
+			"grenades group biker squadron"
+		],
+		"modelToAddName":"attack bike"
 	},
 	{
 		"name":"land speeder",
@@ -122,7 +125,8 @@
 			"land speeder"
 		],
 		"optionGroupNames":[
-		]
+		],
+		"modelToAddName":""
 	},
 	{
 		"name":"dreadnought",
@@ -133,7 +137,8 @@
 			"dreadnought"
 		],
 		"optionGroupNames":[
-		]
+		],
+		"modelToAddName":""
 	},
 	{
 		"name":"land raider",
@@ -144,6 +149,7 @@
 			"land raider"
 		],
 		"optionGroupNames":[
-		]
+		],
+		"modelToAddName":""
 	}
 ]

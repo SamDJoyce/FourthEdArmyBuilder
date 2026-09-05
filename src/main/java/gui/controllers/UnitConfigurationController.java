@@ -6,11 +6,15 @@ import java.util.Comparator;
 import builder.ArmyBuilder;
 import gui.FormatText;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.layout.VBox;
 import roster.ValidationResult;
+import units.ModelFactory;
+import units.instances.ModelInstance;
+import units.instances.UnitInstance;
 import units.options.OptionChoice;
 import units.options.OptionGroup;
 import units.options.OptionOwner;
@@ -58,6 +62,12 @@ public class UnitConfigurationController<T> {
     private void populateGroups() {
         optionGroupsPanel.getChildren().clear();
         
+        // Add model count control
+        if (owner.isUnit()){
+        	UnitInstance unit = (UnitInstance) owner;
+            addModelCountSpinner(unit);
+        }
+        
         ArrayList<OptionGroup> orderedGroups = new ArrayList<>(owner.getOptions());
 	        orderedGroups.sort(Comparator.comparing(
 					OptionGroup::getName,
@@ -74,7 +84,7 @@ public class UnitConfigurationController<T> {
         		new VBox());
         }
     }
-
+    
 
     private void populateOptionGroup(
     		OptionGroup group,
@@ -95,8 +105,6 @@ public class UnitConfigurationController<T> {
                 OptionChoice::getName,
                 String.CASE_INSENSITIVE_ORDER
         ));
-        // TODO Add Model Logic
-        
         
         for (OptionChoice choice : orderedChoices) {
 
@@ -112,6 +120,90 @@ public class UnitConfigurationController<T> {
         }
 
         optionGroupsPanel.getChildren().add(panel);
+    }
+    
+    private void addModelCountSpinner(UnitInstance unit) {
+
+        Label label = new Label("Models");
+
+        int currentCount = unit.getModels().size();
+
+        int minCount = unit.getDescription().getMinSize();
+        int maxCount = unit.getDescription().getMaxSize();
+
+        if (currentCount == minCount
+        &&  currentCount == maxCount) {
+        	return;
+        }
+        
+        SpinnerValueFactory.IntegerSpinnerValueFactory valueFactory =
+                new SpinnerValueFactory.IntegerSpinnerValueFactory(
+                        minCount,
+                        maxCount,
+                        currentCount
+                );
+
+        Spinner<Integer> modelCount = new Spinner<>();
+        modelCount.setValueFactory(valueFactory);
+
+        modelCount.valueProperty().addListener(
+                (obs, oldValue, newValue) -> {
+
+                    if (newValue > oldValue) {
+
+                        addModelToUnit(unit);
+
+                    } else if (newValue < oldValue) {
+
+                        removeModelFromUnit(unit);
+                    }
+                }
+        );
+
+        VBox modelCountPanel = new VBox(5);
+        modelCountPanel.getChildren().addAll(
+                label,
+                modelCount
+        );
+
+        optionGroupsPanel.getChildren().add(modelCountPanel);
+    }
+    
+    private void addModelToUnit(UnitInstance unit) {
+
+        ModelInstance model = ModelFactory.getInstance(
+        						unit.createModel()) ;
+
+        ValidationResult result =
+                armyBuilder.addModel(unit, model);
+
+        if (!result.isValid()) {
+            System.out.println(
+                    "Cannot add model: " + result.getMessage()
+            );
+        }
+        refresh();
+    }
+    
+    private void removeModelFromUnit(UnitInstance unit) {
+
+        if (unit.getModels().isEmpty()) {
+            return;
+        }
+
+        ModelInstance model =
+                unit.getModels().get(unit.getModels().size() - 1);
+
+        ValidationResult result =
+                armyBuilder.removeModel(model);
+
+        if (!result.isValid()) {
+            System.out.println(
+                    "Cannot remove model: " + result.getMessage()
+            );
+        }
+
+        refresh();
     }
     
     private void addChoiceRadioButton(

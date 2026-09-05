@@ -172,8 +172,6 @@ public class ModelInstance implements OptionOwner{
 		this.parentUnit = parentUnit;
 	}
 	
-	
-	
 	public ValidationResult validate() {
 		return validator.validate(this);
 	}
