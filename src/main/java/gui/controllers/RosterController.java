@@ -1,6 +1,10 @@
 package gui.controllers;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
@@ -16,6 +20,7 @@ import roster.ValidationResult;
 import units.UnitRole;
 import units.instances.ModelInstance;
 import units.instances.UnitInstance;
+import units.instances.WargearInstance;
 import units.options.OptionOwner;
 
 public class RosterController {
@@ -185,21 +190,42 @@ public class RosterController {
         panel.getChildren().add(unitContainer);
     }
     
+    private String constructGearList(ModelInstance model) {
+    	List<WargearInstance> gearList = new ArrayList<>(
+    									 	model.getGear());
+    	gearList.sort(Comparator.comparing(
+    				WargearInstance::getName,
+    				String.CASE_INSENSITIVE_ORDER
+    			));
+    	
+    	String gearText = new String();
+    	
+    	for (WargearInstance i : gearList) {
+
+    		if (i.equals(gearList.getLast())) {
+        		gearText += String.format(
+        				"%s", 
+        				i.getName());
+    		} else {
+        		gearText += String.format(
+        				"%s, ", 
+        				i.getName());
+    		}
+    	}
+    	
+    	return gearText;
+    }
     
     private void addModel(
             ModelInstance model,
             VBox panel) {
 
-    	String labelText = String.format(
-                "%s\n\n",
-                model.getGear()
-        );
-
         Button modelButton = new Button(
                 change.toTitleCase(model.getName()).trim()
         );
         
-        Label modelLabel = new Label(labelText);
+        Label modelLabel = new Label(
+        						constructGearList(model));
 
         modelButton.setMaxWidth(Double.MAX_VALUE);
         modelButton.setMaxHeight(Double.MAX_VALUE);
@@ -209,12 +235,12 @@ public class RosterController {
         removeButton.setMaxWidth(30);
 
         modelButton.setOnAction(event -> {
-            System.out.println(String.format(
-                    "Selected model: %s\n  -id: %s\n  -types:%s",
-                    change.toTitleCase(model.getName()),
-                    model.getId(),
-                    model.getTypes()
-            ));
+//            System.out.println(String.format(
+//                    "Selected model: %s\n  -id: %s\n  -types:%s",
+//                    change.toTitleCase(model.getName()),
+//                    model.getId(),
+//                    model.getTypes()
+//            ));
 
             selectForConfig(model);
         });

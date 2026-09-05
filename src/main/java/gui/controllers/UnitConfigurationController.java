@@ -74,7 +74,6 @@ public class UnitConfigurationController<T> {
 					String.CASE_INSENSITIVE_ORDER
 			));
         										
-        
         for (OptionGroup group : orderedGroups) {
 //        	SelectionContext context = SelectionContext.create(owner, null);
 //        	ValidationResult result = group.checkRequirements(context);
@@ -110,8 +109,6 @@ public class UnitConfigurationController<T> {
 
             SelectionContext context =
                     SelectionContext.create(owner, choice);
-            // TODO Differentiate between adding models
-            // and selecting other choices
             
             if (canSelect(context, choice)
             ||  owner.hasSelection(choice)) {
@@ -252,31 +249,6 @@ public class UnitConfigurationController<T> {
 
         panel.getChildren().add(radioButton);
     }
-    
-    
-//    private void addChoiceButton(
-//    		OptionChoice choice,
-//    		VBox panel) {
-//    	Button button  = new Button(
-//		    			change.toTitleCase(
-//		    			change.removeChoiceTag(
-//		    					choice.getName()
-//		    			)));
-//        button.setMaxWidth(Double.MAX_VALUE);
-//        button.getStyleClass().add("choice-button");
-//        
-//        button .setOnAction( event -> {
-//        	ValidationResult result = 
-//        			armyBuilder.selectOption(owner, choice);
-//        	//System.out.println("Running choice validation");
-//        	if (result.isValid()) {
-//        		System.out.println("Selected Choice: " + choice.getName());
-//        	}
-//        	rosterRefresh.run();
-//        });
-//        
-//        panel.getChildren().add(button);
-//    }
     
     public void setRosterRefresh(Runnable rosterRefresh) {
         this.rosterRefresh = rosterRefresh;

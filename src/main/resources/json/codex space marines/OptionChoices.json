@@ -376,6 +376,7 @@
 		"name":"select furious charge for terminator",
 		"points":0,
 		"requirementNames":[
+			"one selection per squad"
 		],
 		"effectNames":[
 			"add furious charge to terminator squad"
@@ -385,6 +386,7 @@
 		"name":"select tank hunters for terminator",
 		"points":0,
 		"requirementNames":[
+			"one selection per squad"
 		],
 		"effectNames":[
 			"add tank hunters to terminator squad"
