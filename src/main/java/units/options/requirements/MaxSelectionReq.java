@@ -46,7 +46,7 @@ public class MaxSelectionReq implements Requirement {
 	public ValidationResult isMet(SelectionContext context) {
 		ValidationResult result = ValidationResult.create();
 		int count = getSelectionCount(context);
-		System.out.printf("!!! Selection Count = %d !!!\n", count);
+		//System.out.printf("!!! Selection Count = %d !!!\n", count);
 		if (count + 1 > maxSelection) {
 			result.addIssue(String.format(
 					"Too many selections from %s. Maximum: %d",
@@ -60,7 +60,7 @@ public class MaxSelectionReq implements Requirement {
 	public ValidationResult validate(SelectionContext context) {
 		ValidationResult result = ValidationResult.create();
 		int count = getSelectionCount(context);
-		System.out.printf("!!! Selection Count = %d !!!\n", count);
+		//System.out.printf("!!! Selection Count = %d !!!\n", count);
 		if (count > maxSelection) {
 			result.addIssue(String.format(
 					"Too many selections from %s. Maximum: %d",
@@ -77,7 +77,7 @@ public class MaxSelectionReq implements Requirement {
 		for (ModelInstance m : unit.getModels()) {
 			for (SelectedOption s : m.getSelectedOptions()) {
 				if (group.containsChoice(s.getChoice())) {
-					System.out.println("!!! Found a matching choice !!!");
+					//System.out.println("!!! Found a matching choice !!!");
 					count++;
 				}
 			}

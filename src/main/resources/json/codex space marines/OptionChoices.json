@@ -1024,9 +1024,10 @@
 		]
 	},
 	{
-		"name":"select replace dreadnought storm bolter",
+		"name":"select replace dreadnought storm bolter with heavy flamer",
 		"points":10,
 		"requirementNames":[
+			"exclusive of dreadnought missile launcher"
 		],
 		"effectNames":[
 			"replace dreadnought storm bolter with heavy flamer"
@@ -1036,6 +1037,7 @@
 		"name":"select replace dreadnought assault cannon with tl lascannon",
 		"points":20,
 		"requirementNames":[
+			"one selection per squad"
 		],
 		"effectNames":[
 			"replace dreadnought assault cannon with tl lascannon"
@@ -1045,6 +1047,7 @@
 		"name":"select replace dreadnought assault cannon with multi melta",
 		"points":10,
 		"requirementNames":[
+			"one selection per squad"
 		],
 		"effectNames":[
 			"replace dreadnought assault cannon with multi melta"
@@ -1064,6 +1067,8 @@
 		"name":"select furious charge for dreadnought",
 		"points":10,
 		"requirementNames":[
+			"one selection per squad",
+			"must be venerable"
 		],
 		"effectNames":[
 			"add furious charge"
@@ -1073,6 +1078,8 @@
 		"name":"select tank hunters for dreadnought",
 		"points":10,
 		"requirementNames":[
+			"one selection per squad",
+			"must be venerable"
 		],
 		"effectNames":[
 			"add tank hunters"
@@ -1082,6 +1089,7 @@
 		"name":"select replace ccw with missile launcher",
 		"points":10,
 		"requirementNames":[
+			
 		],
 		"effectNames":[
 			"replace ccw with missile launcher",

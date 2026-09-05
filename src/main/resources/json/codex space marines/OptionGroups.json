@@ -120,7 +120,8 @@
 			"select sniper for scout"
 		],
 		"requirementNames":[
-			"must start with bolt pistol"
+			"must start with bolt pistol",
+			"one selection per squad"
 		],
 		"minSelections":0,
 		"maxSelections":1
@@ -328,7 +329,7 @@
 	{
 		"name":"Replace storm bolter group dreadnought",
 		"choiceNames":[
-			"select replace dreadnought storm bolter"
+			"select replace dreadnought storm bolter with heavy flamer"
 		],
 		"requirementNames":[
 		],
@@ -438,6 +439,7 @@
 			"select plasma pistol sw from armoury",
 			"select power weapon sw from armoury",
 			"select power fist sw from armoury",
+			"select storm bolter from armoury",
 			"select storm shield from armoury",
 			"select thunder hammer from armoury",
 			"select artificer armour from armoury",
@@ -472,6 +474,7 @@
 			"select plasma pistol mw from armoury",
 			"select power weapon mw from armoury",
 			"select power fist mw from armoury",
+			"select storm bolter from armoury",
 			"select storm shield from armoury",
 			"select thunder hammer from armoury",
 			"select artificer armour from armoury",

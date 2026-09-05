@@ -72,7 +72,6 @@ public class UnitConfigurationController<T> {
     		populateOptionGroup(
         		group,
         		new VBox());
-
         }
     }
 
@@ -96,6 +95,8 @@ public class UnitConfigurationController<T> {
                 OptionChoice::getName,
                 String.CASE_INSENSITIVE_ORDER
         ));
+        // TODO Add Model Logic
+        
         
         for (OptionChoice choice : orderedChoices) {
 

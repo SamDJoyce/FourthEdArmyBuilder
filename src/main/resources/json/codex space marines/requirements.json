@@ -127,6 +127,11 @@
 		"name":"exclusive of heavy weapons tactical squad",
 		"excludedGroupName":"heavy weapons group tactical squad"
 	},
+	{
+		"type":"mutual_exclusion",
+		"name":"exclusive of dreadnought missile launcher",
+		"excludedGroupName":"missile launcher group dreadnought"
+	},
 	
 	
 	{
