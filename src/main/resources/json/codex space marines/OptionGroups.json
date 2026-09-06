@@ -223,6 +223,7 @@
 			"select tank hunters for terminator"
 		],
 		"requirementNames":[
+			"one selection per squad"
 		],
 		"minSelections":0,
 		"maxSelections":1
@@ -374,7 +375,8 @@
 			"select tank hunters for dreadnought"
 		],
 		"requirementNames":[
-			"must be venerable"
+			"must be venerable",
+			"one selection per squad"
 		],
 		"minSelections":0,
 		"maxSelections":1

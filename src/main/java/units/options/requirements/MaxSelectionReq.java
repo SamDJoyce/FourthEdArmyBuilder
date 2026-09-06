@@ -50,7 +50,7 @@ public class MaxSelectionReq implements Requirement {
 		if (count + 1 > maxSelection) {
 			result.addIssue(String.format(
 					"Too many selections from %s. Maximum: %d",
-					context.getChoice().getParentGroup().getName(),
+					context.getGroup().getName(),
 					maxSelection));
 		}
 		return result;
@@ -64,7 +64,7 @@ public class MaxSelectionReq implements Requirement {
 		if (count > maxSelection) {
 			result.addIssue(String.format(
 					"Too many selections from %s. Maximum: %d",
-					context.getChoice().getParentGroup().getName(),
+					context.getGroup().getName(),
 					maxSelection));
 		}
 		return result;
@@ -72,8 +72,16 @@ public class MaxSelectionReq implements Requirement {
 	
 	public int getSelectionCount(SelectionContext context){
 		UnitInstance unit = context.getUnit();
-		OptionGroup  group = context.getChoice().getParentGroup();
+		OptionGroup  group = context.getGroup();
 		int count = 0;
+		
+		for (SelectedOption s : unit.getSelectedOptions()) {
+			if (group.containsChoice(s.getChoice())) {
+				//System.out.println("!!! Found a matching choice !!!");
+				count++;
+			}
+		}
+		
 		for (ModelInstance m : unit.getModels()) {
 			for (SelectedOption s : m.getSelectedOptions()) {
 				if (group.containsChoice(s.getChoice())) {

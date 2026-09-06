@@ -11,15 +11,15 @@ public final class SelectionContext {
 	private final ModelInstance model;
 	private final OptionOwner owner;
 	private final OptionChoice choice;
+	private final OptionGroup group;
 	private final WargearDescription gear;
 	
 	private SelectionContext(Builder builder) {
 		this.roster = builder.roster;
 		this.unit = builder.unit;
 		this.model = builder.model;
-		this.choice = (builder.choice == null)
-		        		? null
-		                : builder.choice;
+		this.choice = builder.choice;
+		this.group = builder.group;
 		this.owner = builder.owner;
 		this.gear = builder.gear;
 	}
@@ -38,6 +38,10 @@ public final class SelectionContext {
 	
 	public OptionChoice getChoice() {
 		return this.choice;
+	}
+	
+	public OptionGroup getGroup() {
+		return this.group;
 	}
 	
 	public WargearDescription getWargear() {
@@ -77,6 +81,7 @@ public final class SelectionContext {
 		return new Builder()
 				.setRoster(roster)
 				.setChoice(choice)
+				.setGroup(choice.getParentGroup())
 				.build();
 	}
 
@@ -89,6 +94,7 @@ public final class SelectionContext {
 				.setUnit(unit)
 				.setOwner(unit)
 				.setChoice(choice)
+				.setGroup(choice.getParentGroup())
 				.build();
 	}
 
@@ -102,7 +108,25 @@ public final class SelectionContext {
 				.setUnit(model.getParentUnit())
 				.setOwner(model)
 				.setChoice(choice)
+				.setGroup(choice.getParentGroup())
 				.build();
+	}
+	
+	public static SelectionContext forGroup(
+			OptionOwner owner,
+			OptionGroup group) {
+		if (owner.isModel()) {
+			ModelInstance model = (ModelInstance) owner;
+			return new Builder()
+						.setModel(model)
+						.setGroup(group)
+						.build();
+		}
+		UnitInstance unit = (UnitInstance) owner;
+		return new Builder()
+					.setGroup(group)
+					.setUnit(unit)
+					.build();
 	}
 	
 	public static SelectionContext create(
@@ -123,6 +147,7 @@ public final class SelectionContext {
 		private UnitInstance unit;
 		private ModelInstance model;
 		private OptionChoice choice;
+		private OptionGroup group;
 		private OptionOwner owner;
 		private WargearDescription gear;
 		
@@ -143,6 +168,11 @@ public final class SelectionContext {
 		
 		public Builder setChoice(OptionChoice choice) {
 			this.choice = choice;
+			return this;
+		}
+		
+		public Builder setGroup(OptionGroup group) {
+			this.group = group;
 			return this;
 		}
 		

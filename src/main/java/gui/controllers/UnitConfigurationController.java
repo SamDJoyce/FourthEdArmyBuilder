@@ -16,6 +16,7 @@ import units.ModelFactory;
 import units.instances.ModelInstance;
 import units.instances.UnitInstance;
 import units.options.OptionChoice;
+import units.options.OptionChoiceFactory;
 import units.options.OptionGroup;
 import units.options.OptionOwner;
 import units.options.SelectionContext;
@@ -75,12 +76,19 @@ public class UnitConfigurationController<T> {
 			));
         										
         for (OptionGroup group : orderedGroups) {
-//        	SelectionContext context = SelectionContext.create(owner, null);
-//        	ValidationResult result = group.checkRequirements(context);
+//        	OptionChoice choice = OptionChoiceFactory.create(
+//        							group.getName() + " choice",
+//        							0);
+//        	choice.setParentGroup(group);
+        	SelectionContext context = SelectionContext.forGroup(owner, group);
+        	
+            if (canSelect(context, group)
+            ||  hasSelectionInGroup(owner, group)) {
 
-    		populateOptionGroup(
-        		group,
-        		new VBox());
+                populateOptionGroup(
+                        group,
+                        new VBox());
+            }
         }
     }
     
@@ -263,5 +271,28 @@ public class UnitConfigurationController<T> {
     		return true;
     	}
     	return false;
+    }
+    
+    public boolean canSelect(
+    		SelectionContext context,
+    		OptionGroup group) {
+    	ValidationResult result = group.checkRequirements(context);
+    	if (result.isValid()) {
+    	    		return true;
+    	    	}
+    	return false;
+    }
+    
+    private boolean hasSelectionInGroup(
+            OptionOwner owner,
+            OptionGroup group) {
+        
+        for (OptionChoice choice : group.getChoices()) {
+            if (owner.hasSelection(choice)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
