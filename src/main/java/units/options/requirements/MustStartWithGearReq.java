@@ -38,9 +38,8 @@ public class MustStartWithGearReq implements Requirement {
 		ModelDescription model = context.getModel().getDescription();
 		if(!model.startsWithGear(requiredGear)) {
 			result.addIssue(String.format(
-							"Model must be equipped with %s by default to select %s", 
-							requiredGear.getName(),
-							context.getChoice().getName()));
+							"Model must be equipped with %s by default", 
+							requiredGear.getName()));
 		};
 		return result;
 	}

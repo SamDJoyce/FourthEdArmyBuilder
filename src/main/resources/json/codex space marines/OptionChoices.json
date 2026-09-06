@@ -70,6 +70,19 @@
 			"change to marine with heavy bolter"
 		]
 	},
+	
+	{
+		"name":"select heavy bolter for devestator",
+		"points":15,
+		"requirementNames":[
+			"must start with bolter"
+		],
+		"effectNames":[
+			"replace bolter with heavy bolter",
+			"change to devestator with heavy bolter"
+		]
+	},
+	
 	{
 		"name":"select missile launcher for tactical marine",
 		"points":10,
@@ -83,6 +96,19 @@
 			"change to marine with missile launcher"
 		]
 	},
+	
+	{
+		"name":"select missile launcher for devestator",
+		"points":20,
+		"requirementNames":[
+			"must start with bolter"
+		],
+		"effectNames":[
+			"replace bolter with missile launcher",
+			"change to devestator with missile launcher"
+		]
+	},
+	
 	{
 		"name":"select multi melta for tactical marine",
 		"points":10,
@@ -96,6 +122,19 @@
 			"change to marine with multi melta"
 		]
 	},
+	
+	{
+		"name":"select multi melta for devestator",
+		"points":20,
+		"requirementNames":[
+			"must start with bolter"
+		],
+		"effectNames":[
+			"replace bolter with multi melta",
+			"change to devestator with multi melta"
+		]
+	},
+	
 	{
 		"name":"select lascannon for tactical marine",
 		"points":15,
@@ -109,6 +148,19 @@
 			"change to marine with lascannon"
 		]
 	},
+	
+	{
+		"name":"select lascannon for devestator",
+		"points":35,
+		"requirementNames":[
+			"must start with bolter"
+		],
+		"effectNames":[
+			"replace bolter with lascannon",
+			"change to devestator with lascannon"
+		]
+	},
+	
 	{
 		"name":"select plasma cannon for tactical marine",
 		"points":20,
@@ -122,6 +174,19 @@
 			"change to marine with plasma cannon"
 		]
 	},
+	
+	{
+		"name":"select plasma cannon for devestator",
+		"points":35,
+		"requirementNames":[
+			"must start with bolter"
+		],
+		"effectNames":[
+			"replace bolter with plasma cannon",
+			"change to devestator with plasma cannon"
+		]
+	},
+	
 	{
 		"name":"select bolt pistol and ccw for sergeant",
 		"points":0,
@@ -1158,6 +1223,16 @@
 		],
 		"effectNames":[
 			"add pintle mounted storm bolter"
+		]
+	},
+	{
+		"name":"select power of the machine spirit",
+		"points":30,
+		"requirementNames":[
+			"must be vehicle"
+		],
+		"effectNames":[
+			"add power of the machine spirit"
 		]
 	}
 ]

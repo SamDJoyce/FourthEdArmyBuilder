@@ -438,7 +438,11 @@
 		"name":"add pintle mounted storm bolter",
 		"gearName":"pintle mounted storm bolter"
 	},
-
+	{
+		"type":"add_wargear",
+		"name":"add power of the machine spirit",
+		"gearName":"power of the machine spirit"
+	},
 	
 	
 	{
@@ -519,8 +523,18 @@
 	},
 	{
 		"type":"change_model_name",
+		"effectName":"change to devestator with heavy bolter",
+		"newName":"Devestator w. Heavy Bolter"
+	},
+	{
+		"type":"change_model_name",
 		"effectName":"change to marine with missile launcher",
 		"newName":"Tactical Marine w. Missile Launcher"
+	},
+	{
+		"type":"change_model_name",
+		"effectName":"change to devestator with missile launcher",
+		"newName":"Devestator w. Missile Launcher"
 	},
 	{
 		"type":"change_model_name",
@@ -529,13 +543,28 @@
 	},
 	{
 		"type":"change_model_name",
+		"effectName":"change to devestator with multi melta",
+		"newName":"Devestator w. Multi-melta"
+	},
+	{
+		"type":"change_model_name",
 		"effectName":"change to marine with lascannon",
 		"newName":"Tactical Marine w. Lascannon"
 	},
 	{
 		"type":"change_model_name",
+		"effectName":"change to devestator with lascannon",
+		"newName":"Devestator w. Lascannon"
+	},
+	{
+		"type":"change_model_name",
 		"effectName":"change to marine with plasma cannon",
 		"newName":"Tactical Marine w. Plasma Cannon"
+	},
+	{
+		"type":"change_model_name",
+		"effectName":"change to devestator with plasma cannon",
+		"newName":"Devestator w. Plasma Cannon"
 	},
 	{
 		"type":"change_model_name",

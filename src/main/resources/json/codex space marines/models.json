@@ -251,6 +251,53 @@
 		]
 	},
 	{
+			"name":"devestator",
+			"basePoints":15,
+			"statlineName":"tactical marine",
+			"typeNames":[
+				"INFANTRY"
+			],
+			"optionGroupNames":[
+				"heavy weapons group devestator squad"
+			],
+			"wargearNames":[
+				"power armour",
+				"bolter"
+			]
+	},
+	{
+			"name":"devestator sgt",
+			"basePoints":15,
+			"statlineName":"tactical marine",
+			"typeNames":[
+				"INFANTRY",
+				"CHARACTER"
+			],
+			"optionGroupNames":[
+				"tactical squad sergeant veterancy group",
+				"armoury group sw"
+			],
+			"wargearNames":[
+				"power armour",
+				"bolter"
+			]
+	},
+	{
+		"name":"vindicator",
+		"basePoints":125,
+		"statlineName":"vindicator",
+		"typeNames":[
+			"VEHICLE"
+		],
+		"optionGroupNames":[
+			"vehicle upgrades group vindicator"
+			],
+		"wargearNames":[
+			"demolisher cannon",
+			"storm bolter"
+		]
+	},
+	{
 		"name":"land raider",
 		"basePoints":250,
 		"statlineName":"land raider",

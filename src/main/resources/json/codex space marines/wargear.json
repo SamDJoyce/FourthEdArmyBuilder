@@ -255,6 +255,10 @@
 	  	"name":"melta bombs",
 	  	"type":"GEAR"
 	},
+	{
+	  	"name":"demolisher cannon",
+	  	"type":"GEAR"
+	},
 	
 	
 	
@@ -307,6 +311,10 @@
 	},
 	{
 	  	"name":"smoke launchers",
+	  	"type":"VEHICLE_UPGRADE"
+	},
+	{
+	  	"name":"power of the machine spirit",
 	  	"type":"VEHICLE_UPGRADE"
 	},
 	

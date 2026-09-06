@@ -1,8 +1,8 @@
 [
 	{
 		"name":"captain",
-		"minSize":"1",
-		"maxSize":"1",
+		"minSize":1,
+		"maxSize":1,
 		"role":"HQ",
 		"modelNames":[
 			"captain"
@@ -13,8 +13,8 @@
 	},
 	{
 		"name":"chaplain",
-		"minSize":"1",
-		"maxSize":"1",
+		"minSize":1,
+		"maxSize":1,
 		"role":"HQ",
 		"modelNames":[
 			"chaplain"
@@ -25,8 +25,8 @@
 	},
 	{
 		"name":"librarian",
-		"minSize":"1",
-		"maxSize":"1",
+		"minSize":1,
+		"maxSize":1,
 		"role":"HQ",
 		"modelNames":[
 			"librarian"
@@ -37,8 +37,8 @@
 	},
 	{
 		"name":"terminator squad",
-		"minSize":"5",
-		"maxSize":"10",
+		"minSize":5,
+		"maxSize":10,
 		"role":"ELITES",
 		"modelNames":[
 			"terminator sgt",
@@ -54,8 +54,8 @@
 	},
 	{
 		"name":"tactical squad",
-		"minSize":"5",
-		"maxSize":"10",
+		"minSize":5,
+		"maxSize":10,
 		"role":"TROOPS",
 		"modelNames":[
 			"tactical marine sgt",
@@ -71,8 +71,8 @@
 	},
 	{
 		"name":"scout squad",
-		"minSize":"5",
-		"maxSize":"10",
+		"minSize":5,
+		"maxSize":10,
 		"role":"TROOPS",
 		"modelNames":[
 			"scout sgt",
@@ -88,8 +88,8 @@
 	},
 	{
 		"name":"bike squadron",
-		"minSize":"3",
-		"maxSize":"5",
+		"minSize":3,
+		"maxSize":5,
 		"role":"FAST ATTACK",
 		"modelNames":[
 			"biker sgt",
@@ -104,8 +104,8 @@
 	},
 	{
 		"name":"attack bike squadron",
-		"minSize":"2",
-		"maxSize":"3",
+		"minSize":2,
+		"maxSize":3,
 		"role":"FAST ATTACK",
 		"modelNames":[
 			"attack bike",
@@ -118,8 +118,8 @@
 	},
 	{
 		"name":"land speeder",
-		"minSize":"1",
-		"maxSize":"1",
+		"minSize":1,
+		"maxSize":1,
 		"role":"FAST ATTACK",
 		"modelNames":[
 			"land speeder"
@@ -130,8 +130,8 @@
 	},
 	{
 		"name":"dreadnought",
-		"minSize":"1",
-		"maxSize":"1",
+		"minSize":1,
+		"maxSize":1,
 		"role":"ELITES",
 		"modelNames":[
 			"dreadnought"
@@ -141,9 +141,37 @@
 		"modelToAddName":""
 	},
 	{
+		"name":"devestator squad",
+		"minSize":5,
+		"maxSize":10,
+		"role":"HEAVY SUPPORT",
+		"modelNames":[
+			"devestator sgt",
+			"devestator",
+			"devestator",
+			"devestator",
+			"devestator"
+		],
+		"optionGroupNames":[
+		],
+		"modelToAddName":"devestator"
+	},
+	{
+		"name":"vindicator",
+		"minSize":1,
+		"maxSize":1,
+		"role":"HEAVY SUPPORT",
+		"modelNames":[
+			"vindicator"
+		],
+		"optionGroupNames":[
+		],
+		"modelToAddName":""
+	},
+	{
 		"name":"land raider",
-		"minSize":"1",
-		"maxSize":"1",
+		"minSize":1,
+		"maxSize":1,
 		"role":"HEAVY SUPPORT",
 		"modelNames":[
 			"land raider"

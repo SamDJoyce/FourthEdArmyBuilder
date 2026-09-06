@@ -85,7 +85,7 @@
 			"select scout sergeant veterancy"
 		],
 		"requirementNames":[
-			"characters_only"
+			"characters only"
 		],
 		"minSelections":0,
 		"maxSelections":1
@@ -159,7 +159,7 @@
 			"select biker sergeant veterancy"
 		],
 		"requirementNames":[
-			"characters_only"
+			"characters only"
 		],
 		"minSelections":0,
 		"maxSelections":1
@@ -392,6 +392,26 @@
 		"minSelections":0,
 		"maxSelections":3
 	},
+	
+	
+	{
+		"name":"heavy weapons group devestator squad",
+		"choiceNames":[
+			"select heavy bolter for devestator",
+			"select missile launcher for devestator",
+		 	"select multi melta for devestator",
+		 	"select lascannon for devestator",
+		 	"select plasma cannon for devestator"
+		],
+		"requirementNames":[
+			"must start with bolter"
+		],
+		"minSelections":0,
+		"maxSelections":1
+		},
+	
+	
+	
 	{
 		"name":"vehicle upgrades group land raider",
 		"choiceNames":[
@@ -399,6 +419,23 @@
 			"select extra armour",
 			"select hunter killer missile",
 			"select pintle mounted storm bolter",
+			"select searchlight",
+			"select smoke launchers"
+		],
+		"requirementNames":[
+			"must be vehicle"
+		],
+		"minSelections":0,
+		"maxSelections":6
+	},
+	{
+		"name":"vehicle upgrades group vindicator",
+		"choiceNames":[
+			"select dozer blade",
+			"select extra armour",
+			"select hunter killer missile",
+			"select pintle mounted storm bolter",
+			"select power of the machine spirit",
 			"select searchlight",
 			"select smoke launchers"
 		],
