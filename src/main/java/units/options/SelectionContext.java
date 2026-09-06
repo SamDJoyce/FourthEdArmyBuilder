@@ -119,6 +119,8 @@ public final class SelectionContext {
 			ModelInstance model = (ModelInstance) owner;
 			return new Builder()
 						.setModel(model)
+						.setOwner(model)
+						.setUnit(model.getParentUnit())
 						.setGroup(group)
 						.build();
 		}
@@ -126,6 +128,7 @@ public final class SelectionContext {
 		return new Builder()
 					.setGroup(group)
 					.setUnit(unit)
+					.setOwner(unit)
 					.build();
 	}
 	

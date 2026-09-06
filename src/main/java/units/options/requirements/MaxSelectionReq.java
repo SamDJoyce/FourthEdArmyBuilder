@@ -71,9 +71,15 @@ public class MaxSelectionReq implements Requirement {
 	}
 	
 	public int getSelectionCount(SelectionContext context){
+		int count = 0;
+		
+		if (context.hasUnit()) {
+			
+		}
+		
 		UnitInstance unit = context.getUnit();
 		OptionGroup  group = context.getGroup();
-		int count = 0;
+		
 		
 		for (SelectedOption s : unit.getSelectedOptions()) {
 			if (group.containsChoice(s.getChoice())) {

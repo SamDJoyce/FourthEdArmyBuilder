@@ -76,10 +76,7 @@ public class UnitConfigurationController<T> {
 			));
         										
         for (OptionGroup group : orderedGroups) {
-//        	OptionChoice choice = OptionChoiceFactory.create(
-//        							group.getName() + " choice",
-//        							0);
-//        	choice.setParentGroup(group);
+        	
         	SelectionContext context = SelectionContext.forGroup(owner, group);
         	
             if (canSelect(context, group)

@@ -16,7 +16,7 @@
 			"select tactical squad sergeant veterancy"
 		],
 		"requirementNames":[
-			"characters_only"
+			"characters only"
 		],
 		"minSelections":0,
 		"maxSelections":1
@@ -307,7 +307,6 @@
 			"select replace power with vortex of doom"
 		],
 		"requirementNames":[
-			"must be librarian"
 		],
 		"minSelections":0,
 		"maxSelections":1
