@@ -55,6 +55,42 @@
 		]
 	},
 	{
+		"name":"techmarine",
+		"basePoints":65,
+		"statlineName":"techmarine",
+		"typeNames":[
+			"INFANTRY",
+			"CHARACTER"
+		],
+		"optionGroupNames":[
+			"armoury group mw"
+		],
+		"wargearNames":[
+			"power weapon",
+			"bolter",
+			"signum",
+			"auspex",
+			"servo arm",
+			"power armour"
+		]
+	},
+	{
+		"name":"servitor",
+		"basePoints":10,
+		"statlineName":"servitor",
+		"typeNames":[
+			"INFANTRY"
+		],
+		"optionGroupNames":[
+			"weapon options group servitor",
+			"upgrade servitor group"
+		],
+		"wargearNames":[
+		]
+	},
+	
+	
+	{
 		"name":"terminator",
 		"basePoints":40,
 		"statlineName":"terminator",
@@ -139,8 +175,9 @@
 		],
 		"optionGroupNames":[
 			"sergeant weapons group tactical squad",
-			"tactical squad sergeant veterancy group",
-			"armoury group sw"],
+			"veteran sergeant group",
+			"armoury group sw"
+		],
 		"wargearNames":[
 			"power armour",
 			"bolter"
@@ -251,36 +288,36 @@
 		]
 	},
 	{
-			"name":"devestator",
-			"basePoints":15,
-			"statlineName":"tactical marine",
-			"typeNames":[
-				"INFANTRY"
-			],
-			"optionGroupNames":[
-				"heavy weapons group devestator squad"
-			],
-			"wargearNames":[
-				"power armour",
-				"bolter"
-			]
+		"name":"devestator",
+		"basePoints":15,
+		"statlineName":"tactical marine",
+		"typeNames":[
+			"INFANTRY"
+		],
+		"optionGroupNames":[
+			"heavy weapons group devestator squad"
+		],
+		"wargearNames":[
+			"power armour",
+			"bolter"
+		]
 	},
 	{
-			"name":"devestator sgt",
-			"basePoints":15,
-			"statlineName":"tactical marine",
-			"typeNames":[
-				"INFANTRY",
-				"CHARACTER"
-			],
-			"optionGroupNames":[
-				"tactical squad sergeant veterancy group",
-				"armoury group sw"
-			],
-			"wargearNames":[
-				"power armour",
-				"bolter"
-			]
+		"name":"devestator sgt",
+		"basePoints":15,
+		"statlineName":"tactical marine",
+		"typeNames":[
+			"INFANTRY",
+			"CHARACTER"
+		],
+		"optionGroupNames":[
+			"veteran sergeant group",
+			"armoury group sw"
+		],
+		"wargearNames":[
+			"power armour",
+			"bolter"
+		]
 	},
 	{
 		"name":"vindicator",

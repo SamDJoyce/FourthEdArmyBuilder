@@ -222,11 +222,6 @@
 	},
 	{
 		"type":"add_wargear",
-		"name":"add tactical squad sergeant veterancy",
-		"gearName":"tactical squad sergeant veterancy"
-	},
-	{
-		"type":"add_wargear",
 		"name":"add biker sergeant veterancy",
 		"gearName":"biker sergeant veterancy"
 	},
@@ -575,25 +570,13 @@
 	
 	{
 		"type":"add_gear_to_squad",
-		"name":"add frag grenades to tactical squad",
+		"name":"add frag grenades to squad",
 		"gearName":"frag grenades",
 		"pointsPerModel":1
 	},
 	{
 		"type":"add_gear_to_squad",
-		"name":"add krak grenades to tactical squad",
-		"gearName":"krak grenades"		,
-		"pointsPerModel":2
-	},
-	{
-		"type":"add_gear_to_squad",
-		"name":"add frag grenades to scout squad",
-		"gearName":"frag grenades",
-		"pointsPerModel":1
-	},
-	{
-		"type":"add_gear_to_squad",
-		"name":"add krak grenades to scout squad",
+		"name":"add krak grenades to squad",
 		"gearName":"krak grenades",
 		"pointsPerModel":2
 	},
@@ -647,6 +630,17 @@
 		"type":"add_model",
 		"name":"add attack bike to squadron",
 		"modelName":"attack bike"
+	},
+
+	{
+		"type":"add_wargear",
+		"name":"upgrade to gun servitor",
+		"gearName":"gun servitor"
+	},
+	{
+		"type":"add_wargear",
+		"name":"upgrade to combat servitor",
+		"gearName":"combat servitor"
 	}
 
 ]

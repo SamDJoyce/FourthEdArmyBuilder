@@ -53,6 +53,32 @@
 	},
 	{
 		"type":"infantry",
+		"name":"techmarine",
+		"ws":4,
+		"bs":4,
+		"s":4,
+		"t":4,
+		"w":2,
+		"i":4,
+		"a":2,
+		"ld":9,
+		"sv":3
+	},
+	{
+		"type":"infantry",
+		"name":"servitor",
+		"ws":3,
+		"bs":3,
+		"s":3,
+		"t":3,
+		"w":1,
+		"i":3,
+		"a":1,
+		"ld":8,
+		"sv":5
+	},
+	{
+		"type":"infantry",
 		"name":"biker",
 		"ws":4,
 		"bs":4,

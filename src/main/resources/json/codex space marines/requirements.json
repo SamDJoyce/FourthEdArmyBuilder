@@ -113,6 +113,16 @@
 		"name":"cannot have plasma cannon",
 		"blockingGearName":"plasma cannon"
 	},
+	{
+		"type":"cannot_have_gear",
+		"name":"cannot be gun servitor",
+		"blockingGearName":"gun servitor"
+	},
+	{
+		"type":"cannot_have_gear",
+		"name":"cannot be combat servitor",
+		"blockingGearName":"combat servitor"
+	},
 	
 	
 	
@@ -152,5 +162,10 @@
 		"type":"max_selection",
 		"name":"two selections per squad",
 		"maxSelection":2
+	},
+	{
+		"type":"max_selection",
+		"name":"four selections per squad",
+		"maxSelection":4
 	}
 ]

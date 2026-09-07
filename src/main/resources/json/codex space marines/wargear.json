@@ -140,7 +140,10 @@
 	  	"name":"lightning claw pair",
 	  	"type":"TWO HANDED"
 	},
-
+	{
+	  	"name":"demolisher cannon",
+	  	"type":"TWO HANDED"
+	},
 	
 	
 	{
@@ -189,10 +192,6 @@
 	},
 	{
 	  	"name":"attack bike",
-	  	"type":"GEAR"
-	},
-	{
-	  	"name":"tactical squad sergeant veterancy",
 	  	"type":"GEAR"
 	},
 	{
@@ -256,10 +255,21 @@
 	  	"type":"GEAR"
 	},
 	{
-	  	"name":"demolisher cannon",
+	  	"name":"signum",
 	  	"type":"GEAR"
 	},
-	
+	{
+	  	"name":"servo arm",
+	  	"type":"GEAR"
+	},
+	{
+	  	"name":"gun servitor",
+	  	"type":"GEAR"
+	},
+	{
+	  	"name":"combat servitor",
+	  	"type":"GEAR"
+	},
 	
 	
 	{

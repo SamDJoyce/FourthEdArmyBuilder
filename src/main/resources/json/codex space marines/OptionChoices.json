@@ -200,13 +200,12 @@
 		]
 	},
 	{
-		"name":"select tactical squad sergeant veterancy",
+		"name":"select upgrade to veteran sergeant",
 		"points":15,
 		"requirementNames":[
 			"characters only"
 		],
 		"effectNames":[
-			"add tactical squad sergeant veterancy",
 			"add crux terminatus",
 		 	"increase ld by one",
 	 	 	"increase attacks by one",
@@ -214,21 +213,21 @@
 		]
 	},
 	{
-		"name":"select frag grenades for tactical squad",
+		"name":"select frag grenades for squad",
 		"points":0,
 		"requirementNames":[
 		],
 		"effectNames":[
-			"add frag grenades to tactical squad"
+			"add frag grenades to squad"
 		]
 	},
 	{
-		"name":"select krak grenades for tactical squad",
+		"name":"select krak grenades for squad",
 		"points":0,
 		"requirementNames":[
 		],
 		"effectNames":[
-			"add krak grenades to tactical squad"
+			"add krak grenades to squad"
 		]
 	},	
 	
@@ -257,24 +256,6 @@
 		 	"increase ld by one",
 	 	 	"increase attacks by one",
 	 	 	"change to veteran sergeant"
-		]
-	},
-	{
-		"name":"select frag grenades for scout squad",
-		"points":0,
-		"requirementNames":[
-		],
-		"effectNames":[
-			"add frag grenades to scout squad"
-		]
-	},
-	{
-		"name":"select krak grenades for scout squad",
-		"points":0,
-		"requirementNames":[
-		],
-		"effectNames":[
-			"add krak grenades to scout squad"
 		]
 	},
 	{
@@ -1233,6 +1214,26 @@
 		],
 		"effectNames":[
 			"add power of the machine spirit"
+		]
+	},
+	{
+		"name":"select upgrade to combat servitor",
+		"points":15,
+		"requirementNames":[
+			"cannot be gun servitor"
+		],
+		"effectNames":[
+			"upgrade to combat servitor"
+		]
+	},
+	{
+		"name":"select upgrade to gun servitor",
+		"points":0,
+		"requirementNames":[
+			"cannot be combat servitor"
+		],
+		"effectNames":[
+			"upgrade to gun servitor"
 		]
 	}
 ]

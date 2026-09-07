@@ -66,7 +66,12 @@ public class UnitConfigurationController<T> {
         // Add model count control
         if (owner.isUnit()){
         	UnitInstance unit = (UnitInstance) owner;
-            addModelCountSpinner(unit);
+        	if (unit.getDescription().getModelToAdd() 
+        			!= null
+        	&&  unit.getDescription().getMinSize() 
+        			!= unit.getDescription().getMaxSize()) {
+        		addModelCountSpinner(unit);
+        	}
         }
         
         ArrayList<OptionGroup> orderedGroups = new ArrayList<>(owner.getOptions());
@@ -132,12 +137,8 @@ public class UnitConfigurationController<T> {
 
         int minCount = unit.getDescription().getMinSize();
         int maxCount = unit.getDescription().getMaxSize();
-
-        if (currentCount == minCount
-        &&  currentCount == maxCount) {
-        	return;
-        }
         
+
         SpinnerValueFactory.IntegerSpinnerValueFactory valueFactory =
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(
                         minCount,

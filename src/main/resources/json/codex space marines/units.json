@@ -36,6 +36,18 @@
 		"modelToAddName":""
 	},
 	{
+		"name":"techmarine",
+		"minSize":1,
+		"maxSize":5,
+		"role":"ELITES",
+		"modelNames":[
+			"techmarine"
+		],
+		"optionGroupNames":[
+		],
+		"modelToAddName":"servitor"
+	},
+	{
 		"name":"terminator squad",
 		"minSize":5,
 		"maxSize":10,
@@ -65,7 +77,7 @@
 			"tactical marine"
 		],
 		"optionGroupNames":[
-			"grenades group tactical squad"
+			"grenades group basic"
 		],
 		"modelToAddName":"tactical marine"
 	},
@@ -82,7 +94,7 @@
 			"scout"
 		],
 		"optionGroupNames":[
-			"grenades group scout squad"
+			"grenades group basic"
 		],
 		"modelToAddName":"scout"
 	},
@@ -153,6 +165,7 @@
 			"devestator"
 		],
 		"optionGroupNames":[
+			"grenades group basic"
 		],
 		"modelToAddName":"devestator"
 	},

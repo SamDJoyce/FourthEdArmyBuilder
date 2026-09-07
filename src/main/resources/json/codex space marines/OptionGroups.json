@@ -11,9 +11,9 @@
 		"maxSelections":5
 	},
 	{
-		"name":"tactical squad sergeant veterancy group",
+		"name":"veteran sergeant group",
 		"choiceNames":[
-			"select tactical squad sergeant veterancy"
+			"select upgrade to veteran sergeant"
 		],
 		"requirementNames":[
 			"characters only"
@@ -65,10 +65,10 @@
 		"maxSelections":1
 	},
 	{
-		"name":"grenades group tactical squad",
+		"name":"grenades group basic",
 		"choiceNames":[
-			"select frag grenades for tactical squad",
-			"select krak grenades for tactical squad"
+			"select frag grenades for squad",
+			"select krak grenades for squad"
 		],
 		"requirementNames":[
 		],
@@ -91,23 +91,11 @@
 		"maxSelections":1
 	},
 	{
-		"name":"grenades group scout squad",
-		"choiceNames":[
-			"select frag grenades for scout squad",
-			"select krak grenades for scout squad"
-		],
-		"requirementNames":[
-		],
-		"minSelections":0,
-		"maxSelections":2
-	},
-	{
 		"name":"add scout group",
 		"choiceNames":[
 			"select add scout"
 		],
 		"requirementNames":[
-			""
 		],
 		"minSelections":0,
 		"maxSelections":5
@@ -404,7 +392,8 @@
 		 	"select plasma cannon for devestator"
 		],
 		"requirementNames":[
-			"must start with bolter"
+			"must start with bolter",
+			"four selections per squad"
 		],
 		"minSelections":0,
 		"maxSelections":1
@@ -462,6 +451,26 @@
 		],
 		"requirementNames":[
 			"must be vehicle"
+		],
+		"minSelections":0,
+		"maxSelections":1
+	},
+	{
+		"name":"upgrade servitor group",
+		"choiceNames":[
+			"select upgrade to combat servitor",
+			"select upgrade to gun servitor"
+		],
+		"requirementNames":[
+		],
+		"minSelections":0,
+		"maxSelections":1
+	},
+	{
+		"name":"weapon options group servitor",
+		"choiceNames":[
+		],
+		"requirementNames":[
 		],
 		"minSelections":0,
 		"maxSelections":1
