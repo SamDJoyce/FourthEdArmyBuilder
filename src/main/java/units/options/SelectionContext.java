@@ -44,6 +44,10 @@ public final class SelectionContext {
 		return this.group;
 	}
 	
+	public OptionOwner getOwner() {
+		return this.owner;
+	}
+	
 	public WargearDescription getWargear() {
 		return this.gear;
 	}

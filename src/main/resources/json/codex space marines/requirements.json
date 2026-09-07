@@ -64,6 +64,11 @@
 		"requiredGearName":"venerable"
 	},
 	{
+		"type":"must_have_gear",
+		"name":"must be gun servitor",
+		"requiredGearName":"gun servitor"
+	},
+	{
 		"type":"cannot_have_gear",
 		"name":"must be librarian",
 		"blockingGearName":"upgrade to epistolary"
@@ -141,6 +146,16 @@
 		"type":"mutual_exclusion",
 		"name":"exclusive of dreadnought missile launcher",
 		"excludedGroupName":"missile launcher group dreadnought"
+	},
+	{
+		"type":"mutual_exclusion",
+		"name":"exclusive of servitor weapons",
+		"excludedGroupName":"weapon options group servitor"
+	},
+	{
+		"type":"mutual_exclusion",
+		"name":"exclusive of servitor plasma cannon",
+		"excludedGroupName":"plasma cannon group servitor"
 	},
 	
 	

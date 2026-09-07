@@ -469,12 +469,40 @@
 	{
 		"name":"weapon options group servitor",
 		"choiceNames":[
+			"select heavy bolter for servitor",
+			"select multi melta for servitor"
+		],
+		"requirementNames":[
+			"must be gun servitor",
+			"exclusive of servitor plasma cannon"
+		],
+		"minSelections":0,
+		"maxSelections":1
+	},
+	{
+		"name":"plasma cannon group servitor",
+		"choiceNames":[
+			"select plasma cannon for servitor"
+		],
+		"requirementNames":[
+			"must be gun servitor",
+			"one selection per squad",
+			"exclusive of servitor weapons"
+		],
+		"minSelections":0,
+		"maxSelections":1
+	},
+	{
+		"name":"upgrade group techmarine",
+		"choiceNames":[
+			"select servo harness"
 		],
 		"requirementNames":[
 		],
 		"minSelections":0,
 		"maxSelections":1
 	},
+	
 	{
 		"name":"armoury group sw",
 		"choiceNames":[

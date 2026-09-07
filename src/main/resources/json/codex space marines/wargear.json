@@ -40,6 +40,10 @@
 	  	"type":"ONE HANDED"
 	},
 	{
+	  	"name":"twin linked plasma pistol",
+	  	"type":"ONE HANDED"
+	},
+	{
 	  	"name":"power weapon",
 	  	"type":"ONE HANDED"
 	},
@@ -263,11 +267,19 @@
 	  	"type":"GEAR"
 	},
 	{
+	  	"name":"two servo arms",
+	  	"type":"GEAR"
+	},
+	{
 	  	"name":"gun servitor",
 	  	"type":"GEAR"
 	},
 	{
 	  	"name":"combat servitor",
+	  	"type":"GEAR"
+	},
+	{
+	  	"name":"servo harness",
 	  	"type":"GEAR"
 	},
 	

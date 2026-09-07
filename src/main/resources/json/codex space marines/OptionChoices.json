@@ -1223,7 +1223,11 @@
 			"cannot be gun servitor"
 		],
 		"effectNames":[
-			"upgrade to combat servitor"
+			"upgrade to combat servitor",
+			"change name to combat servitor",
+			"improve save by one",
+			"increase ws by one",
+			"add power fist"
 		]
 	},
 	{
@@ -1233,7 +1237,53 @@
 			"cannot be combat servitor"
 		],
 		"effectNames":[
-			"upgrade to gun servitor"
+			"upgrade to gun servitor",
+			"change name to gun servitor",
+			"improve save by one",
+			"increase bs by one",
+			"remove ccw"
+		]
+	},
+	{
+		"name":"select heavy bolter for servitor",
+		"points":15,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"add heavy bolter",
+			"change name to gun servitor w heavy bolter"
+		]
+	},
+	{
+		"name":"select multi melta for servitor",
+		"points":25,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"add multi melta",
+			"change name to gun servitor w multi melta"
+		]
+	},
+	{
+		"name":"select plasma cannon for servitor",
+		"points":35,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"add plasma cannon",
+			"change name to gun servitor w plasma cannon"
+		]
+	},
+	{
+		"name":"select servo harness",
+		"points":35,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"add servo harness",
+			"replace servo arm with double servo arm",
+			"add tl plasma pistol",
+			"add flamer"
 		]
 	}
 ]

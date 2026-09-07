@@ -63,7 +63,8 @@
 			"CHARACTER"
 		],
 		"optionGroupNames":[
-			"armoury group mw"
+			"armoury group mw",
+			"upgrade group techmarine"
 		],
 		"wargearNames":[
 			"power weapon",
@@ -83,9 +84,11 @@
 		],
 		"optionGroupNames":[
 			"weapon options group servitor",
+			"plasma cannon group servitor",
 			"upgrade servitor group"
 		],
 		"wargearNames":[
+			"close combat weapon"
 		]
 	},
 	

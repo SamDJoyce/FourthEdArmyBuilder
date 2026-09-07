@@ -164,6 +164,14 @@
 	},
 	
 	{
+		"type":"replace_wargear",
+		"name":"replace servo arm with double servo arm",
+		"remove":"servo arm",
+		"add":"two servo arms"
+	},
+	
+	
+	{
 		"type":"add_wargear",
 		"name":"add plasma gun",
 		"gearName":"plasma gun"
@@ -187,6 +195,21 @@
 		"type":"add_wargear",
 		"name":"add tank hunters",
 		"gearName":"tank hunters"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add heavy bolter",
+		"gearName":"heavy bolter"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add multi melta",
+		"gearName":"multi melta"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add plasma cannon",
+		"gearName":"plasma cannon"
 	},
 	
 	
@@ -438,6 +461,16 @@
 		"name":"add power of the machine spirit",
 		"gearName":"power of the machine spirit"
 	},
+	{
+		"type":"add_wargear",
+		"name":"add servo harness",
+		"gearName":"servo harness"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add tl plasma pistol",
+		"gearName":"twin linked plasma pistol"
+	},
 	
 	
 	{
@@ -450,8 +483,25 @@
 		"name":"remove storm bolter",
 		"remove":"storm bolter"
 	},
+	{
+		"type":"remove_wargear",
+		"name":"remove ccw",
+		"remove":"close combat weapon"
+	},
 	
 	
+	{
+		"type":"modify_stat",
+		"name":"increase ws by one",
+		"stat":"ws",
+		"modifier": 1
+	},
+	{
+		"type":"modify_stat",
+		"name":"increase bs by one",
+		"stat":"bs",
+		"modifier": 1
+	},
 	{
 		"type":"modify_stat",
 		"name":"increase ld by one",
@@ -476,11 +526,15 @@
 		"stat":"sv",
 		"modifier": -1
 	},
+	
+	
+	
 	{
 		"type":"change_model_name",
 		"effectName":"change to master",
 		"newName":"Master"
 	},
+	
 	{
 		"type":"change_model_name",
 		"effectName":"change to master of sanctity",
@@ -566,6 +620,33 @@
 		"effectName":"change name to venerable",
 		"newName":"Venerable Dreadnought"
 	},
+	{
+		"type":"change_model_name",
+		"effectName":"change name to gun servitor",
+		"newName":"Gun Servitor"
+	},
+	{
+		"type":"change_model_name",
+		"effectName":"change name to gun servitor w plasma cannon",
+		"newName":"Gun Servitor w. Plasma Cannon"
+	},
+	{
+		"type":"change_model_name",
+		"effectName":"change name to gun servitor w heavy bolter",
+		"newName":"Gun Servitor w. Heavy Bolter"
+	},
+	{
+		"type":"change_model_name",
+		"effectName":"change name to gun servitor w multi melta",
+		"newName":"Gun Servitor w. Multi Melta"
+	},
+	{
+		"type":"change_model_name",
+		"effectName":"change name to combat servitor",
+		"newName":"Combat Servitor"
+	},
+	
+	
 	
 	
 	{

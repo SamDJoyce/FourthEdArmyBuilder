@@ -4,6 +4,7 @@ import roster.ValidationResult;
 import units.instances.ModelInstance;
 import units.instances.UnitInstance;
 import units.options.OptionGroup;
+import units.options.OptionOwner;
 import units.options.SelectedOption;
 import units.options.SelectionContext;
 
@@ -73,20 +74,20 @@ public class MaxSelectionReq implements Requirement {
 	public int getSelectionCount(SelectionContext context){
 		int count = 0;
 		
-		if (context.hasUnit()) {
-			
-		}
-		
 		UnitInstance unit = context.getUnit();
 		OptionGroup  group = context.getGroup();
 		
+			count += countSelectionsInUnit(unit, group);
+			count += countSelectionsInModels(unit, group);
+
+		return count;
+	}
+	
+	private int countSelectionsInModels(
+			UnitInstance unit,
+			OptionGroup group) {
 		
-		for (SelectedOption s : unit.getSelectedOptions()) {
-			if (group.containsChoice(s.getChoice())) {
-				//System.out.println("!!! Found a matching choice !!!");
-				count++;
-			}
-		}
+		int count = 0;
 		
 		for (ModelInstance m : unit.getModels()) {
 			for (SelectedOption s : m.getSelectedOptions()) {
@@ -96,6 +97,22 @@ public class MaxSelectionReq implements Requirement {
 				}
 			}
 		}
+		
+		return count;
+	}
+	
+	private int countSelectionsInUnit(
+			UnitInstance unit,
+			OptionGroup group) {
+		int count = 0;
+		
+		for (SelectedOption s : unit.getSelectedOptions()) {
+			if (group.containsChoice(s.getChoice())) {
+				// Increment if there is a unit level selection that is in this group
+				count++;
+			}
+		}
+		
 		return count;
 	}
 	
