@@ -207,6 +207,7 @@
 		],
 		"effectNames":[
 			"add crux terminatus",
+			"add terminator honours",
 		 	"increase ld by one",
 	 	 	"increase attacks by one",
 	 	 	"change to veteran sergeant"
@@ -253,6 +254,7 @@
 		"effectNames":[
 			"add scout sergeant veterancy",
 			"add crux terminatus",
+			"add terminator honours",
 		 	"increase ld by one",
 	 	 	"increase attacks by one",
 	 	 	"change to veteran sergeant"
@@ -337,6 +339,7 @@
 		"effectNames":[
 			"add biker sergeant veterancy",
 			"add crux terminatus",
+			"add terminator honours",
 		 	"increase ld by one",
 	 	 	"increase attacks by one",
 	 	 	"change to veteran sergeant"

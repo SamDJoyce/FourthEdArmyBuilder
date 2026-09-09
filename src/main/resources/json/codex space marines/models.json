@@ -222,6 +222,47 @@
 			"close combat weapon"
 		]
 	},
+	
+	{
+		"name":"assault marine",
+		"basePoints":22,
+		"statlineName":"tactical marine",
+		"typeNames":[
+			"INFANTRY",
+			"JUMP"
+		],
+		"optionGroupNames":[
+			
+		],
+		"wargearNames":[
+			"power armour",
+			"bolt pistol",
+			"close combat weapon",
+			"frag grenades",
+			"jump pack"
+		]
+	},
+	{
+		"name":"assault marine sgt",
+		"basePoints":22,
+		"statlineName":"tactical marine",
+		"typeNames":[
+			"INFANTRY",
+			"CHARACTER",
+			"JUMP"
+		],
+		"optionGroupNames":[
+			"armoury group sw",
+			"veteran sergeant group"
+		],
+		"wargearNames":[
+			"power armour",
+			"bolt pistol",
+			"close combat weapon",
+			"frag grenades",
+			"jump pack"
+		]
+	},
 	{
 		"name":"biker",
 		"basePoints":32,

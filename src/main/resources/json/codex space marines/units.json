@@ -99,6 +99,22 @@
 		"modelToAddName":"scout"
 	},
 	{
+		"name":"assault squad",
+		"minSize":5,
+		"maxSize":10,
+		"role":"FAST ATTACK",
+		"modelNames":[
+			"assault marine sgt",
+			"assault marine",
+			"assault marine",
+			"assault marine",
+			"assault marine"
+		],
+		"optionGroupNames":[
+		],
+		"modelToAddName":"assault marine"
+	},
+	{
 		"name":"bike squadron",
 		"minSize":3,
 		"maxSize":5,
