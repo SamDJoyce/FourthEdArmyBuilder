@@ -1,5 +1,7 @@
 package units.descriptions.models;
 
+import java.util.Objects;
+
 public class StatLineInfantry implements StatLine {
 	private final String type = "infantry";
 	
@@ -190,5 +192,27 @@ public class StatLineInfantry implements StatLine {
 	
 	public void setRear(int rear) {
 		return;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) return true;
+		if (!(obj instanceof StatLineInfantry other)) return false;
+		return Objects.equals(name, other.name)
+			&& Objects.equals(ws,   other.ws)
+			&& Objects.equals(bs,   other.bs)
+			&& Objects.equals(s,    other.s)
+			&& Objects.equals(t,    other.t)
+			&& Objects.equals(w, 	other.w)
+			&& Objects.equals(i, 	other.i)
+			&& Objects.equals(a, 	other.a)
+			&& Objects.equals(ld, 	other.ld)
+			&& Objects.equals(sv, 	other.sv);
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(
+				name, ws, bs, s, t, w, i, a, ld, sv);
 	}
 }

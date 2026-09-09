@@ -3,7 +3,6 @@ package gui.controllers;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -12,16 +11,21 @@ import java.util.function.Consumer;
 import builder.ArmyBuilder;
 import gui.FormatText;
 import javafx.fxml.FXML;
+import javafx.geometry.HPos;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import roster.ValidationResult;
 import units.UnitRole;
+import units.descriptions.models.StatLine;
 import units.instances.ModelInstance;
 import units.instances.UnitInstance;
 import units.instances.WargearInstance;
 import units.options.OptionOwner;
+
 
 public class RosterController {
 
@@ -125,7 +129,188 @@ public class RosterController {
         	addModel(model, modelPanel);
         }
     }
+    
+    private GridPane addStats(UnitInstance unit) {
 
+        GridPane statsGrid = new GridPane();
+
+        statsGrid.setHgap(5);
+        statsGrid.setVgap(2);
+        statsGrid.setPadding(new Insets(3, 0, 5, 0));
+
+        List<ModelInstance> models = unit.getUniqueModels();
+
+        if (models.isEmpty()) {
+            return statsGrid;
+        }
+
+        /*
+         * Use the statline type of each unique model.
+         */
+        for (ModelInstance model : models) {
+
+            StatLine stats = model.getStats();
+
+            switch (stats.getType().toLowerCase()) {
+
+                case "infantry":
+                    addInfantryStats(statsGrid, model);
+                    break;
+
+                case "vehicle":
+                    addVehicleStats(statsGrid, model);
+                    break;
+
+                case "walker":
+                    addWalkerStats(statsGrid, model);
+                    break;
+
+                default:
+                    System.out.println(
+                        "Unknown statline type: " + stats.getType()
+                    );
+                    break;
+            }
+        }
+
+        return statsGrid;
+    }
+    
+    private void addInfantryStats(
+            GridPane grid,
+            ModelInstance model) {
+
+        StatLine stats = model.getStats();
+
+        int row = grid.getRowCount();
+
+        if (row == 0) {
+            addHeaders(
+                grid,
+                "", "WS", "BS", "S", "T",
+                "W", "I", "A", "Ld", "Sv"
+            );
+            row = 1;
+        }
+
+        addStatRow(
+            grid,
+            row,
+            change.toTitleCase(model.getName()),
+            stats.getWs(),
+            stats.getBs(),
+            stats.getS(),
+            stats.getT(),
+            stats.getW(),
+            stats.getI(),
+            stats.getA(),
+            stats.getLd(),
+            stats.getSv()
+        );
+    }
+    
+    private void addVehicleStats(
+            GridPane grid,
+            ModelInstance model) {
+
+        StatLine stats = model.getStats();
+
+        int row = grid.getRowCount();
+
+        if (row == 0) {
+            addHeaders(
+                grid,
+                "", "BS", "Front", "Side", "Rear"
+            );
+            row = 1;
+        }
+
+        addStatRow(
+            grid,
+            row,
+            change.toTitleCase(model.getName()) ,
+            stats.getBs(),
+            stats.getFront(),
+            stats.getSide(),
+            stats.getRear()
+        );
+    }
+    
+    private void addWalkerStats(
+            GridPane grid,
+            ModelInstance model) {
+
+        StatLine stats = model.getStats();
+
+        int row = grid.getRowCount();
+
+        if (row == 0) {
+            addHeaders(
+                grid,
+                "", "WS", "BS", "S", "I",
+                "A", "Front", "Side", "Rear"
+            );
+            row = 1;
+        }
+
+        addStatRow(
+            grid,
+            row,
+            change.toTitleCase(model.getName()),
+            stats.getWs(),
+            stats.getBs(),
+            stats.getS(),
+            stats.getI(),
+            stats.getA(),
+            stats.getFront(),
+            stats.getSide(),
+            stats.getRear()
+        );
+    }
+
+    private void addHeaders(
+            GridPane grid,
+            String... headers) {
+
+        for (int column = 0; column < headers.length; column++) {
+
+            Label label = new Label(headers[column]);
+
+            label.getStyleClass().add("stat-header");
+
+            grid.add(label, column, 0);
+
+            GridPane.setHalignment(
+                label,
+                HPos.CENTER
+            );
+        }
+    }
+    
+    private void addStatRow(
+            GridPane grid,
+            int row,
+            Object... values) {
+
+        for (int column = 0; column < values.length; column++) {
+
+            Label label = new Label(
+                String.valueOf(values[column])
+            );
+
+            label.getStyleClass().add("stat-cell");
+
+            grid.add(label, column, row);
+
+            if (column > 0) {
+                GridPane.setHalignment(
+                    label,
+                    HPos.CENTER
+                );
+            }
+        }
+    }
+    
     private void addUnit(
             UnitInstance unit,
             VBox panel) {
@@ -151,7 +336,9 @@ public class RosterController {
         modelPanel.setManaged(expanded);
 
         populateModels(unit, modelPanel);
-
+        GridPane statsGrid = addStats(unit);
+        modelPanel.getChildren().add(0,statsGrid);
+        
         unitButton.setOnAction(event -> {
 
             boolean currentlyExpanded =

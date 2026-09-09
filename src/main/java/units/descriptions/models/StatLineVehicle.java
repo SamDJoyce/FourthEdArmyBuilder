@@ -1,5 +1,7 @@
 package units.descriptions.models;
 
+import java.util.Objects;
+
 public class StatLineVehicle implements StatLine {
 
 	private final static String type = "vehicle";
@@ -155,5 +157,22 @@ public class StatLineVehicle implements StatLine {
 
 	public void setSv(int sv) {
 		return;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) return true;
+		if (!(obj instanceof StatLineVehicle other)) return false;
+		return Objects.equals(name,  other.name)
+			&& Objects.equals(bs, 	 other.bs)
+			&& Objects.equals(front, other.front)
+			&& Objects.equals(side,  other.side)
+			&& Objects.equals(rear,  other.rear);
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(
+				name, bs, front, side, rear);
 	}
 }

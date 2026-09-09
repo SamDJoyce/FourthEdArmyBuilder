@@ -1,5 +1,6 @@
 package units.instances;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -94,6 +95,32 @@ public class UnitInstance implements OptionOwner{
 
 	public List<ModelInstance> getModels() {
 		return Collections.unmodifiableList(models);
+	}
+	
+	public List<ModelInstance> getUniqueModels(){
+		List<ModelInstance> list = new ArrayList<>();
+		
+		for (ModelInstance model : models) {
+			if (modelTypeNotInList(model, list)) {
+				list.add(model);
+			}
+		}
+		
+		return list;
+	}
+	
+	private boolean modelTypeNotInList(
+						ModelInstance model,
+						List<ModelInstance> list) {
+		
+		for (ModelInstance m : list) {
+			// Must have the same name and the same stats to match
+			if (m.getName().equalsIgnoreCase(model.getName())
+			&&  m.getStats().equals(model.getStats()) ) {
+				return false;
+			}
+		}
+		return true;
 	}
 	
 	public boolean containsModel(ModelInstance model) {

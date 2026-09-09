@@ -2,6 +2,7 @@ package units.instances;
 
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -11,6 +12,7 @@ import units.UnitType;
 import units.WargearFactory;
 import units.descriptions.models.ModelDescription;
 import units.descriptions.models.StatLine;
+import units.descriptions.models.StatLineFactory;
 import units.descriptions.wargear.WargearDescription;
 import units.options.OptionChoice;
 import units.options.OptionGroup;
@@ -20,6 +22,7 @@ import units.options.SelectionContext;
 
 public class ModelInstance implements OptionOwner{
 	private final String 	 		id;
+	private final StatLine 			currentStats;
 	private final ModelDescription 	description;
 	private final ModelValidator 	validator;
 	private Set<UnitType> 		 	currentTypes;
@@ -31,6 +34,7 @@ public class ModelInstance implements OptionOwner{
 	public ModelInstance(ModelDescription description){
 		this.id = UUID.randomUUID().toString();
 		this.description = description;
+		this.currentStats = StatLineFactory.copy(this.description.getStats());
 		this.validator = ModelValidator.create();
 		this.currentTypes = new HashSet<>(description.getTypes());
 		//this.currentGear = WargearFactory.getAllInstances(description.getGear());
@@ -90,7 +94,7 @@ public class ModelInstance implements OptionOwner{
 	}
 
 	public StatLine getStats() {
-		return description.getStats();
+		return this.currentStats;
 	}
 
 	public Set<UnitType> getTypes() {
@@ -263,6 +267,21 @@ public class ModelInstance implements OptionOwner{
 			}
 		}
 		return null;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) return true;
+		if (!(obj instanceof ModelInstance other)) return false;
+		return Objects.equals(id, other.id)
+			&& Objects.equals(description, other.description);
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(
+				id,
+				description);
 	}
 	
 }

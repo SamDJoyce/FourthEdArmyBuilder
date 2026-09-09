@@ -16,7 +16,7 @@ public class StatLineFactory {
 	
 	public static StatLine copy(StatLine stats) {
 		if (INFANTRY.equalsIgnoreCase(stats.getType())) {
-			return forInfantry(
+			return new StatLineInfantry(
 					stats.getName(),
 					stats.getWs(),
 					stats.getBs(),
@@ -30,7 +30,7 @@ public class StatLineFactory {
 					);
 		}
 		if (VEHICLE.equalsIgnoreCase(stats.getType())) {
-			return forVehicle(
+			return new StatLineVehicle(
 					stats.getName(),
 					stats.getBs(),
 					stats.getFront(),
@@ -40,7 +40,7 @@ public class StatLineFactory {
 		}
 		
 		if (WALKER.equalsIgnoreCase(stats.getType())) {
-			return forWalker(
+			return new StatLineWalker(
 					stats.getName(),
 					stats.getBs(),
 					stats.getWs(),

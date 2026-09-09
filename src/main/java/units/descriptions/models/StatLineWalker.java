@@ -1,5 +1,7 @@
 package units.descriptions.models;
 
+import java.util.Objects;
+
 public class StatLineWalker implements StatLine {
 
 	private static final String type = "walker";
@@ -196,5 +198,26 @@ public class StatLineWalker implements StatLine {
 	public void setSv(int sv) {
 		return;
 
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) return true;
+		if (!(obj instanceof StatLineWalker other)) return false;
+		return Objects.equals(name, other.name)
+			&& Objects.equals(ws,   other.ws)
+			&& Objects.equals(bs,   other.bs)
+			&& Objects.equals(s,    other.s)
+			&& Objects.equals(i, 	other.i)
+			&& Objects.equals(a, 	other.a)
+			&& Objects.equals(front,other.front)
+			&& Objects.equals(side, other.side)
+			&& Objects.equals(rear, other.rear);
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(
+				name, ws, bs, s, i, a, front, side, rear);
 	}
 }
