@@ -926,12 +926,12 @@
 		"points":25,
 		"requirementNames":[
 			"characters only",
-			"cannot have terminator armour",
 			"space marine armoury points limit"
 		],
 		"effectNames":[
 			"add terminator armour",
 			"add crux terminatus",
+			"add terminator honours",
 			"improve save by one"
 		]
 	},
@@ -941,7 +941,9 @@
 		"requirementNames":[
 			"characters only",
 			"cannot have terminator armour",
+			"cannot have crux terminatus",
 			"space marine armoury points limit"
+			
 		],
 		"effectNames":[
 			"add terminator honours",

@@ -99,13 +99,11 @@ public class UnitInstance implements OptionOwner{
 	
 	public List<ModelInstance> getUniqueModels(){
 		List<ModelInstance> list = new ArrayList<>();
-		
 		for (ModelInstance model : models) {
 			if (modelTypeNotInList(model, list)) {
 				list.add(model);
 			}
 		}
-		
 		return list;
 	}
 	

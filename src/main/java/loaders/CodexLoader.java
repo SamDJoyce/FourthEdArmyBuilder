@@ -174,7 +174,7 @@ public class CodexLoader {
 	// ***** Create Methods *****
 	// **************************
 	
-	public List<WargearDescription> createWargear() throws IOException {
+	private List<WargearDescription> createWargear() throws IOException {
 
 		InputStream input =
             ResourceLoader.getResource(wargearFile);
@@ -187,7 +187,7 @@ public class CodexLoader {
         return wargearLoader.loadAll(dtos);
 	}
 	
-	public List<StatLine> createStatLines()  throws IOException{
+	private List<StatLine> createStatLines()  throws IOException{
 		InputStream input =
             ResourceLoader.getResource(statLineFile);
 		List<StatLineDTO> dtos = mapper.readValue(
@@ -196,7 +196,7 @@ public class CodexLoader {
 		return statLineLoader.loadAll(dtos);
 	}
 	
-	public List<ModelDescription> createModels() throws IOException{
+	private List<ModelDescription> createModels() throws IOException{
 		InputStream input =
             ResourceLoader.getResource(modelFile);
 		modelDtos = mapper.readValue(
@@ -205,7 +205,7 @@ public class CodexLoader {
 		return modelLoader.createAll(modelDtos);
 	}
 	
-	public List<Effect> createEffects() throws IOException {
+	private List<Effect> createEffects() throws IOException {
 		InputStream input =
             ResourceLoader.getResource(effectFile);
 		effectDtos = mapper.readValue(
@@ -214,7 +214,7 @@ public class CodexLoader {
 		return effectLoader.createAll(effectDtos);
 	}
 
-	public List<Requirement> createRequirements () throws IOException {
+	private List<Requirement> createRequirements () throws IOException {
 		InputStream input =
 	            ResourceLoader.getResource(requirementFile);
 		reqDtos = mapper.readValue(
@@ -223,7 +223,7 @@ public class CodexLoader {
 		return reqLoader.createAll(reqDtos);
 	}
 	
-	public List<OptionChoice> createOptionChoices() throws IOException {
+	private List<OptionChoice> createOptionChoices() throws IOException {
 		InputStream input =
 	            ResourceLoader.getResource(optionChoiceFile);
 		choiceDtos = mapper.readValue(
@@ -232,7 +232,7 @@ public class CodexLoader {
 		return optionChoiceLoader.createAll(choiceDtos);
 	}
 	
-	public List<OptionGroup> createOptionGroups() throws IOException {
+	private List<OptionGroup> createOptionGroups() throws IOException {
 		InputStream input =
             ResourceLoader.getResource(optionGroupFile);
 		groupDtos = mapper.readValue(
@@ -241,7 +241,7 @@ public class CodexLoader {
 		return optionGroupLoader.createAll(groupDtos);
 	}
 	
-	public List<UnitDescription> createUnits() throws IOException {
+	private List<UnitDescription> createUnits() throws IOException {
 		InputStream input =
             ResourceLoader.getResource(unitFile);
 		unitDtos = mapper.readValue(
@@ -254,28 +254,28 @@ public class CodexLoader {
 	// ***** Resolve Methods *****
 	// ***************************
 	
-	public List<ModelDescription> resolveModels(){
+	private List<ModelDescription> resolveModels(){
 		return modelLoader.resolveAllReferences(modelDtos);
 	}
 	
-	public List<Effect> resolveEffects(){
+	private List<Effect> resolveEffects(){
 		return effectLoader.resolveAllReferences(effectDtos);
 	}
 	
-	public List<Requirement> resolveRequirements(){
+	private List<Requirement> resolveRequirements(){
 		return reqLoader.resolveAllReferences(reqDtos);
 	}
 	
-	public List<OptionChoice> resolveOptionChoices() {
+	private List<OptionChoice> resolveOptionChoices() {
 		return optionChoiceLoader.resolveAllReferences(choiceDtos);
 	}
 	
 
-	public List<OptionGroup> resolveOptionGroups(){
+	private List<OptionGroup> resolveOptionGroups(){
 		return optionGroupLoader.resolveAllReferences(groupDtos);
 	}
 	
-	public List<UnitDescription> resolveUnits(){
+	private List<UnitDescription> resolveUnits(){
 		return unitLoader.resolveAllReferences(unitDtos);
 	}
 	
@@ -288,11 +288,11 @@ public class CodexLoader {
 	}
 	
 	private void clearDTOs() {
-	    modelDtos = null;
-	    effectDtos = null;
-	    reqDtos = null;
-	    choiceDtos = null;
-	    groupDtos = null;
-	    unitDtos = null;
+	    modelDtos 	= null;
+	    effectDtos 	= null;
+	    reqDtos 	= null;
+	    choiceDtos 	= null;
+	    groupDtos 	= null;
+	    unitDtos 	= null;
 	}
 }

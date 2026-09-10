@@ -13,15 +13,13 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import loaders.CodexLoader;
-import roster.Codex;
 
 public class ABMain extends Application {
     @Override
     public void start(Stage stage) {
-
-    	CodexLoader loader = new CodexLoader("/json/codex space marines");
-    	Codex codex  = loader.loadCodex();
-    	ArmyBuilder armyBuilder = new ArmyBuilder(codex);
+    	String selectedCodex = "/json/codex space marines";
+    	CodexLoader loader = new CodexLoader(selectedCodex);
+    	ArmyBuilder armyBuilder = new ArmyBuilder(loader.loadCodex());
     	
         try {
         	// *** Load Main View ***
