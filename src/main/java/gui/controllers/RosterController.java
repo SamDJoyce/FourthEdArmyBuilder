@@ -18,6 +18,8 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import roster.ValidationResult;
 import units.UnitRole;
 import units.descriptions.models.StatLine;
@@ -105,8 +107,23 @@ public class RosterController {
         ValidationResult result = armyBuilder.validateRoster();
 
         validationLabel.setText(result.getMessage());
+        
+        if (result.isValid()) {
+        	validationLabel.setTextFill(Color.GREEN);
+        } else {
+        	validationLabel.setTextFill(Color.RED);
+        }
+        
     }
 
+    private void updatePoints() {
+        pointsLabel.setText(String.format(
+        		"%s/%s", 
+        		armyBuilder.getCurrentPoints(),
+        		armyBuilder.getPointsLimit())
+        );
+    }
+    
     private void populateRole(
             UnitRole role,
             VBox panel) {
@@ -247,8 +264,8 @@ public class RosterController {
         if (row == 0) {
             addHeaders(
                 grid,
-                "", "WS", "BS", "S", "I",
-                "A", "Front", "Side", "Rear"
+                "", "WS", "BS", "S", "I","A", 
+                "Front", "Side", "Rear"
             );
             row = 1;
         }
@@ -318,9 +335,10 @@ public class RosterController {
 
         HBox unitHeader = new HBox(5);
 
-        Button unitButton = new Button(
-                change.toTitleCase(unit.getName())
-        );
+        Button unitButton = new Button(constructButtonText(
+        			unit.getName(), 
+        			unit.getTotalPoints()
+        		));
 
         unitButton.setMaxWidth(Double.MAX_VALUE);
         unitButton.getStyleClass().add("unit-button");
@@ -388,19 +406,22 @@ public class RosterController {
     	String gearText = new String();
     	
     	for (WargearInstance i : gearList) {
-
-    		if (i.equals(gearList.getLast())) {
-        		gearText += String.format(
-        				"%s", 
-        				i.getName());
-    		} else {
-        		gearText += String.format(
-        				"%s, ", 
-        				i.getName());
-    		}
+    		gearText += String.format(
+    				"- %s\n", 
+    				i.getName());
     	}
     	
     	return gearText;
+    }
+    
+    private String constructButtonText(String name, int points) {
+    	String buttonText = change.toTitleCase(String.format(
+    			"%s (%d)\n", 
+    			name,
+    			points
+    			)).trim();
+    	
+    	return buttonText;
     }
     
     private void addModel(
@@ -408,11 +429,15 @@ public class RosterController {
             VBox panel) {
 
         Button modelButton = new Button(
-                change.toTitleCase(model.getName()).trim()
-        );
+        				constructButtonText(
+        						model.getName(),
+        						model.getTotalPoints()
+        						));
         
+        Text modelText = new Text(
+        					constructGearList(model)); ///
         Label modelLabel = new Label(
-        						constructGearList(model));
+        					constructGearList(model));
 
         modelButton.setMaxWidth(Double.MAX_VALUE);
         modelButton.setMaxHeight(Double.MAX_VALUE);
@@ -458,16 +483,10 @@ public class RosterController {
                 removeButton
         );
 
-        panel.getChildren().addAll(modelRow, modelLabel);
+        panel.getChildren().addAll(modelRow, modelText);
     }
 
-    private void updatePoints() {
-        pointsLabel.setText(String.format(
-        		"%s/%s", 
-        		armyBuilder.getCurrentPoints(),
-        		armyBuilder.getPointsLimit())
-        );
-    }
+
     
     private void selectForConfig(OptionOwner owner) {
         if (selectionListener != null) {
