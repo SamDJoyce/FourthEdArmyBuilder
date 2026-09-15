@@ -16,7 +16,6 @@ import units.ModelFactory;
 import units.instances.ModelInstance;
 import units.instances.UnitInstance;
 import units.options.OptionChoice;
-import units.options.OptionChoiceFactory;
 import units.options.OptionGroup;
 import units.options.OptionOwner;
 import units.options.SelectionContext;
@@ -25,6 +24,9 @@ public class UnitConfigurationController<T> {
 
     @FXML
     private Label unitNameLabel;
+    
+    @FXML
+    private Label optionsLabel;
 
     @FXML
     private VBox optionGroupsPanel;
@@ -53,25 +55,39 @@ public class UnitConfigurationController<T> {
         }
         
         unitNameLabel.setText(change.toTitleCase(
-                owner.getName())
-        );
+                owner.getName()));
 
        populateGroups();
        rosterRefresh.run();
     }
     
+    private String createOptionsLabel(OptionOwner owner) {
+        if (owner.isUnit()) {
+        	return "Unit Options";
+        } else {
+        	return"Model Options";
+        }
+    }
+    
+    private void addModelCountControl(UnitInstance unit) {
+    	if (unit.getDescription().getModelToAdd() 
+    			!= null
+    	&&  unit.getDescription().getMinSize() 
+    			!= unit.getDescription().getMaxSize()) {
+    		addModelCountSpinner(unit);
+    	}
+    }
+    
+    
     private void populateGroups() {
         optionGroupsPanel.getChildren().clear();
+        // Add a title
+        optionsLabel.setText(createOptionsLabel(owner));
+        optionGroupsPanel.getChildren().add(optionsLabel);
         
-        // Add model count control
+        // Add model count control if owner is a unit
         if (owner.isUnit()){
-        	UnitInstance unit = (UnitInstance) owner;
-        	if (unit.getDescription().getModelToAdd() 
-        			!= null
-        	&&  unit.getDescription().getMinSize() 
-        			!= unit.getDescription().getMaxSize()) {
-        		addModelCountSpinner(unit);
-        	}
+        	addModelCountControl((UnitInstance) owner);
         }
         
         ArrayList<OptionGroup> orderedGroups = new ArrayList<>(owner.getOptions());
@@ -133,10 +149,9 @@ public class UnitConfigurationController<T> {
 
         Label label = new Label("Models");
 
-        int currentCount = unit.getModels().size();
-
-        int minCount = unit.getDescription().getMinSize();
-        int maxCount = unit.getDescription().getMaxSize();
+        int currentCount = unit.getCurrentSize();
+        int minCount 	 = unit.getMinSize();
+        int maxCount 	 = unit.getMaxSize();
         
 
         SpinnerValueFactory.IntegerSpinnerValueFactory valueFactory =

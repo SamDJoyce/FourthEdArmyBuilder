@@ -36,7 +36,10 @@
                     fitToHeight="true">
 
             <content>
-
+				<Label fx:id="optionsLabel"
+					   text=""
+					   style="-fx-font-size: 14px; -fx-font-weight: bold;"
+				/>
                 <VBox fx:id="optionGroupsPanel"
                       spacing="10.0">
 

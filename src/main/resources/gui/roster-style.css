@@ -8,6 +8,9 @@
 .model-button {
     -fx-font-weight: normal;
     -fx-font-size: 12px;
-    -fx-padding: 3 3 3 20;
+    -fx-padding: 3 5 3 5;
     -fx-alignment: CENTER_LEFT;
+}
+.col-header, .row-header {
+	-fx-font-weight: bold;
 }

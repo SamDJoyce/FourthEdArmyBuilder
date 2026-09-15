@@ -293,7 +293,7 @@ public class RosterController {
 
             Label label = new Label(headers[column]);
 
-            label.getStyleClass().add("stat-header");
+            label.getStyleClass().add("col-header");
 
             grid.add(label, column, 0);
 
@@ -314,9 +314,11 @@ public class RosterController {
             Label label = new Label(
                 String.valueOf(values[column])
             );
-
-            label.getStyleClass().add("stat-cell");
-
+            if (column == 0) {
+            	label.getStyleClass().add("row-header");
+        	} else {
+        		label.getStyleClass().add("stat-cell");
+        	}
             grid.add(label, column, row);
 
             if (column > 0) {
@@ -416,7 +418,7 @@ public class RosterController {
     
     private String constructButtonText(String name, int points) {
     	String buttonText = change.toTitleCase(String.format(
-    			"%s (%d)\n", 
+    			"%s (%d)", 
     			name,
     			points
     			)).trim();
@@ -435,8 +437,6 @@ public class RosterController {
         						));
         
         Text modelText = new Text(
-        					constructGearList(model)); ///
-        Label modelLabel = new Label(
         					constructGearList(model));
 
         modelButton.setMaxWidth(Double.MAX_VALUE);
@@ -447,13 +447,6 @@ public class RosterController {
         removeButton.setMaxWidth(30);
 
         modelButton.setOnAction(event -> {
-//            System.out.println(String.format(
-//                    "Selected model: %s\n  -id: %s\n  -types:%s",
-//                    change.toTitleCase(model.getName()),
-//                    model.getId(),
-//                    model.getTypes()
-//            ));
-
             selectForConfig(model);
         });
 
