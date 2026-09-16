@@ -1,11 +1,15 @@
 package forceOrg;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import dto.ForceOrgChartDTO;
 import units.UnitRole;
 
 public class OrgChartFactory {
+	private static Map<String,ForceOrgChart> registry = new HashMap<>();
+	
 	// Standard
 		public static ForceOrgChart createStandard() {
 			String name = "Standard";
@@ -43,10 +47,25 @@ public class OrgChartFactory {
 		public static ForceOrgChart create(
 				String name,
 				Map<UnitRole, ForceOrgLimit> limits) {
-			return new ForceOrgChart(name, limits);
+			
+			return registry.computeIfAbsent(name, 
+					key -> new ForceOrgChart(
+									name,
+									limits));
+		}
+		
+		
+		public static ForceOrgChart get(String name) {
+			return registry.get(name);
 		}
 		
 		public static ForceOrgChart createEmpty() {
 			return new ForceOrgChart("New Chart", new HashMap<>());
 		}
+		
+		public static void clearRegistry() {
+			registry.clear();
+		}
+		
+		
 }

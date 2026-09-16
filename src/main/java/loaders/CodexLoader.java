@@ -10,6 +10,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import dto.EffectDTO;
+import dto.ForceOrgChartDTO;
 import dto.ModelDTO;
 import dto.OptionChoiceDTO;
 import dto.OptionGroupDTO;
@@ -17,6 +18,8 @@ import dto.RequirementDTO;
 import dto.StatLineDTO;
 import dto.UnitDTO;
 import dto.WargearDTO;
+import forceOrg.ForceOrgChart;
+import forceOrg.OrgChartFactory;
 import roster.Codex;
 import units.ModelFactory;
 import units.UnitFactory;
@@ -56,12 +59,12 @@ public class CodexLoader {
 	private final String optionGroupFile;
 	private final String unitFile;
 	
-	private List<ModelDTO> 	      modelDtos;
-	private List<EffectDTO> 	  effectDtos;
-	private List<RequirementDTO>  reqDtos;
-	private List<OptionChoiceDTO> choiceDtos;
-	private List<OptionGroupDTO>  groupDtos;
-	private List<UnitDTO> 		  unitDtos;
+	private List<ModelDTO> 	       modelDtos;
+	private List<EffectDTO> 	   effectDtos;
+	private List<RequirementDTO>   reqDtos;
+	private List<OptionChoiceDTO>  choiceDtos;
+	private List<OptionGroupDTO>   groupDtos;
+	private List<UnitDTO> 		   unitDtos;
 	
 	public CodexLoader(String codexResourcePath) {
 		wargearLoader 	   = LoaderFactory.forWargear();
@@ -124,6 +127,7 @@ public class CodexLoader {
 				new HashMap<String, UnitDescription>(UnitFactory.getRegistry());
 		Map<String, WargearDescription> gear = 
 				new HashMap<String, WargearDescription>(WargearFactory.getRegistry());
+		
 		clearRegistries();
 		clearDTOs();
 		return new Codex(
@@ -168,6 +172,7 @@ public class CodexLoader {
 		OptionGroupFactory.clearRegistry();
 		ModelFactory.clearRegistry();
 		UnitFactory.clearRegistry();
+		OrgChartFactory.clearRegistry();
 	}
 	
 	// **************************
@@ -249,6 +254,16 @@ public class CodexLoader {
 				new TypeReference<List<UnitDTO>>() {});
 		return unitLoader.createAll(unitDtos);
 	}
+//	
+//	private List<ForceOrgChart> createOrgCharts() throws IOException {
+//		InputStream input = 
+//				ResourceLoader.getResource(orgChartFile);
+//		orgChartDtos = mapper.readValue(
+//				input, 
+//				new TypeReference<List<ForceOrgChartDTO>>() {});
+//		return orgChartLoader.loadAll(orgChartDtos);
+//		
+//	}
 	
 	// ***************************
 	// ***** Resolve Methods *****

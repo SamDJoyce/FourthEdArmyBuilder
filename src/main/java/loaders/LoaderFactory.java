@@ -33,4 +33,8 @@ public class LoaderFactory {
 	public static OptionGroupLoader forOptionGroups() {
 		return new OptionGroupLoader();
 	}
+	
+	public static ForceOrgChartLoader forOrgChart() {
+		return new ForceOrgChartLoader();
+	}
 }
