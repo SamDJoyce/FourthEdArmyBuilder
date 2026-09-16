@@ -1,0 +1,38 @@
+[
+	{
+		"type":"infantry",
+		"name":"tactical marine",
+		"ws":4,
+		"bs":4,
+		"s":4,
+		"t":4,
+		"w":1,
+		"i":4,
+		"a":1,
+		"ld":8,
+		"sv":3
+	},
+	
+	{
+		"type":"walker",
+		"name":"dreadnought",
+		"ws":4,
+		"bs":4,
+		"s":10,
+		"i":4,
+		"a":2,
+		"front":12,
+		"side":12,
+		"rear":10
+	},
+
+	{
+		"type":"vehicle",
+		"name":"vindicator",
+		"bs":4,
+		"front":13,
+		"side":11,
+		"rear":10
+	}
+	
+]

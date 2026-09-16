@@ -1,0 +1,32 @@
+[
+	{
+		"name":"chaos lord",
+		"minSize":1,
+		"maxSize":1,
+		"role":"HQ",
+		"modelNames":[
+			"chaos lord"
+		],
+		"optionGroupNames":[
+		],
+		"modelToAddName":""
+	},
+	
+	{
+		"name":"Chaos Space Marine Squad",
+		"minSize":5,
+		"maxSize":20,
+		"role":"TROOPS",
+		"modelNames":[
+			"chaos marine",
+			"chaos marine",
+			"chaos marine",
+			"chaos marine",
+			"chaos marine"
+		],
+		"optionGroupNames":[
+			"upgrade to aspiring champion group"
+		],
+		"modelToAddName":"chaos marine"
+	}
+]

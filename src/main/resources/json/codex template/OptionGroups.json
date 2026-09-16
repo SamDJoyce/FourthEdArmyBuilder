@@ -1,0 +1,13 @@
+[
+	{
+		"name":"add tactical marine group",
+		"choiceNames":[
+			"select add tactical marine"
+		],
+		"requirementNames":[
+			""
+		],
+		"minSelections":0,
+		"maxSelections":5
+	}
+]

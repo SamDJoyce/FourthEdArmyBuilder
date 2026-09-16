@@ -1,0 +1,13 @@
+[
+	{
+		"name":"upgrade to aspiring champion group",
+		"choiceNames":[
+			""
+		],
+		"requirementNames":[
+			""
+		],
+		"minSelections":0,
+		"maxSelections":1
+	}
+]

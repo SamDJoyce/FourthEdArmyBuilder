@@ -1,0 +1,14 @@
+[
+	{
+		"name":"captain",
+		"minSize":1,
+		"maxSize":1,
+		"role":"HQ",
+		"modelNames":[
+			"captain"
+		],
+		"optionGroupNames":[
+		],
+		"modelToAddName":""
+	}
+]

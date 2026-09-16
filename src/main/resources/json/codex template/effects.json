@@ -1,0 +1,70 @@
+[
+	
+	{
+		"type":"replace_wargear",
+		"name":"replace bolter with plasma",
+		"remove":"bolter",
+		"add":"plasma gun"
+	},
+	
+	
+	{
+		"type":"add_wargear",
+		"name":"add plasma gun",
+		"gearName":"plasma gun"
+	},
+	
+	{
+		"type":"remove_wargear",
+		"name":"remove ccw",
+		"remove":"close combat weapon"
+	},
+	
+	
+	{
+		"type":"modify_stat",
+		"name":"increase ws by one",
+		"stat":"ws",
+		"modifier": 1
+	},
+	
+	
+	
+	{
+		"type":"change_model_name",
+		"effectName":"change to master",
+		"newName":"Master"
+	},
+	
+	
+	
+	
+	
+	
+	{
+		"type":"add_gear_to_squad",
+		"name":"add frag grenades to squad",
+		"gearName":"frag grenades",
+		"pointsPerModel":1
+	},
+	{
+		"type":"add_gear_to_squad",
+		"name":"add krak grenades to squad",
+		"gearName":"krak grenades",
+		"pointsPerModel":2
+	},
+	
+	
+	
+	{
+		"type":"add_model",
+		"name":"add tactical marine to squad",
+		"modelName":"tactical marine"
+	},
+
+	{
+		"type":"add_wargear",
+		"name":"upgrade to gun servitor",
+		"gearName":"gun servitor"
+	}
+]

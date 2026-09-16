@@ -1,0 +1,69 @@
+[
+	{
+	  	"name":"close combat weapon",
+	  	"type":"ONE HANDED"
+	},
+	{
+	  	"name":"power weapon",
+	  	"type":"ONE HANDED"
+	},
+	
+	{
+	  	"name":"bolt pistol",
+	  	"type":"ONE HANDED"
+	},
+	
+	
+	{
+	  	"name":"bolter",
+	  	"type":"TWO HANDED"
+	},
+	{
+	  	"name":"heavy bolter",
+	  	"type":"TWO HANDED"
+	},
+	{
+	  	"name":"flamer",
+	  	"type":"TWO HANDED"
+	},
+	{
+	  	"name":"heavy flamer",
+	  	"type":"TWO HANDED"
+	},
+	{
+	  	"name":"plasma gun",
+	  	"type":"TWO HANDED"
+	},
+	{
+	  	"name":"melta gun",
+	  	"type":"TWO HANDED"
+	},
+	{
+	  	"name":"lascannon",
+	  	"type":"TWO HANDED"
+	},
+	{
+	  	"name":"missile launcher",
+	  	"type":"TWO HANDED"
+	},
+	
+	
+	{
+	  	"name":"power armour",
+	  	"type":"GEAR"
+	},
+	{
+	  	"name":"terminator armour",
+	  	"type":"GEAR"
+	},
+	
+	
+	{
+	  	"name":"frag grenades",
+	  	"type":"GEAR"
+	},
+	{
+	  	"name":"krak grenades",
+	  	"type":"GEAR"
+	}
+]

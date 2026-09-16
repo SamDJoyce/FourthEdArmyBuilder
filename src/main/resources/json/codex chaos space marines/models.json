@@ -1,0 +1,36 @@
+[
+	{
+		"name":"chaos lord",
+		"basePoints":60,
+		"statlineName":"chaos lord",
+		"typeNames":[
+			"INFANTRY",
+			"CHARACTER"
+		],
+		"optionGroupNames":[
+			""
+			],
+		"wargearNames":[
+			"power armour",
+			"bolt pistol",
+			"close combat weapon"
+		]
+	},
+	
+	{
+		"name":"chaos marine",
+		"basePoints":14,
+		"statlineName":"chaos marine",
+		"typeNames":[
+			"INFANTRY"
+		],
+		"optionGroupNames":[
+			""
+			],
+		"wargearNames":[
+			"power armour",
+			"bolter",
+			"close combat weapon"
+		]
+	}
+]

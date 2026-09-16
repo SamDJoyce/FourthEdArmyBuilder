@@ -1,0 +1,62 @@
+[
+	{
+		"type":"characters_only",
+		"name":"characters only"
+	},
+	{
+		"type":"must_have_type",
+		"name":"must be vehicle",
+		"requiredType":"VEHICLE"
+	},
+
+	{
+		"type":"must_start_with_gear",
+		"name":"must start with bolter",
+		"requiredGearName":"bolter"
+	},
+
+	{
+		"type":"must_have_gear",
+		"name":"must be epistolary",
+		"requiredGearName":"upgrade to epistolary"
+	},
+	
+	{
+		"type":"cannot_have_gear",
+		"name":"must be librarian",
+		"blockingGearName":"upgrade to epistolary"
+	},
+	
+	
+	{
+		"type":"mutual_exclusion",
+		"name":"exclusive of special weapons tactical squad",
+		"excludedGroupName":"special weapons group tactical squad"
+	},
+	
+	
+	{
+		"type":"armoury_weapon_limit",
+		"name":"space marine armoury weapons limit"
+	},
+	{
+		"type":"armoury_points_limit",
+		"name":"space marine armoury points limit",
+		"limit":100
+	},
+	{
+		"type":"max_selection",
+		"name":"one selection per squad",
+		"maxSelection":1
+	},
+	{
+		"type":"max_selection",
+		"name":"two selections per squad",
+		"maxSelection":2
+	},
+	{
+		"type":"max_selection",
+		"name":"four selections per squad",
+		"maxSelection":4
+	}
+]

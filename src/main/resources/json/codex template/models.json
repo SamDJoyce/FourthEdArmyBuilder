@@ -1,0 +1,18 @@
+[
+	{
+		"name":"captain",
+		"basePoints":60,
+		"statlineName":"character",
+		"typeNames":[
+			"INFANTRY",
+			"CHARACTER"
+		],
+		"optionGroupNames":[
+			"armoury group mw",
+			"upgrade to master group"
+			],
+		"wargearNames":[
+			"power armour"
+		]
+	}
+]
