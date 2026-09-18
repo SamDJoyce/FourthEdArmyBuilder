@@ -2,6 +2,7 @@ package builder;
 
 import java.util.List;
 
+import forceOrg.ForceOrgChart;
 import roster.Codex;
 import roster.Roster;
 import roster.ValidationResult;
@@ -21,12 +22,30 @@ import units.options.requirements.Requirement;
 
 public class ArmyBuilder {
 
-    private final Codex codex;
+	private 	  String name;
+    private final Codex  codex;
     private final Roster roster;
 
-    public ArmyBuilder(Codex codex) {
+    public ArmyBuilder(
+    		String name,
+    		Codex codex,
+    		ForceOrgChart chart,
+    		int pointsLimit ){
+    	this.name = name;
         this.codex = codex;
-        this.roster = Roster.createEmpty();
+        this.roster = Roster.create(
+        						name,
+        						chart,
+        						pointsLimit);
+    }
+    
+    public String getName() {
+    	return this.name;
+    }
+    
+    public void setName(String name) {
+    	this.name = name;
+    	this.roster.setName(name);
     }
 
     public Codex getCodex() {
@@ -77,6 +96,10 @@ public class ArmyBuilder {
     		OptionOwner owner, 
 			OptionChoice choice) {
     	return roster.removeOption(owner, choice);
+    }
+    
+    public void setPointsLimit(int pointsLimit) {
+    	roster.setPointsLimit(pointsLimit);
     }
     
     public int getPointsLimit() {

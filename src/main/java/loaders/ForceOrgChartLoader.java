@@ -1,9 +1,14 @@
 package loaders;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import dto.ForceOrgChartDTO;
 import forceOrg.ForceOrgChart;
@@ -14,24 +19,24 @@ import units.UnitRole;
 public class ForceOrgChartLoader {
 	public ForceOrgChartLoader() {}
 	
-	public List<ForceOrgChart> loadAll(List<ForceOrgChartDTO> dtos){
+	public List<ForceOrgChart> createAll(List<ForceOrgChartDTO> dtos){
 		List<ForceOrgChart> charts = new ArrayList<>();
 		
 		for (ForceOrgChartDTO dto : dtos) {
-			charts.add(load(dto));
+			charts.add(create(dto));
 		}
 		
 		return charts;
 	}
 	
-	public ForceOrgChart load(ForceOrgChartDTO dto) {
+	public ForceOrgChart create(ForceOrgChartDTO dto) {
 
 		return OrgChartFactory.create(
 								dto.getName(),
-								loadLimits(dto));
+								createLimits(dto));
 	}
 	
-	public Map<UnitRole, ForceOrgLimit> loadLimits(ForceOrgChartDTO dto){
+	public Map<UnitRole, ForceOrgLimit> createLimits(ForceOrgChartDTO dto){
 		Map<UnitRole, ForceOrgLimit> limits = new HashMap<>();
 		
 		limits.put(UnitRole.HQ, ForceOrgLimit.forHQ(
@@ -56,5 +61,17 @@ public class ForceOrgChartLoader {
 		));
 		
 		return limits;
+	}
+	
+	public List<ForceOrgChart> load(String orgChartFile) throws IOException{
+		ObjectMapper mapper = new ObjectMapper();
+		
+		InputStream input =
+	            ResourceLoader.getResource(orgChartFile);
+		List<ForceOrgChartDTO> dtos = mapper.readValue(
+				input, 
+				new TypeReference<List<ForceOrgChartDTO>>() {}
+				);
+		return createAll(dtos);
 	}
 }

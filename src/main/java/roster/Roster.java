@@ -21,7 +21,7 @@ public class Roster {
 	private int 				pointsLimit;
 	private RosterValidator 	validator;
 	
-	public Roster(
+	private Roster(
 			String name,
 			ForceOrgChart chart,
 			List<UnitInstance> units,
@@ -35,6 +35,16 @@ public class Roster {
 		this.validator   = RosterValidator.create();
 	}
 	
+	private Roster (
+			String name,
+			ForceOrgChart chart,
+			int pointsLimit) {
+		this.name  = name;
+		this.chart = chart;
+		this.pointsLimit = pointsLimit;
+		this.units = new ArrayList<>();
+	}
+	
 	public Roster() {
 		this.name = "New Roster";
 		this.chart = OrgChartFactory.createStandard();
@@ -42,6 +52,8 @@ public class Roster {
 		this.pointsLimit = 1000;
 		this.validator   = RosterValidator.create();
 	}
+	
+	
 	
 	public String getName() {
 		return name;
@@ -211,6 +223,13 @@ public class Roster {
 			List<UnitInstance> units,
 			int pointsLimit) {
 		return new Roster(name, chart, units, pointsLimit);
+	}
+	
+	public static Roster create (
+			String name,
+			ForceOrgChart chart,
+			int pointsLimit) {
+		return new Roster(name, chart, pointsLimit);
 	}
 	
 	public static Roster createEmpty() {

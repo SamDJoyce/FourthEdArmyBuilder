@@ -1,8 +1,11 @@
 package gui;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import builder.ArmyBuilder;
+import forceOrg.ForceOrgChart;
 import gui.controllers.RosterController;
 import gui.controllers.UnitConfigurationController;
 import gui.controllers.UnitSelectionController;
@@ -13,15 +16,36 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import loaders.CodexLoader;
+import loaders.ForceOrgChartLoader;
+import loaders.LoaderFactory;
 
 public class ABMain extends Application {
+	
+
+	
     @Override
     public void start(Stage stage) {
+    	ForceOrgChartLoader chartLoader = LoaderFactory.forOrgChart();
+    	List<ForceOrgChart> charts = new ArrayList<>();
+    	ForceOrgChart chart = null;
+    	String name = "";
+    	int pointsLimit = 1000;
+    	
+    	// TODO Create a splash window to enter Name, Points,
+    	// 		select Codex, Org Chart
     	String selectedCodex = "/json/codex space marines";
     	CodexLoader loader = new CodexLoader(selectedCodex);
-    	ArmyBuilder armyBuilder = new ArmyBuilder(loader.loadCodex());
+    	
+    	ArmyBuilder armyBuilder = new ArmyBuilder(
+    									name,
+    									loader.loadCodex(),
+    									chart,
+    									pointsLimit);
     	
         try {
+        	// Load Charts
+        	charts = chartLoader.load("/json/forceOrgCharts.json");
+        	
         	// *** Load Main View ***
             FXMLLoader mainLoader = new FXMLLoader(
                     getClass().getResource("/gui/MainView.fxml")
