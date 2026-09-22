@@ -54,6 +54,9 @@ public class RosterController {
     
     @FXML
     private Label validationLabel;
+    
+    @FXML
+    private Label rosterLabel;
 
     private ArmyBuilder armyBuilder;
     
@@ -79,6 +82,7 @@ public class RosterController {
 
     public void setArmyBuilder(ArmyBuilder armyBuilder) {
         this.armyBuilder = armyBuilder;
+        this.rosterLabel.setText(armyBuilder.getName());
         refresh();
     }
 

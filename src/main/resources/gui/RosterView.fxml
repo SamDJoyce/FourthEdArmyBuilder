@@ -19,7 +19,8 @@
                 <Insets top="10" right="10" bottom="10" left="10"/>
             </padding>
 
-            <Label text="Current Roster"
+            <Label fx:id="rosterLabel"
+            	   text="Current Roster"
                    style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
 
 			<Label 	fx:id="validationLabel"

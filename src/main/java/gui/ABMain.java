@@ -1,12 +1,13 @@
 package gui;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import builder.ArmyBuilder;
 import forceOrg.ForceOrgChart;
 import gui.controllers.RosterController;
+import gui.controllers.RosterSetup;
+import gui.controllers.RosterSetupController;
 import gui.controllers.UnitConfigurationController;
 import gui.controllers.UnitSelectionController;
 import javafx.application.Application;
@@ -14,6 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import loaders.CodexLoader;
 import loaders.ForceOrgChartLoader;
@@ -23,66 +25,115 @@ public class ABMain extends Application {
 	
 
 	
-    @Override
-    public void start(Stage stage) {
-    	ForceOrgChartLoader chartLoader = LoaderFactory.forOrgChart();
-    	List<ForceOrgChart> charts = new ArrayList<>();
-    	ForceOrgChart chart = null;
-    	String name = "";
-    	int pointsLimit = 1000;
-    	
-    	// TODO Create a splash window to enter Name, Points,
-    	// 		select Codex, Org Chart
-    	String selectedCodex = "/json/codex space marines";
-    	CodexLoader loader = new CodexLoader(selectedCodex);
-    	
-    	ArmyBuilder armyBuilder = new ArmyBuilder(
-    									name,
-    									loader.loadCodex(),
-    									chart,
-    									pointsLimit);
-    	
+	@Override
+	public void start(Stage stage) {
+
+	    ForceOrgChartLoader chartLoader =
+	            LoaderFactory.forOrgChart();
+
+	    CodexLoader loader =
+	            new CodexLoader("/json/codex space marines");
+
+	    try {
+	        List<ForceOrgChart> charts =
+	                chartLoader.load("/json/forceOrgCharts.json");
+
+	        FXMLLoader setupLoader =
+	                new FXMLLoader(
+	                    getClass().getResource(
+	                        "/gui/RosterSetupView.fxml"
+	                    )
+	                );
+
+	        VBox setupRoot = setupLoader.load();
+
+	        RosterSetupController setupController =
+	                setupLoader.getController();
+
+	        setupController.setForceOrgCharts(charts);
+
+	        setupController.setOnCreate(
+	                setup -> createRoster(
+	                    stage,
+	                    setup,
+	                    loader
+	                )
+	        );
+
+	        Scene scene = new Scene(
+	                setupRoot,
+	                500,
+	                400
+	        );
+
+	        stage.setTitle("Fourth Ed Army Builder");
+	        stage.setScene(scene);
+	        stage.show();
+
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+	}
+
+    private void createRoster(
+            Stage stage,
+            RosterSetup setup,
+            CodexLoader loader) {
+
         try {
-        	// Load Charts
-        	charts = chartLoader.load("/json/forceOrgCharts.json");
-        	
-        	// *** Load Main View ***
-            FXMLLoader mainLoader = new FXMLLoader(
-                    getClass().getResource("/gui/MainView.fxml")
-            );
+
+            ArmyBuilder armyBuilder =
+                    new ArmyBuilder(
+                        setup.name(),
+                        loader.loadCodex(),
+                        setup.forceOrgChart(),
+                        setup.pointsLimit()
+                    );
+
+            // Load Main View
+            FXMLLoader mainLoader =
+                    new FXMLLoader(
+                        getClass().getResource(
+                            "/gui/MainView.fxml"
+                        )
+                    );
 
             BorderPane root = mainLoader.load();
 
-            // *** Load UnitSelectionView ***
+            // Load Unit Selection View
             FXMLLoader unitSelectionLoader =
                     new FXMLLoader(
-                            getClass().getResource(
-                                    "/gui/UnitSelectionView.fxml"
-                            )
+                        getClass().getResource(
+                            "/gui/UnitSelectionView.fxml"
+                        )
                     );
+
             Node unitSelectionView =
                     unitSelectionLoader.load();
+
             UnitSelectionController unitSelectionController =
-            		unitSelectionLoader.getController();
-            
-            // *** Load the Roster View ***
+                    unitSelectionLoader.getController();
+
+            // Load Roster View
             FXMLLoader rosterLoader =
                     new FXMLLoader(
-                            getClass().getResource(
-                                    "/gui/RosterView.fxml"));
+                        getClass().getResource(
+                            "/gui/RosterView.fxml"
+                        )
+                    );
 
             Node rosterView =
                     rosterLoader.load();
 
             RosterController rosterController =
                     rosterLoader.getController();
-            
-            // *** Load the Unit Configuration View ***
+
+            // Load Unit Configuration View
             FXMLLoader configurationLoader =
                     new FXMLLoader(
-                            getClass().getResource(
-                                    "/gui/UnitConfigurationView.fxml"
-                            )
+                        getClass().getResource(
+                            "/gui/UnitConfigurationView.fxml"
+                        )
                     );
 
             Node unitConfigurationView =
@@ -91,33 +142,45 @@ public class ABMain extends Application {
             UnitConfigurationController
                     unitConfigurationController =
                         configurationLoader.getController();
-            
 
-            // *** Give all controllers the same Army Builder ***
+            // Give controllers the ArmyBuilder
             unitSelectionController.setArmyBuilder(
-                    armyBuilder);
+                    armyBuilder
+            );
+
             rosterController.setArmyBuilder(
-                    armyBuilder);
+                    armyBuilder
+            );
+
             unitConfigurationController.setArmyBuilder(
-                    armyBuilder);
-            
-            // *** Connect listeners ***
+                    armyBuilder
+            );
+
+            // Connect listeners
             rosterController.setUnitSelectionListener(
-            		unitConfigurationController::setOwner);
+                    unitConfigurationController::setOwner
+            );
+
             unitConfigurationController.setRosterRefresh(
-            		rosterController::refresh);
+                    rosterController::refresh
+            );
+
             unitSelectionController.setRosterRefresh(
-            	    rosterController::refresh);
-            
-            // *** Put the views into the main layout ***
+                    rosterController::refresh
+            );
+
+            // Put views into main layout
             root.setLeft(unitSelectionView);
             root.setCenter(rosterView);
             root.setRight(unitConfigurationView);
-            
-            // *** Create and display the window ***
-            Scene scene = new Scene(root, 1000, 700);
 
-            stage.setTitle("Fourth Ed Army Builder");
+            Scene scene =
+                    new Scene(root, 1000, 700);
+
+            stage.setTitle(
+                    setup.name() + " - Fourth Ed Army Builder"
+            );
+
             stage.setScene(scene);
             stage.show();
 
@@ -126,7 +189,7 @@ public class ABMain extends Application {
         }
     }
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
         launch(args);
     }
 }

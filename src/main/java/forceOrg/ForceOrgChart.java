@@ -50,6 +50,10 @@ public class ForceOrgChart {
 		return limits.get(role).getMin();
 	}
 	
+	@Override
+	public String toString() {
+		return name;
+	}
 	
 	
 }

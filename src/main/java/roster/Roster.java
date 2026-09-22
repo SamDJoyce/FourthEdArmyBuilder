@@ -43,6 +43,7 @@ public class Roster {
 		this.chart = chart;
 		this.pointsLimit = pointsLimit;
 		this.units = new ArrayList<>();
+		this.validator   = RosterValidator.create();
 	}
 	
 	public Roster() {

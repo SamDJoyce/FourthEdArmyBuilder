@@ -23,6 +23,22 @@
 		"troops":[2,6],
 		"fastAttack":[0,1],
 		"heavySupport":[0,3]
+	},
+	{
+		"name":"hit and fade attacker",
+		"hq":[1,2],
+		"elites":[2,6],
+		"troops":[0,2],
+		"fastAttack":[1,2],
+		"heavySupport":[0,0]
+	},
+	{
+		"name":"hit and fade defender",
+		"hq":[1,1],
+		"elites":[0,1],
+		"troops":[3,9],
+		"fastAttack":[0,0],
+		"heavySupport":[0,3]
 	}
 
 ]

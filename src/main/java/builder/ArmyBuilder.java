@@ -22,7 +22,7 @@ import units.options.requirements.Requirement;
 
 public class ArmyBuilder {
 
-	private 	  String name;
+	//private 	  String name;
     private final Codex  codex;
     private final Roster roster;
 
@@ -31,7 +31,6 @@ public class ArmyBuilder {
     		Codex codex,
     		ForceOrgChart chart,
     		int pointsLimit ){
-    	this.name = name;
         this.codex = codex;
         this.roster = Roster.create(
         						name,
@@ -40,11 +39,10 @@ public class ArmyBuilder {
     }
     
     public String getName() {
-    	return this.name;
+    	return roster.getName();
     }
     
     public void setName(String name) {
-    	this.name = name;
     	this.roster.setName(name);
     }
 
