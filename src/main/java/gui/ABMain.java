@@ -20,6 +20,7 @@ import javafx.stage.Stage;
 import loaders.CodexLoader;
 import loaders.ForceOrgChartLoader;
 import loaders.LoaderFactory;
+import roster.Codex;
 
 public class ABMain extends Application {
 	
@@ -31,13 +32,16 @@ public class ABMain extends Application {
 	    ForceOrgChartLoader chartLoader =
 	            LoaderFactory.forOrgChart();
 
-	    CodexLoader loader =
-	            new CodexLoader("/json/codex space marines");
+	    CodexLoader codexLoader =
+	            LoaderFactory.forCodex();
 
 	    try {
 	        List<ForceOrgChart> charts =
 	                chartLoader.load("/json/forceOrgCharts.json");
 
+	        List<Codex> codexes = 
+	        		codexLoader.loadAvailableCodexes();
+	        
 	        FXMLLoader setupLoader =
 	                new FXMLLoader(
 	                    getClass().getResource(
@@ -51,12 +55,13 @@ public class ABMain extends Application {
 	                setupLoader.getController();
 
 	        setupController.setForceOrgCharts(charts);
+	        setupController.setCodexes(codexes);
 
 	        setupController.setOnCreate(
 	                setup -> createRoster(
 	                    stage,
 	                    setup,
-	                    loader
+	                    codexLoader
 	                )
 	        );
 

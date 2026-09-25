@@ -189,5 +189,10 @@ public class Codex {
 	public void setModels(Map<String, ModelDescription> models) {
 		this.models = models;
 	}
+	
+	@Override
+	public String toString() {
+		return this.name;
+	}
 
 }

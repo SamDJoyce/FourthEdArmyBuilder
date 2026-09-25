@@ -37,4 +37,8 @@ public class LoaderFactory {
 	public static ForceOrgChartLoader forOrgChart() {
 		return new ForceOrgChartLoader();
 	}
+	
+	public static CodexLoader forCodex() {
+		return new CodexLoader();
+	}
 }

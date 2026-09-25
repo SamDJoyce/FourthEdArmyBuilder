@@ -42,13 +42,21 @@
                  GridPane.columnIndex="1"
                  GridPane.rowIndex="1"/>
 
+		<Label text="Codex:"
+		       GridPane.columnIndex="0"
+		       GridPane.rowIndex="2"/>
+		
+		<ComboBox fx:id="codexComboBox"
+		          GridPane.columnIndex="1"
+		          GridPane.rowIndex="2"/>
+
         <Label text="Force Organization:"
                GridPane.columnIndex="0"
-               GridPane.rowIndex="2"/>
+               GridPane.rowIndex="3"/>
 
         <ComboBox fx:id="forceOrgComboBox"
                   GridPane.columnIndex="1"
-                  GridPane.rowIndex="2"/>
+                  GridPane.rowIndex="3"/>
 
     </GridPane>
 

@@ -2,6 +2,7 @@ package loaders;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,7 +11,6 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import dto.EffectDTO;
-import dto.ForceOrgChartDTO;
 import dto.ModelDTO;
 import dto.OptionChoiceDTO;
 import dto.OptionGroupDTO;
@@ -18,9 +18,9 @@ import dto.RequirementDTO;
 import dto.StatLineDTO;
 import dto.UnitDTO;
 import dto.WargearDTO;
-import forceOrg.ForceOrgChart;
 import forceOrg.OrgChartFactory;
 import roster.Codex;
+import roster.CodexInfo;
 import units.ModelFactory;
 import units.UnitFactory;
 import units.WargearFactory;
@@ -49,15 +49,15 @@ public class CodexLoader {
 	private final OptionChoiceLoader optionChoiceLoader;
 	private final ObjectMapper 		 mapper;
 	
-	private final String codexResourcePath;
-	private final String wargearFile;
-	private final String statLineFile;
-	private final String modelFile;
-	private final String effectFile;
-	private final String requirementFile;
-	private final String optionChoiceFile;
-	private final String optionGroupFile;
-	private final String unitFile;
+	private String codexResourcePath;
+	private String wargearFile;
+	private String statLineFile;
+	private String modelFile;
+	private String effectFile;
+	private String requirementFile;
+	private String optionChoiceFile;
+	private String optionGroupFile;
+	private String unitFile;
 	
 	private List<ModelDTO> 	       modelDtos;
 	private List<EffectDTO> 	   effectDtos;
@@ -88,14 +88,87 @@ public class CodexLoader {
 		unitFile		  = resource("units.json");
 	}
 	
+	public CodexLoader() {
+		wargearLoader 	   = LoaderFactory.forWargear();
+		statLineLoader 	   = LoaderFactory.forStats();
+		modelLoader 	   = LoaderFactory.forModels();
+		unitLoader 		   = LoaderFactory.forUnits();
+		reqLoader 		   = LoaderFactory.forReqs();
+		effectLoader 	   = LoaderFactory.forEffects();
+		optionGroupLoader  = LoaderFactory.forOptionGroups();
+		optionChoiceLoader = LoaderFactory.forChoices();
+		mapper 			   = new ObjectMapper();
+	}
+	
+	private void setupResourcePaths(String resourcePath) {
+		this.codexResourcePath = resourcePath;
+		wargearFile  	  = resource("wargear.json");
+		statLineFile 	  = resource("statlines.json");
+		modelFile 	  	  = resource("models.json");
+		effectFile   	  = resource("effects.json");
+		requirementFile   = resource("requirements.json");
+		optionChoiceFile  = resource("optionChoices.json");
+		optionGroupFile   = resource("optionGroups.json");
+		unitFile		  = resource("units.json");
+	}
+	
 	private String resource(String fileName) {
 		return codexResourcePath + "/" + fileName;
+	}
+	
+	public List<Codex> loadAvailableCodexes(){
+		List<Codex> codexes = new ArrayList<>();
+		List<CodexInfo> codexInfo;
+		
+		try {
+			codexInfo = loadCodexInfo();
+			
+			for (CodexInfo i : codexInfo) {
+				codexes.add(loadCodex(i.getPath()));
+			}
+			
+		} catch (IOException e) {
+			throw new RuntimeException(
+					"Failed to load codex info:\n " + e
+			);
+		}
+		
+		return codexes;
+	}
+	
+	private List<CodexInfo> loadCodexInfo() throws IOException { 
+		InputStream input = 
+				ResourceLoader.getResource(
+						"/json/codexes.json");
+		List<CodexInfo> codexes = mapper.readValue(
+				input,
+				new TypeReference<List<CodexInfo>>() {}
+		);
+		return codexes;
 	}
 	
 	public Codex loadCodex(){
 		try {
 			// Load objects from file to create placeholders
 			createObjectsFromFiles();
+			// Populate objects by resolving references
+			resolveObjectReferences();
+			// return assembled codex and clear everything 
+			// in preparation for loading next codex
+			return assembleCodex();
+		} catch (IOException e) {
+			throw new RuntimeException(
+					"Failed to load codex: " + codexResourcePath,
+					e
+					);
+		}
+	}
+	
+	
+	public Codex loadCodex(String resourcePath){
+		try {
+			// Load objects from file to create placeholders
+			createObjectsFromFiles(resourcePath);
 			// Populate objects by resolving references
 			resolveObjectReferences();
 			// return assembled codex and clear everything 
@@ -154,6 +227,21 @@ public class CodexLoader {
 			createUnits();
 	}
 	
+
+	
+	private void createObjectsFromFiles(String resourcePath) throws IOException{
+			setupResourcePaths(resourcePath);
+			
+			createWargear();
+			createStatLines();
+			createEffects();
+			createRequirements();
+			createOptionChoices();
+			createOptionGroups();
+			createModels();
+			createUnits();
+	}
+	
 	private void resolveObjectReferences() throws IOException {
 			resolveEffects();
 			resolveRequirements();
@@ -178,6 +266,8 @@ public class CodexLoader {
 	// **************************
 	// ***** Create Methods *****
 	// **************************
+	
+
 	
 	private List<WargearDescription> createWargear() throws IOException {
 
