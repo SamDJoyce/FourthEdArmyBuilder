@@ -124,7 +124,7 @@ public class CodexLoader {
 			codexInfo = loadCodexInfo();
 			
 			for (CodexInfo i : codexInfo) {
-				codexes.add(loadCodex(i.getPath()));
+				codexes.add(loadCodex(i));
 			}
 			
 		} catch (IOException e) {
@@ -147,15 +147,33 @@ public class CodexLoader {
 		return codexes;
 	}
 	
-	public Codex loadCodex(){
+//	public Codex loadCodex(){
+//		try {
+//			// Load objects from file to create placeholders
+//			createObjectsFromFiles();
+//			// Populate objects by resolving references
+//			resolveObjectReferences();
+//			// return assembled codex and clear everything 
+//			// in preparation for loading next codex
+//			return assembleCodex();
+//		} catch (IOException e) {
+//			throw new RuntimeException(
+//					"Failed to load codex: " + codexResourcePath,
+//					e
+//					);
+//		}
+//	}
+	
+	
+	public Codex loadCodex(CodexInfo info){
 		try {
 			// Load objects from file to create placeholders
-			createObjectsFromFiles();
+			createObjectsFromFiles(info.getPath());
 			// Populate objects by resolving references
 			resolveObjectReferences();
 			// return assembled codex and clear everything 
 			// in preparation for loading next codex
-			return assembleCodex();
+			return assembleCodex(info.getName());
 		} catch (IOException e) {
 			throw new RuntimeException(
 					"Failed to load codex: " + codexResourcePath,
@@ -164,26 +182,7 @@ public class CodexLoader {
 		}
 	}
 	
-	
-	public Codex loadCodex(String resourcePath){
-		try {
-			// Load objects from file to create placeholders
-			createObjectsFromFiles(resourcePath);
-			// Populate objects by resolving references
-			resolveObjectReferences();
-			// return assembled codex and clear everything 
-			// in preparation for loading next codex
-			return assembleCodex();
-		} catch (IOException e) {
-			throw new RuntimeException(
-					"Failed to load codex: " + codexResourcePath,
-					e
-					);
-		}
-	}
-	
-	private Codex assembleCodex() {
-		String name = getFolderName(codexResourcePath);
+	private Codex assembleCodex(String name) {
 		Map<String, StatLine> statLines = 
 				new HashMap<String, StatLine>(StatLineFactory.getRegistry()) ;
 		Map<String, Effect> effects = 
@@ -216,16 +215,16 @@ public class CodexLoader {
 				);
 	}
 	
-	private void createObjectsFromFiles() throws IOException{
-			createWargear();
-			createStatLines();
-			createEffects();
-			createRequirements();
-			createOptionChoices();
-			createOptionGroups();
-			createModels();
-			createUnits();
-	}
+//	private void createObjectsFromFiles() throws IOException{
+//			createWargear();
+//			createStatLines();
+//			createEffects();
+//			createRequirements();
+//			createOptionChoices();
+//			createOptionGroups();
+//			createModels();
+//			createUnits();
+//	}
 	
 
 	
@@ -384,13 +383,13 @@ public class CodexLoader {
 		return unitLoader.resolveAllReferences(unitDtos);
 	}
 	
-	private String getFolderName(String path) {
-	    int lastSlash = path.lastIndexOf('/');
-	    if (lastSlash == -1) {
-	        return path;
-	    }
-	    return path.substring(lastSlash + 1);
-	}
+//	private String getFolderName(String path) {
+//	    int lastSlash = path.lastIndexOf('/');
+//	    if (lastSlash == -1) {
+//	        return path;
+//	    }
+//	    return path.substring(lastSlash + 1);
+//	}
 	
 	private void clearDTOs() {
 	    modelDtos 	= null;

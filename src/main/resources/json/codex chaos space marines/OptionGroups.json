@@ -2,10 +2,10 @@
 	{
 		"name":"upgrade to aspiring champion group",
 		"choiceNames":[
-			""
+			"select upgrade to aspiring champion"
 		],
 		"requirementNames":[
-			""
+			"one selection per squad"
 		],
 		"minSelections":0,
 		"maxSelections":1

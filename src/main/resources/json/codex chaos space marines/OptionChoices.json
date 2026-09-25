@@ -1,12 +1,16 @@
 [
 
 	{
-		"name":"select add terminator",
-		"points":0,
+		"name":"select upgrade to aspiring champion",
+		"points":13,
 		"requirementNames":[
 		],
 		"effectNames":[
-			""
+			"change to aspiring champion",
+			"add apiring champion",
+			"increase ld by one",
+			"increase a by one",
+			"add type character"
 		]
 	}
 ]

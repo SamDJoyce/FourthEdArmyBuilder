@@ -65,5 +65,10 @@
 	{
 	  	"name":"krak grenades",
 	  	"type":"GEAR"
+	},
+	
+	{
+		"name":"aspiring champion",
+	  	"type":"GEAR"
 	}
 ]

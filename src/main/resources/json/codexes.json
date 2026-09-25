@@ -1,7 +1,12 @@
 [
     {
         "id": "space_marines",
-        "name": "Space Marines",
+        "name": "Codex: Space Marines",
         "path": "/json/codex space marines"
-    }
+    },
+	{
+		"id":"chaos_space_marines",
+		"name":"Codex: Chaos Space Marines",
+		"path":"/json/codex chaos space marines"
+	}
 ]

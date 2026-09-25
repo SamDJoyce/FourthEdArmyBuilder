@@ -5,6 +5,7 @@ import java.util.List;
 
 import dto.AddGearToSquadEffectDTO;
 import dto.AddModelEffectDTO;
+import dto.AddModelTypeEffectDTO;
 import dto.AddWargearEffectDTO;
 import dto.ChangeModelNameEffectDTO;
 import dto.EffectDTO;
@@ -13,6 +14,7 @@ import dto.RemoveWargearEffectDTO;
 import dto.ReplaceModelEffectDTO;
 import dto.ReplaceWargearEffectDTO;
 import units.ModelFactory;
+import units.UnitType;
 import units.WargearFactory;
 import units.options.effects.AddGearToSquadEffect;
 import units.options.effects.AddModelEffect;
@@ -64,6 +66,13 @@ public class EffectLoader {
 			case "add_gear_to_squad":
 				AddGearToSquadEffectDTO agts = (AddGearToSquadEffectDTO) dto;
 				return EffectFactory.addGearToSquad(agts.getName());
+				
+			case "add_model_type":
+				AddModelTypeEffectDTO amt = (AddModelTypeEffectDTO) dto;
+				return EffectFactory.addModelType(
+									amt.getName(), 
+									UnitType.fromString(amt.getTypeName())
+				);
 				
 			default:
 			    throw new IllegalArgumentException(

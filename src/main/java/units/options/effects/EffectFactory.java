@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import units.UnitType;
 import units.descriptions.models.ModelDescription;
 import units.descriptions.wargear.WargearDescription;
 import units.instances.ModelInstance;
@@ -152,7 +153,14 @@ public class EffectFactory {
 	
 	public static Effect changeModelName(String effectName, String newName) {
 		return registry.computeIfAbsent(effectName,
-	            key -> new ChangeModelNameEffect(effectName, newName));
+	            key -> new ChangeModelNameEffect(effectName, newName)
+	    );
+	}
+	
+	public static Effect addModelType(String name, UnitType type) {
+		return registry.computeIfAbsent(name, 
+				key -> new AddModelTypeEffect(name, type)
+		);
 	}
 	
 	public static Effect get(String name) {

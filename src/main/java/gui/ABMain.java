@@ -60,8 +60,7 @@ public class ABMain extends Application {
 	        setupController.setOnCreate(
 	                setup -> createRoster(
 	                    stage,
-	                    setup,
-	                    codexLoader
+	                    setup
 	                )
 	        );
 
@@ -82,15 +81,14 @@ public class ABMain extends Application {
 
     private void createRoster(
             Stage stage,
-            RosterSetup setup,
-            CodexLoader loader) {
+            RosterSetup setup) {
 
         try {
 
             ArmyBuilder armyBuilder =
                     new ArmyBuilder(
                         setup.name(),
-                        loader.loadCodex(),
+                        setup.codex(),
                         setup.forceOrgChart(),
                         setup.pointsLimit()
                     );

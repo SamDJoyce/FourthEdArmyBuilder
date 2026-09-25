@@ -20,7 +20,7 @@ import units.options.OptionGroup;
 import units.options.OptionOwner;
 import units.options.SelectionContext;
 
-public class UnitConfigurationController<T> {
+public class UnitConfigurationController {
 
     @FXML
     private Label unitNameLabel;

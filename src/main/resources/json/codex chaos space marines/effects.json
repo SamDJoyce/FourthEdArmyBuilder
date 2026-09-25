@@ -13,6 +13,12 @@
 		"name":"add plasma gun",
 		"gearName":"plasma gun"
 	},
+	{
+		"type":"add_wargear",
+		"name":"add apiring champion",
+		"gearName":"aspiring champion"
+	},
+	
 	
 	{
 		"type":"remove_wargear",
@@ -27,13 +33,32 @@
 		"stat":"ws",
 		"modifier": 1
 	},
+	{
+		"type":"modify_stat",
+		"name":"increase ld by one",
+		"stat":"ld",
+		"modifier": 1
+	},
+	{
+		"type":"modify_stat",
+		"name":"increase a by one",
+		"stat":"a",
+		"modifier": 1
+	},
+	
+	
+	{
+		"type":"add_model_type",
+		"name":"add type character",
+		"typeName":"character"
+	},
 	
 	
 	
 	{
 		"type":"change_model_name",
-		"effectName":"change to master",
-		"newName":"Master"
+		"effectName":"change to aspiring champion",
+		"newName":"Aspiring Champion"
 	},
 	
 	
