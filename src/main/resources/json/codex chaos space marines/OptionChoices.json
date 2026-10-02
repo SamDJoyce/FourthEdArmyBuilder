@@ -12,5 +12,60 @@
 			"increase a by one",
 			"add type character"
 		]
+	},
+	{
+		"name":"select plasma gun for marine",
+		"points":10,
+		"requirementNames":[
+			"one selection per squad"
+		],
+		"effectNames":[
+			"replace bolter with plasma",
+			"change to marine w plasma"
+		]
+	},
+	{
+		"name":"select melta gun for marine",
+		"points":10,
+		"requirementNames":[
+			"one selection per squad"
+		],
+		"effectNames":[
+			"replace bolter with melta",
+			"change to marine w melta"
+		]
+	},
+	{
+		"name":"select flamer for marine",
+		"points":6,
+		"requirementNames":[
+			"one selection per squad"
+		],
+		"effectNames":[
+			"replace bolter with flamer",
+			"change to marine w flamer"
+		]
+	},
+	{
+		"name":"select plasma pistol for marine",
+		"points":10,
+		"requirementNames":[
+			"one selection per squad"
+		],
+		"effectNames":[
+			"replace bolter with plasma pistol",
+			"replace bolt pistol with plasma pistol",
+			"change to marine w plasma pistol"
+		]
+	},
+	{
+		"name":"select close combat weapon marine",
+		"points":0,
+		"requirementNames":[
+		],
+		"effectNames":[
+			"replace bolter with bolt pistol",
+			"add close combat weapon"
+		]
 	}
 ]

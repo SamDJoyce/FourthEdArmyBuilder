@@ -6,6 +6,36 @@
 		"remove":"bolter",
 		"add":"plasma gun"
 	},
+	{
+		"type":"replace_wargear",
+		"name":"replace bolter with melta",
+		"remove":"bolter",
+		"add":"melta gun"
+	},
+	{
+		"type":"replace_wargear",
+		"name":"replace bolter with flamer",
+		"remove":"bolter",
+		"add":"flamer"
+	},
+	{
+		"type":"replace_wargear",
+		"name":"replace bolt pistol with plasma pistol",
+		"remove":"bolter",
+		"add":"plasma pistol"
+	},
+	{
+		"type":"replace_wargear",
+		"name":"replace bolter with bolt pistol",
+		"remove":"bolter",
+		"add":"bolt pistol"
+	},
+	{
+		"type":"replace_wargear",
+		"name":"replace bolter with plasma pistol",
+		"remove":"bolter",
+		"add":"plasma pistol"
+	},
 	
 	
 	{
@@ -17,6 +47,11 @@
 		"type":"add_wargear",
 		"name":"add apiring champion",
 		"gearName":"aspiring champion"
+	},
+	{
+		"type":"add_wargear",
+		"name":"add close combat weapon",
+		"gearName":"close combat weapon"
 	},
 	
 	
@@ -60,8 +95,26 @@
 		"effectName":"change to aspiring champion",
 		"newName":"Aspiring Champion"
 	},
-	
-	
+	{
+		"type":"change_model_name",
+		"effectName":"change to marine w plasma",
+		"newName":"Chaos Marine w. Plasma Gun"
+	},
+	{
+		"type":"change_model_name",
+		"effectName":"change to marine w melta",
+		"newName":"Chaos Marine w. Melta Gun"
+	},
+	{
+		"type":"change_model_name",
+		"effectName":"change to marine w flamer",
+		"newName":"Chaos Marine w. Flamer"
+	},
+	{
+		"type":"change_model_name",
+		"effectName":"change to marine w plasma pistol",
+		"newName":"Chaos Marine w. Plasma Pistol"
+	},
 	
 	
 	

@@ -13,6 +13,15 @@
 	  	"type":"ONE HANDED"
 	},
 	
+	{
+	  	"name":"plasma pistol",
+	  	"type":"ONE HANDED"
+	},
+	
+	{
+	  	"name":"close combat pistol",
+	  	"type":"ONE HANDED"
+	},
 	
 	{
 	  	"name":"bolter",

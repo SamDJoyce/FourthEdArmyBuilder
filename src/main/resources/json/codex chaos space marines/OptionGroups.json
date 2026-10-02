@@ -9,5 +9,18 @@
 		],
 		"minSelections":0,
 		"maxSelections":1
+	},
+	{
+		"name":"special weapons group chaos marine",
+		"choiceNames":[
+			"select plasma gun for marine",
+			"select melta gun for marine",
+			"select flamer for marine"
+		],
+		"requirementNames":[
+			"one selection per squad"
+		],
+		"minSelections":0,
+		"maxSelections":1
 	}
 ]
